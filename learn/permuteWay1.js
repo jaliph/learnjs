@@ -17,4 +17,4 @@ function getAllPermutations (string) {
   return results
 }
 
-console.log(JSON.stringify(getAllPermutations('hello wor'), null, 2))
+console.log(JSON.stringify(getAllPermutations('akash'), null, 2))
