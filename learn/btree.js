@@ -71,6 +71,23 @@ const postOrder = (node) => {
   console.log(node.data)
 }
 
+const levelOrder = (node) => {
+  let temp = node
+  let queue = []
+  queue.push(temp)
+  while (queue.length !== 0) {
+    temp = queue.shift()
+    console.log(temp.data)
+    if (temp.getLeft()) {
+      queue.push(temp.getLeft())
+    }
+    if (temp.getRight()) {
+      queue.push(temp.getRight())
+    }
+    // console.dir(queue)
+  }
+}
+
 driver()
 
 preOrder(root)
@@ -78,3 +95,5 @@ console.log('-----------------')
 inOrder(root)
 console.log('-----------------')
 postOrder(root)
+console.log('-----------------')
+levelOrder(root)
