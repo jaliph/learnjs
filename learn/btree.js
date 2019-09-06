@@ -125,6 +125,8 @@ const sizeOfTree = (node) => {
   else return (sizeOfTree(node.getLeft()) + 1 + sizeOfTree(node.getRight()))
 }
 
+
+
 driver()
 console.log('Size :: ', sizeOfTree(root))
 // console.log('--------PRE---------')
