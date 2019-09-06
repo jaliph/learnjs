@@ -73,7 +73,7 @@ const postOrder = (node) => {
 
 const levelOrder = (node) => {
   let temp = node
-  let queue = []
+  const queue = []
   queue.push(temp)
   while (queue.length !== 0) {
     temp = queue.shift()
@@ -88,12 +88,54 @@ const levelOrder = (node) => {
   }
 }
 
-driver()
+const preOrderNonRecursive = (node) => {
+  const stack = []
+  while (true) {
+    while (node) {
+      console.log(node.getData())
+      stack.unshift(node)
+      node = node.getLeft()
+    }
+    if (stack.length === 0) break
+    node = stack.shift()
+    node = node.getRight()
+  }
+}
 
-preOrder(root)
-console.log('-----------------')
+const inOrderNonRecursive = (node) => {
+  const stack = []
+  while (true) {
+    while (node) {
+      stack.unshift(node)
+      node = node.getLeft()
+    }
+    if (stack.length === 0) break
+    node = stack.shift()
+    console.log(node.getData())
+    node = node.getRight()
+  }
+}
+
+const postOrderNonRecursive = (node) => {
+  return
+}
+
+const sizeOfTree = (node) => {
+  if (!node) return 0
+  else return (sizeOfTree(node.getLeft()) + 1 + sizeOfTree(node.getRight()))
+}
+
+driver()
+console.log('Size :: ', sizeOfTree(root))
+// console.log('--------PRE---------')
+// preOrder(root)
+// console.log('-------NONREQ PRE-------')
+// preOrderNonRecursive(root)
+console.log('---------IN--------')
 inOrder(root)
-console.log('-----------------')
-postOrder(root)
-console.log('-----------------')
-levelOrder(root)
+console.log('-------INREQ PRE-------')
+inOrderNonRecursive(root)
+// console.log('------POST-----------')
+// postOrder(root)
+// console.log('--------LEVEL---------')
+// levelOrder(root)
