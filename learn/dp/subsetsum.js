@@ -41,4 +41,4 @@ const pureDP = (arr, sum) => {
 }
 
 console.log(pureDP([3, 34, 4, 12, 5, 2], 9))
-console.log(recursionSS([3, 34, 4, 12, 5, 2], 6, 91))
+console.log(recursionSS([3, 34, 4, 12, 5, 2], 6, 9))
