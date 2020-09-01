@@ -43,8 +43,6 @@ const pureDP = (arr, sum) => {
       } else if (j < arr[i - 1]) {
         table[i][j] = table[i - 1][j]
       }
-      // table[i][j] = table[i][j - 1]
-      // if (i >= arr[j - 1]) table[i][j] = table[i][j] || table[i - arr[j - 1]][j - 1]
     }
   }
   // console.dir(table)
