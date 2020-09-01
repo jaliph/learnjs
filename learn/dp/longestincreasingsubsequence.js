@@ -40,7 +40,7 @@ const LIS = (arr) => {
 }
 
 const method2DP = (arr) => {
-  let LIS = Array(arr.length).fill(1)
+  const LIS = Array(arr.length).fill(1)
   for (let i = 1; i < arr.length; i++) {
     for (let j = 0; j < i; j++) {
       if (arr[j] < arr[i] && LIS[i] < LIS[j] + 1) {

@@ -6,8 +6,8 @@ const recursionSS = (arr, i, sum) => {
   if (arr[i - 1] > sum) {
     return recursionSS(arr, i - 1, sum)
   }
-  let ith_Index_taken = recursionSS(arr, i - 1, sum - arr[i - 1])
-  let ith_Index_not_taken =  recursionSS(arr, i - 1, sum)
+  const ith_Index_taken = recursionSS(arr, i - 1, sum - arr[i - 1])
+  const ith_Index_not_taken = recursionSS(arr, i - 1, sum)
   return ith_Index_taken || ith_Index_not_taken
 }
 
@@ -26,9 +26,9 @@ const pureDP = (arr, sum) => {
 
   for (let i = 1; i <= arr.length; i++) {
     for (let j = 1; j <= sum; j++) {
-      // if (j < arr[i - 1]) { // current sum is smaller the current element, dnt select it
-      //   table[i][j] = table[i - 1][j]
-      // }
+      if (j < arr[i - 1]) { // current sum is smaller the current element, dnt select it
+        table[i][j] = table[i - 1][j]
+      }
       if (j >= arr[i - 1]) {
         table[i][j] = table[i - 1][j - arr[i - 1]] || table[i - 1][j]
       }

@@ -12,13 +12,13 @@ const Rob = (arr, i) => {
     return 0
   }
 
-  let ith_House_Selected = Rob(arr, i - 2) + arr[i]
-  let ith_House_Not_Selected = Rob(arr, i - 1)
+  const ith_House_Selected = Rob(arr, i - 2) + arr[i]
+  const ith_House_Not_Selected = Rob(arr, i - 1)
   return Math.max(ith_House_Selected, ith_House_Not_Selected)
 }
 
 const RobDp = (arr) => {
-  let table = Array(arr.length + 1)
+  const table = Array(arr.length + 1)
   table[0] = arr[0]
   table[1] = Math.max(arr[0], arr[1])
   for (let i = 2; i < arr.length; i++) {

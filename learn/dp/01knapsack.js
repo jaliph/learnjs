@@ -9,8 +9,8 @@ const maxV = (vals, wts, i, C) => {
   if (wts[i - 1] > C) {
     return maxV(vals, wts, i - 1, C)
   }
-  let ith_item_selected = vals[i - 1] + maxV(vals, wts, i - 1, C - wts[i - 1])
-  let ith_item_not_selected = maxV(vals, wts, i - 1, C)
+  const ith_item_selected = vals[i - 1] + maxV(vals, wts, i - 1, C - wts[i - 1])
+  const ith_item_not_selected = maxV(vals, wts, i - 1, C)
   return Math.max(ith_item_selected, ith_item_not_selected)
 }
 
