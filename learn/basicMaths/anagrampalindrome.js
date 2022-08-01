@@ -1,4 +1,6 @@
 
+
+
 const charFrequincy = (str) => {
   let char = []
   str = str.toLowerCase()

@@ -25,9 +25,12 @@ let canSegmentString = function(inputString, dictionary, memoise) {
 };
 
 
+
+
 let s = "hellonow";
 let dictionary = ["hello", "hell", "on", "now"]
 
 
 
 console.log(canSegmentString(s, dictionary, []))
+

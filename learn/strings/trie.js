@@ -114,16 +114,12 @@ const Trie = function() {
 
 const trie = new Trie();
 
-// insert few values
 trie.insert("peter");
 trie.insert("piper");
 trie.insert("picked");
 trie.insert("pickled");
 trie.insert("pepper");
 
-// console.dir(trie);
-
-// check contains method
 console.log(trie.contains("picked")); 
 console.log(trie.contains("pepper")); 
 console.log(trie.find("pe")); 
