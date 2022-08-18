@@ -20,4 +20,4 @@ var longestValidParentheses = function(s) {
 }
 
 let string = ')()())'
-console.log(longestValidParentheses(string))
+
