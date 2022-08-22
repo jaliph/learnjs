@@ -43,7 +43,7 @@ const find_subsets2 = function(nums) {
   for (let i = 0; i < nums.length; i++) {
     let currentNumber = nums[i]
     let len = subsets.length
-    for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len; j++) {
       let clone = subsets[i].slice(0)
       clone.push(currentNumber)
       subsets.push(clone)
@@ -54,3 +54,42 @@ const find_subsets2 = function(nums) {
 
 
 console.dir(find_subsets2([1, 3]))
+
+
+const combinations = (N) => {
+  let set = [[]]
+  let result = []
+  for (let i = 1 ; i <= N; i++) {
+    let len = set.length
+    for (let j = 0; j < len; j++) {
+      let clone = set[j].slice(0)
+      clone.push(i)
+      if (clone.length == 16) {
+        result.push(clone.slice(0))
+        continue
+      }
+      set.push(clone)
+    }
+  }
+  return result
+}
+
+// console.log(combinations(20))
+
+
+const combinations2 = (arr) => {
+  let results = []
+  const combinationsRecur = (array, index, result) => {
+    console.log(result)
+    if (index >= array.length) {
+      return 
+    }
+  
+    combinationsRecur(array, index + 1, result)
+    combinationsRecur(array, index + 1, [...result, array[index]])
+  }
+  combinationsRecur(arr, 0, results)
+  return results
+}
+
+console.log(combinations2([1, 2, 3, 4]))

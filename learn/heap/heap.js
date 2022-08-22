@@ -1,7 +1,10 @@
 class maxHeap {
-  constructor() {
-    this.heap=[];
-    this.elements = 0;
+  constructor(size, comparator) {
+    this.heap= []
+    this.elements = size || 0
+    this.comparator = comparator || function (a, b) {
+      return a - b
+    }
   }
 
   insert(val) {
@@ -60,13 +63,13 @@ class maxHeap {
   }
 }
 
-var heap = new maxHeap()
-heap.insert(12)
-heap.insert(10)
-heap.insert(-10)
-heap.insert(100)
+// var heap = new maxHeap()
+// heap.insert(12)
+// heap.insert(10)
+// heap.insert(-10)
+// heap.insert(100)
 
 
-console.log(heap.peek())
+// console.log(heap.peek())
 
 module.exports = maxHeap
