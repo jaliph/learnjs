@@ -25,7 +25,7 @@ let findAllPalindromeSubstrings = (inputString) => {
 
 
 
-let palindrome = "malayalam";
+let palindrome = "aaa";
 
 let palindromes = findAllPalindromeSubstrings(palindrome);
 console.log("All palindrome substrings: ", palindromes);
