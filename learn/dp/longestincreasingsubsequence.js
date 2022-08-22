@@ -42,11 +42,13 @@ const LIS = (arr) => {
 const method2DP = (arr) => {
   const LIS = Array(arr.length).fill(1)
   for (let i = 1; i < arr.length; i++) {
+    console.log ('Before', LIS)
     for (let j = 0; j < i; j++) {
       if (arr[j] < arr[i] && LIS[i] < LIS[j] + 1) {
         LIS[i] = LIS[j] + 1
       }
     }
+    console.log ('After', LIS)
   }
   console.dir(LIS)
 }
