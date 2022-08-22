@@ -39,3 +39,8 @@ const arr = [3, 34, 4, 12, 5, 2]
 const sum = 12
 console.log(countsubsetsum(arr, sum))
 console.log(recusrsioncountSubsetSum(arr, arr.length, sum))
+
+
+
+
+
