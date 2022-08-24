@@ -8,7 +8,7 @@ const findLCSLength = function(s1, s2) {
       return findLCSRecur(s1, s2, i + 1, j + 1, count + 1)
     }
     let c1 = findLCSRecur(s1, s2, i + 1, j, count)
-    let c2 = findLCSRecur(s1, s2, i + 1, j + 1, count)
+    let c2 = findLCSRecur(s1, s2, i, j + 1, count)
     return Math.max(c1, c2)
   }
   return findLCSRecur(s1, s2, 0, 0, 0)
