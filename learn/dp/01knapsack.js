@@ -95,3 +95,23 @@ var weights = [1, 2, 3, 5];
 console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 7)}`);
 console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 6)}`);
 console.log(`Total knapsack profit: ---> ${maxVPureDP2(profits, weights, 7)}`);
+
+
+const knapSack = (profits, weights, Cap) => {
+  const knapSackRecur = (profits, weights, Cap, i) => {
+    if (Cap <= 0) return 0
+    if (i >= profits.length) return 0
+
+    if (weights[i] > Cap) {
+      return knapSackRecur(profits, weights, Cap, i + 1)
+    }
+
+    let p1_iIsSelected = profits[i] + knapSackRecur(profits, weights, Cap - weights[i], i)
+    let p2_iIsNotSelected = knapSackRecur(profits, weights, Cap, i + 1)
+    return Math.max(p1_iIsSelected, p2_iIsNotSelected)
+  }
+  return knapSackRecur(profits, weights, Cap, 0)
+}
+
+
+console.log(`Total knapsack profit with Avi: ---> ${knapSack(profits, weights, 7)}`);
