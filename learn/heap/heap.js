@@ -7,11 +7,15 @@ class maxHeap {
     }
   }
 
+  length () {
+    return this.heap.length
+  }
+
   insert(val) {
     this.heap.push(val)
     this.elements++
     this.__percolateUp(this.heap.length - 1)
-    console.log(this.heap)
+    // console.log(this.heap)
   }
 
   peek() {
@@ -20,7 +24,7 @@ class maxHeap {
     }
   }
 
-  removeMax() {
+  pop() {
     if (this.elements > 0) {
       let max = this.heap[0]
       this.heap[0] = this.heap[this.heap.length - 1]
@@ -37,7 +41,8 @@ class maxHeap {
     let parent = Math.floor((index - 1) / 2)
     if (index <= 0) {
       return
-    } else if (this.heap[parent] < this.heap[index]){ 
+    // } else if (this.heap[parent] < this.heap[index]){ 
+    } else if (this.comparator(this.heap[parent], this.heap[index]) < 0) {
       [this.heap[parent], this.heap[index]] = [this.heap[index], this.heap[parent]]
       this.__percolateUp(parent)
     }
@@ -48,11 +53,11 @@ class maxHeap {
     let rightChild = (index * 2) + 2
     let largest = index
 
-    if (left < this.heap.length && this.heap[largest] < this.heap[leftChild] ) {
+    if (leftChild < this.heap.length && this.comparator(this.heap[largest], this.heap[leftChild]) < 0) {
       largest = leftChild
     }
 
-    if (rightChild < this.heap.length && this.heap[largest] < this.heap[rightChild] ) {
+    if (rightChild < this.heap.length && this.comparator(this.heap[largest], this.heap[rightChild]) < 0 ) {
       largest = rightChild
     }
     
@@ -63,13 +68,23 @@ class maxHeap {
   }
 }
 
-// var heap = new maxHeap()
-// heap.insert(12)
-// heap.insert(10)
-// heap.insert(-10)
-// heap.insert(100)
+// var heap1 = new maxHeap()
+// heap1.insert(12)
+// heap1.insert(10)
+// heap1.insert(-10)
+// heap1.insert(100)
+
+// console.log(heap1.peek())
+
+// var heap2 = new maxHeap(0, (a, b) => {
+//   return b - a
+// })
+// heap2.insert(12)
+// heap2.insert(10)
+// heap2.insert(100)
+// heap2.insert(-10)
 
 
-// console.log(heap.peek())
+// console.log(heap2.peek())
 
 module.exports = maxHeap
