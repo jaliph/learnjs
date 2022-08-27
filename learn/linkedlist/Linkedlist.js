@@ -18,6 +18,10 @@ class LinkedList {
     return this.head === null
   }
 
+  getHead() {
+    return this.head
+  }
+
   toString () {
     let temp = this.head
     let str = ''

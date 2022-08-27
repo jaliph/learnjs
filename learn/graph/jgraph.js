@@ -39,8 +39,6 @@ class Graph {
   dfs (startingNode) {
     const visitMap = []
     this.DFSutil(startingNode, visitMap)
-    console.log('Done')
-    console.log(startingNode)
   }
 
   DFSutil (currentVertex, map) {
