@@ -10,7 +10,6 @@ const rotate = (matrix = []) => {
     matrix[i] = matrix[n - 1 - i]
     matrix[n - 1 - i] = temp
   }
-  console.dir(matrix)
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
       console.log(i, j)

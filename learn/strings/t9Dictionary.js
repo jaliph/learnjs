@@ -87,4 +87,38 @@ const letterCombinations2 = (digits = '') => {
   return result
 }
 
-console.log(letterCombinations('22'))
+console.log(letterCombinations('2'))
+
+/// Same Problem
+
+var movies = {
+  Family : ["Frozen","Kung fu Panda", "Ice Age" ], 
+  Action: ["Iron Man","Wonder Woman","Avengers"],
+  Fantasy: ["Jumangi", "Lion King", "Tarzan"],
+  Comedy: ["Coco", "The Croods", "Vivi","Pets"],
+  Horror: ["Oculus", "Sinister","Insidious","Annebelle"]
+};
+
+function letterCombinations1(genres) {
+
+  let subsets = ['']
+
+  let i = 0
+  while (i < genres.length) {
+    let movieList = movies[genres[i]]
+    let temp = []
+    for (let i = 0; i < subsets.length; i++) {
+      for (let j = 0; j < movieList.length; j++) {
+        temp.push(subsets[i] + movieList[j] + ';')
+      }
+    }
+    subsets = temp
+    i++
+  }
+  return subsets
+}
+
+const genres = ["Family","Action"]
+combinations = letterCombinations1(genres)
+output = "\""+String(combinations.join('","')) + "\""
+console.log(output)

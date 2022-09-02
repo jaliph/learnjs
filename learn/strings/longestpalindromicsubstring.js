@@ -39,19 +39,14 @@ const longestPalinDromicSubstringDP = (s) => {
       if (s[start] == s[end]) {
         if (end - start == 1 || dp[start + 1][end - 1]) {
           dp[start][end] = true
-          console.log(start, end)
-          if (maxLength < (end - start + 1)) {
-            console.log(start, end)
-            console.log(maxLength)
+          if (maxLength < (end - start + 1)) {  
             maxLength = end - start + 1
-            minStart = start
-            maxEnd = end
           }
         }
       }
     } 
   }
-  return s.substring(minStart, maxEnd + 1)
+  return maxLength
 }
 
 console.log(longestPalinDromicSubstringDP("cbbd"))

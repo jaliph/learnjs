@@ -11,7 +11,6 @@ class maxHeap {
     this.heap.push(val)
     this.elements++
     this.__percolateUp(this.heap.length - 1)
-    console.log(this.heap)
   }
 
   peek() {
@@ -48,7 +47,7 @@ class maxHeap {
     let rightChild = (index * 2) + 2
     let largest = index
 
-    if (left < this.heap.length && this.heap[largest] < this.heap[leftChild] ) {
+    if (leftChild < this.heap.length && this.heap[largest] < this.heap[leftChild] ) {
       largest = leftChild
     }
 
