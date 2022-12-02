@@ -7,7 +7,6 @@ function cyclic_sort(nums) {
     } else {
       i++
     }
-
   }
   return nums
 } 

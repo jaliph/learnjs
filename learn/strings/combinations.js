@@ -36,24 +36,24 @@ const find_subsets = function(nums) {
 
 console.log(`Here is the list of subsets: ${find_subsets([1, 3])}`)
 
+// Wrong SOlution
+// const find_subsets2 = function(nums) {
+//   subsets = [];
+//   subsets.push([])
+//   for (let i = 0; i < nums.length; i++) {
+//     let currentNumber = nums[i]
+//     let len = subsets.length
+//     for (let j = 0; j < len; j++) {
+//       let clone = subsets[i].slice(0)
+//       clone.push(currentNumber)
+//       subsets.push(clone)
+//     }
+//   }
+//   return subsets;
+// };
 
-const find_subsets2 = function(nums) {
-  subsets = [];
-  subsets.push([])
-  for (let i = 0; i < nums.length; i++) {
-    let currentNumber = nums[i]
-    let len = subsets.length
-    for (let j = 0; j < len; j++) {
-      let clone = subsets[i].slice(0)
-      clone.push(currentNumber)
-      subsets.push(clone)
-    }
-  }
-  return subsets;
-};
 
-
-// console.dir(find_subsets2([1, 3]))
+// console.dir(find_subsets2(['a', 'b', 'c']))
 
 
 // const combinations = (N) => {
