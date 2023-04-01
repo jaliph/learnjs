@@ -106,7 +106,7 @@ const knapSack = (profits, weights, Cap) => {
       return knapSackRecur(profits, weights, Cap, i + 1)
     }
 
-    let p1_iIsSelected = profits[i] + knapSackRecur(profits, weights, Cap - weights[i], i)
+    let p1_iIsSelected = profits[i] + knapSackRecur(profits, weights, Cap - weights[i], i + 1)
     let p2_iIsNotSelected = knapSackRecur(profits, weights, Cap, i + 1)
     return Math.max(p1_iIsSelected, p2_iIsNotSelected)
   }
@@ -115,3 +115,106 @@ const knapSack = (profits, weights, Cap) => {
 
 
 console.log(`Total knapsack profit with Avi: ---> ${knapSack(profits, weights, 7)}`);
+
+
+
+
+// Revision March 2023
+
+
+const _01KnapSackR = (profits, weights, Capacity) => {
+  const _01KnapSackRecursion = (p, w, i, C) => {
+    if (i >= profits.length) return 0
+    if (C <= 0) return 0
+
+    if (w[i] > C) return _01KnapSackRecursion(p, w, i + 1, C)
+
+    let iIsSelected = p[i] + _01KnapSackRecursion(p, w, i + 1, C - w[i])
+    let iIsNotSelected = _01KnapSackRecursion(p, w, i + 1, C)
+    return Math.max(iIsSelected, iIsNotSelected)
+  }
+
+  return _01KnapSackRecursion(profits, weights, 0, Capacity)
+}
+
+const _01knapsack = (profits, weights, Capacity) => {
+  const t = Array(profits.length).fill(0).map(() => Array(Capacity + 1).fill(0))
+
+  for (let p = 0; p < profits.length; p++) {
+    t[p][0] = 0
+  }
+
+  for (let w = 0; w <= Capacity; w++) {
+    t[0][w] = weights[0] <= w ? profits[0] : 0
+  }
+
+  for (let p = 1; p < profits.length; p++) {
+    for(let c = 1; c <= Capacity; c++) {
+      let p1 = 0, p2 = 0
+      if (weights[p] <= c) {
+        p1 = profits[p] + t[p - 1][c - weights[p]]
+      }
+      p2 = t[p - 1][c]
+      t[p][c] = Math.max(p1, p2)
+    }
+  }
+
+  let totalCapacity = Capacity
+  let totalProfit = t[profits.length - 1][Capacity]
+  let items = []
+  for (let i = profits.length; i > 0; i--) {
+    if (totalProfit !== t[i - 1][totalCapacity]) {
+      items.push(weights[i])
+      totalProfit = totalProfit - profits[i]
+      totalCapacity = totalCapacity - weights[i]
+    }
+  }
+  console.log(items)
+  return t[profits.length - 1][Capacity]
+}
+
+console.log('Revise '+ _01knapsack(profits, weights, 7))
+console.log('Revise '+ _01KnapSackR(profits, weights, 7))
+
+
+
+
+
+
+
+
+
+/// REvise 2 
+
+const _01knapsack_Revise = (profits, weights, Capacity) => {
+  const t = Array(profits.length).fill(0).map(() => Array(Capacity + 1).fill(0))
+
+  
+  for (let i = 0; i < profits.length; i++) {
+    t[i][0] = 0
+  }
+
+  for (let j = 0; j <= Capacity; j++) {
+    t[0][j] = weights[0] <= j ? profits[0] : 0
+  }
+
+  for (let i = 1; i < profits.length; i++) {
+    for (let c = 1; c <= Capacity; c++) {
+      if (weights[i] > c) {
+        t[i][c] = t[i - 1][c]
+      } else {
+        t[i][c] = Math.max(t[i - 1][c], profits[i] + t[i - 1][c - weights[i]])
+      }
+    }
+  }
+  
+
+  return t[profits.length - 1][Capacity]
+}
+
+
+
+console.log('Revise R '+ _01knapsack_Revise(profits, weights, 7))
+
+
+
