@@ -26,14 +26,14 @@ const minMultiplications = (dims) => {
         dp[i][j] = Infinity
         for (let k = i; k < j; k++) {
           let result = dp[i][k] + dp[k + 1][j] + (dims[i - 1] * dims[k] * dims[j])
-          console.log(result)
+          // console.log(result)
           if (dp[i][j] > result) {
             dp[i][j] = result
           }
         }
       }
     }
-    console.log(dp)
+    // console.log(dp)
     return dp[1][dims.length - 1]
 }
 
