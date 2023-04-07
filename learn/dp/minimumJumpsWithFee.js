@@ -1,4 +1,4 @@
-const minFee = (steps, n) => {
+const minFeeBrute = (steps, n) => {
 
   const minFeeRecur = (steps, n, i) => {
     if (i < 1) return 0
@@ -10,6 +10,23 @@ const minFee = (steps, n) => {
     return Math.min(Math.min(threeJump, twoJump), oneJump)
   }
   return minFeeRecur(steps, n, n - 1)
+}
+
+const minFee = (costs, n) => {
+  const dp = Array(n + 1).fill(0)
+
+  dp[1] = costs[0]
+  dp[2] = costs[0]
+
+  for (let i = 3; i <= n; i++) {
+    let oneStep = cost[i - 1] + dp[i - 1]
+    let twoStep = cost[i - 2] + dp[i - 2]
+    let threeStep = cost[ - 3] + dp[i - 3]
+
+    dp[i] = Math.min(oneStep, twoStep, threeStep)
+  }
+
+  return dp[n]
 }
 
 
