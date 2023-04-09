@@ -4,19 +4,17 @@
 // Output: 6
 // Explanation: Replace the '0' at index 5 and 8 to have the longest contiguous subarray of 1s having length 6.
 
-const length_of_longest_substring = function(arr, k) {
-  
-
+const length_of_longest_substring = function (arr, k) {
   let wStart = 0
   let maxOnes = 0
   let maxLength = 0
 
   for (let wEnd = 0; wEnd < arr.length; wEnd++) {
-    if(arr[wEnd] == 1) {
+    if (arr[wEnd] == 1) {
       maxOnes++
     }
 
-    while((wEnd - wStart + 1 - maxOnes) > k) {
+    while ((wEnd - wStart + 1 - maxOnes) > k) {
       if (arr[wStart] == 1) {
         maxOnes--
       }
@@ -26,7 +24,7 @@ const length_of_longest_substring = function(arr, k) {
     maxLength = Math.max(maxLength, wEnd - wStart + 1)
   }
 
-  return maxLength;
-};
+  return maxLength
+}
 
 console.log(length_of_longest_substring([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3))

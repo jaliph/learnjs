@@ -67,9 +67,9 @@ class Graph {
 }
 
 const g = new Graph(6)
-const vertices = ['0','1','2','3','4','5','6']
+const vertices = ['0', '1', '2', '3', '4', '5', '6']
 
-for (var i = 0; i < vertices.length; i++) {
+for (let i = 0; i < vertices.length; i++) {
   g.addVertex(vertices[i])
 }
 

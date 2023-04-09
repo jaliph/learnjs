@@ -1,5 +1,4 @@
 
-
 const generateParenthesis1 = (n) => {
   const genParenthesisRecur = (n, i, open, close, str) => {
     if (i === 2 * n) {
@@ -14,8 +13,8 @@ const generateParenthesis1 = (n) => {
       genParenthesisRecur(n, i + 1, open, close + 1, str + ')')
     }
   }
-  let result = []
-  genParenthesisRecur(n, 0, 0, 0, "")
+  const result = []
+  genParenthesisRecur(n, 0, 0, 0, '')
   return result
 }
 
@@ -31,15 +30,13 @@ const generateParenthesis2 = (n) => {
     genParenthesisRecur(n, open + 1, close, str + '(')
     genParenthesisRecur(n, open, close + 1, str + ')')
   }
-  let result = []
+  const result = []
   genParenthesisRecur(n, 0, 0, '')
   return result
 }
 
-
-
 const main = () => {
-  let n = 4
+  const n = 4
   console.log('All Possible Parenthesis are : ', generateParenthesis1(n))
   console.log('All Possible Parenthesis are : ', generateParenthesis2(n))
 }

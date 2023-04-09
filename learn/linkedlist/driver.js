@@ -1,8 +1,7 @@
 
-
 const LinkedList = require('./Linkedlist')
 
-let list = new LinkedList()
+const list = new LinkedList()
 console.log(list.isEmpty())
 
 list.insertAtHead(2)
@@ -10,7 +9,6 @@ list.insertAtHead(3)
 list.insertAtHead(4)
 
 list.insertAtTail(33)
-
 
 console.log(list.toString())
 // list.deleteAtHead()

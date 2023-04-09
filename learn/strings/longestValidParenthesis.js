@@ -1,8 +1,8 @@
 
-var longestValidParentheses = function(s) {
-  let  stack = [ -1 ]
+const longestValidParentheses = function (s) {
+  const stack = [-1]
   let result = -Infinity
-  for (let i = 0 ; i < s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     if (s[i] === '(') {
       stack.push(i)
     } else {
@@ -10,7 +10,7 @@ var longestValidParentheses = function(s) {
         stack.pop()
       }
       if (stack.length != 0) {
-        result = Math.max(result, i - stack[stack.length - 1] )
+        result = Math.max(result, i - stack[stack.length - 1])
       } else {
         stack.push(i)
       }
@@ -19,5 +19,4 @@ var longestValidParentheses = function(s) {
   return result
 }
 
-let string = ')()())'
-
+const string = ')()())'

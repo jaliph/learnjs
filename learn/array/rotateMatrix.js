@@ -1,7 +1,5 @@
 
-
-
-const m = [[1,2,3],[4,5,6],[7,8,9]]
+const m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 const rotate = (matrix = []) => {
   const n = matrix.length

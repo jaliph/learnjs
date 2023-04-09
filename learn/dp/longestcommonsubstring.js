@@ -52,7 +52,7 @@ const driver = () => {
 
 // driver()
 
-//// Revise
+/// / Revise
 
 const lcsLengthBrute = (str1, str2) => {
   const lcsLengthRecur = (str1, str2, i, j, count) => {
@@ -60,7 +60,7 @@ const lcsLengthBrute = (str1, str2) => {
       return count
     }
 
-    let c1 = count, c2 = 0, c3 = 0
+    let c1 = count; let c2 = 0; let c3 = 0
     if (str1[i] == str2[j]) {
       c1 = lcsLengthRecur(str1, str2, i + 1, j + 1, count + 1)
     }
@@ -76,10 +76,9 @@ const lcsLengthBrute = (str1, str2) => {
 const lcsLength = (str1, str2) => {
   const dp = Array(str1.length + 1).fill(0).map(() => Array(str2.length + 1).fill(0))
 
-
   let result = 0
-  for (let i = 1; i <= str1.length ; i++) {
-    for (let j = 1; j <= str2.length ; j++) {
+  for (let i = 1; i <= str1.length; i++) {
+    for (let j = 1; j <= str2.length; j++) {
       if (str1[i - 1] === str2[j - 1]) {
         dp[i][j] = dp[i - 1][j - 1] + 1
         result = Math.max(result, dp[i][j])
@@ -91,24 +90,21 @@ const lcsLength = (str1, str2) => {
   return result
 }
 
-
 // Driver code
-function main() {
-  var s1 = ["educative", "bcdcdcd", "arefun", "yourocks", "abc"];
-  var s2 = ["education", "aacdcdcd", "isfun", "youawesome", "def"];
+function main () {
+  const s1 = ['educative', 'bcdcdcd', 'arefun', 'yourocks', 'abc']
+  const s2 = ['education', 'aacdcdcd', 'isfun', 'youawesome', 'def']
 
   // Let's uncomment this to see the benefit of using dynamic programming with memoization
   // s1.push("ypzrvyigwdiqrnbglvviozqzruvmwivgvqvrfhqi");
   // s2.push("wdiqrnbglvviozqzruvmwivgvqvrfhqiypzrvyigwdiqrn");
 
-  for (var i = 0; i < s1.length; i++) {
-      console.log(i + 1 + ".\tInput string 1: \"" + s1[i] + "\"");
-      console.log("\tInput string 2: \"" + s2[i] + "\"");
-      console.log("\n\tThe Length of Longest Common Substring is: " + lcsLength(s1[i], s2[i]));
-      console.log("-".repeat(100));
+  for (let i = 0; i < s1.length; i++) {
+    console.log(i + 1 + '.\tInput string 1: "' + s1[i] + '"')
+    console.log('\tInput string 2: "' + s2[i] + '"')
+    console.log('\n\tThe Length of Longest Common Substring is: ' + lcsLength(s1[i], s2[i]))
+    console.log('-'.repeat(100))
   }
 }
 
-main();
-
-
+main()

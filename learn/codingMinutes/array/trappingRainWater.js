@@ -1,16 +1,15 @@
 // https://leetcode.com/problems/trapping-rain-water/
 
-
 /**
  * @param {number[]} height
  * @return {number}
  */
-var trap = function(height) {
+const trap = function (height) {
   console.log(' Calculating for ', height)
   const n = height.length
   let maxWater = 0
   const dp = [...new Array(2)].map(() => Array(n).fill(0))
-  
+
   dp[0][0] = height[0]
   dp[1][n - 1] = height[n - 1]
 
@@ -27,5 +26,4 @@ var trap = function(height) {
   return maxWater
 }
 
-
-console.log('Trapped water is -> ', trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+console.log('Trapped water is -> ', trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))

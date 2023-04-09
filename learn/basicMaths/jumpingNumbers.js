@@ -40,13 +40,12 @@ const DFSUtil = (num, current) => {
 }
 
 const getAllJumpingNumbers = (end, start) => {
-  let ld = start % 10
+  const ld = start % 10
   for (let i = ld; i <= 9 && i <= end; i++) {
-    jumpingNumbers(end, (Math.floor(start / 10) * 10) +  i)
+    jumpingNumbers(end, (Math.floor(start / 10) * 10) + i)
   }
 }
 
 getAllJumpingNumbers(2500, 12)
 
 // TODO Sorted
-

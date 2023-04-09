@@ -18,9 +18,7 @@ function minCoinsChange (arr, V) {
 
 console.log('Minimum coins required is ' + minCoinsChange(coins, V))
 
-
-
-let countChange = function(denominations, total) {
+const countChange = function (denominations, total) {
   const minCoinChange = (denominations, total, index) => {
     if (total <= 0) return 0
 
@@ -30,28 +28,26 @@ let countChange = function(denominations, total) {
 
     let count1 = Infinity
     if (denominations[index] <= total) {
-      let result =  minCoinChange(denominations, total - denominations[index], index)
+      const result = minCoinChange(denominations, total - denominations[index], index)
       if (result != Infinity) {
         count1 = result + 1
       }
     }
 
-    let count2 = minCoinChange(denominations, total, index + 1)
+    const count2 = minCoinChange(denominations, total, index + 1)
     return Math.min(count1, count2)
   }
-  let result = minCoinChange(denominations, total, 0) 
+  const result = minCoinChange(denominations, total, 0)
   return result == Infinity ? -1 : result
 }
 
+console.log(`Number of ways to make change DP: ---> ${countChange([1, 2, 3], 5)}`)
+console.log(`Number of ways to make change: ---> ${countChange([1, 2, 3], 11)}`)
+console.log(`Number of ways to make change: ---> ${countChange([1, 2, 3], 7)}`)
+console.log(`Number of ways to make change: ---> ${countChange([3, 5], 7)}`)
 
-console.log(`Number of ways to make change DP: ---> ${countChange([1, 2, 3], 5)}`);
-console.log(`Number of ways to make change: ---> ${countChange([1, 2, 3], 11)}`);
-console.log(`Number of ways to make change: ---> ${countChange([1, 2, 3], 7)}`);
-console.log(`Number of ways to make change: ---> ${countChange([3, 5], 7)}`);
-
-
-const countChangeDP = function(denominations, total) {
-  let dp = Array(denominations.length).fill(0).map(() => Array(total + 1).fill(Infinity))
+const countChangeDP = function (denominations, total) {
+  const dp = Array(denominations.length).fill(0).map(() => Array(total + 1).fill(Infinity))
 
   for (let i = 0; i < denominations.length; i++) {
     dp[i][0] = 0
@@ -63,31 +59,26 @@ const countChangeDP = function(denominations, total) {
         dp[i][j] = dp[i - 1][j]
       }
 
-      if (denominations[i] <= j && dp[i][j - denominations[i]] != Infinity ) {
+      if (denominations[i] <= j && dp[i][j - denominations[i]] != Infinity) {
         dp[i][j] = Math.min(dp[i][j], dp[i][j - denominations[i]] + 1)
       }
     }
   }
   console.log(dp)
-  return dp[denominations.length-1][total]
+  return dp[denominations.length - 1][total]
 }
 
-console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 5)}`);
-console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 11)}`);
-console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 7)}`);
-console.log(`Number of ways to make change DP: ---> ${countChangeDP([3, 5], 7)}`);
+console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 5)}`)
+console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 11)}`)
+console.log(`Number of ways to make change DP: ---> ${countChangeDP([1, 2, 3], 7)}`)
+console.log(`Number of ways to make change DP: ---> ${countChangeDP([3, 5], 7)}`)
 
+// Revise
 
-
-
-
-// Revise 
-
-function coinChange(coins, total) {
-
+function coinChange (coins, total) {
   // const coinChangeRecur = (coins, total, i) => {
   //     if (total == 0) return 0
-      
+
   //     if (i == coins.length || coins.length == 0) return Infinity
 
   //     let c1 = Infinity
@@ -105,9 +96,7 @@ function coinChange(coins, total) {
 
   // if (total === 0) return 0
 
-  
   // const t = Array(coins.length).fill(0).map(() => Array(total + 1).fill(Infinity))
-  
 
   // for (let i = 0; i < coins.length; i++) {
   //     t[i][0] = 0
@@ -125,22 +114,18 @@ function coinChange(coins, total) {
   //     }
   // }
 
-  
-
   // return t[coins.length - 1][total] == Infinity ? -1 : t[coins.length - 1][total]
 
   const dp = Array(total + 1).fill(Infinity)
 
-
   dp[0] = 0
 
-
   for (let i = 0; i <= coins.length; i++) {
-      for (let j = 1; j <= total; j++) {
-          if (coins[i] <= j) {
-              dp[j] = Math.min(dp[j], 1 + dp[j - coins[i]])
-          }
+    for (let j = 1; j <= total; j++) {
+      if (coins[i] <= j) {
+        dp[j] = Math.min(dp[j], 1 + dp[j - coins[i]])
       }
+    }
   }
 
   return dp[total] == Infinity ? -1 : dp[total]

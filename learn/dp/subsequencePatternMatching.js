@@ -39,11 +39,10 @@ const numberOfSubsequences = (str1, str2) => {
   return dp[0][0]
 }
 
-
 // Driver code
-var main = function(){
-  input1Strings = ["bbagbag", "dawawg", "programming", "googlegoogle", "wowowl"]
-  input2Strings = ["bag", "aw", "ram", "gogl", "owl"]
+const main = function () {
+  input1Strings = ['bbagbag', 'dawawg', 'programming', 'googlegoogle', 'wowowl']
+  input2Strings = ['bag', 'aw', 'ram', 'gogl', 'owl']
 
   // you can uncomment the lines below and check how this recursive solution causes a time-out
 
@@ -51,13 +50,12 @@ var main = function(){
   // input2Strings.push("abababababababababababababababab")
 
   for (let i = 0; i < input1Strings.length; i++) {
-      console.log(i + 1 + ".\tString 1: " + input1Strings[i]);
-      console.log("\tString 2: " + input2Strings[i]);
-      let result = numberOfSubsequences(input1Strings[i], input2Strings[i]);
-      console.log("\tNumber of distinct subsequences: " + result);
-      console.log("-".repeat(100) + "\n");
+    console.log(i + 1 + '.\tString 1: ' + input1Strings[i])
+    console.log('\tString 2: ' + input2Strings[i])
+    const result = numberOfSubsequences(input1Strings[i], input2Strings[i])
+    console.log('\tNumber of distinct subsequences: ' + result)
+    console.log('-'.repeat(100) + '\n')
   }
+}
 
-};
-
-main();
+main()

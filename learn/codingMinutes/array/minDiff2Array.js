@@ -8,9 +8,9 @@ const minDiff = (arr1, arr2) => {
   let minDiff = Infinity
   let min = 0
   let max = 0
-  let i = 0, j = 0
+  let i = 0; let j = 0
   while (i < arr1.length && j < arr2.length) {
-    let abs = Math.abs(arr1[i] - arr2[j])
+    const abs = Math.abs(arr1[i] - arr2[j])
     // console.log(arr1[i], arr2[j], abs)
     if (minDiff > abs) {
       minDiff = abs

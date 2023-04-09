@@ -1,9 +1,5 @@
 
-
-
-
 const NQueenSolver = (board, n) => {
-
   const prinBoard = (board) => {
     console.log('-'.repeat(10))
     board.forEach(ithRow => console.log(...ithRow))
@@ -14,7 +10,7 @@ const NQueenSolver = (board, n) => {
     // console.log('Lets check safety for ', i, j)
     // Column Check
     let x = i
-    while(x >= 0) {
+    while (x >= 0) {
       // console.log('Checking column', x, j)
       if (board[x][j] === 1) return false
       x--
@@ -23,7 +19,7 @@ const NQueenSolver = (board, n) => {
     // left Diagonal
     x = i
     let y = j
-    while(x >= 0 && y >= 0) {
+    while (x >= 0 && y >= 0) {
       if (board[x][y] === 1) return false
       x--, y--
     }
@@ -31,7 +27,7 @@ const NQueenSolver = (board, n) => {
     // right Diagonal
     x = i
     y = j
-    while(x >= 0 && y < n) {
+    while (x >= 0 && y < n) {
       if (board[x][y] === 1) return false
       x--, y++
     }
@@ -39,7 +35,6 @@ const NQueenSolver = (board, n) => {
   }
 
   const NQueenSolverRecur = (board, n, i) => {
-    
     if (i === n) {
       // prinBoard(board)
       // return true
@@ -69,12 +64,11 @@ const NQueenSolver = (board, n) => {
   return NQueenSolverRecur(board, n, 0)
 }
 
-
 const main = () => {
-  let n = 16
-  let board = [...new Array(n)].map(() => Array(n).fill(0))
+  const n = 16
+  const board = [...new Array(n)].map(() => Array(n).fill(0))
 
-  let ways = NQueenSolver(board, board[0].length)
+  const ways = NQueenSolver(board, board[0].length)
   console.log(ways)
 }
 

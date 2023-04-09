@@ -1,6 +1,5 @@
 //  https://leetcode.com/problems/implement-strstr
 
-
 const strStr = (string, search) => {
   if (string.length == 0) return -1
   if (string.length < search.length) return -1
@@ -12,7 +11,7 @@ const strStr = (string, search) => {
     if (string[i] == search[j]) {
       index = i
 
-      while(string[i] == search[j] && j < search.length) {
+      while (string[i] == search[j] && j < search.length) {
         i++
         j++
       }
@@ -30,4 +29,4 @@ const strStr = (string, search) => {
   return -1
 }
 
-console.log(strStr("hello", "ll"))
+console.log(strStr('hello', 'll'))

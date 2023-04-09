@@ -2,7 +2,7 @@ const swap = (arr, i, j) => {
   [arr[i], arr[j]] = [arr[j], arr[i]]
 }
 
-let permutes = []
+const permutes = []
 
 const permute = (arr, i, j) => {
   if (i == j) {

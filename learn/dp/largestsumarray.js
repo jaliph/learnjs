@@ -1,8 +1,8 @@
-var maxSubArray = function(nums) {
+const maxSubArray = function (nums) {
   let maxEndingHere = nums[0]
   let maxSoFar = nums[0]
-  
-  let start = 0, s = 0, e = 0
+
+  let start = 0; let s = 0; const e = 0
   for (let i = 1; i < nums.length; i++) {
     maxEndingHere += nums[i]
     if (maxSoFar < maxEndingHere) {
@@ -17,7 +17,6 @@ var maxSubArray = function(nums) {
     }
   }
   return [maxSoFar, start, end]
-};
-
+}
 
 console.log(maxSubArray([-2, -3, 4, -1, -2, 1, 5, -3]))

@@ -1,7 +1,7 @@
 
 const sieveOfErathenaus = (num) => {
-  let booleanArray = new Array(num + 1).fill(1)
-  let primes = []
+  const booleanArray = new Array(num + 1).fill(1)
+  const primes = []
   for (let i = 2; i * i <= num; i++) {
     if (booleanArray[i] === 1) {
       for (let j = i * i; j <= num; j = j + i) {

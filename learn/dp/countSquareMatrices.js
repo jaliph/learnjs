@@ -1,8 +1,7 @@
 
-
 const countSquaresBrute = (m) => {
-  let r = m.length
-  let c = m[0].length
+  const r = m.length
+  const c = m[0].length
 
   let res = 0
 
@@ -11,9 +10,9 @@ const countSquaresBrute = (m) => {
       return 0
     }
 
-    let left = countSquaresRecur(m, r, c, i + 1, j)
-    let down = countSquaresRecur(m, r, c, i, j + 1)
-    let bottomleft = countSquaresRecur(m, r, c, i + 1, j + 1)
+    const left = countSquaresRecur(m, r, c, i + 1, j)
+    const down = countSquaresRecur(m, r, c, i, j + 1)
+    const bottomleft = countSquaresRecur(m, r, c, i + 1, j + 1)
 
     return 1 + Math.min(left, down, bottomleft)
   }
@@ -27,22 +26,21 @@ const countSquaresBrute = (m) => {
   return res
 }
 
-
 const countSquaresMemoise = (m) => {
-  let r = m.length
-  let c = m[0].length
+  const r = m.length
+  const c = m[0].length
   const dp = Array(r).fill(0).map(() => Array(c).fill(-1))
   let res = 0
 
-  const countSquaresRecur = (m, r , c, i, j, dp) => {
+  const countSquaresRecur = (m, r, c, i, j, dp) => {
     if (i == r || j == c || m[i][j] == 0) {
       return 0
     }
     if (dp[i][j] != -1) return dp[i][j]
 
-    let right = countSquaresRecur(m, r , c, i + 1, j, dp)
-    let bottom = countSquaresRecur(m, r , c, i, j + 1, dp)
-    let bottomright = countSquaresRecur(m, r , c, i + 1, j + 1, dp)
+    const right = countSquaresRecur(m, r, c, i + 1, j, dp)
+    const bottom = countSquaresRecur(m, r, c, i, j + 1, dp)
+    const bottomright = countSquaresRecur(m, r, c, i + 1, j + 1, dp)
 
     dp[i][j] = 1 + Math.min(right, bottom, bottomright)
     return dp[i][j]
@@ -52,7 +50,7 @@ const countSquaresMemoise = (m) => {
     for (let j = 0; j < c; j++) {
       if (m[i][j] != 0 && dp[i][j] === -1) {
         res += countSquaresRecur(m, r, c, i, j, dp)
-      } else if (dp[i][j] !== -1){
+      } else if (dp[i][j] !== -1) {
         res += dp[i][j]
       }
     }
@@ -62,8 +60,8 @@ const countSquaresMemoise = (m) => {
 }
 
 const countSquares = (m) => {
-  let r = m.length
-  let c = m[0].length
+  const r = m.length
+  const c = m[0].length
 
   const dp = Array(r).fill(0).map(() => Array(c).fill(0))
 
@@ -75,9 +73,9 @@ const countSquares = (m) => {
         if (m[i][j] == 0) {
           continue
         } else {
-          let up = dp[i - 1][j]
-          let left = dp[i][j - 1]
-          let upleft = dp[i - 1][j - 1]
+          const up = dp[i - 1][j]
+          const left = dp[i][j - 1]
+          const upleft = dp[i - 1][j - 1]
           dp[i][j] = 1 + Math.min(up, left, upleft)
         }
       }
@@ -93,16 +91,15 @@ const countSquares = (m) => {
   return res
 }
 
-
 // driver code
-var main = function() {
-  let inputMatrix = [
-      [[0, 1, 1, 1], [1, 1, 1, 1], [0, 1, 1, 1]],
-      [[1, 0, 1], [1, 1, 0], [1, 1, 0]],
-      [[]],
-      [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
-      [[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 0], [1, 1, 1, 1]],
-  ];
+const main = function () {
+  const inputMatrix = [
+    [[0, 1, 1, 1], [1, 1, 1, 1], [0, 1, 1, 1]],
+    [[1, 0, 1], [1, 1, 0], [1, 1, 0]],
+    [[]],
+    [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
+    [[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 0], [1, 1, 1, 1]]
+  ]
 
   // you can uncomment the lines below and check how this recursive solution causes a time-out
 
@@ -130,12 +127,12 @@ var main = function() {
   // )
 
   inputMatrix.map((s, index) => {
-  console.log(`${index+1}.\tInput matrix: `,  s);
-  console.log("\tSquare submatrices with all 1s: ", countSquaresBrute(s));
-  console.log("\tSquare submatrices with all 1s: ", countSquaresMemoise(s));
-  console.log("\tSquare submatrices with all 1s: ", countSquares(s));
-      console.log("-".repeat(100));
-  });
+    console.log(`${index + 1}.\tInput matrix: `, s)
+    console.log('\tSquare submatrices with all 1s: ', countSquaresBrute(s))
+    console.log('\tSquare submatrices with all 1s: ', countSquaresMemoise(s))
+    console.log('\tSquare submatrices with all 1s: ', countSquares(s))
+    console.log('-'.repeat(100))
+  })
 }
 
-main();
+main()

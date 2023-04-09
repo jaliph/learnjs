@@ -1,5 +1,4 @@
 
-
 // COunt the way to array 0s and 1s so that no cosecutive 1s exist in the string
 const count = (n) => {
   const cRecur = (n, i, prevIdx_one) => {
@@ -21,7 +20,6 @@ const count = (n) => {
 
   return cRecur(n, 0, false)
 }
-
 
 const main = () => {
   for (let i = 1; i <= 10; i++) {

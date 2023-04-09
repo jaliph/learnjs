@@ -1,4 +1,4 @@
-function balanced(arr, startIndex = 0, currentIndex = 0) {
+function balanced (arr, startIndex = 0, currentIndex = 0) {
   if (startIndex === arr.length) {
     return currentIndex === 0
   }
@@ -11,5 +11,4 @@ function balanced(arr, startIndex = 0, currentIndex = 0) {
   return false
 }
 
-
-console.log(balanced(["(", "(", ")", "(", ")", ")"], 0, 0))
+console.log(balanced(['(', '(', ')', '(', ')', ')'], 0, 0))

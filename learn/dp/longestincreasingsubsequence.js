@@ -42,20 +42,19 @@ const LIS = (arr) => {
 const method2DP = (arr) => {
   const LIS = Array(arr.length).fill(1)
   for (let i = 1; i < arr.length; i++) {
-    console.log ('Before', LIS)
+    console.log('Before', LIS)
     for (let j = 0; j < i; j++) {
       if (arr[j] < arr[i] && LIS[i] < LIS[j] + 1) {
         LIS[i] = LIS[j] + 1
       }
     }
-    console.log ('After', LIS)
+    console.log('After', LIS)
   }
   console.dir(LIS)
 }
 
 // method2DP([3, 1, 5, 2, 6, 4, 9])
 // LIS([3, 1, 5, 2, 6, 4, 9])
-
 
 // Revise
 
@@ -77,7 +76,6 @@ const lisLengthBrute = (arr) => {
   }
   return LISRecur(arr, 0, -1)
 }
-
 
 const lisLengthMemoise = (arr) => {
   const LISRecur = (arr, curr, prev, dp) => {
@@ -103,21 +101,18 @@ const lisLengthMemoise = (arr) => {
   return LISRecur(arr, 0, -1, dp)
 }
 
-
-
 const lisLengthMethod1 = (arr) => {
   const dp = Array(arr.length + 1).fill(0).map(() => Array(arr.length + 2).fill(0))
-
 
   for (let curr = arr.length - 1; curr > -1; curr--) {
     for (let prev = curr - 1; prev > -2; prev--) {
       let length = dp[curr + 1][prev + 1]
-      
-      if (prev < 0 || arr[prev] < arr[curr] ) {
+
+      if (prev < 0 || arr[prev] < arr[curr]) {
         length = Math.max(length, 1 + dp[curr + 1][curr + 1])
       }
 
-      dp[curr][prev + 1] = length 
+      dp[curr][prev + 1] = length
     }
   }
   return dp[0][0]
@@ -136,21 +131,20 @@ const lisLength = (arr) => {
   return LIS[arr.length - 1]
 }
 
-
 // Driver code
-var main = function() {
-  var lists = [
-      [10, 9, 2, 5, 3, 7, 101, 18],
-      [7, 7, 7, 7, 7, 7, 7],
-      [0, 1, 0, 3, 2, 3],
-      [3, 2],
-      [6, 9, 8, 2, 3, 5, 1, 4, 7],
-      [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15],
-      [9, 2, 5, 3, 6, 14, 11, 7, 9, 5, 13, 3, 15, 0, 8, 4, 1, 9, 5, 13, 3, 11, 7, 15, 0, 10, 6, 14, 9, 2, 5, 3, 2, 10, 6, 10, 6, 5, 13, 3, 11, 7, 15, 3, 11, 7, 15]
-  ];
+const main = function () {
+  const lists = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [7, 7, 7, 7, 7, 7, 7],
+    [0, 1, 0, 3, 2, 3],
+    [3, 2],
+    [6, 9, 8, 2, 3, 5, 1, 4, 7],
+    [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15],
+    [9, 2, 5, 3, 6, 14, 11, 7, 9, 5, 13, 3, 15, 0, 8, 4, 1, 9, 5, 13, 3, 11, 7, 15, 0, 10, 6, 14, 9, 2, 5, 3, 2, 10, 6, 10, 6, 5, 13, 3, 11, 7, 15, 3, 11, 7, 15]
+  ]
 
   // You can uncomment the line below and check how this recursive solution causes a time-out
-  
+
   // lists.push([72, 56, 13, 33, 4, 5, 53, 14, 71, 42, 5, 74, 60, 15, 68, 42,
   //    56, 58, 67, 32, 65, 75, 47, 29, 86, 32, 77, 39, 19, 54, 54, 18, 49, 34,
   //    89, 85, 63, 86, 90, 53, 35, 2, 65, 63, 90, 26, 39, 41, 38, 32, 21, 35, 51,
@@ -160,18 +154,14 @@ var main = function() {
   //    54, 7, 56, 5, 2, 63, 88, 58, 60, 95, 54, 7, 56, 5, 2, 63, 88, 58, 60, 95, 54, 7,
   //    56, 5, 2, 63, 88, 58, 60, 95]);
 
-
-  for (var i = 0; i < lists.length; i++) {
-      console.log((i + 1) + ". Input array: [" + lists[i].join(", ") + "]");
-      console.log("Length of LIS is: " + lisLengthMethod1(lists[i]));
-      console.log("Length of LIS is: " + lisLength(lists[i]));
-      console.log("-".repeat(100));
+  for (let i = 0; i < lists.length; i++) {
+    console.log((i + 1) + '. Input array: [' + lists[i].join(', ') + ']')
+    console.log('Length of LIS is: ' + lisLengthMethod1(lists[i]))
+    console.log('Length of LIS is: ' + lisLength(lists[i]))
+    console.log('-'.repeat(100))
   }
 }
 
-main();
-
-
-
+main()
 
 // Revise

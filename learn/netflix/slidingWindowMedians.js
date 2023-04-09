@@ -1,36 +1,36 @@
-const Heap = require("../heap/heap");
+const Heap = require('../heap/heap')
 
 const medianSlidingWindow = (nums, k) => {
-  let medians = []
-  let maxHeap = new Heap(undefined, (a, b) => a - b)
-  let minHeap = new Heap(undefined, (a, b) => b - a)
+  const medians = []
+  const maxHeap = new Heap(undefined, (a, b) => a - b)
+  const minHeap = new Heap(undefined, (a, b) => b - a)
 
-  let map = new Map()
+  const map = new Map()
 
   let i = 0
 
-  while(i < k) {
+  while (i < k) {
     maxHeap.insert(nums[i])
     i++
   }
 
-  for (let j = 0 ; j < Math.floor(k / 2); j++) {
+  for (let j = 0; j < Math.floor(k / 2); j++) {
     minHeap.insert(maxHeap.peek())
     maxHeap.removeMax()
   }
 
   while (true) {
-    if (k & 1 == 1) {
+    if (k & 1 === 1) {
       medians.push(maxHeap.peek())
-    }else {
+    } else {
       medians.push((maxHeap.peek() + minHeap.peek()) * 0.5)
     }
 
     if (i >= nums.length) break
 
     let balance = 0
-    let inNum = nums[i]
-    let outNum = nums[i - k]
+    const inNum = nums[i]
+    const outNum = nums[i - k]
 
     i++
 
@@ -80,17 +80,16 @@ const medianSlidingWindow = (nums, k) => {
   return medians
 }
 
+console.log('Example - 1')
+const arr = [1, 3, -1, -3, 5, 3, 6, 7]
+let k = 3
+console.log('Input: array =[' + String(arr.join(',')) + '], k = ' + k)
+const output = medianSlidingWindow(arr, k)
+console.log('Output: Medians =[' + String(output) + ']')
 
-console.log("Example - 1");
-var arr = [1,3,-1,-3,5,3,6,7];
-var k = 3;
-console.log("Input: array =[" + String(arr.join(",")) + "], k = " + k);
-var output = medianSlidingWindow(arr, k);
-console.log("Output: Medians =[" + String(output)+ "]");
-
-console.log("\nExample - 2");
-var arr2 = [1,2];
-k = 1;
-console.log("Input: array =[" + String(arr2.join(",")) + "], k = " + k);
-var output2 = medianSlidingWindow(arr2, k);
-console.log("Output: Medians =[" + String(output2)+ "]");
+console.log('\nExample - 2')
+const arr2 = [1, 2]
+k = 1
+console.log('Input: array =[' + String(arr2.join(',')) + '], k = ' + k)
+const output2 = medianSlidingWindow(arr2, k)
+console.log('Output: Medians =[' + String(output2) + ']')

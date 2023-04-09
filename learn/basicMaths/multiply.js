@@ -1,5 +1,5 @@
 const multiply = (x, y) => {
-  let base = (x+'').split('').reverse()
+  let base = (x + '').split('').reverse()
   let carry = 0
   for (let i = 0; i < base.length; i++) {
     const mul = (+base[i] * y) + carry
@@ -20,7 +20,7 @@ const fact = (n) => {
   } else {
     let t = 2
     while (t <= n) {
-      console.log(t+'' , '*' , res , '=', multiply(res, t))
+      console.log(t + '', '*', res, '=', multiply(res, t))
       res = multiply(res, t)
       t++
     }

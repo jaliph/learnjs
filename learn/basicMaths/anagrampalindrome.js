@@ -1,10 +1,8 @@
 
-
-
 const charFrequincy = (str) => {
-  let char = []
+  const char = []
   str = str.toLowerCase()
-  for (let i = 0 ; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     if (char[str.charCodeAt(i) - 97]) {
       char[str.charCodeAt(i) - 97]++
     } else {

@@ -6,26 +6,24 @@ Notice that some of these substrings repeat and are counted the number of times 
 Also, "00110011" is not a valid substring because all the 0's (and 1's) are not grouped together.
  */
 
-
 /**
  * @param {string} s
  * @return {number}
  */
-var countBinarySubstrings = function(s) {
-  let ans = 0, prev = 0, curr = 1
+const countBinarySubstrings = function (s) {
+  let ans = 0; let prev = 0; let curr = 1
 
   for (let i = 1; i < s.length; i++) {
-      if (s[i - 1] !== s[i]) {
-          console.log(prev, curr, i - 1, i)
-          ans += Math.min(prev, curr)
-          prev = curr
-          curr = 1
-      } else {
-          curr++
-      }
+    if (s[i - 1] !== s[i]) {
+      console.log(prev, curr, i - 1, i)
+      ans += Math.min(prev, curr)
+      prev = curr
+      curr = 1
+    } else {
+      curr++
+    }
   }
   return ans + Math.min(prev, curr) // fill in for the last section
-};
+}
 
 console.log(countBinarySubstrings('00110011'))
-

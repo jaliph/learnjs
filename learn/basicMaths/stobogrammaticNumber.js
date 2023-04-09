@@ -1,14 +1,13 @@
 
-
 const isStroboGrammaticNumber = (num) => {
-  let m = new Map()
+  const m = new Map()
   m.set('1', '1')
   m.set('0', '0')
   m.set('9', '6')
   m.set('6', '9')
   m.set('8', '8')
 
-  let l  = 0, r = num.length - 1
+  let l = 0; let r = num.length - 1
   while (l < r) {
     if (!m.has(num[l])) {
       return false
@@ -22,6 +21,5 @@ const isStroboGrammaticNumber = (num) => {
   }
   return true
 }
-
 
 console.log(isStroboGrammaticNumber('1123'))

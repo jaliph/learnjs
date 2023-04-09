@@ -1,7 +1,7 @@
-var trapWater = function(height) {
+const trapWater = function (height) {
   let left = 0
   let right = height.length - 1
-  let lowMax = 0, highMax = 0
+  let lowMax = 0; let highMax = 0
   let result = 0
   while (left <= right) {
     if (height[left] < height[right]) {
@@ -23,4 +23,4 @@ var trapWater = function(height) {
   return result
 }
 
-console.log(trapWater([0,1,0,2,1,0,1,3,2,1,2,1]))
+console.log(trapWater([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))

@@ -1,24 +1,23 @@
-let scoringOptions = function(n) {
-  let arr = Array(n).fill(0)
+const scoringOptions = function (n) {
+  const arr = Array(n).fill(0)
 
   arr[0] = 1
   arr[1] = 1
   arr[2] = 2
   arr[3] = 3
   arr[4] = 6
-  
-  for (let i = 5 ; i <= n; i++ ) {
+
+  for (let i = 5; i <= n; i++) {
     arr[i] = arr[i - 1] + arr[i - 2] + arr[i - 4]
   }
 
   console.log(arr)
-  return arr[n];
-};
-
+  return arr[n]
+}
 
 // let scoringOptions = function (n) {
 // 	// Setting up our base cases
-	
+
 // 	// We can not get a negative score, we return 0 for negative values
 // 	if (n < 0) return 0;
 
@@ -30,7 +29,6 @@ let scoringOptions = function(n) {
 // 	return scoringOptions(n - 1) + scoringOptions(n - 2) + scoringOptions(n - 4);
 // }
 
-
 // let solverDPHelper = function (n, Vs) {
 //   // We can not get a negative score, we return 0 for negative values
 //   if (n < 0) return 0;
@@ -40,7 +38,7 @@ let scoringOptions = function(n) {
 //       return Vs[n];
 //   }
 
-//   // Else, we recursively calculate the solution for the 
+//   // Else, we recursively calculate the solution for the
 //   // given value and store it in our solution array
 //   Vs[n] = solverDPHelper(n - 1, Vs) + solverDPHelper(n - 2, Vs)
 //       + solverDPHelper(n - 4, Vs);
@@ -63,6 +61,5 @@ let scoringOptions = function(n) {
 //   // Pass our array to the helper function
 //   return solverDPHelper(n, Vs)
 // }
-
 
 scoringOptions(10)

@@ -2,14 +2,14 @@ const convert = function (s, numRows) {
   if (numRows === 1) {
     return s
   }
-  let result = new Array(numRows).fill("")
+  const result = new Array(numRows).fill('')
   let i = 0
   let j = 0
   let forward = true
 
   while (i < s.length) {
     result[j] += s[i]
-    if (forward)  {
+    if (forward) {
       j++
       if (j === numRows - 1) {
         forward = false
@@ -25,6 +25,5 @@ const convert = function (s, numRows) {
 
   return result.join('')
 }
-
 
 console.log(convert('PAYPALISHIRING', 4))

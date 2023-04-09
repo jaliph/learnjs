@@ -1,0 +1,14 @@
+{
+  "name": "learnjs",
+  "version": "1.0.0",
+  "description": "A library with all the DS & Algo tested..",
+  "scripts": {
+    "lint": "standard --fix"
+  },
+  "keywords": [],
+  "author": "Akash Chandra",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.0.0"
+  }
+}

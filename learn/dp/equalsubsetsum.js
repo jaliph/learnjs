@@ -1,6 +1,6 @@
-const can_partition = function(num) {
+const can_partition = function (num) {
   // TODO: Write your code here
-  let sum = num.reduce((acc, i) => {
+  const sum = num.reduce((acc, i) => {
     return acc + i
   }, 0)
 
@@ -8,10 +8,10 @@ const can_partition = function(num) {
     return false
   }
   return can_partition_recursive(num, sum / 2, 0)
-};
+}
 
-const can_partition_recursive = (num, sum , i) => {
-  if (sum === 0) { 
+const can_partition_recursive = (num, sum, i) => {
+  if (sum === 0) {
     return true
   }
   if (num.length == 0 || i >= num.length) {
@@ -24,7 +24,7 @@ const can_partition_recursive = (num, sum , i) => {
 }
 
 const canParitionDP = (nums) => {
-  if (nums.length == 0 ) {
+  if (nums.length == 0) {
     return false
   }
   let sum = nums.reduce((acc, i) => {
@@ -34,7 +34,7 @@ const canParitionDP = (nums) => {
     return false
   }
   sum = sum / 2
-  let dp = Array(nums.length).fill(false).map(() => Array(sum + 1).fill(false))
+  const dp = Array(nums.length).fill(false).map(() => Array(sum + 1).fill(false))
 
   for (let i = 0; i < nums.length; i++) {
     dp[i][0] = true
@@ -45,7 +45,7 @@ const canParitionDP = (nums) => {
   }
 
   for (let i = 1; i < nums.length; i++) {
-    for (let s = 1; s <= sum; s++) {  
+    for (let s = 1; s <= sum; s++) {
       if (dp[i - 1][s]) {
         dp[i][s] = dp[i - 1][s]
       } else if (s >= nums[i]) {
@@ -54,9 +54,8 @@ const canParitionDP = (nums) => {
     }
   }
   // console.log(dp)
-  return dp[nums.length -1][sum]
+  return dp[nums.length - 1][sum]
 }
-
 
 console.log(`Can partition: ${can_partition([1, 2, 3, 4])}`)
 console.log(`Can partition: ${can_partition([1, 1, 3, 4, 7])}`)

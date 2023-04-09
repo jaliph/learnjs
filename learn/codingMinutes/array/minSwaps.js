@@ -1,11 +1,9 @@
 
-
-
 const minSwaps = (nums) => {
-  let m = []
+  const m = []
   nums.forEach((e, i) => {
-      m.push([e, i])
-  });
+    m.push([e, i])
+  })
 
   m.sort((a, b) => a[0] - b[0])
   // console.log(m)
@@ -23,10 +21,10 @@ const minSwaps = (nums) => {
       while (!visited[node]) {
         visited[node] = true
 
-        // jump to the next position 
-        let nextNode = m[i][1]
+        // jump to the next position
+        const nextNode = m[i][1]
         node = nextNode
-        cycle++ 
+        cycle++
       }
       // swap is -1 because we just need the swaps not the complete cycle.
       swaps += (cycle - 1)
@@ -36,5 +34,4 @@ const minSwaps = (nums) => {
   return swaps
 }
 
-
-console.log('Min Swaps need is', minSwaps([5,4,3,2,1]))
+console.log('Min Swaps need is', minSwaps([5, 4, 3, 2, 1]))

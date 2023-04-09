@@ -1,15 +1,14 @@
 class TreeNode {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null; 
+  constructor (value) {
+    this.value = value
+    this.left = null
+    this.right = null
   }
 };
 
+const find_paths = function (root, sum) {
+  const allPaths = []
 
-const find_paths = function(root, sum) {
-  let allPaths = [];
-   
   const findPathsRecur = (currentNode, sum, currentPath, allPaths) => {
     if (currentNode == null) {
       return
@@ -22,18 +21,16 @@ const find_paths = function(root, sum) {
       allPaths.push(Object.assign([], currentPath))
     } else {
       findPathsRecur(currentNode.left, sum - currentNode.value, currentPath, allPaths)
-      findPathsRecur(currentNode.right, sum - currentNode.value, currentPath, allPaths) 
+      findPathsRecur(currentNode.right, sum - currentNode.value, currentPath, allPaths)
     }
 
     currentPath.pop()
   }
   findPathsRecur(root, sum, [], allPaths)
-  return allPaths;
-};
+  return allPaths
+}
 
-
-
-var root = new TreeNode(12)
+const root = new TreeNode(12)
 root.left = new TreeNode(7)
 root.right = new TreeNode(1)
 root.left.left = new TreeNode(4)

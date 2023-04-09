@@ -1,13 +1,12 @@
 
-
-let binarySearchRotated = function(nums, target) {
+const binarySearchRotated = function (nums, target) {
   let low = 0
   let high = nums.length - 1
-  while(low <= high) {
-    let mid = low + Math.floor((high - low) / 2)
-    
+  while (low <= high) {
+    const mid = low + Math.floor((high - low) / 2)
+
     if (nums[mid] == target) return mid
-    
+
     // the first part is sorted
     if (nums[low] <= nums[mid]) {
       if (nums[low] <= target && target < nums[mid]) {
@@ -23,8 +22,7 @@ let binarySearchRotated = function(nums, target) {
       }
     }
   }
-  return -1;
-};
-
+  return -1
+}
 
 // console.log(binarySearchRotated)

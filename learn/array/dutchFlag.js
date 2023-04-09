@@ -1,12 +1,10 @@
 
-
-const arr = [1,1,2,2,2,0,0,0,0]
+const arr = [1, 1, 2, 2, 2, 0, 0, 0, 0]
 
 const solveDutchFlag = (nums) => {
-  let low = 0, high = nums.length - 1
-  let pivot = 1
+  let low = 0; let high = nums.length - 1
+  const pivot = 1
   mid = 0
-
 
   while (mid <= high) {
     if (nums[mid] < pivot) {
@@ -22,8 +20,8 @@ const solveDutchFlag = (nums) => {
   }
 }
 
-const swap = (nums, i, j) => { 
-  [nums[i], nums[j]]= [nums[j], nums[i]]
+const swap = (nums, i, j) => {
+  [nums[i], nums[j]] = [nums[j], nums[i]]
 }
 
 solveDutchFlag(arr)

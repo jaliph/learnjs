@@ -1,6 +1,6 @@
 
 //
-let findLPSLength = (str) => {
+const findLPSLength = (str) => {
   const recursiveLPSFinder = (str, startIndex, endIndex) => {
     if (startIndex > endIndex) return 0
 
@@ -10,8 +10,8 @@ let findLPSLength = (str) => {
       return 2 + recursiveLPSFinder(str, startIndex + 1, endIndex - 1)
     }
 
-    let c1 = recursiveLPSFinder(str, startIndex + 1, endIndex) 
-    let c2 = recursiveLPSFinder(str, startIndex, endIndex - 1)
+    const c1 = recursiveLPSFinder(str, startIndex + 1, endIndex)
+    const c2 = recursiveLPSFinder(str, startIndex, endIndex - 1)
 
     return Math.max(c1, c2)
   }
@@ -20,11 +20,10 @@ let findLPSLength = (str) => {
 
 console.log(findLPSLength('cddpd'))
 
-
 // memoise
 
-let findLPS2Length = (str) => {
-  let dp = []
+const findLPS2Length = (str) => {
+  const dp = []
 
   const recursiveLPSFinder = (str, startIndex, endIndex) => {
     if (startIndex > endIndex) {
@@ -37,12 +36,12 @@ let findLPS2Length = (str) => {
 
     dp[startIndex] = dp[startIndex] || []
 
-    if (typeof dp[startIndex][endIndex] === 'undefined'){
+    if (typeof dp[startIndex][endIndex] === 'undefined') {
       if (str[startIndex] === str[endIndex]) {
         dp[startIndex][endIndex] = 2 + recursiveLPSFinder(str, startIndex + 1, endIndex - 1)
       } else {
-        let c1 = recursiveLPSFinder(str, startIndex + 1, endIndex) 
-        let c2 = recursiveLPSFinder(str, startIndex, endIndex - 1)
+        const c1 = recursiveLPSFinder(str, startIndex + 1, endIndex)
+        const c2 = recursiveLPSFinder(str, startIndex, endIndex - 1)
         dp[startIndex][endIndex] = Math.max(c1, c2)
       }
     }
@@ -52,24 +51,21 @@ let findLPS2Length = (str) => {
   return recursiveLPSFinder(str, 0, str.length - 1)
 }
 
-
 console.log(findLPS2Length('cddpd'))
-
-
 
 // DP Bottom up algorithm
 
-let findLPS3Length = (str) => {
-  let dp = Array(str.length).fill(0).map(() => Array(str.length).fill(0))
+const findLPS3Length = (str) => {
+  const dp = Array(str.length).fill(0).map(() => Array(str.length).fill(0))
 
-  for (let i =0; i < str.length; i++) {
-    dp [i][i] = 1
+  for (let i = 0; i < str.length; i++) {
+    dp[i][i] = 1
   }
 
   for (let startIndex = str.length - 1; startIndex >= 0; startIndex--) {
     for (let endIndex = startIndex + 1; endIndex < str.length; endIndex++) {
-      if(str[startIndex] == str[endIndex]) {
-        dp[startIndex][endIndex] = 2 + dp[startIndex + 1][endIndex - 1] 
+      if (str[startIndex] == str[endIndex]) {
+        dp[startIndex][endIndex] = 2 + dp[startIndex + 1][endIndex - 1]
       } else {
         dp[startIndex][endIndex] = Math.max(dp[startIndex][endIndex - 1], dp[startIndex + 1][endIndex])
       }
@@ -79,11 +75,9 @@ let findLPS3Length = (str) => {
   return dp[0][str.length - 1]
 }
 
-
 console.log(findLPS3Length('cddpd'))
 
-
-var longestPalindromeSubseq = function(s) {
+const longestPalindromeSubseq = function (s) {
   // let dp = []
 //     const longestPalinRecur = (s, start, end) =>  {
 //         if (start > end) {
@@ -99,29 +93,29 @@ var longestPalindromeSubseq = function(s) {
 //             } else  {
 //                 let c1 = longestPalinRecur(s, start + 1, end)
 //                 let c2 = longestPalinRecur(s, start, end - 1)
-      
-//                 dp[start][end] = Math.max(c1, c2)
-//             }
-//         }
-//         return dp[start][end]
-      
-//     }
-//     return longestPalinRecur(s, 0, s.length - 1)
-  let dp = Array(s.length).fill(0).map(() => Array(s.length).fill(0))
+
+  //                 dp[start][end] = Math.max(c1, c2)
+  //             }
+  //         }
+  //         return dp[start][end]
+
+  //     }
+  //     return longestPalinRecur(s, 0, s.length - 1)
+  const dp = Array(s.length).fill(0).map(() => Array(s.length).fill(0))
   for (let i = 0; i < s.length; i++) {
-      dp[i][i] = 1
+    dp[i][i] = 1
   }
-  
+
   for (let start = s.length - 1; start >= 0; start--) {
-      for (let end = start + 1; end < s.length ; end++) {
-        console.log(s[start], s[end])
-          if (s[start] == s[end]) {
-              dp[start][end] = 2 + dp[start + 1][end - 1]
-          } else {
-              dp[start][end] = Math.max(dp[start + 1][end], dp[start][end - 1])
-          }
+    for (let end = start + 1; end < s.length; end++) {
+      console.log(s[start], s[end])
+      if (s[start] == s[end]) {
+        dp[start][end] = 2 + dp[start + 1][end - 1]
+      } else {
+        dp[start][end] = Math.max(dp[start + 1][end], dp[start][end - 1])
       }
+    }
   }
   console.log(dp)
   return dp[0][s.length - 1]
-}; 
+}

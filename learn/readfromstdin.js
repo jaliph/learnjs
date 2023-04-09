@@ -30,8 +30,8 @@ function main () {
   // write your code here.
   // call `readLine()` to read a line.
   // use console.log() to write to stdout
-  var a = parseInt(readLine())
-  var b = parseInt(readLine())
-  var res = solveMeFirst(a, b)
+  const a = parseInt(readLine())
+  const b = parseInt(readLine())
+  const res = solveMeFirst(a, b)
   console.log(res)
 }

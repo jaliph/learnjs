@@ -22,9 +22,9 @@ const moveZerosToLeft = (arr) => {
 
 const numsList = [[1, 10, 20, 0, 59, 63, 0, 88, 0], [1, 0, 2, 3, 0], [0], [-1, 0, 0, -2, 9], [1, 2, 3, 4, 5], [2]]
 
-for( let i=0; i<numsList.length; i++){
-  console.log((i + 1) + ". Before list:\t" + ( numsList[i]))
+for (let i = 0; i < numsList.length; i++) {
+  console.log((i + 1) + '. Before list:\t' + (numsList[i]))
   moveZerosToLeft(numsList[i])
-  console.log("   After list:\t" + (numsList[i]))
-  console.log("----------------------------------------------------------------------------------------------------\n");
+  console.log('   After list:\t' + (numsList[i]))
+  console.log('----------------------------------------------------------------------------------------------------\n')
 }

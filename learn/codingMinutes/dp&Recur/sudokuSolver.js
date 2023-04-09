@@ -1,8 +1,7 @@
 
 const Print2D = arr => arr.forEach(element => {
   console.log(...element)
-});
-
+})
 
 const solveSudoku = (matrix) => {
   const isPossible = (mat, i, j, value) => {
@@ -14,8 +13,8 @@ const solveSudoku = (matrix) => {
     }
 
     // check the subgrid
-    let sx = Math.floor(i / 3) * 3
-    let sy = Math.floor(j / 3) * 3
+    const sx = Math.floor(i / 3) * 3
+    const sy = Math.floor(j / 3) * 3
     for (let x = sx; x < sx + 3; x++) {
       for (let y = sy; y < sy + 3; y++) {
         if (mat[x][y] === value) return false
@@ -32,7 +31,7 @@ const solveSudoku = (matrix) => {
       return true
     }
 
-    //Recursion
+    // Recursion
 
     // if j has reached its end, go for the next line, reset j to 0
     if (j == 9) {
@@ -49,7 +48,7 @@ const solveSudoku = (matrix) => {
       if (isPossible(mat, i, j, ans)) {
         // console.log('Solved ... ', i, j, ans)
         mat[i][j] = ans
-        let subProbResult = solveSudokuRecur(mat, i, j + 1)
+        const subProbResult = solveSudokuRecur(mat, i, j + 1)
         if (subProbResult == true) return true
       }
     }
@@ -59,7 +58,6 @@ const solveSudoku = (matrix) => {
   return solveSudokuRecur(matrix, 0, 0)
 }
 
-
 const main = () => {
   const sudokuPuzzle = [
     [3, 0, 6, 5, 0, 8, 4, 0, 0],
@@ -67,12 +65,12 @@ const main = () => {
     [0, 8, 7, 0, 0, 0, 0, 3, 1],
     [0, 0, 3, 0, 1, 0, 0, 8, 0],
     [9, 0, 0, 8, 6, 3, 0, 0, 5],
-    [0, 5, 0, 0, 9, 0, 6, 0, 0], 
+    [0, 5, 0, 0, 9, 0, 6, 0, 0],
     [1, 3, 0, 0, 0, 0, 2, 5, 0],
     [0, 0, 0, 0, 0, 0, 0, 7, 4],
-    [0, 0, 5, 2, 0, 6, 3, 0, 0] 
+    [0, 0, 5, 2, 0, 6, 3, 0, 0]
   ]
-  let solved = solveSudoku(sudokuPuzzle)
+  const solved = solveSudoku(sudokuPuzzle)
   console.log('Sudoku is solved ', solved)
   Print2D(sudokuPuzzle)
 }

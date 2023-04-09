@@ -1,5 +1,5 @@
 const primeFactors = (n) => {
-  let primes = []
+  const primes = []
 
   while (n % 2 === 0) {
     primes.push(2)

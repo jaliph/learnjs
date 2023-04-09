@@ -1,140 +1,150 @@
-function max(a, b) {
-    return a > b ? a : b
+function max (a, b) {
+  return a > b ? a : b
 }
-function min(a, b) {
-    return a < b ? a : b
+function min (a, b) {
+  return a < b ? a : b
 }
 class BT {
-    preOrderTraversal(root) {
-        let traversedArray = []
-        if (root === null) {
-            return
+  preOrderTraversal (root) {
+    const traversedArray = []
+    if (root === null) {
+      return
+    }
+    function helper (r) {
+      traversedArray.push(root.val)
+      if (r.left) helper(r.left)
+      if (r.right) helper(r.right)
+    }
+    helper(root)
+    return traversedArray
+  }
+
+  preOrderTraversalIterative (root) {
+
+  }
+
+  postOrderTraversal (root) {
+    const traversedArray = []
+    if (root === null) {
+      return
+    }
+    function helper (r) {
+      if (r.left) helper(r.left)
+      if (r.right) helper(r.right)
+      traversedArray.push(root.val)
+    }
+    helper(root)
+    return traversedArray
+  }
+
+  postOrderTraversalIterative (root) {
+    if (root === null) {
+      return
+    }
+    const stk = [root]
+    const stk2 = []
+    while (stk.length) {
+      const n = stk.pop()
+      if (n.left) {
+        stk.push(n.left)
+      }
+      if (n.right) {
+        stk.push(n.right)
+      }
+      stk2.unshift(n.val)
+    }
+    return stk2
+  }
+
+  inOrderTraversal (root) {
+
+  }
+
+  inOrderTraversalIterative (root) {
+
+  }
+
+  levelOrderTraversal (root) {
+    const numbers = []
+    const Q = []
+    Q.push([root, 0])
+    while (Q.length) {
+      const x = Q.shift()
+      const n = x[0]
+      const l = x[1]
+      if (n != null) {
+        if (numbers[l]) {
+          numbers[l].push(n.val)
+        } else {
+          numbers[l] = [n.val]
         }
-        function helper(r) {
-            traversedArray.push(root.val)
-            if (r.left) helper(r.left)
-            if (r.right) helper(r.right)
+        if (n.left != null) {
+          Q.push([n.left, l + 1])
         }
-        helper(root)
-        return traversedArray
-    }
-    preOrderTraversalIterative(root) {
-
-    }
-    postOrderTraversal(root) {
-        let traversedArray = []
-        if (root === null) {
-            return
+        if (n.right != null) {
+          Q.push([n.right, l + 1])
         }
-        function helper(r) {
-            if (r.left) helper(r.left)
-            if (r.right) helper(r.right)
-            traversedArray.push(root.val)
-        }
-        helper(root)
-        return traversedArray
+      }
     }
-    postOrderTraversalIterative(root) {
-        if (root === null) {
-            return
-        }
-        let stk = [root]
-        let stk2 = []
-        while (stk.length) {
-            let n = stk.pop()
-            if (n.left) {
-                stk.push(n.left)
-            }
-            if (n.right) {
-                stk.push(n.right)
-            }
-            stk2.unshift(n.val)
-        }
-        return stk2
+    return numbers
+  }
+
+  constructTreePreIn (inorder, preorder) {
+
+  }
+
+  constructTreePostIn (inorder, preorder) {
+
+  }
+
+  heightOfTree (root) {
+    if (root == null) {
+      return 0
     }
-    inOrderTraversal(root) {
+    return max(this.heightOfTree(root.left), heightOfTree(root.right)) + 1
+  }
 
-    }
-    inOrderTraversalIterative(root) {
+  printVisualTree (root) {
 
-    }
-    levelOrderTraversal(root) {
-        let numbers = []
-        let Q = []
-        Q.push([root, 0])
-        while (Q.length) {
-            let x = Q.shift()
-            let n = x[0]
-            let l = x[1]
-            if (n != null) {
-                if (numbers[l]) {
-                    numbers[l].push(n.val)
-                } else {
-                    numbers[l] = [n.val]
-                }
-                if (n.left != null) {
-                    Q.push([n.left, l + 1])
-                }
-                if (n.right != null) {
-                    Q.push([n.right, l + 1])
-                }
-            }
-        }
-        return numbers
+  }
 
-    }
-    constructTreePreIn(inorder, preorder) {
+  insertNode (root, val) {
 
-    }
-    constructTreePostIn(inorder, preorder) {
+  }
 
-    }
-    heightOfTree(root) {
-        if (root == null) {
-            return 0
-        }
-        return max(this.heightOfTree(root.left), heightOfTree(root.right)) + 1
+  deleteNode (root, val) {
 
-    }
+  }
 
-    printVisualTree(root) {
+  isMirror (root1, root2) {
 
-    }
+  }
 
-    insertNode(root, val) {
+  mirrorIt (root) {
 
-    }
+  }
 
-    deleteNode(root, val) {
+  isSymetric (root) {
 
-    }
-    isMirror(root1, root2) {
+  }
 
-    }
-    mirrorIt(root) {
+  findLCA (root, n1, n2) {
 
-    }
-    isSymetric(root) {
+  }
 
-    }
+  distanceBetweenNode (root, n1, n2) {
 
-    findLCA(root, n1, n2) {
+  }
 
-    }
+  maxSumPath (root) {
 
-    distanceBetweenNode(root, n1, n2) {
-
-    }
-
-    maxSumPath(root) {
-
-    }
+  }
 }
 
 class BTNode {
-    constructor(val, left, right) {
-        this.val = val
-        this.left = left
-        this.right = right
-    }
+  constructor (val, left, right) {
+    this.val = val
+    this.left = left
+    this.right = right
+  }
 }

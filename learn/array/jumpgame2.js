@@ -7,7 +7,7 @@ const jump = (nums = []) => {
     nextJumpIndex = Math.max(i + nums[i], nextJumpIndex)
     console.log(`Next Jump index at ${i} is ${nextJumpIndex} `)
     if (i === currentJumpIndex) {
-      console.log("Jumped at ", currentJumpIndex)
+      console.log('Jumped at ', currentJumpIndex)
       steps += 1
       currentJumpIndex = nextJumpIndex
     }
@@ -15,4 +15,4 @@ const jump = (nums = []) => {
   return steps
 }
 
-console.log(jump([2,3,0,1,4]))
+console.log(jump([2, 3, 0, 1, 4]))

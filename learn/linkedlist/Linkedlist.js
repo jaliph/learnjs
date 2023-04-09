@@ -1,5 +1,4 @@
 
-
 // insertAtTail(data) - inserts an element at the end of the linked list
 // insertAtHead(data) - inserts an element at the start/head of the linked list
 // delete(data) - deletes an element with your specified value from the linked list
@@ -10,7 +9,7 @@
 const Node = require('./Node')
 
 class LinkedList {
-  constructor() {
+  constructor () {
     this.head = null
   }
 
@@ -18,7 +17,7 @@ class LinkedList {
     return this.head === null
   }
 
-  getHead() {
+  getHead () {
     return this.head
   }
 
@@ -28,13 +27,13 @@ class LinkedList {
     while (temp !== null) {
       str += '->' + temp.data
       temp = temp.next
-    } 
+    }
     return str
   }
 
-  insertAtHead(data) {
-    let newNode = new Node(data)
-    if (this.head === null) { 
+  insertAtHead (data) {
+    const newNode = new Node(data)
+    if (this.head === null) {
       this.head = newNode
     } else {
       newNode.next = this.head
@@ -42,9 +41,9 @@ class LinkedList {
     }
   }
 
-  insertAtTail(data) {
-    let newNode = new Node(data)
-    if (this.head === null) { 
+  insertAtTail (data) {
+    const newNode = new Node(data)
+    if (this.head === null) {
       this.head = newNode
     } else {
       let temp = this.head
@@ -55,10 +54,10 @@ class LinkedList {
     }
   }
 
-  search(data) {
+  search (data) {
     let temp = this.head
     while (temp.next !== null) {
-      if(temp.data == data) return true
+      if (temp.data == data) return true
       temp = temp.next
     }
     temp.next = newNode
@@ -68,7 +67,7 @@ class LinkedList {
   deleteAtHead () {
     if (this.head === null) return
 
-    let data = this.head.data
+    const data = this.head.data
     this.head = this.head.next
 
     return data
@@ -85,7 +84,7 @@ class LinkedList {
           temp.next = temp.next.next
           return true
         }
-        temp = temp.next      
+        temp = temp.next
       }
       return false
     }
@@ -96,7 +95,7 @@ class LinkedList {
     let previous = null
     let next
 
-    while(current !== null) {
+    while (current !== null) {
       next = current.next
       current.next = previous
       previous = current
@@ -106,14 +105,14 @@ class LinkedList {
     this.head = previous
   }
 
-  hasCycle () { 
+  hasCycle () {
     let slowPtr = this.head
     let fastPtr = this.head
 
     while (slowPtr !== null && fastPtr !== null && fastPtr.next !== null) {
       slowPtr = slowPtr.next
       fastPtr = fastPtr.next.next
-      
+
       if (fastPtr = slowPtr) {
         return true
       }

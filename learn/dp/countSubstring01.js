@@ -1,6 +1,6 @@
 // Given a binary string. We need to find the length of the longest balanced substring. A substring is balanced if it contains an equal number of 0 and 1.
 
-// Examples:  
+// Examples:
 
 //     Input : input = 110101010
 //     Output : Length of longest balanced sub string = 8
@@ -8,10 +8,8 @@
 //     Input : input = 0000
 //     Output : Length of longest balanced sub string = 0
 
-
 const countLongestSubstring = (str) => {
-
-  let m = new Map()
+  const m = new Map()
 
   m.set(0, -1)
   let count0 = 0
@@ -25,7 +23,7 @@ const countLongestSubstring = (str) => {
     } else {
       count0++
     }
-    
+
     if (m.has(count1 - count0)) {
       if (result < i - m.get(count1 - count0)) {
         result = i - m.get(count1 - count0)

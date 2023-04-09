@@ -1,5 +1,5 @@
 const isSorted = (arr) => {
-  const isSortedRecur = (arr, i ) => {
+  const isSortedRecur = (arr, i) => {
     if (i == arr.length - 1) {
       return true
     }
@@ -11,6 +11,5 @@ const isSorted = (arr) => {
   }
   return isSortedRecur(arr, 0)
 }
-
 
 console.log('Whether arr is sorted', isSorted([1, 2, 3]))

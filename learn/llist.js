@@ -9,9 +9,9 @@ let head = null
 
 const headNode = (data) => {
   if (head === null) {
-    head = new Link({ data: data })
+    head = new Link({ data })
   } else {
-    let l1 = new Link({ data: data })
+    const l1 = new Link({ data })
     l1.Link = head
     head = l1
   }
@@ -19,9 +19,9 @@ const headNode = (data) => {
 
 const tailNode = (data) => {
   if (head === null) {
-    head = new Link({ data: data })
+    head = new Link({ data })
   } else {
-    let l1 = new Link({ data: data })
+    const l1 = new Link({ data })
     let current = head
     while (current.Link !== null) {
       current = current.Link

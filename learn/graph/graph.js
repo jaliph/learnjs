@@ -1,5 +1,5 @@
 
-const LinkedList = require("../linkedlist/Linkedlist")
+const LinkedList = require('../linkedlist/Linkedlist')
 
 class Graph {
   constructor (vertices) {
@@ -7,7 +7,7 @@ class Graph {
 
     this.list = {}
 
-    for (let i of vertices ) {
+    for (const i of vertices) {
       this.list[i] = new LinkedList()
     }
   }
@@ -20,34 +20,33 @@ class Graph {
     }
   }
 
-
-  printGraph() {
-    console.log(">>Adjacency List of Directed Graph<<");
-    var i;
+  printGraph () {
+    console.log('>>Adjacency List of Directed Graph<<')
+    let i
     for (i in this.list) {
-      process.stdout.write("|" + String(i) + "| => ");
-      let temp = this.list[i].getHead();
+      process.stdout.write('|' + String(i) + '| => ')
+      let temp = this.list[i].getHead()
       while (temp != null) {
-        process.stdout.write("[" + String(temp.data) + "] -> ");
-        temp = temp.next;
+        process.stdout.write('[' + String(temp.data) + '] -> ')
+        temp = temp.next
       }
-      console.log("null ");
+      console.log('null ')
     }
   }
 
-  strGraph() {
-    let str = "";
-    var i;
+  strGraph () {
+    let str = ''
+    let i
     for (i in this.list) {
-      str = str + "|" + String(i) + "| => ";
-      let temp = this.list[i].getHead();
+      str = str + '|' + String(i) + '| => '
+      let temp = this.list[i].getHead()
       while (temp != null) {
-        str += ("[" + String(temp.data) + "] -> ");
-        temp = temp.next;
+        str += ('[' + String(temp.data) + '] -> ')
+        temp = temp.next
       }
-      str += "null ";
+      str += 'null '
     }
-    return str;
+    return str
   }
 }
 

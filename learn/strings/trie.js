@@ -2,14 +2,14 @@
 const TrieNode = function (char) {
   this.key = char
 
-  this.parent  = null
+  this.parent = null
 
   this.children = {}
 
   this.end = false
 
   this.getWord = function () {
-    let output = []
+    const output = []
     let node = this
     while (node != null) {
       output.unshift(node.key)
@@ -17,17 +17,17 @@ const TrieNode = function (char) {
     }
 
     return output.join('')
-   }
+  }
 }
 
-const Trie = function() {
-  this.root = new TrieNode(null);
+const Trie = function () {
+  this.root = new TrieNode(null)
 
   this.insert = function (string) {
     let node = this.root
 
     for (let i = 0; i < string.length; i++) {
-      if(!node.children[string[i]]) {
+      if (!node.children[string[i]]) {
         node.children[string[i]] = new TrieNode(string[i])
 
         node.children[string[i]].parent = node
@@ -41,7 +41,7 @@ const Trie = function() {
     }
   }
 
-  this.contains = function(string) {
+  this.contains = function (string) {
     let node = this.root
 
     for (let i = 0; i < string.length; i++) {
@@ -51,12 +51,12 @@ const Trie = function() {
         return false
       }
     }
-     return node.end
+    return node.end
   }
 
-  this.find = function(prefix) {
+  this.find = function (prefix) {
     let node = this.root
-    let output = []
+    const output = []
 
     for (let i = 0; i < prefix.length; i++) {
       if (node.children[prefix[i]]) {
@@ -66,27 +66,26 @@ const Trie = function() {
       }
     }
 
-    findAllWords (node, output)
+    findAllWords(node, output)
 
     return output
   }
 
-  const findAllWords = function(node, arr) {
+  const findAllWords = function (node, arr) {
     if (node.end) {
       arr.unshift(node.getWord())
     }
 
-    for (let child in node.children) {
+    for (const child in node.children) {
       findAllWords(node.children[child], arr)
     }
   }
 
-  this.remove = function(word) {
-    let node = this.root
-    if(!word) return false
+  this.remove = function (word) {
+    const node = this.root
+    if (!word) return false
 
     const removeWord = function (node, word) {
-
       if (node.end && node.getWord() === word) {
         const hasChildren = Object.keys(node.children).length > 0
 
@@ -99,7 +98,7 @@ const Trie = function() {
         return true
       }
 
-      for (let i in node.children) {
+      for (const i in node.children) {
         removeWord(node.children[i], word)
       }
 
@@ -108,23 +107,20 @@ const Trie = function() {
 
     removeWord(node, word)
   }
-
 }
 
+const trie = new Trie()
 
-const trie = new Trie();
+trie.insert('peter')
+trie.insert('piper')
+trie.insert('picked')
+trie.insert('pickled')
+trie.insert('pepper')
 
-trie.insert("peter");
-trie.insert("piper");
-trie.insert("picked");
-trie.insert("pickled");
-trie.insert("pepper");
+console.log(trie.contains('picked'))
+console.log(trie.contains('pepper'))
+console.log(trie.find('pe'))
 
-console.log(trie.contains("picked")); 
-console.log(trie.contains("pepper")); 
-console.log(trie.find("pe")); 
-
-
-trie.remove("pepper");
+trie.remove('pepper')
 // check find method
-console.log(trie.find("pe")); 
+console.log(trie.find('pe'))

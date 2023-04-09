@@ -1,33 +1,29 @@
 class TreeNode {
-
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null; 
+  constructor (value) {
+    this.value = value
+    this.left = null
+    this.right = null
   }
 };
 
-
 class TreeDiameter {
-
-  constructor() {
-    this.treeDiameter = 0;
+  constructor () {
+    this.treeDiameter = 0
   }
 
-  find_diameter(root) {
-    let findDiameterRecur = (currNode) => {
+  find_diameter (root) {
+    const findDiameterRecur = (currNode) => {
       if (currNode == null) {
         return 0
       }
 
-      let leftHeight = findDiameterRecur(currNode.left)
-      let rightHeight = findDiameterRecur(currNode.right)
+      const leftHeight = findDiameterRecur(currNode.left)
+      const rightHeight = findDiameterRecur(currNode.right)
 
       if (leftHeight > 0 && rightHeight > 0) {
-        let diameter = leftHeight + rightHeight + 1
-       
+        const diameter = leftHeight + rightHeight + 1
+
         this.treeDiameter = Math.max(this.treeDiameter, diameter)
-       
       }
 
       return Math.max(leftHeight, rightHeight) + 1
@@ -37,9 +33,8 @@ class TreeDiameter {
   }
 };
 
-
-var treeDiameter = new TreeDiameter()
-var root = new TreeNode(1)
+const treeDiameter = new TreeDiameter()
+const root = new TreeNode(1)
 root.left = new TreeNode(2)
 root.right = new TreeNode(3)
 root.left.left = new TreeNode(4)

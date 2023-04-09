@@ -25,7 +25,7 @@
  * @param {number} n
  * @return {string[]}
  */
- const generateParenthesis = function (n) {
+const generateParenthesis = function (n) {
   const result = []
   const aux = (current, left, right) => {
     if (left === n && right === n) {

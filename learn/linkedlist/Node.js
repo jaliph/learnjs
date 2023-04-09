@@ -1,7 +1,6 @@
 
-
 module.exports = class Node {
-  constructor(data) {
+  constructor (data) {
     this.data = data
     this.next = null
   }

@@ -30,17 +30,17 @@ class Btree {
 
 let root = null
 const driver = () => {
-  let b1 = new Btree()
+  const b1 = new Btree()
   b1.setData(2)
-  let b2 = new Btree()
+  const b2 = new Btree()
   b2.setData(3)
-  let b3 = new Btree()
+  const b3 = new Btree()
   b3.setData(4)
-  let b4 = new Btree()
+  const b4 = new Btree()
   b4.setData(5)
-  let b5 = new Btree()
+  const b5 = new Btree()
   b5.setData(6)
-  let b6 = new Btree()
+  const b6 = new Btree()
   b6.setData(7)
   b1.setLeft(b2)
   b1.setRight(b3)
@@ -117,15 +117,13 @@ const inOrderNonRecursive = (node) => {
 }
 
 const postOrderNonRecursive = (node) => {
-  return
+
 }
 
 const sizeOfTree = (node) => {
   if (!node) return 0
   else return (sizeOfTree(node.getLeft()) + 1 + sizeOfTree(node.getRight()))
 }
-
-
 
 driver()
 console.log('Size :: ', sizeOfTree(root))

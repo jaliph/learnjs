@@ -11,7 +11,7 @@ const letterCombinations = (digits = '') => {
     6: ['m', 'n', 'o'],
     7: ['p', 'q', 'r', 's'],
     8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
+    9: ['w', 'x', 'y', 'z']
   }
   const result = []
   const aux = (index = 0, current = '') => {
@@ -26,7 +26,6 @@ const letterCombinations = (digits = '') => {
   return result
 }
 
-
 const letterCombinations3 = (digits = '') => {
   const map = {
     2: ['a', 'b', 'c'],
@@ -36,7 +35,7 @@ const letterCombinations3 = (digits = '') => {
     6: ['m', 'n', 'o'],
     7: ['p', 'q', 'r', 's'],
     8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
+    9: ['w', 'x', 'y', 'z']
   }
   if (!digits.length) {
     return []
@@ -66,7 +65,7 @@ const letterCombinations2 = (digits = '') => {
     6: ['m', 'n', 'o'],
     7: ['p', 'q', 'r', 's'],
     8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
+    9: ['w', 'x', 'y', 'z']
   }
   if (!digits.length) {
     return []
@@ -91,22 +90,21 @@ console.log(letterCombinations('2'))
 
 /// Same Problem
 
-var movies = {
-  Family : ["Frozen","Kung fu Panda", "Ice Age" ], 
-  Action: ["Iron Man","Wonder Woman","Avengers"],
-  Fantasy: ["Jumangi", "Lion King", "Tarzan"],
-  Comedy: ["Coco", "The Croods", "Vivi","Pets"],
-  Horror: ["Oculus", "Sinister","Insidious","Annebelle"]
-};
+const movies = {
+  Family: ['Frozen', 'Kung fu Panda', 'Ice Age'],
+  Action: ['Iron Man', 'Wonder Woman', 'Avengers'],
+  Fantasy: ['Jumangi', 'Lion King', 'Tarzan'],
+  Comedy: ['Coco', 'The Croods', 'Vivi', 'Pets'],
+  Horror: ['Oculus', 'Sinister', 'Insidious', 'Annebelle']
+}
 
-function letterCombinations1(genres) {
-
+function letterCombinations1 (genres) {
   let subsets = ['']
 
   let i = 0
   while (i < genres.length) {
-    let movieList = movies[genres[i]]
-    let temp = []
+    const movieList = movies[genres[i]]
+    const temp = []
     for (let i = 0; i < subsets.length; i++) {
       for (let j = 0; j < movieList.length; j++) {
         temp.push(subsets[i] + movieList[j] + ';')
@@ -118,7 +116,7 @@ function letterCombinations1(genres) {
   return subsets
 }
 
-const genres = ["Family","Action"]
+const genres = ['Family', 'Action']
 combinations = letterCombinations1(genres)
-output = "\""+String(combinations.join('","')) + "\""
+output = '"' + String(combinations.join('","')) + '"'
 console.log(output)

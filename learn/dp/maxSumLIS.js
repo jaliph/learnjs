@@ -2,7 +2,6 @@
 const msisLength = (nums) => {
   const dp = Array(nums.length + 1).fill().map(() => Array(nums.length + 2).fill(0))
 
-
   for (let i = nums.length - 1; i > -1; i--) {
     for (let j = i - 1; j > -2; j++) {
       let sum = dp[i + 1][j + 1]
@@ -15,19 +14,18 @@ const msisLength = (nums) => {
   return dp[0][0]
 }
 
-
 // Driver code
-var main = function() {
-  var lists = [
-      [4, 1, 2, 6, 10, 1, 12],
-      [-4, 10, 3, 7, 15],
-      [4, 2, 3, 6, 10, 1, 12],
-      [3, 2, 6, 4, 5, 1],
-      [3, 2],
-      [1, 2, 3, 4, 5, 6, 7],
-      [1, 101, 2, 3, 100, 4, 5],
-      [1, 5, 2, 3, 9, 5]
-  ];
+const main = function () {
+  const lists = [
+    [4, 1, 2, 6, 10, 1, 12],
+    [-4, 10, 3, 7, 15],
+    [4, 2, 3, 6, 10, 1, 12],
+    [3, 2, 6, 4, 5, 1],
+    [3, 2],
+    [1, 2, 3, 4, 5, 6, 7],
+    [1, 101, 2, 3, 100, 4, 5],
+    [1, 5, 2, 3, 9, 5]
+  ]
 
   // You can uncomment the line below and check how this recursive solution causes a time-out
 
@@ -38,12 +36,11 @@ var main = function() {
   // 85, 70, 30, 95, 89, 3, 9, 77, 67, 0, 97, 45, 97, 0, 32, 85, 70, 30, 95, 89, 3, 9, 77, 70, 30,
   // 95, 89, 3, 9, 77, 67, 0, 97, 45, 97, 0, 32, 85, 9, 77, 66, 30, 77, 49, 97, 80, 32, 85, 9, 77, 66, 30, 77, 49, 97, 80, 32, 85]);
 
-
-  for (var i = 0; i < lists.length; i++) {
-      console.log((i + 1) + ". Input array: [" + lists[i].join(", ") + "]");
-      console.log("Maximum sum of increasing subsequence is: " + msisLength(lists[i]));
-      console.log("-".repeat(100));
+  for (let i = 0; i < lists.length; i++) {
+    console.log((i + 1) + '. Input array: [' + lists[i].join(', ') + ']')
+    console.log('Maximum sum of increasing subsequence is: ' + msisLength(lists[i]))
+    console.log('-'.repeat(100))
   }
 }
 
-main();
+main()

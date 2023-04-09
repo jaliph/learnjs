@@ -1,17 +1,17 @@
 
-let canSegmentString = function(inputString, dictionary, memoise) {
+const canSegmentString = function (inputString, dictionary, memoise) {
   for (let i = 0; i < inputString.length; i++) {
-    let first = inputString.substr(0, i)
-    
+    const first = inputString.substr(0, i)
+
     if (dictionary.indexOf(first) >= 0) {
-      let second = inputString.substr(i)
-      if (second === ''){
+      const second = inputString.substr(i)
+      if (second === '') {
         return true
       }
       if (memoise.indexOf(second) >= 0) {
         return true
-      } 
-      if (dictionary.indexOf(second)>= 0) {
+      }
+      if (dictionary.indexOf(second) >= 0) {
         memoise.push(second)
         return true
       }
@@ -21,16 +21,10 @@ let canSegmentString = function(inputString, dictionary, memoise) {
       }
     }
   }
-  return false;
-};
+  return false
+}
 
-
-
-
-let s = "hellonow";
-let dictionary = ["hello", "hell", "on", "now"]
-
-
+const s = 'hellonow'
+const dictionary = ['hello', 'hell', 'on', 'now']
 
 console.log(canSegmentString(s, dictionary, []))
-

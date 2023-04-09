@@ -1,20 +1,20 @@
 const LinkedList = require('../linkedlist/Linkedlist')
 const Node = require('../linkedlist/Node')
 
-let merge2LinkedList = function(head1, head2) {
-  let mergeReCur = (head1, head2, merged) => {
+const merge2LinkedList = function (head1, head2) {
+  const mergeReCur = (head1, head2, merged) => {
     console.dir(head1)
     console.dir(head2)
     if (head1 == null) {
       merged.next = head2
       return merged
     }
-  
+
     if (head2 == null) {
       merged.next = head1
       return merged
     }
-  
+
     if (head1.data < head2.data) {
       merged.next = {
         data: head1.data,
@@ -28,13 +28,13 @@ let merge2LinkedList = function(head1, head2) {
     }
     return mergeReCur(head1, head2.next, merged.next)
   }
-  let m = { data: null, next: null }
+  const m = { data: null, next: null }
   mergeReCur(head1, head2, m)
   return m.next
 }
 
 const mergeLists = (head1, head2) => {
-  let m = new LinkedList()
+  const m = new LinkedList()
   while (head1 && head2) {
     if (head1.data < head2.data) {
       m.insertAtTail(head1.data)
@@ -45,31 +45,31 @@ const mergeLists = (head1, head2) => {
     }
   }
 
-  while(head1 != null ) {
+  while (head1 != null) {
     m.insertAtTail(head1.data)
     head1 = head1.next
   }
-  while(head2 != null ) {
+  while (head2 != null) {
     m.insertAtTail(head2.data)
     head2 = head2.next
   }
   return m
 }
 
-let list1 = new LinkedList()
+const list1 = new LinkedList()
 
 list1.insertAtTail(2)
 list1.insertAtTail(3)
 list1.insertAtTail(4)
 
-let list2 = new LinkedList()
+const list2 = new LinkedList()
 list2.insertAtTail(1)
 list2.insertAtTail(5)
 list2.insertAtTail(10)
 
 // let list3 = merge2LinkedList(list1.getHead(), list2.getHead())
 // console.dir(list3)
-let list3 = mergeLists(list1.getHead(), list2.getHead())
+const list3 = mergeLists(list1.getHead(), list2.getHead())
 console.dir(list3)
 console.log(list3.toString())
 
@@ -84,12 +84,10 @@ const print = (head) => {
 console.log('----')
 print(list3)
 
-
-
 // k linked
 
 // insert head of k linked into min heap
 // while heap.length > 0
-  // pop from heap
-  // insert the popped data in end of the linkedlist
-  //  if (pop has a next) inset the next in the heap
+// pop from heap
+// insert the popped data in end of the linkedlist
+//  if (pop has a next) inset the next in the heap

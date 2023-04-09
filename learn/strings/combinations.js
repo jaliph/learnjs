@@ -1,63 +1,59 @@
-function printCombinations(s) {
-  let num = 1 << s.length
+function printCombinations (s) {
+  const num = 1 << s.length
   // console.log(num)
   for (let i = 1; i < num; i++) {
-    let value = i;
-    let j, pos;
-    let result = [];
+    const value = i
+    let j, pos
+    const result = []
     for (j = 1, pos = 1; j < num; j <<= 1, pos++) {
       if (i & j) {
-        result.push(s[[pos - 1]]);
+        result.push(s[[pos - 1]])
       }
     }
-    console.log(result.join(""));
+    console.log(result.join(''))
   }
 }
 
-printCombinations("abc");
+printCombinations('abc')
 
-
-const find_subsets = function(nums) {
-  subsets = [];
-  let len = 1 << nums.length
+const find_subsets = function (nums) {
+  subsets = []
+  const len = 1 << nums.length
   for (let i = 0; i < len; i++) {
     let j, pos
-    let temp = []
-    for (j = 1, pos = 1; j < len ; j = j << 1, pos++ ) {
+    const temp = []
+    for (j = 1, pos = 1; j < len; j = j << 1, pos++) {
       if (i & j) {
-        temp.push(nums[pos-1])
+        temp.push(nums[pos - 1])
       }
     }
     subsets.push(temp)
   }
-  return subsets;
-};
-
+  return subsets
+}
 
 console.log(`Here is the list of subsets: ${find_subsets([1, 3])}`)
 
 // Wrong SOlution
-const find_subsets2 = function(nums) {
-  subsets = [];
+const find_subsets2 = function (nums) {
+  subsets = []
   subsets.push([])
   for (let i = 0; i < nums.length; i++) {
-    let currentNumber = nums[i]
-    let len = subsets.length
+    const currentNumber = nums[i]
+    const len = subsets.length
     for (let j = 0; j < len; j++) {
-      let clone = subsets[j].slice(0)
+      const clone = subsets[j].slice(0)
       clone.push(currentNumber)
       subsets.push(clone)
     }
   }
-  return subsets;
-};
+  return subsets
+}
 
-console.log(`Here is the list of subsets2:`)
+console.log('Here is the list of subsets2:')
 console.dir(find_subsets2([1, 3, 4]))
 
-
 // console.dir(find_subsets2(['a', 'b', 'c']))
-
 
 // const combinations = (N) => {
 //   let set = [[]]
@@ -78,7 +74,6 @@ console.dir(find_subsets2([1, 3, 4]))
 // }
 
 // console.log(combinations(20))
-
 
 // const combinations2 = (arr, k) => {
 //   let results = []

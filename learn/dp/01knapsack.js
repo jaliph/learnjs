@@ -24,7 +24,7 @@ const maxV2 = (vals, wts, i, C) => {
     iSelected = vals[i] + maxV2(vals, wts, i + 1, C - wts[i])
   }
 
-  let iNotSelected = maxV2(vals, wts, i + 1, C)
+  const iNotSelected = maxV2(vals, wts, i + 1, C)
   return Math.max(iSelected, iNotSelected)
 }
 
@@ -48,7 +48,7 @@ const maxVPureDP = (vals, wts, C) => {
 }
 
 const maxVPureDP2 = (profits, weights, C) => {
-  let table = Array(profits.length).fill(0).map(() => Array(C + 1).fill(0))
+  const table = Array(profits.length).fill(0).map(() => Array(C + 1).fill(0))
 
   for (let i = 0; i < profits.length; i++) {
     table[i][0] = 0
@@ -60,7 +60,7 @@ const maxVPureDP2 = (profits, weights, C) => {
 
   for (let i = 1; i < weights.length; i++) {
     for (let c = 1; c <= C; c++) {
-      let p1 = 0, p2 = 0
+      let p1 = 0; let p2 = 0
       if (weights[i] <= c) {
         p1 = profits[i] + table[i - 1][c - weights[i]]
       }
@@ -74,7 +74,7 @@ const maxVPureDP2 = (profits, weights, C) => {
 
   let totalCapacity = C
   let totalProfit = table[profits.length - 1][C]
-  let items = []
+  const items = []
   for (let i = profits.length - 1; i > 0; i--) {
     if (totalProfit != table[i - 1][totalCapacity]) {
       items.push(weights[i])
@@ -90,12 +90,11 @@ const maxVPureDP2 = (profits, weights, C) => {
 console.dir(maxV([150, 200, 300], [1, 4, 3], 3, 4))
 console.dir(maxV2([150, 200, 300], [1, 4, 3], 0, 4))
 console.dir(maxVPureDP([150, 200, 300], [1, 4, 3], 4))
-var profits = [1, 6, 10, 16];
-var weights = [1, 2, 3, 5];
-console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 7)}`);
-console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 6)}`);
-console.log(`Total knapsack profit: ---> ${maxVPureDP2(profits, weights, 7)}`);
-
+const profits = [1, 6, 10, 16]
+const weights = [1, 2, 3, 5]
+console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 7)}`)
+console.log(`Total knapsack profit: ---> ${maxV2(profits, weights, 0, 6)}`)
+console.log(`Total knapsack profit: ---> ${maxVPureDP2(profits, weights, 7)}`)
 
 const knapSack = (profits, weights, Cap) => {
   const knapSackRecur = (profits, weights, Cap, i) => {
@@ -106,21 +105,16 @@ const knapSack = (profits, weights, Cap) => {
       return knapSackRecur(profits, weights, Cap, i + 1)
     }
 
-    let p1_iIsSelected = profits[i] + knapSackRecur(profits, weights, Cap - weights[i], i + 1)
-    let p2_iIsNotSelected = knapSackRecur(profits, weights, Cap, i + 1)
+    const p1_iIsSelected = profits[i] + knapSackRecur(profits, weights, Cap - weights[i], i + 1)
+    const p2_iIsNotSelected = knapSackRecur(profits, weights, Cap, i + 1)
     return Math.max(p1_iIsSelected, p2_iIsNotSelected)
   }
   return knapSackRecur(profits, weights, Cap, 0)
 }
 
-
-console.log(`Total knapsack profit with Avi: ---> ${knapSack(profits, weights, 7)}`);
-
-
-
+console.log(`Total knapsack profit with Avi: ---> ${knapSack(profits, weights, 7)}`)
 
 // Revision March 2023
-
 
 const _01KnapSackR = (profits, weights, Capacity) => {
   const _01KnapSackRecursion = (p, w, i, C) => {
@@ -129,8 +123,8 @@ const _01KnapSackR = (profits, weights, Capacity) => {
 
     if (w[i] > C) return _01KnapSackRecursion(p, w, i + 1, C)
 
-    let iIsSelected = p[i] + _01KnapSackRecursion(p, w, i + 1, C - w[i])
-    let iIsNotSelected = _01KnapSackRecursion(p, w, i + 1, C)
+    const iIsSelected = p[i] + _01KnapSackRecursion(p, w, i + 1, C - w[i])
+    const iIsNotSelected = _01KnapSackRecursion(p, w, i + 1, C)
     return Math.max(iIsSelected, iIsNotSelected)
   }
 
@@ -150,7 +144,7 @@ const _01knapsack = (profits, weights, Capacity) => {
 
   for (let p = 1; p < profits.length; p++) {
     for (let c = 1; c <= Capacity; c++) {
-      let p1 = 0, p2 = 0
+      let p1 = 0; let p2 = 0
       if (weights[p] <= c) {
         p1 = profits[p] + t[p - 1][c - weights[p]]
       }
@@ -161,7 +155,7 @@ const _01knapsack = (profits, weights, Capacity) => {
 
   let totalCapacity = Capacity
   let totalProfit = t[profits.length - 1][Capacity]
-  let items = []
+  const items = []
   for (let i = profits.length; i > 0; i--) {
     if (totalProfit !== t[i - 1][totalCapacity]) {
       items.push(weights[i])
@@ -176,15 +170,10 @@ const _01knapsack = (profits, weights, Capacity) => {
 // console.log('Revise ' + _01knapsack(profits, weights, 7))
 // console.log('Revise ' + _01KnapSackR(profits, weights, 7))
 
-
-
-
-
-/// REvise 2 
+/// REvise 2
 
 const _01knapsack_Revise = (weights, profits, Capacity) => {
   const t = Array(profits.length).fill(0).map(() => Array(Capacity + 1).fill(0))
-
 
   // for (let i = 0; i < profits.length; i++) {
   //   t[i][0] = 0
@@ -204,23 +193,22 @@ const _01knapsack_Revise = (weights, profits, Capacity) => {
     }
   }
 
-
   Print2D(t)
 
   let totalCapacity = Capacity
   let totalProfit = t[profits.length - 1][Capacity]
-  let items = []
+  const items = []
   let i = profits.length
   while (i > 0) {
     if (totalProfit !== t[i - 1][totalCapacity]) {
       // This item is included.
       // console.log(profits[i])
-      items.push(weights[i]);
+      items.push(weights[i])
 
       // Since this weight is included its
       // value is deducted
-      totalProfit = totalProfit - profits[i];
-      totalCapacity = totalCapacity - weights[i];
+      totalProfit = totalProfit - profits[i]
+      totalCapacity = totalCapacity - weights[i]
     }
     i--
   }
@@ -234,7 +222,4 @@ const _01knapsack_Revise = (weights, profits, Capacity) => {
 const Print2D = (arr) => arr.forEach(v => console.log(...v))
 
 // console.log('Revise R ' + _01knapsack_Revise(profits, weights, 7))
-console.log('Revise R1 ' + _01knapsack_Revise([3, 6, 10, 7, 2] , [12, 10, 15, 17, 13] , 10))
-
-
-
+console.log('Revise R1 ' + _01knapsack_Revise([3, 6, 10, 7, 2], [12, 10, 15, 17, 13], 10))

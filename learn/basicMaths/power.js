@@ -17,7 +17,7 @@ const power2 = (x, n) => {
   if (n === 0) {
     return 1
   }
-  let temp = power(x, Math.floor(n / 2))
+  const temp = power(x, Math.floor(n / 2))
   if (n % 2 === 0) {
     return temp * temp
   } else {
@@ -27,7 +27,6 @@ const power2 = (x, n) => {
       return Math.floor((temp * temp) / x)
     }
   }
-
 }
 
 console.log(power2(2, -3))

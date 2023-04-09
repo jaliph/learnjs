@@ -1,5 +1,4 @@
 
+const solution = function () {
 
-const solution = function() {
-  
 }

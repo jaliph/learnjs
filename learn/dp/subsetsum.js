@@ -18,7 +18,7 @@ const pureDP = (arr, sum) => {
   const len = arr.length
 
   // let table = Array(len + 1).fill(Array(sum+1).fill(0));
-  let table = Array.from(Array(len + 1), () => new Array(sum + 1))
+  const table = Array.from(Array(len + 1), () => new Array(sum + 1))
 
   // for sum 0 possible true
   for (let i = 0; i <= len; i++) {

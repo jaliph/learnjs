@@ -1,20 +1,18 @@
 class TreeNode {
-
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null; 
+  constructor (value) {
+    this.value = value
+    this.left = null
+    this.right = null
   }
 };
 
-const find_path = function(root, sequence) {
-  
+const find_path = function (root, sequence) {
   const find_path_recur = (curr, sequence, i) => {
-    if (curr == null ) {
+    if (curr == null) {
       return false
-    } 
+    }
 
-    if (curr.value == sequence[i] && i == sequence.length - 1 && curr.left == null && curr.right == null ) {
+    if (curr.value == sequence[i] && i == sequence.length - 1 && curr.left == null && curr.right == null) {
       return true
     } else if (curr.value == sequence[i]) {
       return find_path_recur(curr.left, sequence, i + 1) || find_path_recur(curr.right, sequence, i + 1)
@@ -23,11 +21,9 @@ const find_path = function(root, sequence) {
     return false
   }
   return find_path_recur(root, sequence, 0)
-};
+}
 
-
-
-var root = new TreeNode(1)
+const root = new TreeNode(1)
 root.left = new TreeNode(0)
 root.right = new TreeNode(1)
 root.left.left = new TreeNode(1)
