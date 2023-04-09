@@ -50,6 +50,8 @@ const wordBreakMemoise = (s, dict) => {
 const wordBreak = (str, dict) => {
 
   const dp = Array(str.length + 1).fill(0).map(() => [])
+  // const dp = Array(str.length + 1).fill([])
+  // console.log(dp)
 
   dp[0] = [""]
   for (let i = 1; i <= str.length; i++) {

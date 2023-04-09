@@ -12,5 +12,20 @@ Also, "00110011" is not a valid substring because all the 0's (and 1's) are not 
  * @return {number}
  */
 var countBinarySubstrings = function(s) {
-    
+  let ans = 0, prev = 0, curr = 1
+
+  for (let i = 1; i < s.length; i++) {
+      if (s[i - 1] !== s[i]) {
+          console.log(prev, curr, i - 1, i)
+          ans += Math.min(prev, curr)
+          prev = curr
+          curr = 1
+      } else {
+          curr++
+      }
+  }
+  return ans + Math.min(prev, curr) // fill in for the last section
 };
+
+console.log(countBinarySubstrings('00110011'))
+

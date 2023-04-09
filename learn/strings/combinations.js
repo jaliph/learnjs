@@ -37,20 +37,23 @@ const find_subsets = function(nums) {
 console.log(`Here is the list of subsets: ${find_subsets([1, 3])}`)
 
 // Wrong SOlution
-// const find_subsets2 = function(nums) {
-//   subsets = [];
-//   subsets.push([])
-//   for (let i = 0; i < nums.length; i++) {
-//     let currentNumber = nums[i]
-//     let len = subsets.length
-//     for (let j = 0; j < len; j++) {
-//       let clone = subsets[i].slice(0)
-//       clone.push(currentNumber)
-//       subsets.push(clone)
-//     }
-//   }
-//   return subsets;
-// };
+const find_subsets2 = function(nums) {
+  subsets = [];
+  subsets.push([])
+  for (let i = 0; i < nums.length; i++) {
+    let currentNumber = nums[i]
+    let len = subsets.length
+    for (let j = 0; j < len; j++) {
+      let clone = subsets[j].slice(0)
+      clone.push(currentNumber)
+      subsets.push(clone)
+    }
+  }
+  return subsets;
+};
+
+console.log(`Here is the list of subsets2:`)
+console.dir(find_subsets2([1, 3, 4]))
 
 
 // console.dir(find_subsets2(['a', 'b', 'c']))
@@ -77,25 +80,25 @@ console.log(`Here is the list of subsets: ${find_subsets([1, 3])}`)
 // console.log(combinations(20))
 
 
-const combinations2 = (arr, k) => {
-  let results = []
-  const combinationsRecur = (array, index, result) => {
-    if (result.length == k) {
-      results.push(result)
-      return
-    }
-    if (index >= array.length) {
-      return
-    }
+// const combinations2 = (arr, k) => {
+//   let results = []
+//   const combinationsRecur = (array, index, result) => {
+//     if (result.length == k) {
+//       results.push(result)
+//       return
+//     }
+//     if (index >= array.length) {
+//       return
+//     }
 
-    combinationsRecur(array, index + 1, result) // if i is not selected
-    combinationsRecur(array, index + 1, [...result, array[index]]) // if i is selected
-    }
-  combinationsRecur(arr, 0, [])
-  return results
-}
+//     combinationsRecur(array, index + 1, result) // if i is not selected
+//     combinationsRecur(array, index + 1, [...result, array[index]]) // if i is selected
+//     }
+//   combinationsRecur(arr, 0, [])
+//   return results
+// }
 
-console.log(combinations2([1, 2, 3, 4], 2))
+// console.log(combinations2([1, 2, 3, 4], 2))
 
 // const combine = function (arr, k) {
 //   const result = []
