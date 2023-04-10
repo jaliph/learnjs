@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "collections": "^5.1.13"
   }
 }

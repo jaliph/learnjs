@@ -1,9 +1,17 @@
+// if x.compareTo(y) == 1, then x > y , since y is smaller than x, you would have to move y in front of x.
+
+// 2.compareTo(5) == 1 , Then don't move 5 in front of 2.
+
+// if y.compareTo(x) == 1, then y > x , since y is greater than x, you would have to move y in front of x.
+
+// 5.compareTo(2) == -1 , Move 5 in front of 2.
+
 class maxHeap {
-  constructor (size, comparator) {
-    this.heap = []
+  constructor (array, size, comparator) {
+    this.heap = array || []
     this.elements = size || 0
     this.comparator = comparator || function (a, b) {
-      return a - b``
+      return b - a
     }
   }
 
@@ -35,8 +43,8 @@ class maxHeap {
   __percolateUp (index) {
     const parent = Math.floor((index - 1) / 2)
     if (index <= 0) {
-
-    } else if (this.heap[parent] < this.heap[index]) {
+      return
+    } else if (this.comparator(this.heap[parent], this.heap[index]) > 0) {
       [this.heap[parent], this.heap[index]] = [this.heap[index], this.heap[parent]]
       this.__percolateUp(parent)
     }
@@ -47,11 +55,11 @@ class maxHeap {
     const rightChild = (index * 2) + 2
     let largest = index
 
-    if (leftChild < this.heap.length && this.heap[largest] < this.heap[leftChild]) {
+    if (leftChild < this.heap.length && this.comparator(this.heap[largest], this.heap[leftChild]) > 0) {
       largest = leftChild
     }
 
-    if (rightChild < this.heap.length && this.heap[largest] < this.heap[rightChild]) {
+    if (rightChild < this.heap.length && this.comparator(this.heap[largest], this.heap[rightChild]) > 0) {
       largest = rightChild
     }
 
@@ -62,12 +70,14 @@ class maxHeap {
   }
 }
 
-// var heap = new maxHeap()
-// heap.insert(12)
-// heap.insert(10)
-// heap.insert(-10)
-// heap.insert(100)
+var heap = new maxHeap([] , null, (a, b) => b - a)
+heap.insert(12)
+heap.insert(10)
+heap.insert(11)
+heap.insert(100)
 
-// console.log(heap.peek())
+console.log(heap.removeMax())
+console.log(heap.removeMax())
+console.log(heap.removeMax())
 
 module.exports = maxHeap
