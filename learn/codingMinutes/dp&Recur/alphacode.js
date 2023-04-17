@@ -16,11 +16,11 @@ const alphacode = (str) => {
     }
 
     if (i + 1 < str.length && str[i] == '1') {
-      ans += alphacodeRecur(str, i + 2, [...set, String.fromCharCode(Number(str[i] + ''+ str[i + 1]) + 64)])
+      ans += alphacodeRecur(str, i + 2, [...set, String.fromCharCode(Number(str[i] + '' + str[i + 1]) + 64)])
     }
 
     if (i + 1 < str.length && (str[i] == '2' && str[i + 1] <= '6')) {
-      ans += alphacodeRecur(str, i + 2, [...set, String.fromCharCode(Number(str[i] + ''+ str[i + 1]) + 64)])
+      ans += alphacodeRecur(str, i + 2, [...set, String.fromCharCode(Number(str[i] + '' + str[i + 1]) + 64)])
     }
 
     return ans

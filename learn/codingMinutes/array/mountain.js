@@ -12,6 +12,7 @@ const longestMountain = function (arr) {
   let result = 0
   let i = 1
   while (i < arr.length - 1) {
+    // i s a contender for a peak
     if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) {
       let cnt = 1
       let j = i

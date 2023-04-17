@@ -193,6 +193,18 @@ const _01knapsack_Revise = (weights, profits, Capacity) => {
     }
   }
 
+  const dp2 = Array(Capacity + 1).fill(0)
+
+  for (let i = 0; i < profits.length; i++) {
+    for (let j = Capacity; j >= 0; j--) {
+      if (j >= weights[i]) {
+        dp2[j] = Math.max(dp2[j], profits[i] + dp2[j - weights[i]])
+      }
+    }
+  }
+
+  console.log('1D ------> sol', dp2[Capacity])
+
   Print2D(t)
 
   let totalCapacity = Capacity
