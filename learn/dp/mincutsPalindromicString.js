@@ -104,7 +104,7 @@ const minCuts = (s) => {
     // a palindrome and perform the minimum number of cuts on it to update
     // dp[i]
     else {
-      for (let j = n - 2; j > i - 1; j--) {
+      for (let j = n - 2; j >= i; j--) {
         if (palindromeTable[i][j] == 1) dp[i] = Math.min(dp[i], 1 + dp[j + 1])
       }
     }
