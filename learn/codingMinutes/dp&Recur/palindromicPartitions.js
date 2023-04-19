@@ -20,7 +20,6 @@ const palindromicPartitions = (s) => {
     // recur
     let ans = Infinity
     for (let j = i; j < str.length; j++) {
-      console.log(str.slice(i, j + 1))
       if (checkPalindrome(str, i, j)) {
         ans = Math.min(ans, pPartitionsRecur(str, j + 1)) 
       }
@@ -35,6 +34,7 @@ const palindromicPartitions = (s) => {
 
 const main = () => {
   console.log('Palindromic Partitons for the string is ', palindromicPartitions('radar'))
+  console.log('Palindromic Partitons for the string is ', palindromicPartitions('aab'))
 }
 
 main()
