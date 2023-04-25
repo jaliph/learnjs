@@ -25,13 +25,15 @@ const orderedSetDP = (num) => {
     sum += dp[i]
   }
 
-  console.dir(dp)
+  // console.dir(dp)
   return dp[num]
 }
 
 const main = () => {
-  console.log('number of ways to order n nums is:', orderedSet(3))
-  console.log('number of ways to order n nums is:', orderedSetDP(3))
+  // console.log('number of ways to order n nums is:', orderedSet(3))
+  for (let i = 1; i <= 10; i++) {
+    console.log(`number of ways to order ${i} nums is:`, orderedSetDP(i))
+  }
 }
 
 main()
