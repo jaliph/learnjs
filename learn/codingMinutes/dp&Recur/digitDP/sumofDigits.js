@@ -27,7 +27,7 @@ const main = () => {
   console.log('Sum of digits between the ranges are ', sumofDigits(higherRange) - sumofDigits(lowerRange - 1))
 
   lowerRange = 100
-  higherRange = 117
+  higherRange = 777
 
   console.log('Sum of digits between the ranges are ', sumofDigits(higherRange) - sumofDigits(lowerRange - 1))
 }
