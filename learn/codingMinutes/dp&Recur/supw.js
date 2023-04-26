@@ -21,7 +21,7 @@ const minSUPW = (arr) => {
   for (let i = 3; i < arr.length; i++) {
     dp[i] = arr[i] + Math.min(dp[i - 1], dp[i - 2], dp[i - 3])
   }
-  console.log(dp)
+  // console.log(dp)
   return Math.min(dp[arr.length - 1], dp[arr.length - 2], dp[arr.length - 3])
 }
 
