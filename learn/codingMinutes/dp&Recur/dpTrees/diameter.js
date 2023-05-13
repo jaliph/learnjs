@@ -15,7 +15,6 @@ class Tree {
 }
 
 const DFS = (curr, parent, tree, fx, gx) => {
-
   // need 2 maxes
   let max_1 = 0, max_2 = 0
 
