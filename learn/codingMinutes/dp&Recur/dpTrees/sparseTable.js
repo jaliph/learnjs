@@ -25,9 +25,8 @@ const sparseMatrix = (t) => {
   const mat = Array(t.size() + 1).fill(0).map(() => Array(M + 1).fill(0))
   // Print2D(mat)
   const DFS = (curr, par) => {
-
-    console.log(curr, ' has parent ', par)
-    console.log(mat[curr])
+    // console.log(curr, ' has parent ', par)
+    // console.log(mat[curr])
     mat[curr][0] = par
     for (let j = 1; j <= M; j++) {
       mat[curr][j] = mat[mat[curr][j - 1]][j - 1]

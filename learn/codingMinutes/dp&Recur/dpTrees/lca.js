@@ -29,6 +29,7 @@ const LCA = (t, u, v) => {
     depth[curr] = depth[par] + 1
     mat[curr][0] = par
     for (let j = 1; j <= M; j++) {
+      // parent's parent
       mat[curr][j] = mat[mat[curr][j - 1]][j - 1]
     }
 

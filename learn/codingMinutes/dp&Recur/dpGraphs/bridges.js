@@ -42,10 +42,12 @@ const findBackedge = (g) => {
         DFS(child, curr)
         lowestTime[curr] = Math.min(lowestTime[curr], lowestTime[child])
 
+        // bridges
         if (lowestTime[child] > discoveryTime[curr]) {
           bridges.push(curr + ' -- ' + child)
         }
 
+        // articulation Points
         if (par != 0 && lowestTime[child] >= discoveryTime[curr]) {
           articulationPoints.add(curr)
         }

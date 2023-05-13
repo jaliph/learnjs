@@ -20,18 +20,17 @@ class Graph {
 
 
 const findHamiltonianPaths = (g) => {
-  const DP = (curr, set) => {
+  const DP = (curr, mask) => {
     // base
-    if (set.size == g.size()) {
+    if (mask == (1 << g.size()) - 1) {
       return true
     }
 
     let ans = false
     // recur
     for (let child of g.vertices[curr]) {
-      if (!set.has(child)) {
-        set.add(child)
-        let result = DP(child, set)
+      if (!((mask>>child) & 1)) {
+        let result = dp(child, (1 << child) | mask)
         ans = ans | result
       }
     }
@@ -39,12 +38,9 @@ const findHamiltonianPaths = (g) => {
     return ans
   }
 
-
   let ans = false
   for (let i = 1; i < g.size(); i++) {
-    let set = new Set()
-    set.add(i)
-    let result = DP(i, set)
+    let result = DP(i, (i<<1))
     ans = ans | result
   }
 
