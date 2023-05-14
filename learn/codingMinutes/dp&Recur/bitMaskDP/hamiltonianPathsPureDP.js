@@ -47,7 +47,7 @@ const findHamiltonianPathsDP = (g) => {
   for (let i = 0; i < N; i++) {
     ans |= dp[i][(1<<N) - 1]
   }
-  
+
   return ans == 1
 }
 
