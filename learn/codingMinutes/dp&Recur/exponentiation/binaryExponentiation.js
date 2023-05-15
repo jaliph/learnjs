@@ -3,6 +3,7 @@ const power = (i, n) => {
   let res = 1
 
   while (n) {
+    // odd res
     if (n&1 == 1) {
       res = res * i
     }
