@@ -9,7 +9,6 @@ const position = (n) => {
   dp[2] = 1
   dp[3] = 1
 
-
   for (let i = 4; i <= n; i++) {
     dp[i] = !(dp[i - 1] & dp[i - 2] & dp[i - 3])
   }
