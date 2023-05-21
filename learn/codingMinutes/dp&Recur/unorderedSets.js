@@ -42,8 +42,8 @@ const unorderedSetDP = (n) => {
 
 const main = () => {
   for (let i = 1; i <= 10; i++) {
-    console.log(`The number of unordered ways to count ${i} is `, unOrderedSet(1, i))
-    console.log(`The number of unordered ways to count ${i} is `, unorderedSet2(1, i))
+    // console.log(`The number of unordered ways to count ${i} is `, unOrderedSet(1, i))
+    // console.log(`The number of unordered ways to count ${i} is `, unorderedSet2(1, i))
     console.log(`The number of unordered ways to count ${i} is `, unorderedSetDP(i))
   }
 }

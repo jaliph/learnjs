@@ -32,7 +32,7 @@ const orderedSetDP = (num) => {
 const main = () => {
   // console.log('number of ways to order n nums is:', orderedSet(3))
   for (let i = 1; i <= 10; i++) {
-    console.log(`number of ways to order ${i} nums is:`, orderedSetDP(i))
+    console.log(`number of ways to order ${i} nums is:`, orderedSet(i))
   }
 }
 

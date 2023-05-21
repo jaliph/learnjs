@@ -118,6 +118,7 @@ console.log(`Total knapsack profit with Avi: ---> ${knapSack(profits, weights, 7
 
 const _01KnapSackR = (profits, weights, Capacity) => {
   const _01KnapSackRecursion = (p, w, i, C) => {
+    // base
     if (i >= profits.length) return 0
     if (C <= 0) return 0
 
@@ -183,8 +184,8 @@ const _01knapsack_Revise = (weights, profits, Capacity) => {
     t[0][j] = weights[0] <= j ? profits[0] : 0
   }
 
-  for (let i = 1; i < profits.length; i++) {
-    for (let c = 1; c <= Capacity; c++) {
+  for (let i = 1; i < profits.length; i++) { // products
+    for (let c = 1; c <= Capacity; c++) {  //capacity
       if (weights[i] > c) {
         t[i][c] = t[i - 1][c]
       } else {
