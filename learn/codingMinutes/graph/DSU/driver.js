@@ -1,6 +1,3 @@
-
-
-
 class DSU  {
   constructor(num) {
     this.parents = []

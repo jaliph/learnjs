@@ -28,8 +28,8 @@ const rob = function(nums) {
     r2l[j] = Math.max(nums[j] + r2l[j + 2], r2l[j + 1])
   }
 
-  console.log(l2r)
-  console.log(r2l)
+  // console.log(l2r)
+  // console.log(r2l)
   return Math.max(l2r[nums.length - 2], r2l[1])
 };
 
