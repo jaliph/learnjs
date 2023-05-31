@@ -1,5 +1,4 @@
 
-
 class Graph{
   constructor(isDirected) {
     this.vertices = {}

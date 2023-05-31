@@ -22,7 +22,6 @@ var isBipartite = function(graph) {
   let ans = true
   for (let i in graph) {
     if (!visited.has(Number(i))) {
-      console.log(";checking", i)
       ans &= isBipartiteChecker(i, -1, 1)
     }
   }
