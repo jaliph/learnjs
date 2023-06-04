@@ -82,7 +82,7 @@ const dijkstras = (n, edges, source) => {
 const main = () => {
   let edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
 
-  console.log('Minimum spanning tree using prims is ', dijkstras(5, edges, 0))
+  console.log('Distance via dikjstra is ', dijkstras(5, edges, 0))
 }
 
 main()
