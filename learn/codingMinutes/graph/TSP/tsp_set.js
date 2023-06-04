@@ -5,7 +5,7 @@
 const tsp = (n, edges) => {
   let adjacency = Array(n).fill(0).map(() => Array(n).fill(0))
 
-  console.log(edges)
+  // console.log(edges)
   for (let e of edges) {
     adjacency[e[0]][e[1]] = e[2]
     adjacency[e[1]][e[0]] = e[2]
