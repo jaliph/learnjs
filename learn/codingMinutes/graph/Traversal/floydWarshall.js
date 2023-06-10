@@ -1,18 +1,17 @@
 const floydWarshall = (v, edges) => {
-
-  let dist = Array(v).fill(0).map(() => Array(v).fill(Infinity))
+  const dist = Array(v).fill(0).map(() => Array(v).fill(Infinity))
   for (let i = 0; i < v; i++) {
     dist[i][i] = 0
   }
 
-  for (let e of edges) {
+  for (const e of edges) {
     dist[e[0]][e[1]] = e[2]
     dist[e[1]][e[0]] = e[2]
   }
 
   // k intermediate veritices
   for (let k = 0; k < v; k++) {
-    // every i 
+    // every i
     for (let i = 0; i < v; i++) {
       for (let j = 0; j < v; j++) {
         if (i == j) {
@@ -22,14 +21,13 @@ const floydWarshall = (v, edges) => {
       }
     }
   }
-  
+
   Print2D(dist)
 }
 
-
 const main = () => {
-  let edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
-  let n = 5
+  const edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
+  const n = 5
   console.log('Running belman ford algorithm ', floydWarshall(n, edges))
 }
 

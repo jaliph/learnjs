@@ -12,11 +12,11 @@ const rodCutting = (prices, len) => {
     // int notCut = cutRod(price,index - 1,n);
     // int cut = INT_MIN;
     // int rod_length = index + 1;
- 
+
     // if (rod_length <= n)
     //     cut = price[index]
     //            + cutRod(price,index,n - rod_length);
-   
+
     // return max(notCut, cut);
     ///
 
@@ -38,7 +38,7 @@ const rodCuttingDP = (prices, len) => {
   for (let i = 1; i <= len; i++) {
     let max = -Infinity
     for (let j = 0; j < i; j++) {
-      max = Math.max(max, prices[j] + dp[i - j - 1])  
+      max = Math.max(max, prices[j] + dp[i - j - 1])
     }
     dp[i] = max
   }
@@ -47,10 +47,10 @@ const rodCuttingDP = (prices, len) => {
 }
 
 const main = () => {
-  const prices = [1,3,4,5,7,9,10,11]
-  let lengthOfRod = 8
-  console.log('Max Profit  ', prices , lengthOfRod, rodCutting(prices, lengthOfRod))
-  console.log('Max Profit  ', prices , lengthOfRod, rodCuttingDP(prices, lengthOfRod))
+  const prices = [1, 3, 4, 5, 7, 9, 10, 11]
+  const lengthOfRod = 8
+  console.log('Max Profit  ', prices, lengthOfRod, rodCutting(prices, lengthOfRod))
+  console.log('Max Profit  ', prices, lengthOfRod, rodCuttingDP(prices, lengthOfRod))
 }
 
 main()

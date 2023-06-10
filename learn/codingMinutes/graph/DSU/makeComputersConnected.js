@@ -5,7 +5,7 @@
  * @param {number[][]} connections
  * @return {number}
  */
-var makeConnected = function(n, connections) {
+const makeConnected = function (n, connections) {
   const parents = []
   const ranks = []
 
@@ -23,8 +23,8 @@ var makeConnected = function(n, connections) {
   }
 
   const union = (i, j) => {
-    let p_i = find(i)
-    let p_j = find(j)
+    const p_i = find(i)
+    const p_j = find(j)
 
     if (p_i != p_j) {
       if (ranks[p_i] < ranks[p_j]) {
@@ -36,12 +36,12 @@ var makeConnected = function(n, connections) {
       }
     }
   }
-  
+
   let extraEdges = 0
 
-  for (let e of connections) {
-    let p1 = find(e[0])
-    let p2 = find(e[1])
+  for (const e of connections) {
+    const p1 = find(e[0])
+    const p2 = find(e[1])
 
     if (p1 != p2) {
       union(p1, p2)
@@ -55,15 +55,14 @@ var makeConnected = function(n, connections) {
   console.log(parents)
   const totalComponents = parents.reduce((prev, curr) => curr == -1 ? prev + 1 : prev, 0)
   return (totalComponents - 1) <= extraEdges ? totalComponents - 1 : -1
-};
+}
 
 const main = () => {
-  n = 4, connections = [[0,1],[0,2],[1,2]]
+  n = 4, connections = [[0, 1], [0, 2], [1, 2]]
   console.log('Can i make the computers connected again with ', makeConnected(n, connections))
 
-  n = 6, connections = [[0,1],[0,2],[0,3],[1,2],[1,3]]
+  n = 6, connections = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3]]
   console.log('Can i make the computers connected again with ', makeConnected(n, connections))
-
 }
 
 main()

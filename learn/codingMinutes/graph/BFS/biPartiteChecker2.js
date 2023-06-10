@@ -1,19 +1,18 @@
 
-
 const isBiPartiteChecker = (g) => {
-  let v = g.length
+  const v = g.length
 
   const color = Array(v).fill(-1)
- 
+
   const isBiPartiteChecker = (v) => {
-    let q = []
+    const q = []
     q.push(v)
     color[v] = 2
 
-    while(q.length > 0) {
-      let curr = q.shift()
+    while (q.length > 0) {
+      const curr = q.shift()
 
-      for (let n of g[curr] ) {
+      for (const n of g[curr]) {
         if (color[n] == -1) {
           color[n] = 3 - color[curr]
           q.push(n)
@@ -37,11 +36,11 @@ const isBiPartiteChecker = (g) => {
 }
 
 const main = () => {
-  let g = [[1,2,3],[0,2],[0,1,3],[0,2]]
+  let g = [[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]]
 
   console.log('Is Bipartite Graph ? ', isBiPartiteChecker(g))
 
-  g = [[1,3],[0,2],[1,3],[0,2]]
+  g = [[1, 3], [0, 2], [1, 3], [0, 2]]
 
   console.log('Is Bipartite Graph ? ', isBiPartiteChecker(g))
 }

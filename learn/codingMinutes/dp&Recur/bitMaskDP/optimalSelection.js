@@ -18,53 +18,53 @@ which gives us the total of 5.
 */
 
 const optimalSelection = (prices, days, countofProducts) => {
-    // row are mask, and columns are products
-    const dp = Array(1<<countofProducts).fill(0).map(() => Array(days).fill(Infinity))
+  // row are mask, and columns are products
+  const dp = Array(1 << countofProducts).fill(0).map(() => Array(days).fill(Infinity))
 
-    // base case
-    // if 0 selection in the mask , and 0th day, I can't buy anything
-    dp[0][0] = 0
-    
-    // for each product in the mask, their 0th day prices
-    for (let i = 0; i < countofProducts; i++) {
-        dp[1<<i][0] = prices[i][0]
-    }
+  // base case
+  // if 0 selection in the mask , and 0th day, I can't buy anything
+  dp[0][0] = 0
 
-    // for all the masks
-    for (let mask = 0; mask < 1 << countofProducts; mask++) {
-        // days
-        for (let d = 1; d < days; d++) {
-            // dp[mask][d] - state
+  // for each product in the mask, their 0th day prices
+  for (let i = 0; i < countofProducts; i++) {
+    dp[1 << i][0] = prices[i][0]
+  }
 
-            // if not buying
-            dp[mask][d] = dp[mask][d - 1]
+  // for all the masks
+  for (let mask = 0; mask < 1 << countofProducts; mask++) {
+    // days
+    for (let d = 1; d < days; d++) {
+      // dp[mask][d] - state
 
-            // now for the products
+      // if not buying
+      dp[mask][d] = dp[mask][d - 1]
 
-            for (let x = 0; x < countofProducts; x++) {
-                // if mask contains the product
-                if ((mask>>x) & 1) {
-                    // new mask has no x
-                    let new_mask = mask ^ (1 << x)
+      // now for the products
 
-                    dp[mask][d] = Math.min(dp[mask][d], 
-                        dp[new_mask][d - 1] + prices[x][d])
-                }
-            }
+      for (let x = 0; x < countofProducts; x++) {
+        // if mask contains the product
+        if ((mask >> x) & 1) {
+          // new mask has no x
+          const new_mask = mask ^ (1 << x)
+
+          dp[mask][d] = Math.min(dp[mask][d],
+            dp[new_mask][d - 1] + prices[x][d])
         }
+      }
     }
+  }
 
-    return dp[(1<<countofProducts) - 1][days - 1]
+  return dp[(1 << countofProducts) - 1][days - 1]
 }
 
 const main = () => {
-    const prices = [
-        [6,9,5,2,8,9,1,6],
-        [8,2,6,2,7,5,7,2],
-        [5,3,9,7,3,5,1,4]
-    ]
+  const prices = [
+    [6, 9, 5, 2, 8, 9, 1, 6],
+    [8, 2, 6, 2, 7, 5, 7, 2],
+    [5, 3, 9, 7, 3, 5, 1, 4]
+  ]
 
-    console.log('The minimum cost to buy them is ', optimalSelection(prices, prices[0].length, prices.length))
+  console.log('The minimum cost to buy them is ', optimalSelection(prices, prices[0].length, prices.length))
 }
 
 main()

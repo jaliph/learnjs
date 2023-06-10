@@ -4,9 +4,9 @@
  * @param {number[][]} grid
  * @return {number}
  */
-const orangesRotting = function(grid) {
-  let r = grid.length
-  let c = grid[0].length
+const orangesRotting = function (grid) {
+  const r = grid.length
+  const c = grid[0].length
 
   Print2D(grid)
   console.log('-'.repeat(10))
@@ -14,7 +14,7 @@ const orangesRotting = function(grid) {
   const distance = Array(r).fill(0).map(() => Array(c).fill(0))
   // const visited = new Set()
 
-  let q = []
+  const q = []
   let count = 0
   for (let i = 0; i < r; i++) {
     for (let j = 0; j < c; j++) {
@@ -28,7 +28,7 @@ const orangesRotting = function(grid) {
   }
 
   const isValidPosition = (x, y) => {
-    if (!(x < r && x >= 0 && y < c && y>= 0)) {
+    if (!(x < r && x >= 0 && y < c && y >= 0)) {
       return false
     }
 
@@ -42,38 +42,37 @@ const orangesRotting = function(grid) {
   let ans = 0
 
   while (q.length > 0) {
-    let curr = q.shift()
+    const curr = q.shift()
 
-    let i = curr[0]
-    let j = curr[1]
-    
-    let paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
-    for (let path of paths) {
-      let new_i = i + path[0]
-      let new_j = j + path[1]
+    const i = curr[0]
+    const j = curr[1]
+
+    const paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    for (const path of paths) {
+      const new_i = i + path[0]
+      const new_j = j + path[1]
       if (isValidPosition(new_i, new_j)) {
         distance[new_i][new_j] = distance[i][j] + 1
-        ans = Math.max(ans,  distance[new_i][new_j])
+        ans = Math.max(ans, distance[new_i][new_j])
         q.push([new_i, new_j])
         count--
       }
     }
   }
 
-
   Print2D(distance)
   // console.log(visited)
   // console.log(count)
   return count > 0 ? -1 : ans
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  let grid = [[2,1,1],[1,1,0],[0,1,1]]
+  let grid = [[2, 1, 1], [1, 1, 0], [0, 1, 1]]
   console.log('The multisourc BFS is ', orangesRotting(grid))
 
-  grid = [[2,1,1],[0,1,1],[1,0,1]]
+  grid = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
   console.log('The multisourc BFS is ', orangesRotting(grid))
 }
 

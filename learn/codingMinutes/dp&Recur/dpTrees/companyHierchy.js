@@ -1,9 +1,8 @@
 
-
 /// Tree
 
 class Tree {
-  constructor() {
+  constructor () {
     this.vertices = {}
   }
 
@@ -25,7 +24,6 @@ const sparseMatrix = (t) => {
   const mat = Array(t.size() + 1).fill(0).map(() => Array(M + 1).fill(0))
 
   const DFS = (curr, par) => {
-
     console.log(curr, ' has parent ', par)
     mat[curr][0] = par
     for (let j = 1; j <= M; j++) {
@@ -55,21 +53,21 @@ const giveKthParent = (i, j, mat) => {
   }
 
   if (curr == 0) return -1
-  
+
   return curr
 }
 
 const main = () => {
   const t = new Tree()
 
-  t.addEdge(1,2)
-  t.addEdge(1,3)
-  t.addEdge(3,4)
-  t.addEdge(3,5)
+  t.addEdge(1, 2)
+  t.addEdge(1, 3)
+  t.addEdge(3, 4)
+  t.addEdge(3, 5)
 
   const mat = sparseMatrix(t)
   // Print2D(mat)
-  
+
   const queries = [
     [4, 1],
     [4, 2],

@@ -3,7 +3,7 @@
 */
 
 const advanceDigitsMod = (num, k) => {
-  let str = num + ''
+  const str = num + ''
   const advanceDigitsModRecur = (index, last, sum_mod, sum_digit_mod) => {
     // base
     if (index == str.length) {
@@ -12,15 +12,15 @@ const advanceDigitsMod = (num, k) => {
       }
       return 0
     }
-    
-    //recur
-    let till = last ? Number(str[index]) : 9
+
+    // recur
+    const till = last ? Number(str[index]) : 9
     let ans = 0
     for (let i = 0; i <= till; i++) {
       ans += advanceDigitsModRecur(index + 1,
         last && (till == i),
         ((sum_mod * 10) + i) % k, // formulating the actual number
-        (sum_digit_mod + i) % k, // sum of digits
+        (sum_digit_mod + i) % k // sum of digits
       )
     }
 
@@ -31,11 +31,11 @@ const advanceDigitsMod = (num, k) => {
 }
 
 const main = () => {
-  let lower = 1
-  let higher = 20
+  const lower = 1
+  const higher = 20
 
   console.log('the count of such numbers in the range are', advanceDigitsMod(higher, 1) - advanceDigitsMod(lower - 1, 1))
-  
+
   console.log('the count of such numbers in the range are', advanceDigitsMod(higher, 2) - advanceDigitsMod(lower - 1, 2))
 
   console.log('the count of such numbers in the range are', advanceDigitsMod(1000, 4) - advanceDigitsMod(1 - 1, 4))

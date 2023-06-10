@@ -19,8 +19,8 @@ const unorderedSet2 = (min, n) => {
   if (min > n) return 0 // no way possible
 
   // recur
-       // take min or dun take min
-  let ans = unorderedSet2(min, n - min) + unorderedSet2(min + 1, n)
+  // take min or dun take min
+  const ans = unorderedSet2(min, n - min) + unorderedSet2(min + 1, n)
 
   return ans
 }
@@ -38,7 +38,6 @@ const unorderedSetDP = (n) => {
   }
   return dp[n]
 }
-
 
 const main = () => {
   for (let i = 1; i <= 10; i++) {

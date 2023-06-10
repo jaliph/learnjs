@@ -4,14 +4,14 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var closedIsland = function(grid) {
-  let r = grid.length
-  let c = grid[0].length
+const closedIsland = function (grid) {
+  const r = grid.length
+  const c = grid[0].length
 
   // Print2D(grid)
 
   const DFS_Helper = (curr, value) => {
-    let [x, y] = curr
+    const [x, y] = curr
     if (x < 0 || y < 0 || x >= r || y >= c) {
       return
     }
@@ -21,7 +21,7 @@ var closedIsland = function(grid) {
     if (grid[x][y] != 0) {
       return
     }
-    
+
     // visited[x][y] = 1
     grid[x][y] = value
 
@@ -52,12 +52,12 @@ var closedIsland = function(grid) {
   }
   // Print2D(grid)
   return count - 2
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
+  grid = [[1, 1, 1, 1, 1, 1, 1, 0], [1, 0, 0, 0, 0, 1, 1, 0], [1, 0, 1, 0, 1, 1, 1, 0], [1, 0, 0, 0, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1, 1, 0]]
   console.log('Count of closed Islands are ', closedIsland(grid))
 }
 

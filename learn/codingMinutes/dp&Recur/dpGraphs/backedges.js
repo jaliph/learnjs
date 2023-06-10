@@ -1,7 +1,6 @@
 
-
 class Graph {
-  constructor({ isDirected }) {
+  constructor ({ isDirected }) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -24,7 +23,6 @@ class Graph {
 }
 
 const findBackedge = (g) => {
-  
   const visited = Array(g.size() + 1).fill(0)
   // 0 is not visited
   // 1 is visited and is in ancestore [in the stack]
@@ -32,7 +30,7 @@ const findBackedge = (g) => {
   const DFS = (curr, par) => {
     visited[curr] = 1
 
-    for (let child of g.vertices[curr]) {
+    for (const child of g.vertices[curr]) {
       // not visited - parent is already visited
       if (visited[child] === 0) {
         DFS(child, curr)
@@ -57,7 +55,6 @@ const main = () => {
   g.addEdge(5, 6)
   g.addEdge(6, 7)
   g.addEdge(7, 4)
-
 
   console.log('All the backedges are ', findBackedge(g))
 }

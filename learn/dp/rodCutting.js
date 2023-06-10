@@ -81,22 +81,19 @@ function main () {
 
 main()
 
-
-
 // Revison
-function RodCutting(lengths, prices, n) {
+function RodCutting (lengths, prices, n) {
   const dp = Array(prices.length + 1).fill(0).map(() => Array(n + 1).fill(0))
-
 
   for (let i = 1; i <= prices.length; i++) {
     for (let j = 1; j <= n; j++) {
-        if (lengths[i - 1] > j) {
-          dp[i][j] = dp[i - 1][j]
-        } else {
-          let c1 = dp[i - 1][j]
-          let c2 = prices[i - 1] + dp[i][j - lengths[i - 1]]
-          dp[i][j] = Math.max(c1, c2)
-        }
+      if (lengths[i - 1] > j) {
+        dp[i][j] = dp[i - 1][j]
+      } else {
+        const c1 = dp[i - 1][j]
+        const c2 = prices[i - 1] + dp[i][j - lengths[i - 1]]
+        dp[i][j] = Math.max(c1, c2)
+      }
     }
   }
 
@@ -105,10 +102,10 @@ function RodCutting(lengths, prices, n) {
   while (x > 0 && y > 0) {
     if (dp[x - 1][y] == dp[x][y]) {
       x--
-    } else if (dp[x - 1][y] >= prices[x - 1] + dp[x][y - lengths[x-1]]) {
+    } else if (dp[x - 1][y] >= prices[x - 1] + dp[x][y - lengths[x - 1]]) {
       x--
     } else {
-      console.log("including item " + x + " with value = " + prices[x - 1] + " and length = " + lengths[x - 1]);
+      console.log('including item ' + x + ' with value = ' + prices[x - 1] + ' and length = ' + lengths[x - 1])
       y -= lengths[x - 1]
     }
   }

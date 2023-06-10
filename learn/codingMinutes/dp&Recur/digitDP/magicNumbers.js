@@ -3,9 +3,9 @@
 const MOD = 1e9 + 7
 
 const solveMagicNums = (num, d, m) => {
-  let str = num + ''
+  const str = num + ''
   const magicNumRecur = (index, last, sum_mod) => {
-    // base 
+    // base
     if (index == str.length) {
       if (sum_mod == 0) {
         return 1
@@ -14,7 +14,7 @@ const solveMagicNums = (num, d, m) => {
     }
 
     // recur
-    let till = last ? Number(str[index]) : 9
+    const till = last ? Number(str[index]) : 9
     let ans = 0
     if (index % 2 == 1) {
       // even position
@@ -30,19 +30,18 @@ const solveMagicNums = (num, d, m) => {
         // ans = ans % d
       }
     }
-     
+
     return ans
   }
 
   return magicNumRecur(0, true, 0)
 }
 
-
 const main = () => {
-  let lower = 10
-  let higher = 99
-  let magicNum = 6
-  let multiple = 2
+  const lower = 10
+  const higher = 99
+  const magicNum = 6
+  const multiple = 2
   console.log('The magic numbers in the range are ', (solveMagicNums(higher, magicNum, multiple) - solveMagicNums(lower - 1, magicNum, multiple)))
 }
 

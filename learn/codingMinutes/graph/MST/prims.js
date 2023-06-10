@@ -1,7 +1,7 @@
 
 const Heap = require('collections/heap')
-class GraphWeighed{
-  constructor(isDirected) {
+class GraphWeighed {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -21,17 +21,16 @@ class GraphWeighed{
       }
     }
   }
-  
-  size() {
+
+  size () {
     return Object.keys(this.vertices).length
   }
 }
 
-
 const Prims = (edges) => {
-  let g = new GraphWeighed()
+  const g = new GraphWeighed()
 
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1], e[2])
   }
 
@@ -40,17 +39,17 @@ const Prims = (edges) => {
   })
 
   let ans = 0
-  let startVertex = 0 // can start from any vertex
-  let visited = {}
+  const startVertex = 0 // can start from any vertex
+  const visited = {}
   heap.push([startVertex, 0])
 
   while (heap.length > 0) {
     // console.log('Start of while')
     // console.log(heap.toArray())
-    let currVertex = heap.pop()
+    const currVertex = heap.pop()
 
-    let to = currVertex[0]
-    let w = currVertex[1]
+    const to = currVertex[0]
+    const w = currVertex[1]
 
     if (visited[to]) {
       // console.log('this is already visited ', to)
@@ -62,10 +61,9 @@ const Prims = (edges) => {
 
     // console.log('current is .. ', currVertex)
     // console.log(visited)
-    
 
-    for (let n of g.vertices[to]) {
-      let n_to = n[0]
+    for (const n of g.vertices[to]) {
+      const n_to = n[0]
       if (!visited[n_to]) {
         // console.log('pushing', n)
         heap.push(n)
@@ -76,9 +74,8 @@ const Prims = (edges) => {
   return ans
 }
 
-
 const main = () => {
-  let edges = [[0, 3, 2], [0, 1, 2], [0, 2, 2], [1, 2, 2], [1, 3, 2], [2, 3, 3]]
+  const edges = [[0, 3, 2], [0, 1, 2], [0, 2, 2], [1, 2, 2], [1, 3, 2], [2, 3, 3]]
 
   console.log('Minimum spanning tree using prims is ', Prims(edges))
 }

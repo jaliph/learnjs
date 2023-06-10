@@ -1,6 +1,6 @@
 
 class DSU {
-  constructor(n) {
+  constructor (n) {
     this.parents = []
     this.ranks = []
 
@@ -10,7 +10,7 @@ class DSU {
     }
   }
 
-  find(i) {
+  find (i) {
     if (this.parents[i] == -1) {
       return i
     }
@@ -18,9 +18,9 @@ class DSU {
     return this.parents[i]
   }
 
-  union(i, j) {
-    let p1 = this.find(i)
-    let p2 = this.find(j)
+  union (i, j) {
+    const p1 = this.find(i)
+    const p2 = this.find(j)
 
     if (p1 != p2) {
       if (this.ranks[p1] < this.ranks[p2]) {
@@ -36,9 +36,9 @@ class DSU {
 
 const detectCycle = (v, edges) => {
   const dsu = new DSU(v + 1)
-  for (let e of edges) {
-    let parent_1 = dsu.find(e[0])
-    let parent_2 = dsu.find(e[1])
+  for (const e of edges) {
+    const parent_1 = dsu.find(e[0])
+    const parent_2 = dsu.find(e[1])
 
     if (parent_1 != parent_2) {
       dsu.union(parent_1, parent_2)
@@ -51,7 +51,7 @@ const detectCycle = (v, edges) => {
 }
 
 const main = () => {
-  const edges = [[1, 2],[2, 3],[3, 4]]
+  const edges = [[1, 2], [2, 3], [3, 4]]
   console.log('is there a cycle ?', detectCycle(4, edges))
 }
 

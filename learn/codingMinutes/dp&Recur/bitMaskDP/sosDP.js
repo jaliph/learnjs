@@ -1,9 +1,8 @@
 
-
 const SOS = () => {
   // let each number have values as its own representation
-  let t = 3
-  let dp = Array(1<<t).fill(1)
+  const t = 3
+  const dp = Array(1 << t).fill(1)
   // for (let i = 0; i < t; i++) {
   //   dp[i] = 1
   // }

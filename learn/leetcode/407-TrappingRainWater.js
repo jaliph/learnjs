@@ -1,59 +1,58 @@
 // https://leetcode.com/problems/trapping-rain-water-ii/
 
-
 class Heap {
-  constructor(array, comparator) {
+  constructor (array, comparator) {
     this.heap = array || []
     this.comparator = comparator || function (a, b) { return a - b }
   }
 
-  length() {
+  length () {
     return this.heap.length
   }
 
-  add(element) {
+  add (element) {
     this.heap.push(element)
     this.__percolateUp(this.heap.length - 1)
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
-    if(this.heap.length === 0) {
+  pop () {
+    if (this.heap.length === 0) {
       return null
     } else {
       // console.log(this.heap)
-      let element = this.heap[0]
+      const element = this.heap[0]
       this.heap[0] = this.heap[this.heap.length - 1]
       this.heap.pop()
       this.__percolateDown(0)
       // console.log(this.heap)
       return element
-    }    
+    }
   }
 
-  __percolateUp(index) {
-    let parent = Math.floor((index - 1) / 2)
+  __percolateUp (index) {
+    const parent = Math.floor((index - 1) / 2)
     if (index <= 0) {
-      return
+
     } else if (this.comparator(this.heap[parent], this.heap[index]) > 0) {
       this.__swap(parent, index)
       this.__percolateUp(parent)
     }
   }
 
-  __percolateDown(index) {
-    let leftChild = (index * 2) + 1
-    let rightChild = (index * 2) + 2
+  __percolateDown (index) {
+    const leftChild = (index * 2) + 1
+    const rightChild = (index * 2) + 2
 
     let largest = index
-    if (leftChild < this.heap.length && this.comparator(this.heap[largest], this.heap[leftChild]) > 0 ) {
+    if (leftChild < this.heap.length && this.comparator(this.heap[largest], this.heap[leftChild]) > 0) {
       largest = leftChild
     }
 
-    if (rightChild < this.heap.length && this.comparator(this.heap[largest], this.heap[rightChild],) > 0 ) {
+    if (rightChild < this.heap.length && this.comparator(this.heap[largest], this.heap[rightChild]) > 0) {
       largest = rightChild
     }
     if (largest !== index) {
@@ -63,7 +62,7 @@ class Heap {
   }
 
   __swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
@@ -74,12 +73,12 @@ class Heap {
  * @return {number}
  */
 // const Heap = require("collections/heap");
-var trapRainWater = function(heightMap) {
+const trapRainWater = function (heightMap) {
   const row = heightMap.length
   const col = heightMap[1].length
 
   // It must be 2D to store water
-  if (row == 1 || col == 1) return 0 
+  if (row == 1 || col == 1) return 0
 
   const visited = new Array(row).fill(0).map(() => Array(col).fill(false))
 
@@ -94,24 +93,24 @@ var trapRainWater = function(heightMap) {
   }
   for (let j = 1; j < col - 1; j++) {
     minHeap.add([heightMap[0][j], 0, j])
-    minHeap.add([heightMap[row - 1][j], row  - 1, j])
+    minHeap.add([heightMap[row - 1][j], row - 1, j])
     visited[0][j] = true
     visited[row - 1][j] = true
   }
 
   let water_trapped = 0
 
-  let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+  const directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]
 
-  while(minHeap.length() > 0) {
-    let curCell = minHeap.pop()
+  while (minHeap.length() > 0) {
+    const curCell = minHeap.pop()
     directions.forEach(dir => {
-      let i = curCell[1] + dir[0]
-      let j = curCell[2] + dir[1]
+      const i = curCell[1] + dir[0]
+      const j = curCell[2] + dir[1]
       // console.log(curCell, i, j)
       // check it can be visited
-      if (i > 0 && i < row - 1 && j > 0 && j < col - 1 && visited[i][j] === false) {  
-        let water = Math.max(0, curCell[0] - heightMap[i][j])
+      if (i > 0 && i < row - 1 && j > 0 && j < col - 1 && visited[i][j] === false) {
+        const water = Math.max(0, curCell[0] - heightMap[i][j])
         water_trapped += water
         minHeap.add([Math.max(heightMap[i][j], curCell[0]), i, j])
         visited[i][j] = true
@@ -119,8 +118,7 @@ var trapRainWater = function(heightMap) {
     })
   }
   return water_trapped
-};
-
+}
 
 const main = () => {
   // const map = [
@@ -132,10 +130,8 @@ const main = () => {
   // ]
   // const map = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
   // const map = [[3,3,3,3,3],[3,2,2,2,3],[3,2,1,2,3],[3,2,2,2,3],[3,3,3,3,3]]
-  const map = [[12,13,1,12],[13,4,13,12],[13,8,10,12],[12,13,12,12],[13,13,13,13]] // 14
+  const map = [[12, 13, 1, 12], [13, 4, 13, 12], [13, 8, 10, 12], [12, 13, 12, 12], [13, 13, 13, 13]] // 14
   console.log('Rain water trapped in the map is ', trapRainWater(map))
-
 }
 
 main()
-

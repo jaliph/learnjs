@@ -1,7 +1,6 @@
 
-
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
   }
 
@@ -9,7 +8,7 @@ class Graph {
     return Object.keys(this.vertices).length
   }
 
-  addEdge(i, j) {
+  addEdge (i, j) {
     this.vertices[i] = this.vertices[i] || []
     this.vertices[j] = this.vertices[j] || []
 
@@ -17,7 +16,6 @@ class Graph {
     this.vertices[j].push(i)
   }
 }
-
 
 const findHamiltonianPaths = (g) => {
   const DP = (curr, set) => {
@@ -28,10 +26,10 @@ const findHamiltonianPaths = (g) => {
 
     let ans = false
     // recur
-    for (let child of g.vertices[curr]) {
+    for (const child of g.vertices[curr]) {
       if (!set.has(child)) {
         set.add(child)
-        let result = DP(child, set)
+        const result = DP(child, set)
         ans = ans | result
       }
     }
@@ -39,12 +37,11 @@ const findHamiltonianPaths = (g) => {
     return ans
   }
 
-
   let ans = false
   for (let i = 1; i < g.size(); i++) {
-    let set = new Set()
+    const set = new Set()
     set.add(i)
-    let result = DP(i, set)
+    const result = DP(i, set)
     ans = ans | result
   }
 
@@ -73,5 +70,3 @@ const main = () => {
 }
 
 main()
-
-

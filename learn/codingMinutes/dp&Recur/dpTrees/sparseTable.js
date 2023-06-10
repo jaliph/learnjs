@@ -1,9 +1,8 @@
 
-
 /// Tree
 
 class Tree {
-  constructor() {
+  constructor () {
     this.vertices = {}
   }
 
@@ -48,17 +47,16 @@ const sparseMatrix = (t) => {
 const main = () => {
   const t = new Tree()
 
-  t.addEdge(1,2)
-  t.addEdge(1,3)
-  t.addEdge(2,4)
-  t.addEdge(4,5)
-  t.addEdge(5,6)
-  t.addEdge(6,7)
+  t.addEdge(1, 2)
+  t.addEdge(1, 3)
+  t.addEdge(2, 4)
+  t.addEdge(4, 5)
+  t.addEdge(5, 6)
+  t.addEdge(6, 7)
 
   const mat = sparseMatrix(t)
   console.log('Sparse matrix for the tree is ::')
   Print2D(mat)
-
 }
 
 const Print2D = arr => arr.forEach(o => console.log(...o))

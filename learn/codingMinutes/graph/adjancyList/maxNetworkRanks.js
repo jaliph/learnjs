@@ -26,13 +26,11 @@ Example :
     Output: 4
     Explanation: The network rank of cities 0 and 1 is 4 as there are 4 roads that are connected to either 0 or 1. The road between 0 and 1 is only counted once.
 
-
 Expected Time Complexity: O(n^2)
 */
 
-
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
   }
 
@@ -49,12 +47,11 @@ class Graph {
   }
 }
 
-
 const maxNetworkPair = (g) => {
   let ans = 0
 
-  for (let i in g.vertices) {
-    for (let j in g.vertices) {
+  for (const i in g.vertices) {
+    for (const j in g.vertices) {
       if (i != j) {
         if (g.vertices[i].indexOf(Number(j)) >= 0) {
           // i and j are connected

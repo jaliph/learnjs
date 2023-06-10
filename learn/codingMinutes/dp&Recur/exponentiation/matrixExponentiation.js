@@ -1,5 +1,4 @@
 
-
 const MOD = 1e9 + 7
 
 const Fib = (n) => {
@@ -12,11 +11,11 @@ const Fib = (n) => {
   }
 
   const multiply = (mat1, mat2) => {
-    let result = [[0, 0], [0, 0]]
+    const result = [[0, 0], [0, 0]]
     for (let i = 0; i < mat1.length; i++) {
       for (let j = 0; j < mat2[0].length; j++) {
         for (let k = 0; k < mat1.length; k++) {
-          res[i][j] = res[i][j] + (m1[i][k] *m2[k][j]) 
+          res[i][j] = res[i][j] + (m1[i][k] * m2[k][j])
           res[i][j] = res[i][j] % MOD // to stop overflow
         }
       }
@@ -24,7 +23,6 @@ const Fib = (n) => {
 
     return result
   }
-
 
   const T = [
     [1, 0],
@@ -49,7 +47,7 @@ const Fib = (n) => {
 }
 
 const main = () => {
-  let n = 5
+  const n = 5
   console.log(Fib(n))
 }
 

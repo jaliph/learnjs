@@ -3,23 +3,22 @@
 
 const validBfs = (v, edges, order) => {
   const g = Array(v + 1).fill().map(() => Array().fill([]))
-  
-  for (let e of edges) {
+
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
 
   const visited = []
 
-  let set = [order[0]]
-  let q = []
+  const set = [order[0]]
+  const q = []
 
   q.push(set)
 
   i = 0
 
   while (q.length > 0 && i < v) {
-
     // if thr current element is already visited... nt possible
     if (visited[order[i]]) return false
     visited[order[i]] = 1
@@ -32,10 +31,10 @@ const validBfs = (v, edges, order) => {
       return false
     }
 
-    let s = []
+    const s = []
 
     // push all the children of order[i]
-    for (let n of g[order[i]]) {
+    for (const n of g[order[i]]) {
       if (!visited[n]) s.push(n)
     }
     if (s.length > 0) {
@@ -44,8 +43,8 @@ const validBfs = (v, edges, order) => {
 
     // remove the current order[i] from the q[0]
 
-    let indexOf = q[0].indexOf(order[i])
-    q[0] = [ ...q[0].slice(0, indexOf), ...q[0].slice(indexOf + 1) ]
+    const indexOf = q[0].indexOf(order[i])
+    q[0] = [...q[0].slice(0, indexOf), ...q[0].slice(indexOf + 1)]
 
     // console.dir(q)
 
@@ -55,7 +54,6 @@ const validBfs = (v, edges, order) => {
 
   return true
 }
-
 
 const main = () => {
   let v = 4

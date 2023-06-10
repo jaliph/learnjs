@@ -16,7 +16,6 @@ const tiling = (n) => {
   return f[n]
 }
 
-
 const main = () => {
   for (let i = 0; i <= 10; i++) {
     console.log(`Number of ways to fill the 2*${i} board is`, tiling(i))
@@ -24,6 +23,3 @@ const main = () => {
 }
 
 main()
-
-
-

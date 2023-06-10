@@ -22,14 +22,13 @@ function printPascal (num) {
 
 // console.log(printPascal(5))
 
-
 const pascalTriangleDp = (num) => {
   const dp = Array(num).fill(1)
   const result = []
   result.push(dp)
-  for (j = num;  j > 0; j--) { // run fot num times
+  for (j = num; j > 0; j--) { // run fot num times
     const prev = result[result.length - 1]
-    const clone = prev.slice(1)  // reduce the new length
+    const clone = prev.slice(1) // reduce the new length
     // console.log('Before')
     // console.log(prev)
     // console.dir(clone)

@@ -2,7 +2,7 @@
 // from n stones , Alice can pick 1 ,2, 3 and Bob in his next turn, For given n, find out if it is a winning position
 
 const position = (n) => {
-  let dp = Array(n + 1).fill(0)
+  const dp = Array(n + 1).fill(0)
 
   dp[0] = 0
   dp[1] = 1
@@ -20,7 +20,6 @@ const main = () => {
   for (let i = 0; i <= 20; i++) {
     console.log('Is ', i, ' a winning position', position(i))
   }
-  
 }
 
 main()

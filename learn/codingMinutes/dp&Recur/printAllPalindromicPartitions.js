@@ -1,6 +1,6 @@
 
 const palindromicPartitions = (s) => {
-  const checkPalindrome = (s, i , j) => {
+  const checkPalindrome = (s, i, j) => {
     if (i >= j) return true
     if (s[i] === s[j]) return checkPalindrome(s, i + 1, j - 1)
     return false
@@ -10,11 +10,11 @@ const palindromicPartitions = (s) => {
     if (i == s.length) {
       return [[]]
     }
-    let result = []
+    const result = []
     // recur
     for (let j = i; j < s.length; j++) {
       if (checkPalindrome(s, i, j)) {
-        let temp = palindromicPartitionsRecur(s, j + 1)
+        const temp = palindromicPartitionsRecur(s, j + 1)
 
         // add the existing set palindromes in front
         temp.forEach((arr) => {

@@ -1,11 +1,10 @@
-// 
+//
 
 const colorIslands = (g) => {
-
   Print2D(g)
-  let r = g.length
-  let c = g[0].length
-  let visited = Array(r).fill().map(() => Array(c).fill(0))
+  const r = g.length
+  const c = g[0].length
+  const visited = Array(r).fill().map(() => Array(c).fill(0))
 
   const isValid = (i, j) => {
     if (i < 0 || j < 0 || i >= r || j >= c) {
@@ -13,24 +12,24 @@ const colorIslands = (g) => {
     }
     return g[i][j] == 1
   }
-  
+
   const bfs = (i, j, color) => {
-    let q = []
+    const q = []
     q.push([i, j])
-    let paths = [
+    const paths = [
       [0, 1], [0, -1], [1, 0], [-1, 0]
     ]
 
-    while(q.length > 0) {
-      let curr = q.shift()
-      let [x, y] = curr
-  
+    while (q.length > 0) {
+      const curr = q.shift()
+      const [x, y] = curr
+
       visited[x][y] = 1
       colorCount[color] = (colorCount[color] || 0) + 1
       g[x][y] = color
-      for (let p of paths) {
-        let n_x = x + p[0]
-        let n_y = y + p[1]
+      for (const p of paths) {
+        const n_x = x + p[0]
+        const n_y = y + p[1]
         if (isValid(n_x, n_y)) {
           if (!visited[n_x][n_y]) {
             q.push([n_x, n_y])
@@ -54,10 +53,10 @@ const colorIslands = (g) => {
   console.log(colorCount)
 }
 
-const Print2D = arr => arr.forEach(o => console.log(...o)) 
+const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  let g = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]
+  const g = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0], [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
   console.log(colorIslands(g))
 }
 

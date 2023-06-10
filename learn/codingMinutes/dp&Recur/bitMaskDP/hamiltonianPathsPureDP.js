@@ -1,6 +1,6 @@
 
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
   }
 
@@ -8,7 +8,7 @@ class Graph {
     return Object.keys(this.vertices).length
   }
 
-  addEdge(i, j) {
+  addEdge (i, j) {
     this.vertices[i] = this.vertices[i] || []
     this.vertices[j] = this.vertices[j] || []
 
@@ -20,11 +20,11 @@ class Graph {
 const findHamiltonianPathsDP = (g) => {
   const N = g.size()
 
-  const dp = Array(N).fill(0).map(() => Array(1<<N).fill(0))
-  
+  const dp = Array(N).fill(0).map(() => Array(1 << N).fill(0))
+
   // base case .. verticies and their bitmasks are set
   for (let i = 0; i < N; i++) {
-    dp[i][1<<i] = 1
+    dp[i][1 << i] = 1
   }
 
   // all the combinations
@@ -32,7 +32,7 @@ const findHamiltonianPathsDP = (g) => {
     // all the verticies
     for (let curr = 0; curr < N; curr++) {
       if (dp[curr][mask]) {
-        for (let child of g.vertices[curr]) {
+        for (const child of g.vertices[curr]) {
           // if the child is not in the mask
           if (!((mask >> child) & 1)) {
             dp[child][mask | 1 << child] = 1
@@ -45,7 +45,7 @@ const findHamiltonianPathsDP = (g) => {
 
   let ans = false
   for (let i = 0; i < N; i++) {
-    ans |= dp[i][(1<<N) - 1]
+    ans |= dp[i][(1 << N) - 1]
   }
 
   return ans == 1

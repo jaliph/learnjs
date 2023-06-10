@@ -1,10 +1,8 @@
 
-
 // find articulation and bridges
 
-
 class Graph {
-  constructor({ isDirected }) {
+  constructor ({ isDirected }) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -37,7 +35,7 @@ const findBackedge = (g) => {
     visited[curr] = 1
     discoveryTime[curr] = lowestTime[curr] = time++
 
-    for (let child of g.vertices[curr]) {
+    for (const child of g.vertices[curr]) {
       if (visited[child] == 0) {
         DFS(child, curr)
         lowestTime[curr] = Math.min(lowestTime[curr], lowestTime[child])
@@ -51,7 +49,6 @@ const findBackedge = (g) => {
         if (par != 0 && lowestTime[child] >= discoveryTime[curr]) {
           articulationPoints.add(curr)
         }
-
       } else if (child != par && visited[child] == 1) {
         // backedge
         lowestTime[curr] = Math.min(lowestTime[curr], discoveryTime[child])
@@ -60,14 +57,11 @@ const findBackedge = (g) => {
     visited[curr] = 2
   }
 
-
-
   DFS(1, 0)
 
   console.log('Articulation Points -> ', articulationPoints)
   console.log('Bridges -> ', bridges)
 }
-
 
 const main = () => {
   const g = new Graph({})
@@ -79,7 +73,6 @@ const main = () => {
   g.addEdge(5, 6)
   g.addEdge(6, 7)
   g.addEdge(7, 4)
-
 
   findBackedge(g)
 }

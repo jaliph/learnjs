@@ -6,17 +6,16 @@ const floodfillDFS = (mat) => {
   // instead of using visited , change the mat itself to zero
   const visited = Array(r).fill().map(() => Array(c).fill(false))
 
-
   const isValidPath = (n_i, n_j) => {
-    let inBound = (n_i >= 0 && n_i < r && n_j >= 0 && n_i < c)
+    const inBound = (n_i >= 0 && n_i < r && n_j >= 0 && n_i < c)
     if (!inBound) {
       return false
     }
 
-    let isGround = mat[n_i][n_j] == 1
+    const isGround = mat[n_i][n_j] == 1
     // let ntVisited = visited[n_i][n_j] == false
 
-    return isGround 
+    return isGround
   }
 
   const DFS_Resolver = (i, j) => {
@@ -24,14 +23,14 @@ const floodfillDFS = (mat) => {
     // visited[i][j] = true
     mat[i][j] = 0
 
-    let paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    const paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
 
-    for (let p of paths) {
-      let new_i = i + p[0]
-      let new_j = j + p[1]
+    for (const p of paths) {
+      const new_i = i + p[0]
+      const new_j = j + p[1]
 
       if (isValidPath(new_i, new_j)) {
-        let subProblemAns = DFS_Resolver(new_i, new_j)
+        const subProblemAns = DFS_Resolver(new_i, new_j)
         count = count + subProblemAns
       }
     }
@@ -46,7 +45,7 @@ const floodfillDFS = (mat) => {
       }
       if (!visited[i][j]) {
         isLandCount++
-        let islandSize = DFS_Resolver(i, j)
+        const islandSize = DFS_Resolver(i, j)
         console.log(`island at ${i}${j} has size ${islandSize}`)
       }
     }
@@ -57,16 +56,15 @@ const floodfillDFS = (mat) => {
 
 const main = () => {
   const grid = [
-    [0,0,0,1,1],
-    [0,1,0,0,0],
-    [1,1,0,1,0],
-    [1,0,1,1,1],
-    [0,0,1,1,0],
-    [0,0,0,0,0]
+    [0, 0, 0, 1, 1],
+    [0, 1, 0, 0, 0],
+    [1, 1, 0, 1, 0],
+    [1, 0, 1, 1, 1],
+    [0, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0]
   ]
 
   console.log('total number of islands is ', floodfillDFS(grid))
 }
 
 main()
-

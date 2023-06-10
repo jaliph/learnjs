@@ -43,7 +43,7 @@ class maxHeap {
   __percolateUp (index) {
     const parent = Math.floor((index - 1) / 2)
     if (index <= 0) {
-      return
+
     } else if (this.comparator(this.heap[parent], this.heap[index]) > 0) {
       [this.heap[parent], this.heap[index]] = [this.heap[index], this.heap[parent]]
       this.__percolateUp(parent)
@@ -70,7 +70,7 @@ class maxHeap {
   }
 }
 
-var heap = new maxHeap([] , null, (a, b) => b - a)
+const heap = new maxHeap([], null, (a, b) => b - a)
 heap.insert(12)
 heap.insert(10)
 heap.insert(11)

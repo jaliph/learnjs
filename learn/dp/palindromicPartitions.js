@@ -1,5 +1,4 @@
 
-
 const palindromicPartitions = (s) => {
   const dp = Array(s.length).fill(0).map(() => Array(s.length).fill(0))
 
@@ -7,10 +6,10 @@ const palindromicPartitions = (s) => {
     dp[i][i] = 1
   }
 
-  for (let i = s.length - 1; i >= 0 ; i--) {
+  for (let i = s.length - 1; i >= 0; i--) {
     for (let j = i + 1; j < s.length; j++) {
       if (s[i] === s[j]) {
-        let count = j - i
+        const count = j - i
         if (count == 1 || dp[i + 1][j - 1] === 1) {
           dp[i][j] = 1
         }
@@ -30,7 +29,6 @@ const palindromicPartitions = (s) => {
   }
   return cuts[0]
 }
-
 
 // Driver code
 function main () {

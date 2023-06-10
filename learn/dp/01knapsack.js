@@ -185,7 +185,7 @@ const _01knapsack_Revise = (weights, profits, Capacity) => {
   }
 
   for (let i = 1; i < profits.length; i++) { // products
-    for (let c = 1; c <= Capacity; c++) {  //capacity
+    for (let c = 1; c <= Capacity; c++) { // capacity
       if (weights[i] > c) {
         t[i][c] = t[i - 1][c]
       } else {

@@ -1,7 +1,6 @@
 
-
 class GraphWeighted {
-  constructor(isDirected) {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -21,19 +20,18 @@ class GraphWeighted {
       }
     }
   }
-  
-  size() {
+
+  size () {
     return Object.keys(this.vertices).length
   }
 }
 
-
 const dijkstras = (n, edges, source) => {
   const g = new GraphWeighted()
-  
+
   const dist = Array(n + 1).fill(Infinity)
   const set = new Set()
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1], e[2])
   }
 
@@ -42,21 +40,19 @@ const dijkstras = (n, edges, source) => {
   set.add([0, 0])
 
   while (set.size > 0) {
-    
     // pop from the set
-    let currVertexData = set.values().next().value
-    
+    const currVertexData = set.values().next().value
 
-    let distanceTillNow = currVertexData[1]
-    let vertex = currVertexData[0]
+    const distanceTillNow = currVertexData[1]
+    const vertex = currVertexData[0]
 
     // console.log(currVertexData)
     set.delete(currVertexData)
 
     // iterate through each neighbor
-    for (let n of g.vertices[vertex]) {
-      let n_nbr = n[0]
-      let edge = n[1]
+    for (const n of g.vertices[vertex]) {
+      const n_nbr = n[0]
+      const edge = n[1]
 
       if (distanceTillNow + edge < dist[n_nbr]) {
         // if the existing neighbour and his distance is present remove, we need to update
@@ -70,17 +66,13 @@ const dijkstras = (n, edges, source) => {
     }
   }
 
-  for (let i in dist) {
+  for (const i in dist) {
     console.log(`the distance to ${i} is ${dist[i]}`)
   }
-
 }
 
-
-
-
 const main = () => {
-  let edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
+  const edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
 
   console.log('Distance via dikjstra is ', dijkstras(5, edges, 0))
 }

@@ -5,9 +5,9 @@
  * @param {number[][]} edges
  * @return {number}
  */
-var maxNumEdgesToRemove = function(n, edges) {
+const maxNumEdgesToRemove = function (n, edges) {
   class DSU {
-    constructor(v) {
+    constructor (v) {
       this.parents = []
       this.ranks = []
       for (let i = 0; i <= v; i++) {
@@ -25,8 +25,8 @@ var maxNumEdgesToRemove = function(n, edges) {
     }
 
     union (i, j) {
-      let p_i = this.find(i)
-      let p_j = this.find(j)
+      const p_i = this.find(i)
+      const p_j = this.find(j)
 
       if (p_i != p_j) {
         if (this.ranks[p_i] < this.ranks[p_j]) {
@@ -53,12 +53,12 @@ var maxNumEdgesToRemove = function(n, edges) {
   let componentA = n
   let componentB = n
   let extraEdges = 0
-  for (let e of edges) {
+  for (const e of edges) {
     if (e[0] == 3) {
       // both can travel
 
-      let mergeA = a_DSU.union(e[1], e[2])
-      let mergeB = b_DSU.union(e[1], e[2])
+      const mergeA = a_DSU.union(e[1], e[2])
+      const mergeB = b_DSU.union(e[1], e[2])
 
       // console.log(3, mergeA, mergeB, e[1], e[2])
 
@@ -73,12 +73,10 @@ var maxNumEdgesToRemove = function(n, edges) {
       if (!mergeA && !mergeB) {
         extraEdges++
       }
-
     } else if (e[0] == 2) {
-      
-      let mergeA = a_DSU.union(e[1], e[2])
+      const mergeA = a_DSU.union(e[1], e[2])
       // console.log(2, mergeA, e[1], e[2])
-      
+
       if (mergeA) {
         componentA--
       }
@@ -86,11 +84,10 @@ var maxNumEdgesToRemove = function(n, edges) {
       if (!mergeA) {
         extraEdges++
       }
-
     } else {
-      let mergeB = b_DSU.union(e[1], e[2])
+      const mergeB = b_DSU.union(e[1], e[2])
       // console.log(1, mergeB, e[1], e[2])
-      
+
       if (mergeB) {
         componentB--
       }
@@ -110,7 +107,7 @@ var maxNumEdgesToRemove = function(n, edges) {
   console.log(componentA, componentB)
 
   return extraEdges
-};
+}
 
 const main = () => {
   // n = 4, edges = [[3,1,2],[3,2,3],[1,1,3],[1,2,4],[1,1,2],[2,3,4]]
@@ -122,12 +119,11 @@ const main = () => {
   // ]
   // console.log('Edges that can be removed ', maxNumEdgesToRemove(n, edges))
 
-  n = 4, edges = [[3,1,2],[3,2,3],[1,1,4],[2,1,4]]
+  n = 4, edges = [[3, 1, 2], [3, 2, 3], [1, 1, 4], [2, 1, 4]]
   console.log('Edges that can be removed ', maxNumEdgesToRemove(n, edges))
 
-//   n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]
-//   console.log('Edges that can be removed ', maxNumEdgesToRemove(n, edges))
-
+  //   n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]
+  //   console.log('Edges that can be removed ', maxNumEdgesToRemove(n, edges))
 }
 
 main()

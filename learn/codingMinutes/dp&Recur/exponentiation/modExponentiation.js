@@ -5,7 +5,7 @@ const power = (i, n) => {
   let res = 1
 
   while (n) {
-    if (n&1 == 1) {
+    if (n & 1 === 1) {
       res = res * i
       res = res % mod
     }

@@ -1,6 +1,4 @@
 
-
-
 const alphacode = (str) => {
   const results = []
   const alphacodeRecur = (str, i, set) => {
@@ -9,7 +7,7 @@ const alphacode = (str) => {
       console.log(results)
       return 1
     }
-    
+
     let ans = 0
     if (str[i] >= '1' && str[i] <= '9') {
       ans += alphacodeRecur(str, i + 1, [...set, String.fromCharCode(Number(str[i]) + 64)])

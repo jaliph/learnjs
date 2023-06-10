@@ -1,7 +1,6 @@
 
-
-class Graph{
-  constructor(isDirected) {
+class Graph {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -21,8 +20,8 @@ class Graph{
       }
     }
   }
-  
-  size() {
+
+  size () {
     return Object.keys(this.vertices).length
   }
 }
@@ -30,18 +29,18 @@ class Graph{
 const findWays = (n, edges, source, dest) => {
   const g = new Graph(true)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
-  let result = []
+  const result = []
   const visited = {}
   const DFS_Solver = (curr, path) => {
     if (curr == dest) {
       result.push([...path])
       return
     }
-    for (let n of g.vertices[curr] || []) {
+    for (const n of g.vertices[curr] || []) {
       if (!visited[n]) {
         // push in the path
         visited[n] = true
@@ -56,21 +55,20 @@ const findWays = (n, edges, source, dest) => {
   }
 
   visited[source] = true
-  let path = []
+  const path = []
   path.push(source)
   DFS_Solver(source, path)
-  
 
   return result
 }
 
 const main = () => {
-  let edges = [[1,  2], [1, 3], [2, 3], [1, 4], [4, 5]]
+  let edges = [[1, 2], [1, 3], [2, 3], [1, 4], [4, 5]]
 
   console.log('number of ways to reach the goal is ', findWays(5, edges, 1, 5))
 
-  edges = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
-  console.log('number of ways to reach the goal is ', findWays(3, edges, "JFK", "SFO"))
+  edges = [['JFK', 'SFO'], ['JFK', 'ATL'], ['SFO', 'ATL'], ['ATL', 'JFK'], ['ATL', 'SFO']]
+  console.log('number of ways to reach the goal is ', findWays(3, edges, 'JFK', 'SFO'))
 }
 
 main()

@@ -30,8 +30,7 @@ const main = () => {
 
   console.log('The minimum time spent on SUPW is ', minSUPW(arr))
 
-  console.log('The minimum time spent on SUPW is ', minSUPW([3,2,1,1,2,3,1,3,2,1]))
-  
+  console.log('The minimum time spent on SUPW is ', minSUPW([3, 2, 1, 1, 2, 3, 1, 3, 2, 1]))
 }
 
 main()

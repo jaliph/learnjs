@@ -1,6 +1,6 @@
 
-class Graph{
-  constructor(isDirected) {
+class Graph {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -22,13 +22,13 @@ class Graph{
   }
 
   detectCycle () {
-    let visited = new Map()
+    const visited = new Map()
 
     const DFS_Helper = (curr, parent) => {
       visited.set(curr, 1)
-      for (let n of this.vertices[curr] || []) {
+      for (const n of this.vertices[curr] || []) {
         if (!visited.has(n)) {
-          let subProb = DFS_Helper(n, curr)
+          const subProb = DFS_Helper(n, curr)
           if (subProb) {
             return true
           }
@@ -45,22 +45,18 @@ class Graph{
   }
 }
 
-
 const isCycle = (edges) => {
   const g = new Graph(true)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
   return g.detectCycle()
 }
 
-
-
-
 const main = () => {
-  let edges = [[1,  2], [1, 3], [2, 3], [1,  4], [4, 5]]
+  const edges = [[1, 2], [1, 3], [2, 3], [1, 4], [4, 5]]
 
   console.log(isCycle(edges))
 }

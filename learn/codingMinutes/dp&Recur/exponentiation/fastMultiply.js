@@ -1,9 +1,8 @@
 
-
 const multiply = (a, b) => {
   let res = 0
 
-  while(b) {
+  while (b) {
     if (b & 1) {
       res = res + a
     }
@@ -18,7 +17,7 @@ const multiply = (a, b) => {
 const mod = (a, b, c) => {
   let res = 0
 
-  while(b) {
+  while (b) {
     if (b & 1) {
       res = res + a
       res = res % c
@@ -32,7 +31,7 @@ const mod = (a, b, c) => {
 }
 
 const main = () => {
-  console.log('New multiplications ', multiply(10,234))
+  console.log('New multiplications ', multiply(10, 234))
 }
 
 main()

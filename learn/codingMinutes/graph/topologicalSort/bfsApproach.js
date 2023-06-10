@@ -1,6 +1,6 @@
 
-class Graph{
-  constructor(isDirected) {
+class Graph {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -21,42 +21,41 @@ class Graph{
     }
   }
 
-  size() {
+  size () {
     return Object.keys(this.vertices).length
   }
 }
 
-
 const topologicalApproach = (edges) => {
   const g = new Graph(true)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
-  let inDegrees = Array(g.size() + 1).fill(0)
+  const inDegrees = Array(g.size() + 1).fill(0)
 
-  for (let i in g.vertices) {
-    for (let n of g.vertices[i]) {
+  for (const i in g.vertices) {
+    for (const n of g.vertices[i]) {
       inDegrees[n]++
     }
   }
 
-  let order = []
-  let q = []
+  const order = []
+  const q = []
 
-  for (let i in inDegrees) {
+  for (const i in inDegrees) {
     if (inDegrees[i] == 0) {
       q.push(Number(i))
     }
   }
-  
+
   // start BFS
   while (q.length > 0) {
-    let curr = q.shift()
+    const curr = q.shift()
     order.push(curr)
 
-    for (let n of g.vertices[curr] || []) {
+    for (const n of g.vertices[curr] || []) {
       inDegrees[n]--
 
       if (inDegrees[n] == 0) {
@@ -64,7 +63,6 @@ const topologicalApproach = (edges) => {
       }
     }
   }
-
 
   return order
 }

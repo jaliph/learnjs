@@ -1,9 +1,9 @@
 
 class Heap {
-  constructor({ comparator }) {
+  constructor ({ comparator }) {
     this.heap = []
     this.size = 0
-    this.comparator = comparator || function (a, b) { return a - b } 
+    this.comparator = comparator || function (a, b) { return a - b }
   }
 
   push (data) {
@@ -12,13 +12,13 @@ class Heap {
     this.percolateUp(this.heap.length - 1)
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
   pop () {
     if (this.size > 0) {
-      let data = this.heap.shift()
+      const data = this.heap.shift()
       this.size = this.heap.length
       if (this.size > 2) {
         this.heap.unshift(this.heap.pop())
@@ -34,8 +34,8 @@ class Heap {
   }
 
   delete (data) {
-    let index = this.has(data) 
-    if ( index >= 0) {
+    const index = this.has(data)
+    if (index >= 0) {
       // this.heap = [...this.heap.slice(0, index), ...this.heap.slice(index + 1)]
       // this.size = this.heap.length
       // for (let i = Math.floor(this.size / 2) + 1; i >= 0 ; i--) {
@@ -50,7 +50,7 @@ class Heap {
   }
 
   percolateUp (index) {
-    let parent = Math.floor((index - 1) / 2)
+    const parent = Math.floor((index - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[index]) > 0) {
       this.swap(parent, index)
       this.percolateUp(parent)
@@ -60,12 +60,12 @@ class Heap {
   percolateDown (index) {
     let parent = index
 
-    let leftChild = (index * 2) + 1
-    let rightChild = (index * 2) + 2
+    const leftChild = (index * 2) + 1
+    const rightChild = (index * 2) + 2
 
     if (leftChild < this.heap.length && this.comparator(this.heap[parent], this.heap[leftChild]) > 0) {
       parent = leftChild
-    } 
+    }
 
     if (rightChild < this.heap.length && this.comparator(this.heap[parent], this.heap[rightChild]) > 0) {
       parent = rightChild
@@ -77,8 +77,8 @@ class Heap {
     }
   }
 
-  swap (i ,j) {
-    let temp = this.heap[i]
+  swap (i, j) {
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
@@ -88,14 +88,11 @@ const arrayEqual = (i, j) => {
   return i.toString() == j.toString()
 }
 
-
-
-
 const dijkstra = (v, edges, source) => {
-  let g = Array(v).fill().map(() => Array().fill([]))
-  let distance = Array(v).fill(Infinity)
+  const g = Array(v).fill().map(() => Array().fill([]))
+  const distance = Array(v).fill(Infinity)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push([e[1], e[2]])
   }
 
@@ -110,38 +107,34 @@ const dijkstra = (v, edges, source) => {
   h.push([source, 0])
 
   while (h.size > 0) {
-    let curr = h.pop()
+    const curr = h.pop()
 
-    let to = curr[0]
-    let distancetillNow = curr[1]
+    const to = curr[0]
+    const distancetillNow = curr[1]
 
-    for (let nei of g[to]) {
-      let n_to = nei[0]
-      let n_w = nei[1]
+    for (const nei of g[to]) {
+      const n_to = nei[0]
+      const n_w = nei[1]
 
       if (distancetillNow + n_w <= distance[n_to]) {
-
         if (h.has([n_to, distance[n_to]])) {
           h.delete([n_to, distance[n_to]])
         }
-        
+
         distance[n_to] = distancetillNow + n_w
         h.push([n_to, distance[n_to]])
       }
     }
   }
 
-  for (let i in distance) {
+  for (const i in distance) {
     console.log(`the distance ${source} to ${i} is ${distance[i]}`)
   }
 }
 
-
 const main = () => {
-  let edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
+  const edges = [[0, 1, 1], [0, 3, 7], [0, 2, 4], [1, 2, 1], [2, 3, 2], [3, 4, 3]]
   console.log('all the distances are  ', dijkstra(5, edges, 0))
 }
 
 main()
-
-

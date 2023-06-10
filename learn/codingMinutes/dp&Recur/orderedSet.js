@@ -1,5 +1,4 @@
 
-
 const orderedSet = (num) => {
   // base case
   if (num == 0) return 1

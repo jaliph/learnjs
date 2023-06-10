@@ -1,10 +1,10 @@
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
     this.maxDegreeIndex = 0
   }
 
-  addEdge(i, j, isDirected) {
+  addEdge (i, j, isDirected) {
     if (isDirected) {
       this.vertices[i] = this.vertices[i] || []
       this.vertices[i].push(j)
@@ -19,18 +19,18 @@ class Graph {
 
 const bfs = (g) => {
   const size = Object.keys(g.vertices).length
-  let visited = {}
+  const visited = {}
 
   const BFS = (v) => {
-    let q = []
+    const q = []
     visited[v] = true
     q.push(v)
-    let s = []
+    const s = []
     console.log('-------')
     while (q.length > 0) {
-      let curr = q.shift()
+      const curr = q.shift()
       s.push(curr)
-      for (let n of g.vertices[curr]) {
+      for (const n of g.vertices[curr]) {
         if (!visited[n]) {
           visited[n] = true
           q.push(n)
@@ -41,7 +41,7 @@ const bfs = (g) => {
     console.log('-------')
   }
 
-  for (let v in g.vertices) {
+  for (const v in g.vertices) {
     if (!visited[v]) {
       console.log('Start at ', v)
       BFS(v)
@@ -49,23 +49,20 @@ const bfs = (g) => {
   }
 }
 
-
-
 const main = () => {
   let g
 
   let edges = [[0, 1], [0, 3], [1, 2], [1, 3], [2, 3], [2, 4]]
   g = new Graph()
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
   bfs(g)
 
-
   edges = [[0, 1], [1, 2], [2, 3], [2, 4], [5, 6], [5, 7]]
   g = new Graph()
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
@@ -73,7 +70,7 @@ const main = () => {
 
   edges = [[1, 2], [2, 3], [3, 4], [1, 0], [0, 4], [3, 5], [4, 5], [5, 6]]
   g = new Graph()
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 

@@ -6,9 +6,9 @@ const sumofDigits = (str) => {
     if (index == str.length) {
       return sum
     }
-    
+
     // recur
-    let till = last ? Number(str[index]) : 9
+    const till = last ? Number(str[index]) : 9
     let ans = 0
     for (let i = 0; i <= till; i++) {
       ans += sumFDigitsRecur(index + 1, last && (till == i), sum + i)

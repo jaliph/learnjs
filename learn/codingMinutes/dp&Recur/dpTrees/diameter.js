@@ -1,7 +1,7 @@
 // find the diameter of the tree
 
 class Tree {
-  constructor(num) {
+  constructor (num) {
     this.size = num
     this.vertices = {}
   }
@@ -16,15 +16,15 @@ class Tree {
 
 const DFS = (curr, parent, tree, fx, gx) => {
   // need 2 maxes
-  let max_1 = 0, max_2 = 0
+  let max_1 = 0; let max_2 = 0
 
-  for (let v of tree.vertices[curr]){
+  for (const v of tree.vertices[curr]) {
     if (v != parent) {
       DFS(v, curr, tree, fx, gx)
 
       gx[curr] = Math.max(gx[v] + 1, gx[curr])
       fx[curr] = Math.max(fx[v], fx[curr])
-      
+
       // need two max values in tehe children sub trees
       if (gx[v] + 1 > max_1) {
         max_2 = max_1

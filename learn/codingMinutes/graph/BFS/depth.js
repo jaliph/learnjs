@@ -1,12 +1,11 @@
 
-
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
     this.maxDegreeIndex = 0
   }
 
-  addEdge(i, j, isDirected) {
+  addEdge (i, j, isDirected) {
     if (isDirected) {
       this.vertices[i] = this.vertices[i] || []
       this.vertices[i].push(j)
@@ -21,21 +20,21 @@ class Graph {
 
 const bfs = (g) => {
   const size = Object.keys(g.vertices).length
-  let visited = {}
+  const visited = {}
   const depth = Array(size + 1).fill(0)
   const parent = Array(size + 1).fill(-1)
 
   const BFS = (source, dest) => {
-    let q = []
+    const q = []
     visited[source] = true
     depth[source] = 0
     parent[source] = source
     q.push(source)
-    let s = []
+    const s = []
     while (q.length > 0) {
-      let curr = q.shift()
+      const curr = q.shift()
       s.push(curr)
-      for (let n of g.vertices[curr]) {
+      for (const n of g.vertices[curr]) {
         if (!visited[n]) {
           visited[n] = true
           q.push(n)
@@ -47,10 +46,9 @@ const bfs = (g) => {
     console.log(s.join('->'))
     console.log(depth)
 
-
     // Path to source to destination
     let temp = dest
-    let path = []
+    const path = []
     while (temp != source) {
       path.unshift(temp)
       temp = parent[temp]
@@ -70,14 +68,12 @@ const bfs = (g) => {
   // }
 }
 
-
-
 const main = () => {
   let g
 
   edges = [[1, 2], [2, 3], [3, 4], [1, 0], [0, 4], [3, 5], [4, 5], [5, 6]]
   g = new Graph()
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 

@@ -1,5 +1,5 @@
 /// Palindrimoc Partitions
- 
+
 const palindromicPartitions = (s) => {
   const checkPalindrome = (str, i, j) => {
     if (i >= j) {
@@ -7,7 +7,7 @@ const palindromicPartitions = (s) => {
     }
 
     if (str[i] === str[j]) return checkPalindrome(str, i + 1, j - 1)
-    
+
     return false
   }
 
@@ -21,7 +21,7 @@ const palindromicPartitions = (s) => {
     let ans = Infinity
     for (let j = i; j < str.length; j++) {
       if (checkPalindrome(str, i, j)) {
-        ans = Math.min(ans, pPartitionsRecur(str, j + 1)) 
+        ans = Math.min(ans, pPartitionsRecur(str, j + 1))
       }
     }
     // this gives the number paritions not cuts

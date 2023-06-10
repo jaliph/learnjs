@@ -4,7 +4,7 @@ const power = (i, n) => {
 
   while (n) {
     // odd res
-    if (n&1 == 1) {
+    if (n & 1 === 1) {
       res = res * i
     }
     i = i * i
@@ -13,7 +13,6 @@ const power = (i, n) => {
 
   return res
 }
-
 
 const main = () => {
   console.log(' Fastest .... ', power(2, 10))

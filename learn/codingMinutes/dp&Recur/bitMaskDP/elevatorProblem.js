@@ -1,6 +1,5 @@
 
-
-class Pair  {
+class Pair {
   constructor (first, second) {
     this.first = first // number of rides
     this.second = second // weight of the ride
@@ -18,11 +17,10 @@ const minTrips = (elevatorMaxWeight, weights) => {
     for (let p = 0; p < N; p++) {
       // p is coming in the mask, wanna place in the elevator
       if ((mask >> p) & 1) {
-        
         // find the mask where ppl is not present
-        let new_mask = mask ^ (1 << p)
-        let new_option = new Pair(dp[new_mask].first, dp[new_mask].second)
-        
+        const new_mask = mask ^ (1 << p)
+        const new_option = new Pair(dp[new_mask].first, dp[new_mask].second)
+
         // include this ppl
         if (new_option.second + weights[p] <= elevatorMaxWeight) {
           new_option.first = new_option.first
@@ -43,7 +41,6 @@ const minTrips = (elevatorMaxWeight, weights) => {
   }
   return dp[(1 << N) - 1].first
 }
-
 
 const main = () => {
   const elevatorMaxWeight = 10

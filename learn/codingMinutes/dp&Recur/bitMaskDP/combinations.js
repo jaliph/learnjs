@@ -2,7 +2,7 @@
 const combinations = (str) => {
   const len = str.length
   const n = 1 << len
-  let res = []
+  const res = []
   for (let i = 0; i < n; i++) {
     let s = ''
     for (let j = 1, pos = 1; j < n; j <<= 1, pos++) {
@@ -22,10 +22,8 @@ const combinations = (str) => {
   return res
 }
 
-
 const main = () => {
   console.log('All the combinations are ', combinations('akachan1'))
 }
 
 main()
-

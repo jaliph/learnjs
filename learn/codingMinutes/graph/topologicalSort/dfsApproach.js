@@ -1,6 +1,6 @@
 
-class Graph{
-  constructor(isDirected) {
+class Graph {
+  constructor (isDirected) {
     this.vertices = {}
     this.isDirected = isDirected
   }
@@ -20,16 +20,16 @@ class Graph{
       }
     }
   }
-  
-  size() {
+
+  size () {
     return Object.keys(this.vertices).length
   }
 }
 
 const topologicalApproach = (edges) => {
-  let g = new Graph(true)
+  const g = new Graph(true)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g.addEdge(e[0], e[1])
   }
 
@@ -39,7 +39,7 @@ const topologicalApproach = (edges) => {
   const DFS_Explorer = (curr) => {
     visited[curr] = 1
 
-    for (let n of g.vertices[curr] || []) {
+    for (const n of g.vertices[curr] || []) {
       if (!visited[n]) {
         DFS_Explorer(n)
       }

@@ -4,11 +4,11 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var islandPerimeter = function(grid) {
-  let r = grid.length
-  let c = grid[0].length
+const islandPerimeter = function (grid) {
+  const r = grid.length
+  const c = grid[0].length
 
-  let visited = Array(r).fill(0).map(() => Array(c).fill(false))
+  const visited = Array(r).fill(0).map(() => Array(c).fill(false))
 
   const findPerimeter = (i, j) => {
     // base case
@@ -16,11 +16,10 @@ var islandPerimeter = function(grid) {
     if (i < 0 || j < 0 || i >= r || j >= c) return 1
     // or is water
     if (grid[i][j] == 0) return 1
-    
+
     // is already visited
     if (visited[i][j]) return 0
-    
-    
+
     visited[i][j] = true
     let ans = 0
 
@@ -40,11 +39,11 @@ var islandPerimeter = function(grid) {
       }
     }
   }
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 const main = () => {
-  let grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+  const grid = [[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]]
   Print2D(grid)
   console.log('The perimeter is ', islandPerimeter(grid))
 }

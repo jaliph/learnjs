@@ -36,12 +36,12 @@ In the 4th turn you throw a 6 (to reach 36)
 */
 
 class Graph {
-  constructor() {
+  constructor () {
     this.vertices = {}
     this.maxDegreeIndex = 0
   }
 
-  addEdge(i, j, isDirected) {
+  addEdge (i, j, isDirected) {
     if (isDirected) {
       this.vertices[i] = this.vertices[i] || []
       this.vertices[i].push(j)
@@ -54,16 +54,16 @@ class Graph {
   }
 
   BFS (source, destination) {
-    let size = Object.keys(this.vertices).length
-    let depth = Array(size + 1).fill(0)
-    let visited = Array(size + 1).fill(false)
+    const size = Object.keys(this.vertices).length
+    const depth = Array(size + 1).fill(0)
+    const visited = Array(size + 1).fill(false)
 
-    let q = []
+    const q = []
     q.push(source)
     visited[source] = true
     depth[source] = 0
     while (q.length > 0) {
-      let curr = q.shift()
+      const curr = q.shift()
       let n
       for (n of this.vertices[curr]) {
         if (!visited[n]) {
@@ -87,23 +87,23 @@ class Graph {
 const minJumps = (n, ladders, snakes) => {
   const board = Array(n + 1).fill(0)
 
-  for (let l of ladders) {
-    let source = l[0]
-    let dest = l[1]
+  for (const l of ladders) {
+    const source = l[0]
+    const dest = l[1]
     board[source] = source - dest
     // +ve value
   }
 
-  for (let l of snakes) {
-    let source = l[0]
-    let dest = l[1]
+  for (const l of snakes) {
+    const source = l[0]
+    const dest = l[1]
     board[source] = source - dest
     // -ve value
   }
 
-  let g = new Graph()
-  for (let s = 1; s <= n ; s++) {
-    for (let dice = 1 ; dice <= 6; dice++) {
+  const g = new Graph()
+  for (let s = 1; s <= n; s++) {
+    for (let dice = 1; dice <= 6; dice++) {
       let d = s + dice
       d = d + board[d]
       if (d <= n) {
@@ -115,11 +115,10 @@ const minJumps = (n, ladders, snakes) => {
   return g.BFS(1, n)
 }
 
-
 const main = () => {
-  let n = 36
-  let ladders = [[2,15],[5,7],[9,27],[18,29],[25,35]]
-  let snakes = [[17,4],[20,6],[34,12],[24,16],[32,30]]
+  const n = 36
+  const ladders = [[2, 15], [5, 7], [9, 27], [18, 29], [25, 35]]
+  const snakes = [[17, 4], [20, 6], [34, 12], [24, 16], [32, 30]]
 
   console.log('the min jumps to reach the top is ', minJumps(n, ladders, snakes))
 }

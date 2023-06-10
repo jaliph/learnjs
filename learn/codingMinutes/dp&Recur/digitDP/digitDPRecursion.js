@@ -6,20 +6,19 @@ const digitDp = (str) => {
       console.log(ans)
       return
     }
-    
+
     // recur
-    let till = last ? Number(str[index]) : 9
+    const till = last ? Number(str[index]) : 9
 
     for (let i = 0; i <= till; i++) {
-      digitDPRecur(ans + "" + i, index + 1, (last && (i == till)))
+      digitDPRecur(ans + '' + i, index + 1, (last && (i == till)))
     }
   }
-  return digitDPRecur("", 0, true)
+  return digitDPRecur('', 0, true)
 }
 
-
 const main = () => {
-  let str = "11"
+  const str = '11'
   console.log('All the numbers is ', digitDp(str))
 }
 
