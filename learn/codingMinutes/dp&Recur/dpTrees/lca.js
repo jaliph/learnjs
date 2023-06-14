@@ -66,7 +66,7 @@ const LCA = (t, u, v) => {
       }
     }
 
-    return u
+    return mat[u][0]
   }
 
   return LCAFinder(u, v)

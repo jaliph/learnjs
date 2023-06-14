@@ -36,21 +36,47 @@ Output
 
 */
 
-const subtreeProblem = (n, edges) => {
+const subtreeProblem = (n, edges, queries) => {
+  const g = Array(n + 1).fill().map(() => Array().fill([]))
 
+  for (let e of edges) {
+    g[e[0]].push(e[1])
+    g[e[1]].push(e[0])
+  }
+
+  const parents = []
+
+  const DFS_Solver = (curr, par) => {
+    let child = 1
+
+    for (let n of g[curr]) {
+      if (par != n) {
+        child += DFS_Solver(n, curr)
+      }
+    }
+    parents[curr] = child
+    return child
+  }
+
+  DFS_Solver(1, 0)
+
+  let results = []
+  for (let q of queries) {
+    results.push(parents[q])
+  }
+  return results
 }
 
 const main = () => {
-  n = 5
-
-  edges = [
+  n = 5, edges = [
     [1, 2],
     [1, 3],
     [3, 4],
     [3, 5]
   ]
-
   queries = [1, 2, 3, 4, 5]
+
+  console.log('Calculating the parents', subtreeProblem(n, edges, queries))
 }
 
 main()
