@@ -25,15 +25,15 @@
 //   prefixSum(mat)
   
 //   let ans = 0
-//   for (let i = 0; i < r; i++) {
-//     for (let j = 0; j < c; j++) {
-//       let min = Infinity
-//       for (let k = i; k < r; k++) {
-//         min = Math.min(min, mat[k][j])
-//         ans += min
-//       }
-//     }
-//   }
+  // for (let i = 0; i < r; i++) {
+  //   for (let j = 0; j < c; j++) {
+  //     let min = Infinity
+  //     for (let k = i; k < r; k++) {
+  //       min = Math.min(min, mat[k][j])
+  //       ans += min
+  //     }
+  //   }
+  // }
   
 //   return ans
 // };

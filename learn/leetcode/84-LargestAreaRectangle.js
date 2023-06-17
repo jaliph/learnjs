@@ -4,42 +4,42 @@
  * @param {number[]} heights
  * @return {number}
  */
-// var largestRectangleArea = function(heights) {
+var largestRectangleArea = function(heights) {
 
-//   let i = 1
+  let i = 1
 
-//   let s = []
-//   s.push([0, heights[0]])
-//   let maxArea = 0
-//   while (s.length > 0) {
+  let s = []
+  s.push([0, heights[0]])
+  let maxArea = 0
+  while (s.length > 0) {
 
-//     let [index, top] = s[s.length - 1]
-//     // for the remaining items in the stack
-//     if (i == heights.length) {
-//       maxArea = Math.max(maxArea, top * (i - index))
-//       s.pop()
-//     } else {
-//       // iterating the Heights
-//       if (top <= heights[i]) {
-//         s.push([i, heights[i]])
-//       } else {
-//         let prevIndex
-//         while (top > heights[i] && s.length > 0) {
-//           prevIndex = index
-//           maxArea = Math.max(maxArea, top * (i - index))
-//           s.pop()
-//           if (s.length > 0) {
-//             [index, top] = s[s.length - 1]
-//           }
-//         }
-//         s.push([prevIndex, heights[i]])
-//       }
-//       i++
-//     }
-//   }
+    let [index, top] = s[s.length - 1]
+    // for the remaining items in the stack
+    if (i == heights.length) {
+      maxArea = Math.max(maxArea, top * (i - index))
+      s.pop()
+    } else {
+      // iterating the Heights
+      if (top <= heights[i]) {
+        s.push([i, heights[i]])
+      } else {
+        let prevIndex
+        while (top > heights[i] && s.length > 0) {
+          prevIndex = index
+          maxArea = Math.max(maxArea, top * (i - index))
+          s.pop()
+          if (s.length > 0) {
+            [index, top] = s[s.length - 1]
+          }
+        }
+        s.push([prevIndex, heights[i]])
+      }
+      i++
+    }
+  }
 
-//   return maxArea
-// };
+  return maxArea
+};
 
 // Geeks for geeks
 /**
