@@ -6,7 +6,7 @@ const catalanBrute = (n) => {
   let sum = 0
   // must go till n - 1
   for (let i = 0; i < n; i++) {
-    sum += catalan(i) * catalan(n - i - 1)
+    sum += catalanBrute(i) * catalanBrute(n - i - 1)
   }
 
   return sum
@@ -27,14 +27,14 @@ const catalan = (n) => {
 
 // Driver code to test the above function
 function main () {
-  const nList = [0, 1, 2, 4, 6]
+  const nList = Array(100).fill(0)
 
   // Let's uncomment this to see the benefit of using dynamic programming with tabulation
   // nList.push(22);
 
   for (let i = 0; i < nList.length; i++) {
-    console.log(i + 1 + '.\tn: ' + nList[i])
-    console.log('\n\tnth catalan number: ' + catalan(nList[i]))
+    console.log(i + 1 + '.\tn: ' + i)
+    console.log('\n\tnth catalan number: ' + catalan(i))
     console.log('-'.repeat(100))
   }
 }

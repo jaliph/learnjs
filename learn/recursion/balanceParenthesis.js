@@ -11,4 +11,6 @@ function balanced (arr, startIndex = 0, currentIndex = 0) {
   return false
 }
 
-console.log(balanced(['(', '(', ')', '(', ')', ')'], 0, 0))
+console.log(balanced(['(', '(', '(', '(', ')', ')'], 0, 0))
+
+console.log(balanced([')', ')', '(', '('], 0, 0))
