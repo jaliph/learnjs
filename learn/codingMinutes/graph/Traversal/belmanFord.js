@@ -33,7 +33,7 @@ const belmanFord = (v, edges) => {
   }
 
   for (let i = 0; i <= v; i++) {
-    console.log(`this dist from ${source} to ${i} is ${dist[i]}`)
+    console.log(`this dist from ${source} to ${i} is ${\}`)
   }
 }
 
