@@ -28,6 +28,7 @@ const alphacode = (str) => {
 
 const main = () => {
   console.log('Count all possible encoding to its string form', alphacode('25114'))
+  console.log('Count all possible encoding to its string form', alphacode('12'))
   // console.log('Count all possible encoding to its string form', alphacode('1111111111'))
   // console.log('Count all possible encoding to its string form', alphacode('3333333333'))
 }
