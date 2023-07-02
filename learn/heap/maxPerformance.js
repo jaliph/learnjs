@@ -87,7 +87,7 @@ var maxPerformance = function(n, speed, efficiency, k) {
     }
 
     let currResult = BigInt(speedSum) * BigInt(min)
-    console.log(currResult, result)
+    // console.log(currResult, result)
   
     if (currResult > result) {
       result = currResult
