@@ -70,14 +70,14 @@ class maxHeap {
   }
 }
 
-const heap = new maxHeap([], null, (a, b) => b - a)
-heap.insert(12)
-heap.insert(10)
-heap.insert(11)
-heap.insert(100)
+// const heap = new maxHeap([], null, (a, b) => b - a)
+// heap.insert(12)
+// heap.insert(10)
+// heap.insert(11)
+// heap.insert(100)
 
-console.log(heap.removeMax())
-console.log(heap.removeMax())
-console.log(heap.removeMax())
+// console.log(heap.removeMax())
+// console.log(heap.removeMax())
+// console.log(heap.removeMax())
 
 module.exports = maxHeap
