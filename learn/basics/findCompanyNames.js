@@ -30,7 +30,9 @@ var distinctNames = function(ideas) {
             cnt++
           }
         }
+        console.log(startChars[i],startChars[j])
         count += (set1.size - cnt) * (set2.size - cnt)
+        console.log(count, set1.size - cnt, set2.size - cnt)
         // count += (set1.size + set2.size) - (2 * cnt)
         // console.log(set1.size, set2.size, cnt, count)
         // if (set1.size - cnt > 0 && set2.size - cnt > 0) {
