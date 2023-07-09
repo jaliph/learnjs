@@ -1,5 +1,4 @@
-
-https://leetcode.com/problems/minimum-replacements-to-sort-the-array/
+// https://leetcode.com/problems/minimum-replacements-to-sort-the-array/
 
 function minimumReplacement(A) {
   let x = 1e9, res = 0, k
