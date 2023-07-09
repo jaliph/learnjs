@@ -1,4 +1,4 @@
-// https://www.lintcode.com/problem/857/
+// https://leetcode.com/problems/minimum-window-substring/
 
 /**
  * @param s: a string
