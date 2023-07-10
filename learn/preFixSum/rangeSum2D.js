@@ -37,7 +37,7 @@ NumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {
   let up = this.sumArray[row1 - 1][col2]
   let left = this.sumArray[row2][col1 - 1]
 
-  return downRight - ((up + left) + topLeft)
+  return downRight - up - left + topLeft
 };
 
 /** 
