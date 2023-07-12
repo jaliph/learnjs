@@ -18,7 +18,7 @@ n ^ (1 << i)
 n | (1 << i)
 
 6. Update the ith bit - user can send 1 or 0
-n & ~ (1 << i)  // clear the ith bit
+n & ~(1 << i)  // clear the ith bit
 n | (valueFromUser << i)
 
 7. clear last n bits
@@ -30,5 +30,7 @@ n & (-1 << i)
     (j+1)    (2**i-1) ~= (1 << i) - 1
 n & ((-1 << (j + 1)) |  ((1 << i) - 1))
 
-9. Power of 2
+9. Power of 2     
 (n & (n - 1)) == 0
+
+
