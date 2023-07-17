@@ -18,7 +18,7 @@ const digitDp = (str) => {
 }
 
 const main = () => {
-  const str = '11'
+  const str = '14'
   console.log('All the numbers is ', digitDp(str))
 }
 

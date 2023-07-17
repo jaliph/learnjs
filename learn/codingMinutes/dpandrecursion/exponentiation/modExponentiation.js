@@ -7,10 +7,10 @@ const power = (i, n) => {
   while (n) {
     if (n & 1 === 1) {
       res = res * i
-      res = res % mod
+      res = res % MOD
     }
     i = i * i
-    i = i % mod
+    i = i % MOD
     n = n >> 1
   }
 
@@ -18,7 +18,7 @@ const power = (i, n) => {
 }
 
 const main = () => {
-  console.log('Modules is ', mod(10, 3))
+  console.log('Modules is ', power(10, 3))
 }
 
 main()
