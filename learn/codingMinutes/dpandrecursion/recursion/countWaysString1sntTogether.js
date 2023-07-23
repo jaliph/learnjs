@@ -1,3 +1,5 @@
+// https://www.codingninjas.com/studio/problems/binary-strings-with-no-consecutive-1s_893001
+// https://leetcode.com/discuss/general-discussion/1287402/count-number-of-binary-strings-without-consecutive-1s
 
 // COunt the way to array 0s and 1s so that no cosecutive 1s exist in the string
 const count = (n) => {
@@ -20,6 +22,14 @@ const count = (n) => {
 
   return cRecur(n, 0, false)
 }
+
+
+/* 
+it is a fibonacci serquence
+[0... n - 1] + [1, 0.... n - 2]
+f[n] = f[n - 1] + f[n - 2]
+*/
+
 
 const main = () => {
   for (let i = 1; i <= 10; i++) {
