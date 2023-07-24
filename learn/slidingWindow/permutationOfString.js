@@ -21,9 +21,6 @@ var checkInclusion = function(s1, s2) {
       len-- 
     }
     charMap[incominChar]--
-
-
-    console.log(charMap)
     
     if (len == 0) {
       return true
