@@ -6,50 +6,21 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function(nums, k) {
-
-  const binaryInsertion = (nums, target) => {
-    let left = 0
-    let right = nums.length - 1
-    while (left <= right) {
-      let mid = left + Math.floor((right - left) / 2)
-      if (nums[mid] === target) {
-        left = mid
-        break
-      } else if (nums[mid] > target) {
-        left = mid + 1
-      } else {
-        right = mid - 1
-      }
-    } 
-    nums.splice(left, 0, target)
-  }
-
-  const binaryDeletion = (nums, target) => {
-    let left = 0
-    let right = nums.length - 1
-    while (left <= right) {
-      let mid = left + Math.floor((right - left) / 2)
-      if (nums[mid] === target) {
-        left = mid
-        break
-      } else if (nums[mid] > target) {
-        left = mid + 1
-      } else {
-        right = mid - 1
-      }
-    }
-    nums.splice(left, 1)
-  }
-
+  let q = []
   let results = []
   let wStart = 0
-  let window = []
   for (let wEnd = 0; wEnd < nums.length; wEnd++) {
-    binaryInsertion(window, nums[wEnd])
+    while(q.length && nums[q[q.length - 1]] < nums[wEnd]) {
+      q.pop()
+    }
+    q.push(wEnd)
+
+    if (q[0] < wStart) {
+      q.shift()
+    }
+
     if (wEnd >= k - 1) {
-      console.log(window)
-      results.push(window[0])
-      binaryDeletion(window, nums[wStart])
+      results.push(nums[q[0]])
       wStart++
     }
   }

@@ -1,3 +1,9 @@
+// https://leetcode.com/problems/fruit-into-baskets/
+
+/**
+ * @param {number[]} fruits
+ * @return {number}
+ */
 const fruits_into_baskets = function (fruits) {
   let wStart = 0
   const freqMap = {}

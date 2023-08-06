@@ -27,7 +27,7 @@ var checkInclusion = function(s1, s2) {
     }
 
     if (wEnd >= s1.length - 1) { // wEnd - wStart == s1.length
-      console.log(s2.slice(wStart, wEnd + 1))
+      // console.log(s2.slice(wStart, wEnd + 1))
       let outGoingChar = s2[wStart]
       if (charMap[outGoingChar] >= 0) {
         len++
