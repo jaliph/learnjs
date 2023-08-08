@@ -74,8 +74,6 @@ var largestRectangleArea = function (heights) {
   }
   console.log(stack)
   while (stack.length > 0) {
-
-
     let top_of_stack = stack.pop()
 
     console.log(index)
