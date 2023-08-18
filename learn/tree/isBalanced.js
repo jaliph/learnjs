@@ -1,0 +1,31 @@
+// https://leetcode.com/problems/balanced-binary-tree/submissions/1022646218/
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isBalanced = function(root) {
+  let balance = true
+  const findDepthRecur = (node) => {
+    if (!node) {
+      return 0
+    }
+
+    let left = findDepthRecur(node.left)
+    let right = findDepthRecur(node.right)
+
+    // console.log(left, right)
+    balance = balance && Math.abs(left - right) <= 1
+
+    return 1 + Math.max(left, right)
+  }
+  findDepthRecur(root)
+  return balance
+};
