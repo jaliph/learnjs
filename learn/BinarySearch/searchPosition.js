@@ -30,6 +30,9 @@ const main = () => {
 
   nums = [1,3,5,6], target = 7
   console.log('Index search position is ', searchInsert(nums, target))
+
+  nums = [0, 1, 3], target = 2
+  console.log('Index search position is ', searchInsert(nums, target))
 }
 
 main()

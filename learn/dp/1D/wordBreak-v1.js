@@ -10,7 +10,7 @@ const wordBreakBrute = (s, dict) => {
     if (s === i) result.push(i)
 
     const items = ''
-    const restoftheSentence = wordBreak(s.substring(i.length, s.length), dict)
+    const restoftheSentence = wordBreakBrute(s.substring(i.length, s.length), dict)
     for (const j of restoftheSentence) {
       result.push(i + ' ' + j)
     }

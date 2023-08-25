@@ -47,8 +47,7 @@ const paintHouseSolver = (mat) => {
   Print2D(dp)
 
   let ans = Infinity
-  for (let j = 0; j <
-     mat[0].length; j++) {
+  for (let j = 0; j < mat[0].length; j++) {
     ans = Math.min(ans, dp[mat.length - 1][j])
   }
   return ans

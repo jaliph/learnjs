@@ -13,7 +13,7 @@ var permuteUnique = function(nums) {
   const results = []
   let perms = []
   const permute = () => {
-    if (e.length == nums.length) {
+    if (perms.length == nums.length) {
       results.push([...perms])
       return
     }

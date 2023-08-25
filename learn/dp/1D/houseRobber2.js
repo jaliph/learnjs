@@ -5,6 +5,15 @@
  * @return {number}
  */
 var rob = function(nums) {
+
+};
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob2 = function(nums) {
   if (nums.length == 1) {
     return nums[0]
   }

@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
+var rob2 = function(nums) {
   if (nums.length === 1) {
     return nums[0]
   }
@@ -19,4 +19,20 @@ var rob = function(nums) {
   }
 
   return prev1
+};
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+  let prev1 = 0, prev2 = 0
+
+  for (n of nums) {
+    let tempMax = Math.max(n + prev2, prev1)
+    prev2 = prev1
+    prev1 = tempMax
+  }
+
+  return tempMax
 };
