@@ -17,3 +17,10 @@ var combinationSum4 = function(nums, target) {
   }
   return dp.get(target)
 };
+
+const main = () => {
+  nums = [1, 2], target = 4
+  console.log('Num of total ways to reach target is ', combinationSum4(nums, target))
+}
+
+main()

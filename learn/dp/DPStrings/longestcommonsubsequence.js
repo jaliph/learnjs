@@ -1,55 +1,58 @@
-const method1 = (arr1, arr2, m, n) => {
-  if (m <= 0 || n <= 0) {
-    return 0
-  } else {
-    if (arr1[m - 1] === arr2[n - 1]) {
-      return 1 + method1(arr1, arr2, m - 1, n - 1)
+// https://leetcode.com/problems/longest-common-subsequence/
+/**
+ * @param {string} text1
+ * @param {string} text2
+ * @return {number}
+ */
+var longestCommonSubsequenceBrute = function(text1, text2) {
+  let cache = new Map()
+  const matchCharsRecur = (i, j) => {
+    if (i >= text1.length || j >= text2.length) {
+      return 0
+    }
+    let key = i + ':' + j
+    if (cache.has(key)) {
+      return cache.get(key)
+    }
+
+    if (text1[i] === text2[j]) {
+      cache.set(key, 1 + matchCharsRecur(i + 1, j + 1))
     } else {
-      return Math.max(method1(arr1, arr2, m - 1, n), method1(arr1, arr2, m, n - 1))
+      cache.set(key, Math.max(matchCharsRecur(i + 1, j), matchCharsRecur(i, j + 1)))
     }
+    console.log(cache)
+    return cache.get(key)
   }
-}
 
-const method2 = (arr1, arr2) => {
-  const table = Array(arr1.length + 1).fill(Array(arr2.length + 1).fill(0))
-  for (let i = 0; i <= arr1.length; i++) {
-    for (let j = 0; j <= arr2.length; j++) {
-      if (i === 0 || j === 0) {
-        table[i][j] = 0
-      } else if (arr1[i] === arr2[j]) {
-        table[i][j] = table[i - 1][j - 1] + 1
+  return matchCharsRecur(0, 0)
+};
+
+/**
+ * @param {string} text1
+ * @param {string} text2
+ * @return {number}
+ */
+var longestCommonSubsequence = function(text1, text2) {
+  let prev = Array(text2.length + 1).fill(0)
+  let dp
+  for (let i = 0; i < text1.length; i++) {
+    dp = Array(text2.length + 1).fill(0)
+    for (let j = 0; j < text2.length; j++) {
+      if (text1[i] === text2[j]) {
+        dp[j + 1] = 1 + prev[j]
       } else {
-        table[i][j] = Math.max(table[i - 1][j], table[i][j - 1])
+        dp[j + 1] = Math.max(dp[j], prev[j + 1])
       }
     }
+    prev = dp
   }
-  // console.dir(table)
-  return table[arr1.length][arr2.length]
+
+  return dp[text2.length]
+};
+
+const main = () => {
+  text1 = "abcde", text2 = "ace" 
+  console.log('LCS is ', longestCommonSubsequenceBrute(text1, text2))
 }
 
-const method3 = (arr1, arr2) => {
-  const table = Array(arr2.length + 1).fill(0)
-  let prev
-  let temp
-  for (let i = 1; i <= arr1.length; i++) {
-    prev = 0
-    for (let j = 1; j <= arr2.length; j++) {
-      temp = table[j]
-      if (arr1[i] === arr2[j]) {
-        table[j] = prev + 1
-      } else {
-        table[j] = Math.max(table[j], table[j - 1])
-      }
-      prev = temp
-    }
-  }
-  return table[arr2.length]
-}
-
-const driver = () => {
-  console.log('Longest SubString ', method1([...'JAVAID'], [...'JAVA'], 'JAVAID'.length, 'JAVA'.length))
-  console.log(method2([...'JAVAID'], [...'JAVA']))
-  console.log(method3([...'JAVAID'], [...'JAVA']))
-}
-
-driver()
+main()
