@@ -16,7 +16,6 @@ var minStickers = function(stickers, target) {
   }
 
   const dp = new Map() // key is word subsequence, value is the min stickers for the word sequence
-
   const findMinStickRecur = (t, sticker) => {
     if (dp.has(t)) {
       return dp.get(t)
