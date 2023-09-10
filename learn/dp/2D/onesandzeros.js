@@ -59,4 +59,5 @@ var findMaxForm = function(strs, m, n) {
       }
     }
   }
+  return dp[m][n]
 }
