@@ -72,6 +72,7 @@ var minimumEffortPath = function(heights) {
   const r = heights.length
   const c = heights[0].length
 
+  // A*
   const visited = Array(r).fill().map(() => Array(c).fill(false))
   const h = new Heap((a, b) => a[0] - b[0])
   h.push([0, 0, 0])

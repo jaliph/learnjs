@@ -5,7 +5,19 @@
  * @return {number}
  */
 var rob = function(nums) {
+  let helper = (houses) => {
+    let prev1 = 0, prev2 = 0
 
+    let tempMax
+    for (let h of houses) {
+      tempMax = Math.max(prev2 + h, prev1)
+      prev2 = prev1
+      prev1 = tempMax
+    }
+    return prev1
+  }
+
+  return Math.max(nums[0], helper(nums.slice(1)), helper(nums.slice(0, -1)))
 };
 
 
