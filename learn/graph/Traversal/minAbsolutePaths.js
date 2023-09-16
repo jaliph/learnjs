@@ -71,6 +71,44 @@ class Heap {
 var minimumEffortPath = function(heights) {
   const r = heights.length
   const c = heights[0].length
+
+  const visited = Array(r).fill().map(() => Array(c).fill(false))
+  const h = new Heap((a, b) => a[0] - b[0])
+  h.push([0, 0, 0])
+
+  const paths = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+
+  while (h.size) {
+    let [efforts, i, j] = h.pop()
+
+    if (visited[i][j]) {
+      continue
+    }
+
+    visited[i][j] = true
+
+    if (i === r - 1 && j === c - 1) {
+      return efforts
+    }
+
+    for (let p of paths) {
+      let [ni, nj] = [i + p[0], j + p[1]]
+      if (ni >= 0 && nj >= 0 && ni < r && nj < c && !visited[ni][nj]) {
+        let newEffort = Math.max(efforts, Math.abs(heights[i][j] - heights[ni][nj]))
+        h.push([newEffort, ni, nj])
+      }
+    }
+  }
+}
+
+
+/**
+ * @param {number[][]} heights
+ * @return {number}
+ */
+var minimumEffortPathDikstra = function(heights) {
+  const r = heights.length
+  const c = heights[0].length
   
   // Dijkstra
   const dist = Array(r).fill().map(() => Array(c).fill(Infinity))
@@ -98,9 +136,6 @@ var minimumEffortPath = function(heights) {
       }
     }
   }
-
-  // A*
-
 }
 
 /**
