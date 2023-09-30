@@ -11,7 +11,7 @@ var colorBorder = function(grid, row, col, color) {
   let c = grid[0].length
 
   const visited = Array(r).fill().map(() => Array(c).fill(false))
-  Print2D(grid)
+  // Print2D(grid)
 
   const isBorder = (i, j, color) => {
     if (i >= 0 && j >= 0 && i < r && j < c && (grid[i][j] === color || grid[i][j] === 'x')) {

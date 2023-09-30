@@ -9,7 +9,7 @@ class FenwickTree {
     index++  // 1 base index
     while (index < this.size) {
       this.fn[index] += value
-      index += (index & -index) 
+      index += (index & -index)
     }
   }
 
