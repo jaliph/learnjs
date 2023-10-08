@@ -11,6 +11,8 @@ const primeFactors = (n) => {
     }
   }
 
+  console.log(bool)
+
   let factors = [1]
   while (n != bool[n]) {
     factors.push(bool[n])

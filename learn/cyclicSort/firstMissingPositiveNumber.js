@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/first-missing-positive/
 
 /**
+ * MEX
  * @param {number[]} nums
  * @return {number}
  */
