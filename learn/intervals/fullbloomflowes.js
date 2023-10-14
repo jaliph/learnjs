@@ -62,40 +62,32 @@ class Heap {
   }
 }
 
+
 /**
- * https://leetcode.com/problems/minimum-interval-to-include-each-query/
- * @param {number[][]} intervals
- * @param {number[]} queries
+ * @param {number[][]} flowers
+ * @param {number[]} people
  * @return {number[]}
  */
-var minInterval = function(intervals, queries) {
-  intervals.sort((a, b) => a[0] - b[0])
+var fullBloomFlowers = function(flowers, people) {
+  flowers.sort((a, b) => a[0] - b[0])
+  let peops = people.map((o, i) => [o, i])
+  peops.sort((a, b) => a[0] - b[0])
 
-  origQ = [...queries]
-  queries.sort((a, b) => a - b)
-
+  let res = []
   let i = 0
-  let res = new Map()
-  const h = new Heap((a, b) => a[0] - b[0])
-  for (let q of queries) {
-    while (i < intervals.length && intervals[i][0] <= q) {
-      h.push([intervals[i][1] - intervals[i][0] + 1, intervals[i][1]])
+  const h = new Heap((a, b) => a - b)
+  for (let p of peops) {
+    while (i < flowers.length && flowers[i][0] <= p[0]) {
+      h.push(flowers[i][1])
       i++
     }
 
-    while (h.size && h.peek()[1] < q) {
+    while (h.size && h.peek() < p[0]) {
       h.pop()
     }
-    // console.log(h)
-    res.set(q, (h.size ? h.peek()[0] : -1))
+
+    res[p[1]] = h.size
   }
 
-  return origQ.map((q) => res.get(q))
+  return res
 };
-
-const main = () => {
-  intervals = [[1,4],[2,4],[3,6],[4,4]], queries = [2,3,4,5]
-  console.log('min interval for a query is ', minInterval(intervals, queries))
-}
-
-main()
