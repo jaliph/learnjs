@@ -4,10 +4,6 @@
  * @param {number[]} stones
  * @return {number}
  */
-/**
- * @param {number[]} stones
- * @return {number}
- */
 var lastStoneWeightII = function(stones) {
   let sum = stones.reduce((prev, curr) => prev + curr, 0)
   let target = Math.ceil(sum / 2)
@@ -15,6 +11,10 @@ var lastStoneWeightII = function(stones) {
   const weightFinder = (i, wt) => {
     if (wt >= target || i == stones.length) {
       return Math.abs(wt - (sum - wt))
+      // we want the diff between 2 piles
+      // 1 pile is wt
+      // 2 pile is sum - wt
+      // diff is wt - sum - wt // to ensure negation, do abs
     }
 
     let key = i + ':' + wt

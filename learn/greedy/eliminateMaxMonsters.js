@@ -6,7 +6,7 @@
 var eliminateMaximum = function(dist, speed) {
   let time = dist.map((d, i) => {
     return Math.ceil(d / speed[i])
-  })  
+  })
 
   let res = 0
   time.sort((a, b) => a - b)

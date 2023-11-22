@@ -22,7 +22,7 @@ const minSwaps = (nums) => {
         visited[node] = true
 
         // jump to the next position
-        const nextNode = m[i][1]
+        const nextNode = m[node][1]
         node = nextNode
         cycle++
       }

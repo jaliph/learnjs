@@ -1,5 +1,8 @@
 Before We Begin
 
+Must read
+https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-binary-search-template-solved-many-problemsLeetcode
+
 Have you ever wondered when to use while(lo<hi) while(lo <= hi) ?
 Have you ever wondered when to use left = mid + 1 left = mid right = mid + 1 right = mid ?
 Have you ever wondered why your binary search algorithm stuck in an infinity loop?

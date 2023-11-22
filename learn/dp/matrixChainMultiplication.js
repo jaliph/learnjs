@@ -23,18 +23,22 @@ const minMultiplications = (dims) => {
     for (let i = 1; i < (dims.length - l + 1); i++) {
       const j = i + l - 1
       dp[i][j] = Infinity
-      for (let k = i; k < j; k++) {
+      for (let k = i; k <= j - 1; k++) {
         const result = dp[i][k] + dp[k + 1][j] + (dims[i - 1] * dims[k] * dims[j])
         // console.log(result)
         if (dp[i][j] > result) {
           dp[i][j] = result
         }
       }
+      Print2D(dp)
+      console.log('------')
     }
   }
   // console.log(dp)
   return dp[1][dims.length - 1]
 }
+
+const Print2D = arr => arr.forEach(o => console.log(...o))
 
 // Driver code
 function main () {
