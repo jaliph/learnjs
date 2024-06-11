@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number}
  */
-var arrangeCoins = function(n) {
+let arrangeCoins = function (n) {
   let l = 1
   let r = n
   let mid
@@ -20,7 +20,7 @@ var arrangeCoins = function(n) {
     }
   }
   return res
-};
+}
 
 const main = () => {
   n = 5

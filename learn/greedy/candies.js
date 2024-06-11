@@ -3,7 +3,7 @@
  * @param {number[]} ratings
  * @return {number}
  */
-var candy = function(ratings) {
+let candy = function (ratings) {
   // one pass
   let ret = 1; up = 0, down = 0, peak = 0
   for (let i = 1; i < ratings.length; i++) {
@@ -30,8 +30,8 @@ var candy = function(ratings) {
   if (ratings.length == 1) {
     return 1
   }
-  let candies = Array(ratings.length).fill(1)
-  
+  const candies = Array(ratings.length).fill(1)
+
   for (let i = 1; i < ratings.length; i++) {
     if (ratings[i - 1] < ratings[i]) {
       candies[i] = 1 + candies[i - 1]
@@ -39,10 +39,10 @@ var candy = function(ratings) {
   }
 
   for (let i = ratings.length - 2; i >= 0; i--) {
-    if (ratings[i] > ratings[i + 1]) {  
+    if (ratings[i] > ratings[i + 1]) {
       candies[i] = Math.max(candies[i], 1 + candies[i + 1])
     }
   }
 
   return candies.reduce((prev, curr) => curr + prev, 0)
-};
+}

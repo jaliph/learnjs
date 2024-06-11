@@ -5,16 +5,16 @@
  * @param {number} k
  * @return {number}
  */
-var splitArray = function(nums, k) {
-  let l = Math.max(...nums), r = nums.reduce((prev, curr) => prev + curr, 0)
-  
+let splitArray = function (nums, k) {
+  let l = Math.max(...nums); let r = nums.reduce((prev, curr) => prev + curr, 0)
+
   let res = r
   let mid
 
   const canSplit = (maxSplit) => {
     let currSum = 0
     let splitCount = 1
-    for (let n of nums) {
+    for (const n of nums) {
       if (currSum + n > maxSplit) {
         splitCount++
         currSum = 0
@@ -36,22 +36,20 @@ var splitArray = function(nums, k) {
   }
 
   return res
-};
+}
 
 const main = () => {
-  nums = [7,2,5,10,8], k = 2
+  nums = [7, 2, 5, 10, 8], k = 2
   console.log('Ans is ', splitArray(nums, k))
 }
 
 main()
 
-
-
-var splitArray2 = function(nums, k) {
+let splitArray2 = function (nums, k) {
   const splitArrayRecur = (i, k) => {
     // base
     if (i == nums.length) {
-      if (k == 0) { 
+      if (k == 0) {
         return 0
       } else {
         return Infinity
@@ -62,9 +60,8 @@ var splitArray2 = function(nums, k) {
       return Infinity
     }
 
-
     // recur
-    let ans = Infinity, sum = 0
+    let ans = Infinity; let sum = 0
     for (let j = i; j < nums.length; j++) {
       sum += nums[j]
       ans = Math.min(ans, Math.max(sum, splitArrayRecur(j + 1, k - 1)))
@@ -72,4 +69,4 @@ var splitArray2 = function(nums, k) {
     return ans
   }
   return splitArrayRecur(0, k)
-};
+}

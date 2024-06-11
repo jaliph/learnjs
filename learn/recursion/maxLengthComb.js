@@ -51,8 +51,8 @@ var maxLength = function(arr) {
 }
 
 const main = () => {
-  arr = ["un","iq","ue"]
-  console.log('Max combo length is ', maxLength(arr))
+  // arr = ["un","iq","ue"]
+  // console.log('Max combo length is ', maxLength(arr))
 
   arr = ['aa', 'bb']
   console.log('Max combo length is ', maxLength(arr))

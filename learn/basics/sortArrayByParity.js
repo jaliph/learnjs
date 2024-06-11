@@ -3,7 +3,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var sortArrayByParity = function(nums) {
+let sortArrayByParity = function (nums) {
   let l = 0
   let r = nums.length - 1
 
@@ -23,10 +23,10 @@ var sortArrayByParity = function(nums) {
   }
 
   return nums
-};
+}
 
 const main = () => {
-  nums = [3,1,2,4]
+  nums = [3, 1, 2, 4]
   console.log(sortArrayByParity(nums))
 }
 

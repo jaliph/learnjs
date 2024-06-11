@@ -5,16 +5,16 @@
  * @param {number[]} nums
  * @return {number}
  */
-var firstMissingPositive = function(nums) {
+let firstMissingPositive = function (nums) {
   nums = nums.map(o => o < 0 ? 0 : o)
- 
+
   for (let i = 0; i < nums.length; i++) {
-    let num = Math.abs(nums[i])
+    const num = Math.abs(nums[i])
     if (num > 0) {
-      let index = num - 1
+      const index = num - 1
       if (nums[index] == 0) {
         nums[index] = -1 * (nums.length + 1)
-      } else if (nums[index] > 0){
+      } else if (nums[index] > 0) {
         nums[index] = -1 * nums[index]
       }
     }
@@ -28,13 +28,13 @@ var firstMissingPositive = function(nums) {
   }
 
   return nums.length + 1
-};
+}
 
 const main = () => {
-  nums = [3,4,-1,1]
+  nums = [3, 4, -1, 1]
   console.log('the first missing positive number ', firstMissingPositive(nums))
 
-  nums = [1,2,0]
+  nums = [1, 2, 0]
   console.log('the first missing positive number ', firstMissingPositive(nums))
 }
 

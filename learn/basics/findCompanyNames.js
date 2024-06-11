@@ -1,13 +1,13 @@
-
+https://leetcode.com/problems/naming-a-company/description/
 /**
  * @param {string[]} ideas
  * @return {number}
  */
-var distinctNames = function(ideas) {
-  let nameMap = new Map()
+let distinctNames = function (ideas) {
+  const nameMap = new Map()
 
-  for (let idea of ideas) {
-    let ch = idea[0]
+  for (const idea of ideas) {
+    const ch = idea[0]
     if (!nameMap.has(ch)) {
       nameMap.set(ch, new Set())
     }
@@ -17,26 +17,26 @@ var distinctNames = function(ideas) {
   console.log(nameMap)
 
   let count = 0
-  let startChars = Array.from(nameMap.keys())
+  const startChars = Array.from(nameMap.keys())
   for (let i = 0; i < startChars.length; i++) {
     for (let j = 0; j < startChars.length; j++) {
       if (startChars[i] != startChars[j]) {
-        let set1 = nameMap.get(startChars[i])
-        let set2 = nameMap.get(startChars[j])
+        const set1 = nameMap.get(startChars[i])
+        const set2 = nameMap.get(startChars[j])
         // console.log(startChars[i], startChars[j])
         let cnt = 0
-        for (let prefix of set1) {
+        for (const prefix of set1) {
           if (set2.has(prefix)) {
             cnt++
           }
         }
-        console.log(startChars[i],startChars[j])
+        console.log(startChars[i], startChars[j])
         count += (set1.size - cnt) * (set2.size - cnt)
         console.log(count, set1.size - cnt, set2.size - cnt)
         // count += (set1.size + set2.size) - (2 * cnt)
         // console.log(set1.size, set2.size, cnt, count)
         // if (set1.size - cnt > 0 && set2.size - cnt > 0) {
-          
+
         // }
       }
     }
@@ -44,12 +44,11 @@ var distinctNames = function(ideas) {
   return count
 }
 
-
 const main = () => {
-  ideas = ["coffee","donuts","time","toffee"]
+  ideas = ['coffee', 'donuts', 'time', 'toffee']
   console.log('Total names possible are ', distinctNames(ideas))
 
-  ideas = ["aaa","baa","caa","bbb","cbb","dbb"]
+  ideas = ['aaa', 'baa', 'caa', 'bbb', 'cbb', 'dbb']
   console.log('Total names possible are ', distinctNames(ideas))
 }
 

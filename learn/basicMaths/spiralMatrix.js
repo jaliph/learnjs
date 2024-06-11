@@ -3,15 +3,13 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var spiralOrder = function(matrix) {
-  
-  let res = []
+let spiralOrder = function (matrix) {
+  const res = []
 
-  let l = 0, r = matrix[0].length
-  let top = 0, bottom = matrix.length
+  let l = 0; let r = matrix[0].length
+  let top = 0; let bottom = matrix.length
 
   while (l < r && top < bottom) {
-
     // top row
     for (let i = l; i < r; i++) {
       res.push(matrix[top][i])
@@ -41,11 +39,11 @@ var spiralOrder = function(matrix) {
     l++
   }
   return res
-};
+}
 
 
 const main = () => {
-  matrix = [[1,2,3],[4,5,6],[7,8,9]]
+  matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   console.log('Spiral Order is .. ', spiralOrder(matrix))
 }
 

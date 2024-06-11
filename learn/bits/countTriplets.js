@@ -4,31 +4,31 @@
  * @param {number[]} nums
  * @return {number}
  */
-var countTriplets = function(nums) {
+let countTriplets = function (nums) {
   let count = 0
-  let map = {}
-  for (let n1 of nums) {
-    for (let n2 of nums) {
+  const map = {}
+  for (const n1 of nums) {
+    for (const n2 of nums) {
       map[n1 & n2] = (map[n1 & n2] || 0) + 1
     }
   }
 
-  for (let n3 of nums) {
-    for (let t in map) {
-      let n1n2 = parseInt(t)
+  for (const n3 of nums) {
+    for (const t in map) {
+      const n1n2 = parseInt(t)
       if ((n3 & n1n2) === 0) {
         count += map[t]
       }
     }
   }
   return count
-};
+}
 
 const main = () => {
-  nums = [2,1,3]
+  nums = [2, 1, 3]
   console.log('Count of all the triplets where the a 0 b 0 c ==0 ', countTriplets(nums))
 
-  nums = [0,0,0]
+  nums = [0, 0, 0]
   console.log('Count of all the triplets where the a 0 b 0 c ==0 ', countTriplets(nums))
 }
 

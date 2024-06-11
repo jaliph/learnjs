@@ -3,8 +3,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var sortedSquares2 = function(nums) {
-
+let sortedSquares2 = function (nums) {
   const binaryInsert = (arr, data) => {
     let l = 0
     let r = arr.length
@@ -21,24 +20,24 @@ var sortedSquares2 = function(nums) {
     arr.splice(l, 0, data)
   }
 
-  let res = []
+  const res = []
   let sqr
-  for (let n of nums) {
+  for (const n of nums) {
     sqr = n * n
     binaryInsert(res, sqr)
   }
   return res
-};
+}
 
 
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
-var sortedSquares = function(nums) {
+var sortedSquares = function (nums) {
   let l = 0
   let r = nums.length - 1
-  let res = Array(nums.length).fill()
+  const res = Array(nums.length).fill()
   let w = nums.length - 1
   while (l <= r) {
     if (Math.abs(nums[l]) < Math.abs(nums[r])) {
@@ -53,11 +52,11 @@ var sortedSquares = function(nums) {
     // console.log(l, r, res)
   }
   return res
-};
+}
 
 
 const main = () => {
-  arr = [-4,-1,0,3,10]
+  arr = [-4, -1, 0, 3, 10]
   console.log(' Sorted squares .... ', sortedSquares(arr))
 }
 

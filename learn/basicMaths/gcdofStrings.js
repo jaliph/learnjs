@@ -4,17 +4,15 @@
  * @param {string} str2
  * @return {string}
  */
-var gcdOfStrings = function(str1, str2) {
-  
-  let len1 = str1.length, len2 = str2.length
+let gcdOfStrings = function (str1, str2) {
+  const len1 = str1.length, len2 = str2.length
 
   const isDivisor = (i) => {
-    
     if ((len1 % i) || (len2 % i)) {
       return false
     }
 
-    let factor1 = len1 / i, factor2 = len2 / i
+    const factor1 = len1 / i, factor2 = len2 / i
     return str1.slice(0, i).repeat(factor1) == str1 && str1.slice(0, i).repeat(factor2) == str2
   }
 
@@ -23,5 +21,5 @@ var gcdOfStrings = function(str1, str2) {
       return str1.slice(0, i)
     }
   }
-  return ""
-};
+  return ''
+}

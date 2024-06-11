@@ -4,10 +4,10 @@
  * @param {string} dominoes
  * @return {string}
  */
-var pushDominoes = function(dominoes) {
-  let doms = dominoes.split('')
+let pushDominoes = function (dominoes) {
+  const doms = dominoes.split('')
 
-  let q = []
+  const q = []
   let d
   for (let i = 0; i < doms.length; i++) {
     d = doms[i]
@@ -15,8 +15,8 @@ var pushDominoes = function(dominoes) {
   }
 
   let k = 0
-  while(k < q.length) {
-    let [domino, i] = q[k++]
+  while (k < q.length) {
+    const [domino, i] = q[k++]
 
     if (domino === 'L') {
       if (i > 0 && doms[i - 1] === '.') {
@@ -25,7 +25,7 @@ var pushDominoes = function(dominoes) {
       }
     } else if (domino === 'R') {
       if (i + 1 < dominoes.length && doms[i + 1] === '.') {
-        if (i + 2 < dominoes.length &&  doms[i + 2] === 'L') {
+        if (i + 2 < dominoes.length && doms[i + 2] === 'L') {
           k++ // q.shift()
         } else {
           q.push(['R', i + 1])
@@ -35,13 +35,13 @@ var pushDominoes = function(dominoes) {
     }
   }
   return doms.join('')
-};
+}
 
 const main = () => {
-  dominoes = "RR.L"
+  dominoes = 'RR.L'
   console.log('Final state is .. ', pushDominoes(dominoes))
 
-  dominoes = ".L.R...LR..L.."
+  dominoes = '.L.R...LR..L..'
   console.log('Final state is .. ', pushDominoes(dominoes))
 }
 

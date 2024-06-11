@@ -5,7 +5,7 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
+let searchInsert = function (nums, target) {
   let l = 0
   let r = nums.length
 
@@ -22,13 +22,13 @@ var searchInsert = function(nums, target) {
 }
 
 const main = () => {
-  nums = [1,3,5,6], target = 5
+  nums = [1, 3, 5, 6], target = 5
   console.log('Index search position is ', searchInsert(nums, target))
 
-  nums = [1,3,5,6], target = 2
+  nums = [1, 3, 5, 6], target = 2
   console.log('Index search position is ', searchInsert(nums, target))
 
-  nums = [1,3,5,6], target = 7
+  nums = [1, 3, 5, 6], target = 7
   console.log('Index search position is ', searchInsert(nums, target))
 
   nums = [0, 1, 3], target = 2

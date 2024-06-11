@@ -5,12 +5,12 @@
  * @param {number} maxJump
  * @return {boolean}
  */
-var canReach = function(s, minJump, maxJump) {
+let canReach = function (s, minJump, maxJump) {
   let k = 0
-  let q = [0], farthest = 0
+  let q = [0]; let farthest = 0
   while (k < q.length) {
-    let i = q[k++]
-    let start = Math.max(i + minJump, farthest + 1) // already gone till farthest, check from very next
+    const i = q[k++]
+    const start = Math.max(i + minJump, farthest + 1) // already gone till farthest, check from very next
     // range of jumps is start, i + maxJump
     for (let j = start; j <= Math.min(s.length - 1, i + maxJump); j++) {
       if (s[j] == '0') {
@@ -24,4 +24,4 @@ var canReach = function(s, minJump, maxJump) {
   }
 
   return false
-};
+}

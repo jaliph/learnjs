@@ -4,8 +4,8 @@
  * @param {number[]} nums
  * @return {number}
  */
-var singleNonDuplicate = function(nums) {
-  let l = 0 
+let singleNonDuplicate = function (nums) {
+  let l = 0
   let r = nums.length - 1
   let mid, leftLength
   while (l <= r) {
@@ -22,10 +22,10 @@ var singleNonDuplicate = function(nums) {
       r = mid - 1
     }
   }
-};
+}
 
 const main = () => {
-  nums = [1,1,2,3,3,4,4,8,8]
+  nums = [1, 1, 2, 3, 3, 4, 4, 8, 8]
   console.log('single element is ', singleNonDuplicate(nums))
 }
 

@@ -5,7 +5,7 @@
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
+let search = function (nums, target) {
   let l = 0
   let r = nums.length - 1
 
@@ -24,7 +24,7 @@ var search = function(nums, target) {
       } else {
         r = mid - 1
       }
-    // right section is having pivot... doesnt matter  
+    // right section is having pivot... doesnt matter
     } else {
       if (target < nums[mid] || target > nums[r]) {
         r = mid - 1
@@ -34,13 +34,13 @@ var search = function(nums, target) {
     }
   }
 
-  return -1 
-};
+  return -1
+}
 
 
 const main = () => {
-  nums = [4,5,6,7,0,1,2], target = 0
-  console.assert(search(nums, target) === 4 ? true : false)
+  nums = [4, 5, 6, 7, 0, 1, 2], target = 0
+  console.assert(search(nums, target) === 4)
 }
 
 main()

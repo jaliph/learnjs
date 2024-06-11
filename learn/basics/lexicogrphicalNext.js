@@ -25,17 +25,17 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function(nums) {
+let nextPermutation = function (nums) {
   const reverse = (l, r) => {
     while (l < r) {
-      let temp = nums[l]
+      const temp = nums[l]
       nums[l] = nums[r]
       nums[r] = temp
       l++
       r--
     }
   }
-  
+
   let i
   for (i = nums.length - 2; i >= 0; i--) {
     if (nums[i] < nums[i + 1]) {
@@ -48,7 +48,7 @@ var nextPermutation = function(nums) {
   } else {
     for (let j = nums.length - 1; j > i; j--) {
       if (nums[j] > nums[i]) {
-        let temp = nums[j]
+        const temp = nums[j]
         nums[j] = nums[i]
         nums[i] = temp
         break
@@ -56,11 +56,10 @@ var nextPermutation = function(nums) {
     }
     reverse(i + 1, nums.length - 1)
   }
-};
-
+}
 
 const main = () => {
-  nums = [1,2,3]
+  nums = [1, 2, 3]
   nextPermutation(nums)
   console.log('next smalled permutation is ', nums)
 

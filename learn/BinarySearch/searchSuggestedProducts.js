@@ -5,13 +5,13 @@
  * @param {string} searchWord
  * @return {string[][]}
  */
-var suggestedProducts = function(products, searchWord) {
+let suggestedProducts = function (products, searchWord) {
   products.sort()
   let l = 0
   let r = products.length - 1
 
-  let results = []
-  
+  const results = []
+
   for (let i = 0; i < searchWord.length; i++) {
     while (l <= r) {
       if (products[l][i] === searchWord[i]) {
@@ -36,13 +36,13 @@ var suggestedProducts = function(products, searchWord) {
   }
 
   return results
-};
+}
 
 const main = () => {
-  products = ["mobile","mouse","moneypot","monitor","mousepad"], searchWord = "mouse"
+  products = ['mobile', 'mouse', 'moneypot', 'monitor', 'mousepad'], searchWord = 'mouse'
   console.log('Search results for every entry are : ', suggestedProducts(products, searchWord))
 
-  products = ["havana"], searchWord = "havana"
+  products = ['havana'], searchWord = 'havana'
   console.log('Search results for every entry are : ', suggestedProducts(products, searchWord))
 }
 
