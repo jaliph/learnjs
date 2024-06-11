@@ -1,36 +1,34 @@
 // https://cses.fi/problemset/task/1653
 
-const readline = require('readline');
+const readline = require('readline')
 
 const r = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false
-});
-
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+})
 
 let i = 0
 let N, maxElevatorWeight
 let weights
 r.on('line', function (line) {
   if (i++ === 0) {
-    const vals = line.split(" ");
+    const vals = line.split(' ')
     N = parseInt(vals[0])
     maxElevatorWeight = parseInt(vals[1])
   } else {
     weights = line.split(' ').map(o => parseInt(o))
   }
-});
+})
 
 r.on('close', function () {
   findMinRides(N, maxElevatorWeight, weights)
-});
-
+})
 
 const findMinRides = (N, maxElevatorWeight, weights) => {
   class Pair {
-    constructor(ride, weight) {
-      this.ride = ride  /// minimise the rides
+    constructor (ride, weight) {
+      this.ride = ride /// minimise the rides
       this.weight = weight // weights = 0
     }
   }
@@ -46,8 +44,8 @@ const findMinRides = (N, maxElevatorWeight, weights) => {
       // if p is present in mask
       if ((mask >> p) & 1) {
         // for the mask where p is not there
-        let newMask = mask ^ (1 << p)
-        let newPair = new Pair(dp[newMask].ride, dp[newMask].weight)
+        const newMask = mask ^ (1 << p)
+        const newPair = new Pair(dp[newMask].ride, dp[newMask].weight)
 
         if (newPair.weight + weights[p] <= maxElevatorWeight) {
           newPair.ride = newPair.ride

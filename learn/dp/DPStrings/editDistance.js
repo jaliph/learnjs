@@ -4,7 +4,7 @@
  * @param {string} word2
  * @return {number}
  */
-var minDistance = function(word1, word2) {
+var minDistance = function (word1, word2) {
   const dp = new Map()
   const distFinder = (i, j) => {
     if (i === word1.length) {
@@ -15,7 +15,7 @@ var minDistance = function(word1, word2) {
       return word1.length - i
     }
 
-    let key = `${i}#${j}`
+    const key = `${i}#${j}`
 
     if (dp.has(key)) {
       return dp.get(key)
@@ -28,20 +28,19 @@ var minDistance = function(word1, word2) {
         1 + distFinder(i, j + 1),
         1 + distFinder(i + 1, j + 1)
       ))
-    } 
+    }
     return dp.get(key)
   }
 
   return distFinder(0, 0)
-};
-
+}
 
 /**
  * @param {string} word1
  * @param {string} word2
  * @return {number}
  */
-var minDistance = function(word1, word2) {
+var minDistance = function (word1, word2) {
   const dp = Array(word1.length + 1).fill().map(() => Array(word2.length + 1).fill(0))
 
   for (let i = 1; i <= word1.length; i++) {

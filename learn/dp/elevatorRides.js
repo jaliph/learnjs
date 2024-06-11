@@ -1,7 +1,7 @@
 
 const minElevatorRides = (N, maxWeight, weights) => {
   class Pair {
-    constructor(rides, weights) {
+    constructor (rides, weights) {
       this.rides = rides
       this.weights = weights
     }
@@ -10,22 +10,22 @@ const minElevatorRides = (N, maxWeight, weights) => {
   const dp = Array(1 << N).fill().map(() => new Pair(Infinity, 0))
 
   dp[0].rides = 1
-  dp[0].weights = 0 
+  dp[0].weights = 0
   // dp[mask] =// rides / weights
 
   // for each mask
   for (let mask = 1; mask < (1 << N); mask++) {
-    // for people 
+    // for people
     for (let p = 0; p < weights.length; p++) {
       if ((mask >> p) & 1) {
-        let newMask = mask ^ (1 << p)
-        let newPair = new Pair(dp[newMask].rides, dp[newMask].weights)
+        const newMask = mask ^ (1 << p)
+        const newPair = new Pair(dp[newMask].rides, dp[newMask].weights)
 
         if (newPair.weights + weights[p] <= maxWeight) {
           newPair.rides = newPair.rides
           newPair.weights = newPair.weights + weights[p]
         } else {
-          newPair.rides += 1 
+          newPair.rides += 1
           newPair.weights = weights[p]
         }
         console.log(newPair)
@@ -37,7 +37,7 @@ const minElevatorRides = (N, maxWeight, weights) => {
       }
     }
   }
-    
+
   return dp[(1 << N) - 1].rides
 }
 

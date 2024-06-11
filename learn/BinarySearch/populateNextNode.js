@@ -14,9 +14,9 @@
  * @param {Node} root
  * @return {Node}
  */
-var connect = function(root) {
+const connect = function (root) {
   let curr = root
-  let nxt  // used for next level
+  let nxt // used for next level
   if (curr) {
     nxt = curr.left
   }
@@ -35,4 +35,4 @@ var connect = function(root) {
     }
   }
   return root
-};
+}

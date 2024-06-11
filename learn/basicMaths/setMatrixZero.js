@@ -3,7 +3,7 @@
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let setZeroes = function (matrix) {
+const setZeroes = function (matrix) {
   const r = matrix.length
   const c = matrix[0].length
   let rowZero = false

@@ -6,8 +6,8 @@
  * @param {number} k
  * @return {number}
  */
-var numMusicPlaylists = function(n, goal, k) {
-  const MOD = 10**9 + 7
+const numMusicPlaylists = function (n, goal, k) {
+  const MOD = 10 ** 9 + 7
   const mulModulo = (a, b) => {
     return (a % MOD * b % MOD) % MOD
   }
@@ -23,7 +23,7 @@ var numMusicPlaylists = function(n, goal, k) {
       return 0
     }
 
-    let key = `${currGoal}#${currSongs}`
+    const key = `${currGoal}#${currSongs}`
     if (dp.has(key)) {
       return dp.get(key)
     }
@@ -42,4 +42,4 @@ var numMusicPlaylists = function(n, goal, k) {
   }
 
   return countPlaylist(goal, 0) % MOD
-};
+}

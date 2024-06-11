@@ -5,9 +5,8 @@
  * @param {string[]} wordDict
  * @return {boolean}
  */
-var wordBreak = function(s, wordDict) {
-
-  let dp = Array(s.length).fill(-1)
+const wordBreak = function (s, wordDict) {
+  const dp = Array(s.length).fill(-1)
   const checkRecur = (i) => {
     // console.log(i)
     if (i == s.length) {
@@ -19,7 +18,7 @@ var wordBreak = function(s, wordDict) {
     }
 
     // recur
-    for (let word of wordDict) {
+    for (const word of wordDict) {
       if (s.slice(i).startsWith(word)) {
         // console.log(s, word, s.slice(i), i + word.length)
         if (checkRecur(i + word.length)) {
@@ -35,14 +34,13 @@ var wordBreak = function(s, wordDict) {
   return checkRecur(0)
 }
 
-
 /**
  * @param {string} s
  * @param {string[]} wordDict
  * @return {boolean}
  */
-var wordBreak2 = function(s, wordDict) {
-  let dict = new Set(wordDict)
+const wordBreak2 = function (s, wordDict) {
+  const dict = new Set(wordDict)
 
   const checkRecur = (s, map) => {
     if (s.length == 0) {
@@ -57,9 +55,8 @@ var wordBreak2 = function(s, wordDict) {
       return [s]
     }
 
-    let result = []
-    for (let w of dict) {
-      
+    const result = []
+    for (const w of dict) {
       if (s.indexOf(w) != 0) {
         continue
       }
@@ -70,8 +67,8 @@ var wordBreak2 = function(s, wordDict) {
 
       // result.push(s.slice(0, w.length))
       // console.log(s.slice(0, w.length), s.slice(w.length), w)
-      let subresult = checkRecur(s.slice(w.length), map)
-      for (let w2 of subresult) {
+      const subresult = checkRecur(s.slice(w.length), map)
+      for (const w2 of subresult) {
         result.push(w + ' ' + w2)
       }
     }
@@ -80,10 +77,10 @@ var wordBreak2 = function(s, wordDict) {
   }
 
   return checkRecur(s, {})
-};
+}
 
-var wordBreak3 = function(s, wordDict) {
-  let dict = new Set(wordDict)
+const wordBreak3 = function (s, wordDict) {
+  const dict = new Set(wordDict)
 
   const checkRecur = (s, map) => {
     if (s.length == 0) {
@@ -98,8 +95,7 @@ var wordBreak3 = function(s, wordDict) {
       return map[s] = true
     }
 
-    for (let w of dict) {
-      
+    for (const w of dict) {
       if (!s.startsWith(w)) {
         continue
       }
@@ -114,23 +110,22 @@ var wordBreak3 = function(s, wordDict) {
   }
 
   return checkRecur(s, {})
-};
-
+}
 
 const main = () => {
-  s = "leetcode", wordDict = ["leet","code"]
+  s = 'leetcode', wordDict = ['leet', 'code']
   console.log('Word break result ', wordBreak(s, wordDict))
 
-  s = "applepenapple", wordDict = ["apple","pen"]
+  s = 'applepenapple', wordDict = ['apple', 'pen']
   console.log('Word break result ', wordBreak(s, wordDict))
 
-  s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+  s = 'catsandog', wordDict = ['cats', 'dog', 'sand', 'and', 'cat']
   console.log('Word break result ', wordBreak(s, wordDict))
 
-  s = "acaaaaabbbdbcccdcdaadcdccacbcccabbbbcdaaaaaadb", wordDict = ["abbcbda","cbdaaa","b","dadaaad","dccbbbc","dccadd","ccbdbc","bbca","bacbcdd","a","bacb","cbc","adc","c","cbdbcad","cdbab","db","abbcdbd","bcb","bbdab","aa","bcadb","bacbcb","ca","dbdabdb","ccd","acbb","bdc","acbccd","d","cccdcda","dcbd","cbccacd","ac","cca","aaddc","dccac","ccdc","bbbbcda","ba","adbcadb","dca","abd","bdbb","ddadbad","badb","ab","aaaaa","acba","abbb"]
+  s = 'acaaaaabbbdbcccdcdaadcdccacbcccabbbbcdaaaaaadb', wordDict = ['abbcbda', 'cbdaaa', 'b', 'dadaaad', 'dccbbbc', 'dccadd', 'ccbdbc', 'bbca', 'bacbcdd', 'a', 'bacb', 'cbc', 'adc', 'c', 'cbdbcad', 'cdbab', 'db', 'abbcdbd', 'bcb', 'bbdab', 'aa', 'bcadb', 'bacbcb', 'ca', 'dbdabdb', 'ccd', 'acbb', 'bdc', 'acbccd', 'd', 'cccdcda', 'dcbd', 'cbccacd', 'ac', 'cca', 'aaddc', 'dccac', 'ccdc', 'bbbbcda', 'ba', 'adbcadb', 'dca', 'abd', 'bdbb', 'ddadbad', 'badb', 'ab', 'aaaaa', 'acba', 'abbb']
   console.log('Word break result ', wordBreak(s, wordDict))
 
-  s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", wordDict = ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]
+  s = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab', wordDict = ['a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa']
   console.log('Word break result ', wordBreak(s, wordDict))
 }
 

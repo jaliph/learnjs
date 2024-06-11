@@ -6,7 +6,7 @@ export class Solution {
    * @param costs: n x 3 cost matrix
    * @return: An integer, the minimum cost to paint all houses
    */
-  minCost(costs) {
+  minCost (costs) {
     let dp = [0, 0, 0]
     let dp1, dp2, dp3
     for (let i = 0; i < costs.length; i++) {

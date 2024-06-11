@@ -1,5 +1,4 @@
 
-
 class Heap {
   constructor (comp) {
     this.heap = []
@@ -9,7 +8,7 @@ class Heap {
 
   pop () {
     if (this.heap.length > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.heap.length - 1]
       this.heap.pop()
       this.size--
@@ -20,7 +19,7 @@ class Heap {
     }
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
@@ -31,10 +30,10 @@ class Heap {
   }
 
   __percolateDown (i) {
-    let leftChild = (2 * i) + 1
-    let rightCild = (2 * i) + 2
+    const leftChild = (2 * i) + 1
+    const rightCild = (2 * i) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -47,8 +46,8 @@ class Heap {
     }
   }
 
-  __percolateUp(i) {
-    let parent = Math.floor((i - 1) / 2)
+  __percolateUp (i) {
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0) {
       if (this.comparator(this.heap[parent], this.heap[i]) > 0) {
         this.__swap(parent, i)
@@ -57,8 +56,8 @@ class Heap {
     }
   }
 
-  __swap(i, j) {
-    let temp = this.heap[i]
+  __swap (i, j) {
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
@@ -70,22 +69,22 @@ class Heap {
  * @param {number} groupSize
  * @return {boolean}
  */
-var isNStraightHand = function(hand, groupSize) {
+const isNStraightHand = function (hand, groupSize) {
   if (hand.length % groupSize) {
     return false
   }
-  let freq = new Map()
-  for (let n of hand) {
+  const freq = new Map()
+  for (const n of hand) {
     freq.set(n, (freq.get(n) || 0) + 1)
   }
 
   const h = new Heap()
-  for (let n of freq.keys()) {
+  for (const n of freq.keys()) {
     h.push(n)
   }
 
   while (h.size > 0) {
-    let n = h.peek()
+    const n = h.peek()
     console.log(n)
     for (let i = n; i < n + groupSize; i++) {
       if (!freq.has(i)) {
@@ -101,11 +100,11 @@ var isNStraightHand = function(hand, groupSize) {
     }
   }
   return true
-};
+}
 
 const main = () => {
-  hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
-  console.log('Possible ... ? ',isNStraightHand(hand, groupSize))
+  hand = [1, 2, 3, 6, 2, 3, 4, 7, 8], groupSize = 3
+  console.log('Possible ... ? ', isNStraightHand(hand, groupSize))
 }
 
 main()

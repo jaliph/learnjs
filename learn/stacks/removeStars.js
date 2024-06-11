@@ -4,9 +4,9 @@
  * @param {string} s
  * @return {string}
  */
-var removeStars = function(s) {
-  let stack = []
-  for (let c of s) {
+const removeStars = function (s) {
+  const stack = []
+  for (const c of s) {
     if (c === '*') {
       if (stack.length === 0) {
         continue
@@ -18,13 +18,13 @@ var removeStars = function(s) {
     }
   }
   return stack.join('')
-};
+}
 
 const main = () => {
-  s = "leet**cod*e"
+  s = 'leet**cod*e'
   console.log('after removal ', removeStars(s))
 
-  s = "erase*****"
+  s = 'erase*****'
   console.log('after removal ', removeStars(s))
 }
 

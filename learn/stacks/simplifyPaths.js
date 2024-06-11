@@ -4,11 +4,11 @@
  * @param {string} path
  * @return {string}
  */
-var simplifyPath = function(path) {
-  let stack = []
+const simplifyPath = function (path) {
+  const stack = []
 
   let curr = ''
-  for (let [i, ch] of [...path].entries()) {
+  for (const [i, ch] of [...path].entries()) {
     if (ch == '/') {
       if (curr === '..') {
         if (stack.length > 0) {
@@ -34,25 +34,25 @@ var simplifyPath = function(path) {
     }
   }
   return '/' + stack.join('/')
-};
+}
 
 const main = () => {
-  path = "/..//home/"
+  path = '/..//home/'
   console.log('absolute path is ', simplifyPath(path))
 
-  path = "/../abc//./def/"
+  path = '/../abc//./def/'
   console.log('absolute path is ', simplifyPath(path))
 
-  path = "/abc/.././def/"
+  path = '/abc/.././def/'
   console.log('absolute path is ', simplifyPath(path))
 
-  path = "/../"
+  path = '/../'
   console.log('absolute path is ', simplifyPath(path))
 
-  path = "/a//b////c/d//././/.."
+  path = '/a//b////c/d//././/..'
   console.log('absolute path is ', simplifyPath(path))
 
-  path = "/a/b"
+  path = '/a/b'
   console.log('absolute path is ', simplifyPath(path))
 }
 

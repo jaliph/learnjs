@@ -5,8 +5,8 @@
  * @param {number} k
  * @return {boolean}
  */
-var checkSubarraySum = function(nums, k) {
-  let map = new Map()
+const checkSubarraySum = function (nums, k) {
+  const map = new Map()
   map.set(0, -1)
   let prefix = 0
   let remainder
@@ -22,13 +22,13 @@ var checkSubarraySum = function(nums, k) {
   }
 
   return false
-};
+}
 
 const main = () => {
-  nums = [23,2,4,6,7], k = 6
+  nums = [23, 2, 4, 6, 7], k = 6
   console.log('has a good subarray', checkSubarraySum(nums, k))
 
-  nums = [5,0,0,0], k = 3
+  nums = [5, 0, 0, 0], k = 3
   console.log('has a good subarray', checkSubarraySum(nums, k))
 }
 

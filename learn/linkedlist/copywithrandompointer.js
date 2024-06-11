@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/copy-list-with-random-pointer/
 
-  /**
+/**
  * // Definition for a Node.
  * function Node(val, next, random) {
  *    this.val = val;
@@ -13,15 +13,15 @@
  * @param {Node} head
  * @return {Node}
  */
-var copyRandomList = function(head) {
-  let map = new Map()
+const copyRandomList = function (head) {
+  const map = new Map()
 
   map.set(null, null)
 
   let temp = head
 
   while (temp) {
-    let copy = new Node(temp.val)
+    const copy = new Node(temp.val)
     map.set(temp, copy)
     temp = temp.next
   }
@@ -35,4 +35,4 @@ var copyRandomList = function(head) {
   }
 
   return map.get(head)
-};
+}

@@ -5,8 +5,8 @@
  * @param {number} k
  * @return {number[][]}
  */
-var combine = function(n, k) {
-  let results = []
+const combine = function (n, k) {
+  const results = []
   const combineRecur = (i, set) => {
     if (set.length == k) {
       results.push([...set])
@@ -21,5 +21,4 @@ var combine = function(n, k) {
 
   combineRecur(1, [])
   return results
-};
-
+}

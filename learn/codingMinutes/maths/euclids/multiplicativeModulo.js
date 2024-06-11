@@ -5,15 +5,15 @@ const extendedGCD = (a, b) => {
     return [1, 0, a]
   }
 
-  let result = extendedGCD(b, a%b)
-  let x = result[1]
-  let y = result[0] - (Math.floor(a/b) * result[1])
-  
+  const result = extendedGCD(b, a % b)
+  const x = result[1]
+  const y = result[0] - (Math.floor(a / b) * result[1])
+
   return [x, y, result[2]]
 }
 
 const mmi = (a, m) => {
-  let result = extendedGCD(a, m)
+  const result = extendedGCD(a, m)
   if (result[2] == 1) {
     return ((result[0] % m) + m) % m
   } else {
@@ -22,9 +22,9 @@ const mmi = (a, m) => {
 }
 
 const main = () => {
-  let sets = [[6, 7], [8, 7], [10, 12]]
+  const sets = [[6, 7], [8, 7], [10, 12]]
 
-  for (let nums of sets) {
+  for (const nums of sets) {
     console.log('the mmi is ', mmi(nums[0], nums[1]))
   }
 }

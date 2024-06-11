@@ -14,7 +14,6 @@ const findPermutations = () => {
   // totalPermuts = 10!
   // P13 - 9!
 
-
 }
 
 const main = () => {

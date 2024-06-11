@@ -3,7 +3,7 @@
  * @param {number[]} ratings
  * @return {number}
  */
-let candy = function (ratings) {
+const candy = function (ratings) {
   // one pass
   let ret = 1; up = 0, down = 0, peak = 0
   for (let i = 1; i < ratings.length; i++) {

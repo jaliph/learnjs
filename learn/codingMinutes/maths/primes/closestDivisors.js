@@ -3,7 +3,7 @@
  * @param {number} num
  * @return {number[]}
  */
-var closestDivisors = function(num) {
+const closestDivisors = function (num) {
   const divisors = (num) => {
     for (let n = ~~(Math.sqrt(num)); n >= 2; n = n - 1) {
       if (num % n == 0) {
@@ -17,7 +17,7 @@ var closestDivisors = function(num) {
   const num2 = divisors(num + 2)
 
   return num1[1] - num1[0] <= num2[1] - num2[0] ? num1 : num2
-};
+}
 
 const main = () => {
   num = 8

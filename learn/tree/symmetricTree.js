@@ -12,7 +12,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isSymmetric = function(root) {
+const isSymmetric = function (root) {
   const isSymmetricRecur = (l, r) => {
     if (!l && !r) {
       return true
@@ -21,10 +21,10 @@ var isSymmetric = function(root) {
       return false
     }
 
-    return (l.val === r.val && 
-      isSymmetricRecur(l.left, r.right) && 
+    return (l.val === r.val &&
+      isSymmetricRecur(l.left, r.right) &&
       isSymmetricRecur(l.right, r.left))
   }
 
   return isSymmetricRecur(root.left, root.right)
-};
+}

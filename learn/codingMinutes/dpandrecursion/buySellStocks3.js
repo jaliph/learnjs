@@ -4,7 +4,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+const maxProfit = function (prices) {
   const maxProfitRecur = (i, buyFlag, k, prices, dp) => {
     // base case
     if (i === prices.length) return 0
@@ -36,7 +36,7 @@ var maxProfit = function(prices) {
 }
 
 const main = () => {
-  prices = [3,3,5,0,0,3,1,4]
+  prices = [3, 3, 5, 0, 0, 3, 1, 4]
   console.log('max profit from the prices are', maxProfit(prices))
 }
 

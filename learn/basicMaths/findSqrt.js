@@ -23,9 +23,6 @@ const findSqrt = (x) => {
   return z
 }
 
-
-
-
 const main = () => {
   for (let i = 1; i <= 64; i++) {
     console.log(`The Math.sqrt of ${i} is `, findSqrt(i))

@@ -5,11 +5,10 @@
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum = function(candidates, target) {
+const combinationSum = function (candidates, target) {
   const result = []
   const subset = []
   const findCombinations = (i, target) => {
-
     if (target === 0) {
       result.push([...subset])
       return
@@ -35,27 +34,25 @@ var combinationSum = function(candidates, target) {
   return result
 }
 
-
 /**
  * @param {number} n
  * @param {number} k
  * @return {number[][]}
  */
-var combine = function(n, k) {
-  let results = []
+const combine = function (n, k) {
+  const results = []
   const combinationsRecur = (index, result) => {
     if (result.length == k) {
-        results.push(result)
-        return
+      results.push(result)
+      return
     }
     if (index > n) {
-      return 
+      return
     }
-  
-    
+
     combinationsRecur(index + 1, [...result, index])
     combinationsRecur(index + 1, result)
   }
-  combinationsRecur( 1, [])
+  combinationsRecur(1, [])
   return results
-};
+}

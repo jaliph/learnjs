@@ -11,10 +11,10 @@
  * @param {number} x
  * @return {ListNode}
  */
-var partition = function(head, x) {
-  let left = new ListNode()
+const partition = function (head, x) {
+  const left = new ListNode()
   let lw = left
-  let right = new ListNode()
+  const right = new ListNode()
   let rw = right
 
   let temp = head
@@ -32,4 +32,4 @@ var partition = function(head, x) {
   lw.next = right.next
   rw.next = null
   return left.next
-};
+}

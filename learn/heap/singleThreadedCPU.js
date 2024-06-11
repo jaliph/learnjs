@@ -1,24 +1,24 @@
 // https://leetcode.com/problems/single-threaded-cpu/
 class Heap {
-  constructor(comp) {
+  constructor (comp) {
     this.heap = []
     this.size = 0
     this.comparator = comp || function (a, b) { return a[0] - b[0] }
   }
 
   swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -27,17 +27,17 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateDown (i) {
-    let leftChild = (i * 2) + 1
-    let rightChild = (i * 2) + 2
+    const leftChild = (i * 2) + 1
+    const rightChild = (i * 2) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -52,7 +52,7 @@ class Heap {
   }
 
   percolateUp (i) {
-    let parent = Math.floor((i - 1) / 2)
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[i]) > 0) {
       this.swap(parent, i)
       this.percolateUp(parent)
@@ -64,10 +64,9 @@ class Heap {
  * @param {number[][]} tasks
  * @return {number[]}
  */
-var getOrder = function(tasks) {
-  
+const getOrder = function (tasks) {
   const taskQueue = new Heap((a, b) => a[0] - b[0])
-  const enQueue = new Heap((a , b) => {
+  const enQueue = new Heap((a, b) => {
     if (a[0] === b[0]) {
       return a[1] - b[1]
     } else {
@@ -79,7 +78,7 @@ var getOrder = function(tasks) {
     taskQueue.push([...tasks[i], i])
   }
 
-  let result = []
+  const result = []
   let time = taskQueue.peek()[0]
   while (enQueue.size || taskQueue.size) {
     // get from tasks and start their entry for processing
@@ -91,7 +90,7 @@ var getOrder = function(tasks) {
     if (enQueue.size === 0) {
       time = taskQueue.peek()[0]
     } else {
-      let doneTask = enQueue.pop()
+      const doneTask = enQueue.pop()
       time += doneTask[0]
       result.push(doneTask[1])
     }
@@ -109,7 +108,7 @@ var getOrder = function(tasks) {
   //     return a[1] - b[1]
   //   } else {
   //     return a[2] - b[2]
-  //   }  
+  //   }
   // })
 
   // const enQueue = new Heap((a , b) => {
@@ -134,16 +133,16 @@ var getOrder = function(tasks) {
   //   }
   // }
   // return result
-};
+}
 
 const main = () => {
-  tasks = [[1,2],[2,4],[3,2],[4,1]]
+  tasks = [[1, 2], [2, 4], [3, 2], [4, 1]]
   console.log('the order in which the tasks can be executed are ', getOrder(tasks))
 
   // tasks = [[7,10],[7,12],[7,5],[7,4],[7,2]]
   // console.log('the order in which the tasks can be executed are ', getOrder(tasks))
 
-  tasks = [[19,13],[16,9],[21,10],[32,25],[37,4],[49,24],[2,15],[38,41],[37,34],[33,6],[45,4],[18,18],[46,39],[12,24]]
+  tasks = [[19, 13], [16, 9], [21, 10], [32, 25], [37, 4], [49, 24], [2, 15], [38, 41], [37, 34], [33, 6], [45, 4], [18, 18], [46, 39], [12, 24]]
   console.log('the order in which the tasks can be executed are ', getOrder(tasks))
 }
 

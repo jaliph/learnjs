@@ -1,9 +1,9 @@
 
-// Segmented Sieve.. 
+// Segmented Sieve..
 const segmentedSieve = (segments) => {
-  const N = 10**7
-  let primes = []
-  let bool = Array(N + 1).fill(true)
+  const N = 10 ** 7
+  const primes = []
+  const bool = Array(N + 1).fill(true)
   for (let i = 2; i <= N; i++) {
     if (bool[i]) {
       primes.push(i)
@@ -14,18 +14,18 @@ const segmentedSieve = (segments) => {
       }
     }
   }
- 
+
   console.log('Done with Sieve..')
 
-  for (let seg of segments) {
-    let left = seg[0]
-    let right = seg[1]
+  for (const seg of segments) {
+    const left = seg[0]
+    const right = seg[1]
 
-    let segment = Array(right - left + 1).fill(false)
+    const segment = Array(right - left + 1).fill(false)
 
-    for (let p of primes) {
+    for (const p of primes) {
       // stop when p * p is greater than the range..
-      if (p*p > right) {
+      if (p * p > right) {
         break
       }
 
@@ -44,8 +44,8 @@ const segmentedSieve = (segments) => {
       }
     }
 
-    let segmentPrimes = []
-    for (let j = left ; j <= right ;j++) {
+    const segmentPrimes = []
+    for (let j = left; j <= right; j++) {
       if (segment[j - left] == false && j !== 1) {
         segmentPrimes.push(j)
       }
@@ -54,11 +54,9 @@ const segmentedSieve = (segments) => {
   }
 }
 
-
 const main = () => {
-  segments = [[10**5, 10**6]]
+  segments = [[10 ** 5, 10 ** 6]]
   console.log('Segmented Sieve for the segments are ', segmentedSieve(segments))
 }
 
 main()
-

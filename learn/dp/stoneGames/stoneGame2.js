@@ -3,15 +3,14 @@
  * @param {number[]} piles
  * @return {number}
  */
-var stoneGameII = function(piles) {
-    
+const stoneGameII = function (piles) {
   const dp = new Map()
   const scoreAlice = (i, isAlice, M) => {
     if (i >= piles.length) {
       return 0
     }
 
-    let key = `${i}#${isAlice}#${M}`
+    const key = `${i}#${isAlice}#${M}`
     if (dp.has(key)) {
       return dp.get(key)
     }
@@ -33,4 +32,4 @@ var stoneGameII = function(piles) {
   }
 
   return scoreAlice(0, true, 1)
-};
+}

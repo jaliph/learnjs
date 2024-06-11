@@ -3,7 +3,7 @@
  * @param {number[][]} matrix
  * @return {number}
  */
-var longestIncreasingPath = function(matrix) {
+const longestIncreasingPath = function (matrix) {
   const r = matrix.length
   const c = matrix[0].length
 
@@ -40,4 +40,4 @@ var longestIncreasingPath = function(matrix) {
   }
 
   return max
-};
+}

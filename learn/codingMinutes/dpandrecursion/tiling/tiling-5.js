@@ -15,8 +15,8 @@ const tilingRectangle = function (n, m) {
   }
   let min = Infinity
   for (let i = 1; i <= Math.min(n, m); i++) {
-    let rr1 = tilingRectangle(m - i, i) + tilingRectangle(n - i, m)
-    let rr2 = tilingRectangle(m - i, n) + tilingRectangle(n - i, i)
+    const rr1 = tilingRectangle(m - i, i) + tilingRectangle(n - i, m)
+    const rr2 = tilingRectangle(m - i, n) + tilingRectangle(n - i, i)
     min = Math.min(min, rr1, rr2)
   }
   return min + 1

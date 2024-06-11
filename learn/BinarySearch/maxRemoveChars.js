@@ -6,9 +6,8 @@
  * @param {number[]} removable
  * @return {number}
  */
-var maximumRemovals = function(s, p, removable) {
-
-  const isSubsequence = (s, p , rems) => {
+const maximumRemovals = function (s, p, removable) {
+  const isSubsequence = (s, p, rems) => {
     let i = 0; j = 0
     while (i < s.length && j < p.length) {
       if (rems.has(i) || s[i] !== p[j]) {
@@ -36,16 +35,16 @@ var maximumRemovals = function(s, p, removable) {
   }
 
   return res
-};
+}
 
 const main = () => {
-  s = "abcacb", p = "ab", removable = [3,1,0]
+  s = 'abcacb', p = 'ab', removable = [3, 1, 0]
   console.log('max remove of chars to keep p as subseq for s ', maximumRemovals(s, p, removable))
 
-  s = "abcbddddd", p = "abcd", removable = [3,2,1,4,5,6]
+  s = 'abcbddddd', p = 'abcd', removable = [3, 2, 1, 4, 5, 6]
   console.log('max remove of chars to keep p as subseq for s ', maximumRemovals(s, p, removable))
 
-  s = "abcab", p = "abc", removable = [0,1,2,3,4]
+  s = 'abcab', p = 'abc', removable = [0, 1, 2, 3, 4]
   console.log('max remove of chars to keep p as subseq for s ', maximumRemovals(s, p, removable))
 }
 

@@ -5,9 +5,9 @@
  * @param {number} maxJump
  * @return {boolean}
  */
-let canReach = function (s, minJump, maxJump) {
+const canReach = function (s, minJump, maxJump) {
   let k = 0
-  let q = [0]; let farthest = 0
+  const q = [0]; let farthest = 0
   while (k < q.length) {
     const i = q[k++]
     const start = Math.max(i + minJump, farthest + 1) // already gone till farthest, check from very next

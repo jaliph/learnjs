@@ -4,8 +4,8 @@
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-var insert = function(intervals, newInterval) {
-  let res = []
+const insert = function (intervals, newInterval) {
+  const res = []
   for (let i = 0; i < intervals.length; i++) {
     if (newInterval[1] < intervals[i][0]) {
       res.push(newInterval)
@@ -18,17 +18,14 @@ var insert = function(intervals, newInterval) {
   }
   res.push(newInterval)
   return res
-};
+}
 
 const main = () => {
-  intervals = [[1,3],[6,9]], newInterval = [2,5]
+  intervals = [[1, 3], [6, 9]], newInterval = [2, 5]
   console.log('after insert ... ', insert(intervals, newInterval))
 }
 
 main()
-
-
-
 
 const insert1 = function (intervals, newInterval) {
   const result = []

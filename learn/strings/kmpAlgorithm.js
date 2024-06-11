@@ -5,11 +5,11 @@
  * @param {string} needle
  * @return {number}
  */
-var strStr = function (haystack, needle) {
+const strStr = function (haystack, needle) {
   if (needle.length == 0) {
     return 0
   }
-  
+
   if (needle.length > haystack.length) {
     return -1
   }
@@ -36,11 +36,10 @@ var strStr = function (haystack, needle) {
   }
 
   return -1
-};
+}
 
 const main = () => {
-  haystack = "sadbutsad", needle = "sad"
-
+  haystack = 'sadbutsad', needle = 'sad'
 }
 
 main()

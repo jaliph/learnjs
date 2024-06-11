@@ -4,7 +4,7 @@
  * @param {number[]} nums
 * @return {boolean}
 */
-var checkPossibility = function(nums) {
+const checkPossibility = function (nums) {
   let changed = false
 
   for (let i = 0; i < nums.length - 1; i++) {
@@ -29,14 +29,13 @@ var checkPossibility = function(nums) {
   }
 
   return true
-};
-
+}
 
 const main = () => {
-  nums = [4,2,3]
+  nums = [4, 2, 3]
   console.log('With 1 modification, can it be non decreasing', checkPossibility(nums))
 
-  nums = [4,2,1]
+  nums = [4, 2, 1]
   console.log('With 1 modification, can it be non decreasing', checkPossibility(nums))
 }
 

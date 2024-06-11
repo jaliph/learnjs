@@ -11,12 +11,11 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var insertionSortList = function(head) {
-  let newHead = new ListNode()
+const insertionSortList = function (head) {
+  const newHead = new ListNode()
   newHead.next = head
 
-
-  let prev = head, curr = head.next
+  let prev = head; let curr = head.next
 
   while (curr) {
     if (curr.val >= prev.val) {
@@ -34,10 +33,9 @@ var insertionSortList = function(head) {
     curr.next = tmp.next
     tmp.next = curr
 
-
     // update to go next pointer for curr
     curr = prev.next
   }
 
   return newHead.next
-};
+}

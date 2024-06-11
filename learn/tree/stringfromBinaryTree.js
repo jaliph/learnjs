@@ -11,19 +11,20 @@
  * @param {TreeNode} root
  * @return {string}
  */
-var tree2str = function(root) {
-    
-  let results = []
+const tree2str = function (root) {
+  const results = []
   const stringRecur = (root) => {
     if (!root) {
       return
     }
 
     results.push('(')
-    results.push(root .val)
-    if (!root.left && root.right) [
-       results.push('()')
-    ]
+    results.push(root.val)
+    if (!root.left && root.right) {
+      [
+        results.push('()')
+      ]
+    }
     stringRecur(root.left)
     stringRecur(root.right)
     results.push(')')
@@ -31,4 +32,4 @@ var tree2str = function(root) {
 
   stringRecur(root)
   return results.join('').slice(1, -1)
-};
+}

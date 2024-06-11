@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/sort-colors/
 
-
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
@@ -25,7 +24,7 @@
 // };
 
 // Dutch National Flag
-var sortColors = function(nums) {
+const sortColors = function (nums) {
   let p0 = 0
   let curr = 0
   let p2 = nums.length - 1
@@ -47,11 +46,10 @@ var sortColors = function(nums) {
   }
 
   return nums
-};
-
+}
 
 const main = () => {
-  nums = [2,0,2,1,1,0]
+  nums = [2, 0, 2, 1, 1, 0]
   console.log('Bucket sort .. ', sortColors(nums))
 }
 

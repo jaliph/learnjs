@@ -8,15 +8,15 @@
  * }
  */
 class Heap {
-  constructor  (comp) {
+  constructor (comp) {
     this.heap = []
     this.size = 0
-    this.comparator = comp || function (a, b) { return a - b } 
+    this.comparator = comp || function (a, b) { return a - b }
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -25,14 +25,14 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateUp (index) {
-    let parent = Math.floor((index - 1) / 2)
+    const parent = Math.floor((index - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[index]) > 0) {
       this.swap(parent, index)
       this.percolateUp(parent)
@@ -40,10 +40,10 @@ class Heap {
   }
 
   percolateDown (index) {
-    let leftChild = (index * 2) + 1
-    let rightChild = (index * 2) + 2
+    const leftChild = (index * 2) + 1
+    const rightChild = (index * 2) + 2
 
-    let parent = index
+    const parent = index
     if (leftChild < this.heap.length && this.comparator(this.heap[index], this.heap[leftChild]) > 0) {
       index = leftChild
     }
@@ -60,16 +60,15 @@ class Heap {
   swap (i, j) {
     [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
   }
-  
 }
 
 /**
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
+const mergeKLists = function (lists) {
   if (lists.length == 0) {
-      return null
+    return null
   }
 
   if (lists.length == 1) {
@@ -78,18 +77,17 @@ var mergeKLists = function(lists) {
 
   const h = new Heap((a, b) => a.val - b.val)
 
-  for (let l of lists) {
+  for (const l of lists) {
     if (l) {
       h.push(l)
     }
   }
 
-
-  let n = new ListNode()
+  const n = new ListNode()
   let w = n
 
   while (h.size > 0) {
-    let list = h.pop()
+    const list = h.pop()
     w.next = new ListNode(list.val)
     w = w.next
 
@@ -99,8 +97,7 @@ var mergeKLists = function(lists) {
   }
 
   return n.next
-};
-
+}
 
 // function ListNode(val, next) {
 //   this.val = (val===undefined ? 0 : val)
@@ -117,6 +114,5 @@ var mergeKLists = function(lists) {
 // h.push(l1)
 // h.push(l2)
 // console.log(h.pop())
-
 
 // console.log(h)

@@ -4,8 +4,7 @@
  * @param {string} s
  * @return {number}
  */
-var countSubstrings = function(s) {
-
+const countSubstrings = function (s) {
   let palins = 0
   const longestfromhere = (i, j) => {
     palins = 0

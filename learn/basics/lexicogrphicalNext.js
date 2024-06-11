@@ -25,7 +25,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-let nextPermutation = function (nums) {
+const nextPermutation = function (nums) {
   const reverse = (l, r) => {
     while (l < r) {
       const temp = nums[l]

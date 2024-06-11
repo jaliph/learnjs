@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number}
  */
-var climbStairs = function(n) {
+const climbStairs = function (n) {
   let prev1 = 0
   let prev2 = 1
 
@@ -16,4 +16,4 @@ var climbStairs = function(n) {
   }
 
   return sum
-};
+}

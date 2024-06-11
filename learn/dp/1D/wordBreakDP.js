@@ -6,13 +6,13 @@
  * @return {boolean}
  */
 
-var wordBreak = function(s, wordDict) {
-  let dp = Array(s.length + 1).fill(false)
+const wordBreak = function (s, wordDict) {
+  const dp = Array(s.length + 1).fill(false)
   // if you reach end.. it should be true
   dp[s.length] = true
 
   for (let i = s.length - 1; i >= 0; i--) {
-    for (let w of wordDict) {
+    for (const w of wordDict) {
       if (i + w.length <= s.length && s.slice(i, i + w.length) == w) {
         dp[i] = dp[i + w.length]
       }
@@ -25,7 +25,7 @@ var wordBreak = function(s, wordDict) {
 }
 
 const main = () => {
-  s = "abcd", wordDict = ["a","abc","b","cd"]
+  s = 'abcd', wordDict = ['a', 'abc', 'b', 'cd']
   console.log('Word break result ', wordBreak(s, wordDict))
 
   // s = "leetcode", wordDict = ["leet","code"]

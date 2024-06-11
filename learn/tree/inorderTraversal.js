@@ -12,12 +12,12 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-  let result = []
+const inorderTraversal = function (root) {
+  const result = []
   const inorderRecur = (root) => {
     if (!root) {
       return
-    } 
+    }
     inorderRecur(root.left)
     result.push(root.val)
     inorderRecur(root.right)
@@ -25,9 +25,7 @@ var inorderTraversal = function(root) {
 
   inorderRecur(root)
   return result
-};
-
-
+}
 
 /**
  * Definition for a binary tree node.
@@ -41,12 +39,12 @@ var inorderTraversal = function(root) {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversalIterative = function(root) {
-  let result = []
+const inorderTraversalIterative = function (root) {
+  const result = []
   let curr = root
-  let stack = []
+  const stack = []
   while (curr || stack.length > 0) {
-    while(curr) {
+    while (curr) {
       stack.push(curr)
       curr = curr.left
     }
@@ -56,4 +54,4 @@ var inorderTraversalIterative = function(root) {
   }
 
   return result
-};
+}

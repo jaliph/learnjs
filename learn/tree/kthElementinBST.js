@@ -13,8 +13,8 @@
  * @param {number} k
  * @return {number}
  */
-var kthSmallest = function(root, k) {
-  let stack = []
+const kthSmallest = function (root, k) {
+  const stack = []
 
   let counter = 0
   let curr = root
@@ -31,4 +31,4 @@ var kthSmallest = function(root, k) {
     }
     curr = curr.right
   }
-};
+}

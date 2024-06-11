@@ -5,7 +5,7 @@
  * @param {number} days
  * @return {number}
  */
-let shipWithinDays = function (weights, days) {
+const shipWithinDays = function (weights, days) {
   let l = Math.max(...weights); let r = weights.reduce((prev, curr) => prev + curr, 0)
 
   const canShip = (cap) => {
@@ -36,7 +36,6 @@ let shipWithinDays = function (weights, days) {
 
   return res
 }
-
 
 const main = () => {
   weights = [1, 2, 3, 4, 5], days = 5

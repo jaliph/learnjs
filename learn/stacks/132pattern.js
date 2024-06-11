@@ -4,8 +4,8 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var find132pattern = function(nums) {
-  let stack = [] // top (Max), min value // mono decreasing
+const find132pattern = function (nums) {
+  const stack = [] // top (Max), min value // mono decreasing
 
   let currMin = nums[0]
   for (let i = 1; i < nums.length; i++) {
@@ -22,13 +22,13 @@ var find132pattern = function(nums) {
   }
 
   return false
-};
+}
 
 const main = () => {
-  nums = [1,2,3,4]
+  nums = [1, 2, 3, 4]
   console.log('132 pattern exists... ? ', find132pattern(nums))
 
-  nums = [3,1,4,2]
+  nums = [3, 1, 4, 2]
   console.log('132 pattern exists... ? ', find132pattern(nums))
 }
 

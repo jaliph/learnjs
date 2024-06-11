@@ -3,7 +3,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var minPathSum = function(grid) {
+var minPathSum = function (grid) {
   const r = grid.length
   const c = grid[0].length
   const dp = Array(r).fill().map(() => Array(c).fill(0))
@@ -26,13 +26,13 @@ var minPathSum = function(grid) {
 
   // console.log(dp)
   return dp[r - 1][c - 1]
-};
+}
 
 /**
  * @param {number[][]} grid
  * @return {number}
  */
-var minPathSum = function(grid) {
+var minPathSum = function (grid) {
   const r = grid.length
   const c = grid[0].length
   let prev = Array(c).fill(0)
@@ -56,4 +56,4 @@ var minPathSum = function(grid) {
 
   // console.log(dp)
   return prev[c - 1]
-};
+}

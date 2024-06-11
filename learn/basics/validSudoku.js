@@ -3,7 +3,7 @@
  * @param {character[][]} board
  * @return {boolean}
  */
-let isValidSudoku = function (board) {
+const isValidSudoku = function (board) {
   const r = board.length
   const c = board[0].length
 
@@ -60,7 +60,6 @@ let isValidSudoku = function (board) {
   }
   return true
 }
-
 
 const main = () => {
   let board = [

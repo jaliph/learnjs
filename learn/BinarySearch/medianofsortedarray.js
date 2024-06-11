@@ -5,16 +5,15 @@
  * @param {number[]} nums2
  * @return {number}
  */
-var findMedianSortedArrays = function(nums1, nums2) {
-  let total = nums1.length + nums2.length
-  let half = ~~(total / 2)
-
+const findMedianSortedArrays = function (nums1, nums2) {
+  const total = nums1.length + nums2.length
+  const half = ~~(total / 2)
 
   if (nums2.length < nums1.length) {
-    [nums1 , nums2] = [nums2, nums1]
+    [nums1, nums2] = [nums2, nums1]
   }
 
-  let l = 0, r = nums1.length - 1
+  let l = 0; let r = nums1.length - 1
   let i, j
   let ALeft
   let BLeft
@@ -22,12 +21,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let BRight
   while (true) {
     i = l + Math.floor((r - l) / 2) // A
-    j = half - (i + 1) - 1  // B
-    
+    j = half - (i + 1) - 1 // B
+
     // Calculate
     ALeft = (i >= 0) ? nums1[i] : -Infinity
     ARight = (i + 1) < nums1.length ? nums1[i + 1] : Infinity
-    BLeft = (j >= 0) ? nums2[j]  : -Infinity
+    BLeft = (j >= 0) ? nums2[j] : -Infinity
     BRight = (j + 1) < nums2.length ? nums2[j + 1] : Infinity
 
     // partition is correct
@@ -46,7 +45,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
       l = i + 1
     }
   }
-};
+}
 
 const main = () => {
   nums1 = [2], nums2 = [1, 3]

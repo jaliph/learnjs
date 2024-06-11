@@ -3,10 +3,10 @@
  * @param {number[]} groupSizes
  * @return {number[][]}
  */
-var groupThePeople = function(groupSizes) {
-  let map = new Map()
-  let res = []
-  let g 
+const groupThePeople = function (groupSizes) {
+  const map = new Map()
+  const res = []
+  let g
   for (let i = 0; i < groupSizes.length; i++) {
     g = groupSizes[i]
     if (!map.has(g)) {
@@ -19,4 +19,4 @@ var groupThePeople = function(groupSizes) {
     }
   }
   return res
-};
+}

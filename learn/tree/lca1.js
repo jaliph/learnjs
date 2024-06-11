@@ -7,17 +7,15 @@
  * }
  */
 
-
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
-  let parent = new Map()
-  let depth = new Map()
-  
+const lowestCommonAncestor = function (root, p, q) {
+  const parent = new Map()
+  const depth = new Map()
 
   const dfs = (curr, par) => {
     if (!curr) {
@@ -28,10 +26,9 @@ var lowestCommonAncestor = function(root, p, q) {
 
     dfs(curr.left, curr)
     dfs(curr.right, curr)
-  } 
+  }
   depth.set(null, -1)
   dfs(root, null)
-  
 
   if (depth.get(p) > depth.get(q)) {
     [p, q] = [q, p]
@@ -50,4 +47,4 @@ var lowestCommonAncestor = function(root, p, q) {
   }
 
   return p
-};
+}

@@ -11,9 +11,8 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
+const isPalindrome = function (head) {
   let [slow, fast] = [head, head]
-
 
   while (fast && fast.next) {
     fast = fast.next.next
@@ -23,7 +22,7 @@ var isPalindrome = function(head) {
   let prev = null
   let curr = slow
   while (curr) {
-    let nxt = curr.next
+    const nxt = curr.next
     curr.next = prev
     prev = curr
     curr = nxt
@@ -38,4 +37,4 @@ var isPalindrome = function(head) {
   }
 
   return true
-};
+}

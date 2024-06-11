@@ -7,10 +7,10 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge2 = function(nums1, m, nums2, n) {
+const merge2 = function (nums1, m, nums2, n) {
   nums1 = nums1.slice(0, m)
   nums2 = nums2.slice(0, n)
-  let mergeRecur = (arr1, arr2) => {
+  const mergeRecur = (arr1, arr2) => {
     if (!arr1 || arr1.length == 0) {
       return arr2
     }
@@ -20,21 +20,20 @@ var merge2 = function(nums1, m, nums2, n) {
     }
 
     // console.log('came in')
-    let [hd1, ...rest1] = arr1
-    let [hd2, ...rest2] = arr2
+    const [hd1, ...rest1] = arr1
+    const [hd2, ...rest2] = arr2
 
     if (hd1 < hd2) {
       return [hd1, ...mergeRecur(rest1, arr2)]
     } else {
       return [hd2, ...mergeRecur(arr1, rest2)]
     }
-  }  
+  }
 
   return mergeRecur(nums1, nums2)
-};
+}
 
-
-var merge = function(nums1, m, nums2, n) {
+const merge = function (nums1, m, nums2, n) {
   let i = m - 1
   let j = n - 1
   let k = m + n - 1
@@ -45,13 +44,13 @@ var merge = function(nums1, m, nums2, n) {
       nums1[k--] = nums2[j--]
     }
   }
-  while(j >= 0) {
+  while (j >= 0) {
     nums1[k--] = nums2[j--]
   }
-};
+}
 
 const main = () => {
-  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+  nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3
   console.log('merged -> ', merge(nums1, m, nums2, n))
 
   nums1 = [1], m = 1, nums2 = [], n = 0
@@ -60,7 +59,7 @@ const main = () => {
   nums1 = [0], m = 0, nums2 = [1], n = 1
   console.log('merged -> ', merge(nums1, m, nums2, n))
 
-  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+  nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3
   console.log('merged -> ', merge(nums1, m, nums2, n))
 }
 

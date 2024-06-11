@@ -1,19 +1,18 @@
 
-
 class SegmentTree {
-  constructor(n) {
+  constructor (n) {
     this.size = n
     this.segment = Array(4 * n).fill(0)
   }
 
-  __build(start, end, node, arr) {
+  __build (start, end, node, arr) {
     // base case
     if (start === end) {
       this.segment[node] = arr[start]
       return
     }
 
-    let mid = start + ~~((end - start) / 2)
+    const mid = start + ~~((end - start) / 2)
     this.__build(start, mid, (2 * node) + 1, arr)
     this.__build(mid + 1, end, (2 * node) + 2, arr)
 
@@ -36,29 +35,28 @@ class SegmentTree {
     }
 
     // partial overlap
-    let mid = start + ~~((end - start) / 2)
-    let q1 = this.__query(start, mid, l, r, (2 * node) + 1)
-    let q2 = this.__query(mid + 1, end, l, r, (2 * node) + 2)
-    return q1 + q2 
+    const mid = start + ~~((end - start) / 2)
+    const q1 = this.__query(start, mid, l, r, (2 * node) + 1)
+    const q2 = this.__query(mid + 1, end, l, r, (2 * node) + 2)
+    return q1 + q2
   }
 
   query (l, r) {
     return this.__query(0, this.size - 1, l, r, 0)
   }
 
-  __update(start, end, node, index, value) {
+  __update (start, end, node, index, value) {
     // base
     if (start === end) {
       this.segment[node] = value
       return
     }
 
-    let mid = start + ~~((end - start) / 2)
+    const mid = start + ~~((end - start) / 2)
     if (index <= mid) {
       // left tree
       this.__update(start, mid, (2 * node) + 1, index, value)
     } else {
-
       // right tree
       this.__update(start, mid, (2 * node) + 2, index, value)
     }

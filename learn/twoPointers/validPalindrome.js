@@ -4,11 +4,11 @@
  * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function(s) {
+const isPalindrome = function (s) {
   s = [...s].filter((char) => {
-    return (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) || (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) || (char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57) 
+    return (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) || (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) || (char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57)
   }).join('').toLowerCase()
-  
+
   const isPalindromeRecursive = (s, l, r) => {
     if (l >= r) {
       return true
@@ -21,19 +21,19 @@ var isPalindrome = function(s) {
   }
 
   return isPalindromeRecursive(s, 0, s.length - 1)
-};
+}
 
 const main = () => {
-  s = "A man, a plan, a canal: Panama"
+  s = 'A man, a plan, a canal: Panama'
   console.log('Is a valid Palindrome .. ?', isPalindrome(s))
 
-  s = "race a car"
+  s = 'race a car'
   console.log('Is a valid Palindrome .. ?', isPalindrome(s))
 
-  s = " "
+  s = ' '
   console.log('Is a valid Palindrome .. ?', isPalindrome(s))
 
-  s = "0P"
+  s = '0P'
   console.log('Is a valid Palindrome .. ?', isPalindrome(s))
 }
 

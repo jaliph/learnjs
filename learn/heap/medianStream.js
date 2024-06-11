@@ -1,23 +1,23 @@
 class Heap {
-  constructor(comp) {
+  constructor (comp) {
     this.heap = []
     this.size = 0
     this.comparator = comp || function (a, b) { return a - b }
   }
 
   swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -26,17 +26,17 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateDown (i) {
-    let leftChild = (i * 2) + 1
-    let rightChild = (i * 2) + 2
+    const leftChild = (i * 2) + 1
+    const rightChild = (i * 2) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -51,7 +51,7 @@ class Heap {
   }
 
   percolateUp (i) {
-    let parent = Math.floor((i - 1) / 2)
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[i]) > 0) {
       this.swap(parent, i)
       this.percolateUp(parent)
@@ -59,8 +59,7 @@ class Heap {
   }
 }
 
-
-var MedianFinder = function() {
+const MedianFinder = function () {
   this.maxHeap = new Heap((a, b) => b - a)
   this.minHeap = new Heap((a, b) => a - b)
   this.balance = () => {
@@ -70,35 +69,33 @@ var MedianFinder = function() {
       this.maxHeap.push(this.minHeap.pop())
     }
   }
-};
+}
 
-/** 
+/**
  * @param {number} num
  * @return {void}
  */
-MedianFinder.prototype.addNum = function(num) {
+MedianFinder.prototype.addNum = function (num) {
   if (this.maxHeap.size == 0 || this.maxHeap.peek() >= num) {
     this.maxHeap.push(num)
   } else {
     this.minHeap.push(num)
   }
   this.balance()
-};
+}
 
 /**
  * @return {number}
  */
-MedianFinder.prototype.findMedian = function() {
+MedianFinder.prototype.findMedian = function () {
   if (this.maxHeap.size == this.minHeap.size + 1) {
     return this.maxHeap.peek()
   } else {
     return (this.maxHeap.peek() + this.minHeap.peek()) / 2
   }
-};
+}
 
-
-
-var obj = new MedianFinder()
+const obj = new MedianFinder()
 obj.addNum(10)
 obj.addNum(1)
 obj.addNum(2)

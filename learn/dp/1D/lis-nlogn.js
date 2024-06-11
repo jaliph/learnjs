@@ -4,15 +4,15 @@
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS = function(nums) {
-  let ans = []
+const lengthOfLIS = function (nums) {
+  const ans = []
 
   const binarySearch = (target) => {
     let l = 0
     let r = ans.length
-    
+
     let mid
-    while(l < r) {
+    while (l < r) {
       mid = l + ~~((r - l) / 2)
       if (target > ans[mid]) {
         l = mid + 1
@@ -23,12 +23,11 @@ var lengthOfLIS = function(nums) {
     return l
   }
 
-
-  for (let n of nums) {
+  for (const n of nums) {
     if (n > ans[ans.length - 1]) {
       ans.push(n)
     } else {
-      let idx = binarySearch(n)
+      const idx = binarySearch(n)
       // console.log(ans)
       // console.log('Index is ..', idx, ' for ', n)
       ans[idx] = n
@@ -40,7 +39,7 @@ var lengthOfLIS = function(nums) {
 }
 
 const main = () => {
-  nums = [0,1,0,3,2,3]
+  nums = [0, 1, 0, 3, 2, 3]
   console.log('LIS with nlogn is ', lengthOfLIS(nums))
 }
 

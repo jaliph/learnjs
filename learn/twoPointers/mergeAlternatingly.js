@@ -4,9 +4,9 @@
  * @param {string} word2
  * @return {string}
  */
-var mergeAlternately = function(word1, word2) {
-  let word3 = ""
-  let largerWord = word1.length > word2.length ? word1 : word2
+const mergeAlternately = function (word1, word2) {
+  let word3 = ''
+  const largerWord = word1.length > word2.length ? word1 : word2
   let i
   for (i = 0; i < Math.min(word1.length, word2.length); i++) {
     word3 += word1[i]
@@ -20,13 +20,13 @@ var mergeAlternately = function(word1, word2) {
 }
 
 const main = () => {
-  word1 = "ab", word2 = "pqrs"
+  word1 = 'ab', word2 = 'pqrs'
   console.log('Merged string is ', mergeAlternately(word1, word2))
 
-  word1 = "abc", word2 = "pqr"
+  word1 = 'abc', word2 = 'pqr'
   console.log('Merged string is ', mergeAlternately(word1, word2))
 
-  word1 = "abcd", word2 = "pq"
+  word1 = 'abcd', word2 = 'pq'
   console.log('Merged string is ', mergeAlternately(word1, word2))
 }
 

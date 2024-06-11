@@ -5,12 +5,12 @@
  * @param {number} k
  * @return {number[]}
  */
-var maxSlidingWindow = function(nums, k) {
-  let q = []
-  let results = []
+const maxSlidingWindow = function (nums, k) {
+  const q = []
+  const results = []
   let wStart = 0
   for (let wEnd = 0; wEnd < nums.length; wEnd++) {
-    while(q.length && nums[q[q.length - 1]] < nums[wEnd]) {
+    while (q.length && nums[q[q.length - 1]] < nums[wEnd]) {
       q.pop()
     }
     q.push(wEnd)
@@ -26,11 +26,10 @@ var maxSlidingWindow = function(nums, k) {
   }
 
   return results
-};
-
+}
 
 const main = () => {
-  nums = [1,3,-1,-3,5,3,6,7], k = 3
+  nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
   console.log('the sliding window maximum for them is ', maxSlidingWindow(nums, k))
 }
 

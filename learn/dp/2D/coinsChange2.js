@@ -5,7 +5,7 @@
  * @param {number[]} coins
  * @return {number}
  */
-var change = function(amount, coins) {
+var change = function (amount, coins) {
   const dp = new Map()
   const findSum = (i, sum) => {
     if (sum === 0) {
@@ -15,31 +15,31 @@ var change = function(amount, coins) {
       return 0
     }
 
-    let key = i + ":" + sum
+    const key = i + ':' + sum
 
     if (dp.has(key)) {
       return dp.get(key)
     }
 
-    let c1 = 0, c2 = 0
+    let c1 = 0; let c2 = 0
     if (coins[i] <= sum) {
-      c2 = findSum(i,  sum - coins[i])
+      c2 = findSum(i, sum - coins[i])
     }
-    
-    c1 = findSum(i + 1,  sum)
+
+    c1 = findSum(i + 1, sum)
     dp.set(key, c1 + c2)
     return dp.get(key)
   }
 
   return findSum(0, amount)
-};
+}
 
 /**
  * @param {number} amount
  * @param {number[]} coins
  * @return {number}
  */
-var change = function(amount, coins) {
+var change = function (amount, coins) {
   const dp = Array(coins.length + 1).fill().map(() => Array(amount + 1).fill(0))
 
   for (let i = 0; i <= coins.length; i++) {
@@ -56,14 +56,14 @@ var change = function(amount, coins) {
   }
 
   return dp[0][amount]
-};
+}
 
 /**
  * @param {number} amount
  * @param {number[]} coins
  * @return {number}
  */
-var change = function(amount, coins) {
+var change = function (amount, coins) {
   let prev = Array(amount + 1).fill(0)
   prev[0] = 1
 
@@ -81,4 +81,4 @@ var change = function(amount, coins) {
   }
 
   return prev[amount]
-};
+}

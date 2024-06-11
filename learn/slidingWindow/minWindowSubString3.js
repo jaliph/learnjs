@@ -7,21 +7,20 @@
  */
 const minWindow = (s, t) => {
   // boundary checks
-  if (t === "") return ""
+  if (t === '') return ''
 
-  let tMap = [...t].reduce((obj, k) => {
+  const tMap = [...t].reduce((obj, k) => {
     obj[k] = (obj[k] || 0) + 1
     return obj
   }, {})
 
-  let have = 0, need = Object.keys(tMap).length
-  let res = [-1, -1], reslen = Infinity
+  let have = 0; const need = Object.keys(tMap).length
+  let res = [-1, -1]; let reslen = Infinity
   let wStart = 0
-  let window = {}
+  const window = {}
   for (let wEnd = 0; wEnd < s.length; wEnd++) {
-    let c = s[wEnd]
+    const c = s[wEnd]
     window[c] = (window[c] || 0) + 1
-
 
     if (c in tMap && window[c] == tMap[c]) {
       have++
@@ -36,7 +35,7 @@ const minWindow = (s, t) => {
       }
 
       // remove the chars from wStart
-      let outChar = s[wStart]
+      const outChar = s[wStart]
       window[outChar]--
       if (outChar in tMap && window[outChar] < tMap[outChar]) {
         have--
@@ -44,19 +43,18 @@ const minWindow = (s, t) => {
       wStart++
     }
   }
-  return reslen === Infinity ? "" : s.slice(res[0], res[1] + 1)
+  return reslen === Infinity ? '' : s.slice(res[0], res[1] + 1)
 }
 
 const main = () => {
-  s = "ADOBECODEBANC", t = "ABC"
+  s = 'ADOBECODEBANC', t = 'ABC'
   console.log('minWind to contain T is ', minWindow(s, t))
 
-  s = "a", t = "a"
+  s = 'a', t = 'a'
   console.log('minWind to contain T is ', minWindow(s, t))
 
-  s = "a", t = "aa"
+  s = 'a', t = 'aa'
   console.log('minWind to contain T is ', minWindow(s, t))
 }
 
 main()
-

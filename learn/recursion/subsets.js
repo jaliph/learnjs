@@ -4,8 +4,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums) {
-
+var subsets = function (nums) {
   const result = []
   const subsetRecur = (i, set) => {
     // base
@@ -22,40 +21,37 @@ var subsets = function(nums) {
   }
   subsetRecur(0, [])
   return result
-};
-
-
+}
 
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums) {
-  let result = [[]]
+var subsets = function (nums) {
+  const result = [[]]
 
-  for (let n of nums) {
-    let len = result.length
+  for (const n of nums) {
+    const len = result.length
     for (let j = 0; j < len; j++) {
-      let clone = [...result[j]]
+      const clone = [...result[j]]
       clone.push(n)
       result.push(clone)
     }
   }
-  
-  return result
-};
 
+  return result
+}
 
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums) {
-  let N = 1 << nums.length
+var subsets = function (nums) {
+  const N = 1 << nums.length
 
-  let result = []
+  const result = []
   for (let i = 0; i < N; i++) {
-    let iter = []
+    const iter = []
     for (let j = 0; j < nums.length; j++) {
       if (i & (1 << j)) {
         iter.push(nums[j])
@@ -64,16 +60,15 @@ var subsets = function(nums) {
     result.push(iter)
   }
   return result
-};
+}
 
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums) {
-
+var subsets = function (nums) {
   const result = []
-  let subset = []
+  const subset = []
   const subsetRecur = (i) => {
     // base
     if (i == nums.length) {
@@ -82,15 +77,14 @@ var subsets = function(nums) {
       return
     }
 
-    
     // include i
     subset.push(nums[i])
     subsetRecur(i + 1)
-    
+
     // don't include i
     subset.pop()
     subsetRecur(i + 1)
   }
   subsetRecur(0)
   return result
-};
+}

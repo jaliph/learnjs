@@ -11,18 +11,17 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function(head) {
-
-  let newHead = new ListNode()
+const swapPairs = function (head) {
+  const newHead = new ListNode()
   newHead.next = head
 
-  let prev = newHead, curr = head
+  let prev = newHead; let curr = head
 
   while (curr && curr.next) {
     // save pointers
-    let nxtPair = curr.next.next
-    let second = curr.next
-    
+    const nxtPair = curr.next.next
+    const second = curr.next
+
     // modify pointers
     curr.next = nxtPair
     second.next = curr
@@ -34,4 +33,4 @@ var swapPairs = function(head) {
   }
 
   return newHead.next
-};
+}

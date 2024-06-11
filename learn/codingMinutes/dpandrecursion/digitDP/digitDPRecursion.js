@@ -20,7 +20,6 @@ const digitDp = (str) => {
 const main = () => {
   const str = '10'
   console.log('All the numbers is ', digitDp(str))
-  
 }
 
 main()

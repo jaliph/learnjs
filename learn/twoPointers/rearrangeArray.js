@@ -3,11 +3,11 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var rearrangeArray = function(nums) {
+const rearrangeArray = function (nums) {
   nums.sort((a, b) => a - b)
   let r = 0
 
-  let arr = Array(nums.length).fill(0)
+  const arr = Array(nums.length).fill(0)
   while (r < nums.length) {
     for (let i = 0; i < nums.length; i += 2) {
       arr[i] = nums[r]
@@ -20,13 +20,13 @@ var rearrangeArray = function(nums) {
     }
   }
   return arr
-};
+}
 
 const main = () => {
-  nums = [1,2,3,4,5]
+  nums = [1, 2, 3, 4, 5]
   console.log('Rearranged array is ', rearrangeArray(nums))
 
-  nums = [6,2,0,9,7]
+  nums = [6, 2, 0, 9, 7]
   console.log('Rearranged array is ', rearrangeArray(nums))
 }
 

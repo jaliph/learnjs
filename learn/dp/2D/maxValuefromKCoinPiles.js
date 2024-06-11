@@ -4,7 +4,7 @@
  * @param {number} k
  * @return {number}
  */
-var maxValueOfCoins = function(piles, k) {
+const maxValueOfCoins = function (piles, k) {
   const n = piles.length
   const dp = Array(piles.length + 1).fill().map(() => Array(k + 1).fill(-1))
 
@@ -25,10 +25,9 @@ var maxValueOfCoins = function(piles, k) {
       coins += piles[i][j]
       dp[i][k] = Math.max(dp[i][k], coins + maxValueRecur(i + 1, k - j - 1))
     }
-    
+
     return dp[i][k]
   }
 
   return maxValueRecur(0, k)
-};
-
+}

@@ -3,7 +3,7 @@
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let rotate = function (matrix) {
+const rotate = function (matrix) {
   let l = 0; let r = matrix.length - 1
   let temp, top, bottom
   while (l < r) {

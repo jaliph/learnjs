@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {string[][]}
  */
-var solveNQueens = function(n) {
+const solveNQueens = function (n) {
   const grid = Array(n).fill().map(() => Array(n).fill('.'))
 
   // Print2D(grid)
@@ -49,13 +49,12 @@ var solveNQueens = function(n) {
     return true
   }
 
-
   const results = []
   const solve = (i) => {
     if (i === n) {
       // console.log('called..')
       // Print2D(grid)
-      let solutn = grid.map((x) => {
+      const solutn = grid.map((x) => {
         return x.join('')
       })
       results.push(solutn)
@@ -75,4 +74,4 @@ var solveNQueens = function(n) {
   solve(0)
 
   return results
-};
+}

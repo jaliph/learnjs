@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let singleNonDuplicate = function (nums) {
+const singleNonDuplicate = function (nums) {
   let l = 0
   let r = nums.length - 1
   let mid, leftLength

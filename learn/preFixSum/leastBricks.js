@@ -4,13 +4,13 @@
  * @param {number[][]} wall
  * @return {number}
  */
-var leastBricks = function(wall) {
-  let row = wall.length
+const leastBricks = function (wall) {
+  const row = wall.length
 
-  let cutMap = new Map()
+  const cutMap = new Map()
   let max = -Infinity
 
-  for (let row of wall) {
+  for (const row of wall) {
     for (let i = 1; i < row.length; i++) {
       row[i] = row[i] + row[i - 1]
     }
@@ -21,22 +21,21 @@ var leastBricks = function(wall) {
     }
   }
 
-
   // console.log(cutMap)
   // console.log(max)
 
   // Print2D(wall)
 
   return max === -Infinity ? wall.length : wall.length - max
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  wall = [[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
+  wall = [[1, 2, 2, 1], [3, 1, 2], [1, 3, 2], [2, 4], [3, 1, 2], [1, 3, 1, 1]]
   console.log('Min number of cuts in the bricks are', leastBricks(wall))
 
-  wall = [[1],[1],[1]]
+  wall = [[1], [1], [1]]
   console.log('Min number of cuts in the bricks are', leastBricks(wall))
 }
 

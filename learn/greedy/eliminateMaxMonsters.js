@@ -3,8 +3,8 @@
  * @param {number[]} speed
  * @return {number}
  */
-var eliminateMaximum = function(dist, speed) {
-  let time = dist.map((d, i) => {
+const eliminateMaximum = function (dist, speed) {
+  const time = dist.map((d, i) => {
     return Math.ceil(d / speed[i])
   })
 
@@ -16,6 +16,6 @@ var eliminateMaximum = function(dist, speed) {
     }
     res++
   }
-  
+
   return res
-};
+}

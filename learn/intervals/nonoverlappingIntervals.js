@@ -2,10 +2,10 @@
  * @param {number[][]} intervals
  * @return {number}
  */
-var eraseOverlapIntervals = function(intervals) {
+var eraseOverlapIntervals = function (intervals) {
   intervals.sort((a, b) => a[0] - b[0])
 
-  let res = [intervals[0]]
+  const res = [intervals[0]]
   let cnt = 0
   for (let i = 1; i < intervals.length; i++) {
     if (res[res.length - 1][1] <= intervals[i][0]) {
@@ -17,22 +17,21 @@ var eraseOverlapIntervals = function(intervals) {
     }
   }
   return cnt++
-};
+}
 
 const main = () => {
-  intervals = [[1,2],[2,3],[3,4],[1,3]]
+  intervals = [[1, 2], [2, 3], [3, 4], [1, 3]]
   console.log('Count of overlapped intervals are .. ', eraseOverlapIntervals(intervals))
 }
 
 main()
-
 
 /**
  * https://leetcode.com/problems/non-overlapping-intervals/
  * @param {number[][]} intervals
  * @return {number}
  */
-var eraseOverlapIntervals = function(intervals) {
+var eraseOverlapIntervals = function (intervals) {
   intervals.sort((a, b) => a[0] - b[0])
 
   let prev = intervals[0]
@@ -46,4 +45,4 @@ var eraseOverlapIntervals = function(intervals) {
     }
   }
   return cnt++
-};
+}

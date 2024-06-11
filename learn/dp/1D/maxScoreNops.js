@@ -8,7 +8,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxScore = function(nums) {
+const maxScore = function (nums) {
   const gcd = (a, b) => {
     if (b === 0) {
       return a
@@ -35,11 +35,11 @@ var maxScore = function(nums) {
   }
 
   return maxScoreRecur(0, 1)
-};
+}
 
 const main = () => {
-  nums = [3,4,6,8]
-  console.log("Max score is ", maxScore(nums))
+  nums = [3, 4, 6, 8]
+  console.log('Max score is ', maxScore(nums))
 }
 
 main()

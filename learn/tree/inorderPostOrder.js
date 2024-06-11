@@ -13,9 +13,9 @@
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-var buildTree = function(inorder, postorder) {
-  let inMap = new Map()
-  for (let [idx, n] of inorder.entries()) {
+const buildTree = function (inorder, postorder) {
+  const inMap = new Map()
+  for (const [idx, n] of inorder.entries()) {
     inMap.set(n, idx)
   }
 
@@ -24,27 +24,26 @@ var buildTree = function(inorder, postorder) {
       return null
     }
 
-    let root = new TreeNode(postorder.pop())
-    let idx = inMap.get(root.val)
+    const root = new TreeNode(postorder.pop())
+    const idx = inMap.get(root.val)
     root.right = nodeRecur(idx + 1, r)
     root.left = nodeRecur(l, idx - 1)
-      
+
     return root
   }
 
   return nodeRecur(0, inorder.length - 1)
-};
-
+}
 
 const main = () => {
-  inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+  inorder = [9, 3, 15, 20, 7], postorder = [9, 15, 7, 20, 3]
   console.log('Tree is ', buildTree(inorder, postorder))
 }
 
 main()
 
-function TreeNode(val, left, right) {
-      this.val = (val===undefined ? 0 : val)
-      this.left = (left===undefined ? null : left)
-      this.right = (right===undefined ? null : right)
-  }
+function TreeNode (val, left, right) {
+  this.val = (val === undefined ? 0 : val)
+  this.left = (left === undefined ? null : left)
+  this.right = (right === undefined ? null : right)
+}

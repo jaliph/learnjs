@@ -12,8 +12,7 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var convertBST = function(root) {
-
+const convertBST = function (root) {
   let sum = 0
   const dfs = (node) => {
     if (!node) {
@@ -30,4 +29,4 @@ var convertBST = function(root) {
 
   dfs(root)
   return root
-};
+}

@@ -4,7 +4,7 @@
  * @param {string} s
  * @return {boolean}
  */
-var validPalindrome = function(s) {
+const validPalindrome = function (s) {
   const isPalindrome = (s, l, r) => {
     if (l >= r) {
       return true
@@ -15,7 +15,7 @@ var validPalindrome = function(s) {
     return isPalindrome(s, l + 1, r - 1)
   }
 
-  let l = 0, r = s.length - 1
+  let l = 0; let r = s.length - 1
   while (l < r) {
     if (s[l] != s[r]) {
       return isPalindrome(s, l + 1, r) || isPalindrome(s, l, r - 1)
@@ -25,4 +25,4 @@ var validPalindrome = function(s) {
   }
 
   return true
-};
+}

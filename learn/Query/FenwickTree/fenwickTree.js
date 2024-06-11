@@ -6,7 +6,7 @@ class FenwickTree {
   }
 
   add (index, value) {
-    index++  // 1 base index
+    index++ // 1 base index
     while (index < this.size) {
       this.fn[index] += value
       index += (index & -index)
@@ -24,14 +24,14 @@ class FenwickTree {
   }
 
   sum (l, r) {
-    return this.__sum(r) - this.__sum(l - 1) 
+    return this.__sum(r) - this.__sum(l - 1)
   }
 }
 
 const main = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8]
   const fenwick = new FenwickTree(arr.length)
-  for (let [i, n] of arr.entries()) {
+  for (const [i, n] of arr.entries()) {
     fenwick.add(i, n)
   }
   console.log(fenwick)

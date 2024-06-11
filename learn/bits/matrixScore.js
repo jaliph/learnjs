@@ -4,7 +4,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var matrixScore = function(grid) {
+const matrixScore = function (grid) {
   const ROW = grid.length
   const COL = grid[0].length
   const flipRow = (i) => {
@@ -50,12 +50,12 @@ var matrixScore = function(grid) {
     }
   }
   return sum
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  grid = [[0,0,1,1],[1,0,1,0],[1,1,0,0]]
+  grid = [[0, 0, 1, 1], [1, 0, 1, 0], [1, 1, 0, 0]]
   Print2D(grid)
   console.log('Grid max size after max flips is ', matrixScore(grid))
 }

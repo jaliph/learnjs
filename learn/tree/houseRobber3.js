@@ -12,16 +12,15 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var rob = function(root) {
-
+const rob = function (root) {
   // returns [with root, without root]
   const robRecur = (node) => {
     if (!node) {
       return [0, 0]
     }
 
-    let left = robRecur(node.left)
-    let right = robRecur(node.right)
+    const left = robRecur(node.left)
+    const right = robRecur(node.right)
 
     // console.log(node.val)
     // console.log([node.val + left[1] + right[1], Math.max(...left) + Math.max(...right)])
@@ -29,5 +28,4 @@ var rob = function(root) {
   }
 
   return Math.max(...robRecur(root))
-};
-
+}

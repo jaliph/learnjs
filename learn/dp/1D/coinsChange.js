@@ -5,7 +5,7 @@
  * @param {number} amount
  * @return {number}
  */
-var coinChange = function(coins, amount) {
+const coinChange = function (coins, amount) {
   const dp = Array(amount + 1).fill(amount + 1)
 
   dp[0] = 0
@@ -19,4 +19,4 @@ var coinChange = function(coins, amount) {
   }
 
   return dp[amount] === amount + 1 ? -1 : dp[amount]
-};
+}

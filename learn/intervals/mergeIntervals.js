@@ -3,10 +3,10 @@
  * @param {number[][]} intervals
  * @return {number[][]}
  */
-var merge = function(intervals) {
+const merge = function (intervals) {
   intervals.sort((a, b) => a[0] - b[0])
 
-  let res = [intervals[0]]
+  const res = [intervals[0]]
   for (let i = 1; i < intervals.length; i++) {
     if (res[res.length - 1][1] < intervals[i][0]) {
       res.push(intervals[i])
@@ -16,13 +16,13 @@ var merge = function(intervals) {
     }
   }
   return res
-};
+}
 
 const main = () => {
-  intervals = [[1,3],[2,6],[8,10],[15,18]]
+  intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
   console.log('Merged intervals are ', merge(intervals))
 
-  intervals = [[1,4],[4,5]]
+  intervals = [[1, 4], [4, 5]]
   console.log('Merged intervals are ', merge(intervals))
 }
 

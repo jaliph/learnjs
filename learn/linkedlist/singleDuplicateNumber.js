@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findDuplicate = function(nums) {
+const findDuplicate = function (nums) {
   let slow = 0
   let fast = 0
 
@@ -26,11 +26,10 @@ var findDuplicate = function(nums) {
   }
 
   return slow
-};
-
+}
 
 const main = () => {
-  nums = [1,3,4,2,2]
+  nums = [1, 3, 4, 2, 2]
   console.log('Duplicate number in the array is .. ', findDuplicate(nums))
 }
 

@@ -4,12 +4,12 @@
  * @param {number} x
  * @return {number}
  */
-var minOperations = function(nums, x) {
-  let sum = nums.reduce((prev, curr) => prev + curr, 0)
+const minOperations = function (nums, x) {
+  const sum = nums.reduce((prev, curr) => prev + curr, 0)
   if (sum === x) {
     return nums.length
   }
-  let target = sum - x
+  const target = sum - x
   let wStart = 0
   let wSum = 0
   let max = 0
@@ -24,6 +24,6 @@ var minOperations = function(nums, x) {
       max = Math.max(max, wEnd - wStart + 1)
     }
   }
-  
+
   return max === 0 ? -1 : nums.length - max
-};
+}

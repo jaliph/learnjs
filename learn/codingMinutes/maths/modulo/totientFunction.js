@@ -3,7 +3,7 @@
 //  num * (1 - 1/p1) * (1 - 1/p2) ...
 // coprimes...
 
-const N = 10**5
+const N = 10 ** 5
 const calculateTotient = () => {
   const bool = Array(N + 1).fill(true)
 
@@ -11,7 +11,7 @@ const calculateTotient = () => {
     for (let j = i * i; j <= N; j += i) {
       if (bool[j]) {
         bool[j] = false
-      }      
+      }
     }
   }
 

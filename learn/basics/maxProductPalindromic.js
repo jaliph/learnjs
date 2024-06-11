@@ -4,7 +4,7 @@
  * @param {string} s
  * @return {number}
  */
-let maxProduct = function (s) {
+const maxProduct = function (s) {
   const isPalindDrome = (s) => {
     let l = 0
     let r = s.length - 1
@@ -18,7 +18,7 @@ let maxProduct = function (s) {
     return true
   }
 
-  const N = 1 << s.length;
+  const N = 1 << s.length
   const map = new Map()
 
   for (let i = 1; i < N; i++) {

@@ -11,8 +11,8 @@
  * @param {number} k
  * @return {ListNode}
  */
-var swapNodes = function(head, k) {
-  let ahead = head, behind = head
+const swapNodes = function (head, k) {
+  let ahead = head; let behind = head
 
   let kfromBegin
   let kfromEnd
@@ -31,8 +31,8 @@ var swapNodes = function(head, k) {
 
   kfromEnd = behind
   // console.log(kfromEnd, kfromBegin)
-  let temp = kfromBegin.val
+  const temp = kfromBegin.val
   kfromBegin.val = kfromEnd.val
   kfromEnd.val = temp
   return head
-};
+}

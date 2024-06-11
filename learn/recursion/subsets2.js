@@ -4,10 +4,10 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsetsWithDup = function(nums) {
+const subsetsWithDup = function (nums) {
   nums = nums.sort((a, b) => a - b)
 
-  let results = []
+  const results = []
   const subsets = (i, set) => {
     if (i === nums.length) {
       results.push([...set])
@@ -26,4 +26,4 @@ var subsetsWithDup = function(nums) {
 
   subsets(0, [])
   return results
-};
+}

@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-let sortArray = function (nums) {
+const sortArray = function (nums) {
   // const merge = (arr1, arr2) => {
   //   if (!arr1 || arr1.length == 0) {
   //     return arr2
@@ -44,7 +44,6 @@ let sortArray = function (nums) {
 
   return mergeSort(nums)
 }
-
 
 const main = () => {
   nums = [5, 2, 3, 1]

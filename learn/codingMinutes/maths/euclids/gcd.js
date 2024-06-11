@@ -10,7 +10,7 @@ const gcd = (n1, n2) => {
   return ans
 }
 
-// euclids 
+// euclids
 const gcdEuclids = (a, b) => {
   if (b == 0) {
     return a
@@ -19,9 +19,9 @@ const gcdEuclids = (a, b) => {
 }
 
 const main = () => {
-  let sets = [[6, 8], [9, 11], [12, 6], [6, 7]]
+  const sets = [[6, 8], [9, 11], [12, 6], [6, 7]]
 
-  for (let nums of sets) {
+  for (const nums of sets) {
     console.log('the gcd is ', gcd(nums[0], nums[1]))
     console.log('the gcd euclids is ', gcd(nums[0], nums[1]))
   }

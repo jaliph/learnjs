@@ -5,7 +5,7 @@
  * @param {number} k
  * @return {number}
  */
-var minimumDifference = function(nums, k) {
+const minimumDifference = function (nums, k) {
   let start = 0
   let diff = Infinity
   nums.sort((a, b) => a - b)
@@ -14,15 +14,14 @@ var minimumDifference = function(nums, k) {
     start++
   }
   return diff
-};
+}
 
 const main = () => {
   nums = [90], k = 1
   console.log('min diff is ', minimumDifference(nums, k))
 
-  nums = [9,4,1,7], k = 2
+  nums = [9, 4, 1, 7], k = 2
   console.log('min diff is ', minimumDifference(nums, k))
 }
-
 
 main()

@@ -1,25 +1,25 @@
 // https://leetcode.com/problems/car-pooling/description/
 
 class Heap {
-  constructor() {
+  constructor () {
     this.heap = []
     this.size = 0
     this.comparator = (a, b) => a[2] - b[2]
   }
 
   swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -28,17 +28,17 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateDown (i) {
-    let leftChild = (i * 2) + 1
-    let rightChild = (i * 2) + 2
+    const leftChild = (i * 2) + 1
+    const rightChild = (i * 2) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -53,7 +53,7 @@ class Heap {
   }
 
   percolateUp (i) {
-    let parent = Math.floor((i - 1) / 2)
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[i]) > 0) {
       this.swap(parent, i)
       this.percolateUp(parent)
@@ -66,7 +66,7 @@ class Heap {
  * @param {number} capacity
  * @return {boolean}
  */
-var carPooling = function(trips, capacity) {
+const carPooling = function (trips, capacity) {
   const sortedTrips = trips.sort((a, b) => {
     if (a[1] > b[1]) {
       return 1
@@ -79,16 +79,16 @@ var carPooling = function(trips, capacity) {
         return -1
       }
     }
-  }) 
+  })
 
   const h = new Heap()
   let overallCap = capacity
   for (let i = 0; i < sortedTrips.length; i++) {
-    let [cap, from, to] = sortedTrips[i]
+    const [cap, from, to] = sortedTrips[i]
     while (h.size > 0 && h.peek()[2] <= from) {
       overallCap += h.pop()[0]
     }
-    
+
     h.push(sortedTrips[i])
     overallCap -= cap
     if (overallCap < 0) return false
@@ -98,18 +98,17 @@ var carPooling = function(trips, capacity) {
 }
 
 const main = () => {
-  trips = [[2,1,5],[3,3,7]], capacity = 4
+  trips = [[2, 1, 5], [3, 3, 7]], capacity = 4
   console.log('if pick and drop is possible .. ', carPooling(trips, capacity))
 
-  trips = [[2,1,5],[3,3,7]], capacity = 5
+  trips = [[2, 1, 5], [3, 3, 7]], capacity = 5
   console.log('if pick and drop is possible .. ', carPooling(trips, capacity))
 
-  trips = [[9,3,4],[9,1,7],[4,2,4],[7,4,5]], capacity = 23
+  trips = [[9, 3, 4], [9, 1, 7], [4, 2, 4], [7, 4, 5]], capacity = 23
   console.log('if pick and drop is possible .. ', carPooling(trips, capacity))
 }
 
 main()
-
 
 // /**
 // * @param {number[][]} trips
@@ -127,13 +126,13 @@ main()
 //  }
 
 //  const newTimeLine = Object.keys(timeline).sort().reduce(
-//    (obj, key) => { 
-//      obj[key] = timeline[key]; 
+//    (obj, key) => {
+//      obj[key] = timeline[key];
 //      return obj;
-//    }, 
+//    },
 //    {}
 //  );
- 
+
 //  for (let t in newTimeLine) {
 //    let cap = newTimeLine[t]
 //    currentCapacity += cap

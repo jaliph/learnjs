@@ -11,12 +11,12 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var oddEvenList = function(head) {
+const oddEvenList = function (head) {
   if (!head || !head.next) {
     return head
   }
 
-  let newHead = new ListNode()
+  const newHead = new ListNode()
 
   let writeNode = newHead
   let [odd, even] = [head, head.next]
@@ -34,5 +34,4 @@ var oddEvenList = function(head) {
   }
 
   return newHead.next
-
-};
+}

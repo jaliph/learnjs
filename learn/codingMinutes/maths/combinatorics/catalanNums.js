@@ -2,8 +2,7 @@
 // https://cp-algorithms.com/combinatorics/catalan-numbers.html#analytical-formula
 
 /// 1...... i - 1, i, i + 1....... N
-// ---- i - 1, i, N - i 
-
+// ---- i - 1, i, N - i
 
 const catalan = (num) => {
   if (num <= 1) {
@@ -13,10 +12,8 @@ const catalan = (num) => {
   for (let i = 1; i <= num; i++) {
     sum += catalan(i - 1) * catalan(num - i)
   }
-  return sum  
+  return sum
 }
-
-
 
 const catalanDP = (num) => {
   const dp = Array(num + 1).fill(0)

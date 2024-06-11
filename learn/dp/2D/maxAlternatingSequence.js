@@ -3,10 +3,10 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxAlternatingSum = function(nums) {
-  let sumOdd = 0, sumEven = 0
+var maxAlternatingSum = function (nums) {
+  let sumOdd = 0; let sumEven = 0
   let tmpOdd, tmpEven
-  for (let i = nums.length - 1; i >=0 ; i--) {
+  for (let i = nums.length - 1; i >= 0; i--) {
     tmpEven = Math.max(sumOdd + nums[i], sumEven)
     tmpOdd = Math.max(sumEven - nums[i], sumOdd)
 
@@ -15,25 +15,25 @@ var maxAlternatingSum = function(nums) {
   }
 
   return sumEven
-};
+}
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var maxAlternatingSum = function(nums) {
+var maxAlternatingSum = function (nums) {
   const dp = new Map()
   const alterFinder = (i, isEven) => {
     if (i === nums.length) {
       return 0
     }
-    let key = `${i}#${isEven}`
+    const key = `${i}#${isEven}`
 
     if (dp.has(key)) {
       return dp.get(key)
     }
 
-    let total = isEven ? nums[i] : (-1 * nums[i])
+    const total = isEven ? nums[i] : (-1 * nums[i])
 
     dp.set(key, Math.max(
       total + alterFinder(i + 1, !isEven),
@@ -44,4 +44,4 @@ var maxAlternatingSum = function(nums) {
   }
 
   return alterFinder(0, true)
-};
+}

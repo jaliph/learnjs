@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number}
  */
-let arrangeCoins = function (n) {
+const arrangeCoins = function (n) {
   let l = 1
   let r = n
   let mid

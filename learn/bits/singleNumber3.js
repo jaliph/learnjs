@@ -3,9 +3,9 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
+const singleNumber = function (nums) {
   let xorEd = 0
-  for (let num of nums) {
+  for (const num of nums) {
     xorEd = xorEd ^ num
   }
 
@@ -18,26 +18,24 @@ var singleNumber = function(nums) {
   }
 
   // console.log(setBit)
-  let group1 = []
-  for (let num of nums) {
+  const group1 = []
+  for (const num of nums) {
     if ((num >> setBit) & 1) {
       group1.push(num)
     }
   }
 
   let single = 0
-  for (let num of group1) {
+  for (const num of group1) {
     single = single ^ num
   }
 
-
   return [single, xorEd ^ single]
-};
+}
 
 const main = () => {
-  nums = [1,2,1,3,2,5]
+  nums = [1, 2, 1, 3, 2, 5]
   console.log('Found the duel numbers ', singleNumber(nums))
 }
 
 main()
-

@@ -4,7 +4,7 @@
  * @param {string} p
  * @return {boolean}
  */
-var isMatch = function(s, p) {
+const isMatch = function (s, p) {
   const dp = new Map()
   const matchRecur = (i, j) => {
     if (i == s.length && j == p.length) {
@@ -15,13 +15,13 @@ var isMatch = function(s, p) {
       return false
     }
 
-    let key = `${i}#${j}`
+    const key = `${i}#${j}`
 
     if (dp.has(key)) {
       return dp.get(key)
     }
 
-    let match = i < s.length && (s[i] === p[j] || p[j] === '.')
+    const match = i < s.length && (s[i] === p[j] || p[j] === '.')
     if ((j + 1) < p.length && p[j + 1] === '*') {
       dp.set(key, matchRecur(i, j + 2) || (match && matchRecur(i + 1, j)))
       return dp.get(key)
@@ -37,4 +37,4 @@ var isMatch = function(s, p) {
   }
 
   return matchRecur(0, 0)
-};
+}

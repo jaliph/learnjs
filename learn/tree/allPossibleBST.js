@@ -12,8 +12,8 @@
  * @param {number} n
  * @return {TreeNode[]}
  */
-var allPossibleFBT = function(n) {
-  let treeHash = new Map()
+const allPossibleFBT = function (n) {
+  const treeHash = new Map()
 
   treeHash.set(0, [])
   treeHash.set(1, [new TreeNode()])
@@ -22,14 +22,14 @@ var allPossibleFBT = function(n) {
       return treeHash.get(n)
     }
 
-    let res = []
+    const res = []
     for (let i = 0; i < n; i++) {
-      let j = n - i - 1
-      let left = populateBSTs(i)
-      let right = populateBSTs(j)
+      const j = n - i - 1
+      const left = populateBSTs(i)
+      const right = populateBSTs(j)
       // console.log(left, right)
-      for (let x of left) {
-        for (let y of right) {
+      for (const x of left) {
+        for (const y of right) {
           res.push(new TreeNode(0, x, y))
         }
       }
@@ -38,7 +38,5 @@ var allPossibleFBT = function(n) {
     return treeHash.get(n)
   }
 
-  
   return populateBSTs(n)
-
-};
+}

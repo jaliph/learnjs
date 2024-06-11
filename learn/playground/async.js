@@ -1,8 +1,7 @@
 
-
-const simulatesProcessing  = async () => {
+const simulatesProcessing = async () => {
   let j = 0
-  let n = 10**8
+  const n = 10 ** 8
   for (let i = 0; i < n; i++) {
     if (i == n - 1) {
       i = 0
@@ -15,15 +14,15 @@ const simulatesProcessing  = async () => {
   console.log('processing done')
 }
 
-var http = require('http');
+const http = require('http')
 
-//create a server object:
+// create a server object:
 http.createServer(function (req, res) {
   if (req.url === '/') {
     simulatesProcessing()
-    res.write('Hello World!'); //write a response to the client
+    res.write('Hello World!') // write a response to the client
   } else if (req.url === '/about') {
-    res.write('about'); //write a response to the client
+    res.write('about') // write a response to the client
   }
-  res.end(); //end the response
-}).listen(8080);
+  res.end() // end the response
+}).listen(8080)

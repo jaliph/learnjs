@@ -11,7 +11,7 @@
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+const removeNthFromEnd = function (head, n) {
   let ahead = head
   let behind = head
 
@@ -37,4 +37,4 @@ var removeNthFromEnd = function(head, n) {
 
   // console.log(prev, behind)
   return head
-};
+}

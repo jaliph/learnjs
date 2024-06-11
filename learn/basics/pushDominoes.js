@@ -4,7 +4,7 @@
  * @param {string} dominoes
  * @return {string}
  */
-let pushDominoes = function (dominoes) {
+const pushDominoes = function (dominoes) {
   const doms = dominoes.split('')
 
   const q = []

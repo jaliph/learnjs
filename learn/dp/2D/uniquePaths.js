@@ -5,7 +5,7 @@
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function(m, n) {
+const uniquePaths = function (m, n) {
   let prev = Array(n).fill(1)
   let dp
   for (let i = 1; i < m; i++) {
@@ -21,4 +21,4 @@ var uniquePaths = function(m, n) {
   }
 
   return prev[n - 1]
-};
+}

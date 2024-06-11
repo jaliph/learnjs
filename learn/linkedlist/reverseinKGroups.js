@@ -12,8 +12,8 @@
  * @param {number} k
  * @return {ListNode}
  */
-var reverseKGroup = function(head, k) {
-  let newHead = new ListNode()
+const reverseKGroup = function (head, k) {
+  const newHead = new ListNode()
   newHead.next = head
 
   const getKthNode = (curr, k) => {
@@ -25,31 +25,30 @@ var reverseKGroup = function(head, k) {
   }
 
   let groupPrev = newHead
-  
+
   while (true) {
-    let kth = getKthNode(groupPrev, k)
+    const kth = getKthNode(groupPrev, k)
     if (!kth) {
       break
     }
 
     groupNext = kth.next
 
-    //reverse
+    // reverse
     // new tail should be kth next
     // start from groupPrev.next till groupNext
-    let prev = kth.next, curr = groupPrev.next
+    let prev = kth.next; let curr = groupPrev.next
     while (curr != groupNext) {
-      let nxt = curr.next
+      const nxt = curr.next
       curr.next = prev
       prev = curr
       curr = nxt
     }
 
-    let tmp = groupPrev.next
+    const tmp = groupPrev.next
     groupPrev.next = kth
     groupPrev = tmp
   }
 
   return newHead.next
-};
-
+}

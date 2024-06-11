@@ -4,17 +4,17 @@
  * @param {number} t
  * @return {Function}
  */
-var timeLimit = function(fn, t) {
-  return function(...args) {
+const timeLimit = function (fn, t) {
+  return function (...args) {
     return new Promise((resolve, reject) => {
-      const id = setTimeout(() => reject("Time Limit Exceeded"), t)
+      const id = setTimeout(() => reject('Time Limit Exceeded'), t)
       fn(...args)
         .then((d) => resolve(d))
         .catch((err) => reject(err))
         .finally(() => clearTimeout(id))
     })
   }
-};
+}
 
 /**
  * const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);

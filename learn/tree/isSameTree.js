@@ -12,7 +12,7 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function(p, q) {
+const isSameTree = function (p, q) {
   const checkIsSame = (root1, root2) => {
     if (!root1 && !root2) {
       return true
@@ -20,10 +20,10 @@ var isSameTree = function(p, q) {
     if (!root1 || !root2 || root1.val != root2.val) {
       return false
     }
-    let left = checkIsSame(root1.left, root2.left)
-    let right = checkIsSame(root1.right, root2.right)
+    const left = checkIsSame(root1.left, root2.left)
+    const right = checkIsSame(root1.right, root2.right)
     return left && right
   }
 
   return checkIsSame(p, q)
-};
+}

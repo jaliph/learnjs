@@ -4,11 +4,11 @@
  * @param {number} seats
  * @return {number}
  */
-var minimumFuelCost = function(roads, seats) {
-  let v = roads.length + 1
+const minimumFuelCost = function (roads, seats) {
+  const v = roads.length + 1
   const g = Array(v).fill().map(() => Array().fill([]))
 
-  for (let r of roads) {
+  for (const r of roads) {
     g[r[0]].push(r[1])
     g[r[1]].push(r[0])
   }
@@ -17,7 +17,7 @@ var minimumFuelCost = function(roads, seats) {
   dp[0] = 0
   let fuel = 0
   const DFS_Helper = (curr, par) => {
-    for (let n of g[curr]) {
+    for (const n of g[curr]) {
       if (n != par) {
         DFS_Helper(n, curr)
         // console.log(curr, n)
@@ -28,18 +28,18 @@ var minimumFuelCost = function(roads, seats) {
       // dp[curr] = Math.ceil(dp[curr] / seats)
       fuel += Math.ceil(dp[curr] / seats)
       // console.log(curr, dp[curr], fuel)
-    } 
+    }
   }
 
   DFS_Helper(0, -1)
   // console.log(dp)
   return fuel
-};
+}
 
 const main = () => {
-  roads = [[3,1],[3,2],[1,0],[0,4],[0,5],[4,6]], seats = 2
+  roads = [[3, 1], [3, 2], [1, 0], [0, 4], [0, 5], [4, 6]], seats = 2
   console.log('min fuel cost to reach to 0 is ', minimumFuelCost(roads, seats))
-  
+
   // roads = [[0,1],[0,2],[0,3]], seats = 5
   // console.log('min fuel cost to reach to 0 is ', minimumFuelCost(roads, seats))
 

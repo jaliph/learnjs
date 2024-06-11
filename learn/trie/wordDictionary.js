@@ -1,44 +1,44 @@
 // https://leetcode.com/problems/design-add-and-search-words-data-structure/
 
 class TrieNode {
-  constructor(ch) {
+  constructor (ch) {
     this.char = ch
     this.childs = new Map()
     this.terminal = false
   }
 }
 
-var WordDictionary = function() {
+const WordDictionary = function () {
   this.root = new TrieNode()
-};
+}
 
-/** 
+/**
  * @param {string} word
  * @return {void}
  */
-WordDictionary.prototype.addWord = function(word) {
+WordDictionary.prototype.addWord = function (word) {
   let curr = this.root
 
-  for (let ch of word) {
+  for (const ch of word) {
     if (!curr.childs.has(ch)) {
       curr.childs.set(ch, new TrieNode(ch))
     }
     curr = curr.childs.get(ch)
   }
   curr.terminal = true
-};
+}
 
-/** 
+/**
  * @param {string} word
  * @return {boolean}
  */
-WordDictionary.prototype.search = function(word) {
-  let curr = this.root
+WordDictionary.prototype.search = function (word) {
+  const curr = this.root
   const dfs = (i, node) => {
     for (let j = i; j < word.length; j++) {
-      let ch = word[j]
+      const ch = word[j]
       if (ch === '.') {
-        for (let child of node.childs.values()) {
+        for (const child of node.childs.values()) {
           if (dfs(j + 1, child)) {
             return true
           }
@@ -54,9 +54,9 @@ WordDictionary.prototype.search = function(word) {
     return node.terminal
   }
   return dfs(0, curr)
-};
+}
 
-/** 
+/**
  * Your WordDictionary object will be instantiated and called as such:
  * var obj = new WordDictionary()
  * obj.addWord(word)

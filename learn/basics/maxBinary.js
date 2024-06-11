@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-odd-binary-number
 
-let maximumOddBinaryNumber = function (s) {
+const maximumOddBinaryNumber = function (s) {
   const charMap = [...s].reduce((prev, curr) => {
     prev.set(curr, (prev.get(curr) || 0) + 1)
     return prev

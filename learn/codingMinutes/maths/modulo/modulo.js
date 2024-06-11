@@ -7,7 +7,7 @@ It serves mainly three purposes:
 
 */
 
-const MOD = 10**9 + 7 // must be a prime
+const MOD = 10 ** 9 + 7 // must be a prime
 
 const addModulo = (a, b) => {
   return ((a % MOD) + (b % MOD)) % MOD
@@ -30,7 +30,7 @@ const power = (a, b) => {
     }
     a = mulModulo(a, a)
     a = a % MOD
-    b = Math.floor(b / 2) 
+    b = Math.floor(b / 2)
   }
   return res
 }
@@ -52,11 +52,11 @@ const inv = (n) => {
 }
 
 const nCr = (n, r) => {
-  return mulModulo(mulModulo(fact(n), inv(fact(n-r))), inv(fact(r)))
+  return mulModulo(mulModulo(fact(n), inv(fact(n - r))), inv(fact(r)))
 }
 
 const nPr = (n, r) => {
-  return mulModulo(fact(n), inv(fact(n-r)))
+  return mulModulo(fact(n), inv(fact(n - r)))
 }
 
 const main = () => {
@@ -69,7 +69,7 @@ const main = () => {
 
   console.log('nCr ', nCr(5, 2))
   console.log('nCr ', nCr(5770, 232))
-  
+
   console.log('nPr ', nCr(5, 2))
 
   // console.log('Power  ', power(2, 4))

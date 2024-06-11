@@ -12,14 +12,14 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+const maxDepth = function (root) {
   const calcDepth = (root) => {
     if (!root) return 0
 
-    let left = calcDepth(root.left)
-    let right = calcDepth(root.right)
+    const left = calcDepth(root.left)
+    const right = calcDepth(root.right)
 
     return 1 + Math.max(left, right)
   }
   return calcDepth(root)
-};
+}

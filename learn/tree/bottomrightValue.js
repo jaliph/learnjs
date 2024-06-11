@@ -12,14 +12,13 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var findBottomLeftValue2 = function(root) {
-  
+const findBottomLeftValue2 = function (root) {
   let prelevel = 0
-  let q = [[root, 1]]
+  const q = [[root, 1]]
   let firstEntry
   let k = 0
   while (k < q.length) {
-    let [curr, level] = q[k++]
+    const [curr, level] = q[k++]
 
     if (prelevel < level) {
       firstEntry = curr.val
@@ -36,8 +35,7 @@ var findBottomLeftValue2 = function(root) {
     }
   }
   return firstEntry
-};
-
+}
 
 /**
  * Definition for a binary tree node.
@@ -51,8 +49,8 @@ var findBottomLeftValue2 = function(root) {
  * @param {TreeNode} root
  * @return {number}
  */
-var findBottomLeftValue = function(root) {
-  let q = [root]
+const findBottomLeftValue = function (root) {
+  const q = [root]
   let leftEntry
   let k = 0
   while (k < q.length) {
@@ -68,4 +66,4 @@ var findBottomLeftValue = function(root) {
     k++
   }
   return leftEntry.val
-};
+}

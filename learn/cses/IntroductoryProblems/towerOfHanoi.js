@@ -1,20 +1,20 @@
 // https://cses.fi/problemset/task/2165
 
-var readline = require('readline');
+const readline = require('readline')
 
-var r = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false
-});
+const r = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+})
 
 r.on('line', function (line) {
-    var vals = line.split(" ");
-    TowerOfHanoi(parseInt(vals[0]))
-});
+  const vals = line.split(' ')
+  TowerOfHanoi(parseInt(vals[0]))
+})
 
 const TowerOfHanoi = (n) => {
-  let results = []
+  const results = []
   const TowerOfHanoi_Helper = (n, from, helper, to, count) => {
     if (n === 0) {
       return 0
@@ -25,9 +25,9 @@ const TowerOfHanoi = (n) => {
     count += TowerOfHanoi_Helper(n - 1, helper, from, to, count)
     return count
   }
-  let ans = TowerOfHanoi_Helper(n, 1, 2, 3, 0)
+  const ans = TowerOfHanoi_Helper(n, 1, 2, 3, 0)
   console.log(ans)
-  for (let step of results) {
+  for (const step of results) {
     console.log(...step)
   }
 }

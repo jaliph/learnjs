@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/count-ways-to-build-good-strings/
 
-
 /**
  * @param {number} low
  * @param {number} high
@@ -8,9 +7,9 @@
  * @param {number} one
  * @return {number}
  */
-var countGoodStrings = function(low, high, zero, one) {
+const countGoodStrings = function (low, high, zero, one) {
   const dp = Array(high + 1).fill(0)
-  const MOD = 10**9 + 7 // must be a prime
+  const MOD = 10 ** 9 + 7 // must be a prime
   dp[0] = 1
 
   for (let i = 1; i <= high; i++) {
@@ -24,7 +23,7 @@ var countGoodStrings = function(low, high, zero, one) {
   }
 
   return sum
-};
+}
 
 /**
  * @param {number} low
@@ -33,11 +32,11 @@ var countGoodStrings = function(low, high, zero, one) {
  * @param {number} one
  * @return {number}
  */
-var countGoodStringsBrute = function(low, high, zero, one) {
+const countGoodStringsBrute = function (low, high, zero, one) {
   const dp = {}
-  let count = 0
+  const count = 0
 
-  const MOD = 10**9 + 7 // must be a prime
+  const MOD = 10 ** 9 + 7 // must be a prime
 
   const addModulo = (a, b) => {
     return ((a % MOD) + (b % MOD)) % MOD
@@ -61,9 +60,8 @@ var countGoodStringsBrute = function(low, high, zero, one) {
     return dp[n] = count
   }
 
-  
   return makeString(0)
-};
+}
 
 const main = () => {
   low = 3, high = 3, zero = 1, one = 1

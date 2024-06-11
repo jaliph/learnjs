@@ -11,8 +11,8 @@ const fastpower = (a, b) => {
   if (b == 0) {
     return 1
   }
-  let subProb = fastpower(a, ~~(b / 2))
-  let subProBSquare = subProb * subProb
+  const subProb = fastpower(a, ~~(b / 2))
+  const subProBSquare = subProb * subProb
   if (b & 1) {
     return a * subProBSquare
   }

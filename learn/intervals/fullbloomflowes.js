@@ -1,13 +1,13 @@
 class Heap {
-  constructor(comp) {
+  constructor (comp) {
     this.heap = []
     this.size = 0
     this.comp = comp || ((a, b) => a - b)
   }
 
-  pop() {
+  pop () {
     if (this.heap.length > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.__swap(0, this.heap.length - 1)
       this.heap.pop()
       this.__percolateDown(0)
@@ -18,22 +18,22 @@ class Heap {
     }
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.__percolateUp(this.heap.length - 1)
     this.size++
   }
 
-  __swap(i, j) {
+  __swap (i, j) {
     [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
   }
 
-  __percolateUp(i) {
-    let parent = Math.floor((i - 1) / 2)
+  __percolateUp (i) {
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0) {
       if (this.comp(this.heap[parent], this.heap[i]) > 0) {
         this.__swap(i, parent)
@@ -42,11 +42,11 @@ class Heap {
     }
   }
 
-  __percolateDown(i) {
-    let leftChild = (2 * i) + 1
-    let rightChild = (2 * i) + 2
+  __percolateDown (i) {
+    const leftChild = (2 * i) + 1
+    const rightChild = (2 * i) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comp(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -62,21 +62,20 @@ class Heap {
   }
 }
 
-
 /**
  * @param {number[][]} flowers
  * @param {number[]} people
  * @return {number[]}
  */
-var fullBloomFlowers = function(flowers, people) {
+const fullBloomFlowers = function (flowers, people) {
   flowers.sort((a, b) => a[0] - b[0])
-  let peops = people.map((o, i) => [o, i])
+  const peops = people.map((o, i) => [o, i])
   peops.sort((a, b) => a[0] - b[0])
 
-  let res = []
+  const res = []
   let i = 0
   const h = new Heap((a, b) => a - b)
-  for (let p of peops) {
+  for (const p of peops) {
     while (i < flowers.length && flowers[i][0] <= p[0]) {
       h.push(flowers[i][1])
       i++
@@ -90,4 +89,4 @@ var fullBloomFlowers = function(flowers, people) {
   }
 
   return res
-};
+}

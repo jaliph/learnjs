@@ -12,9 +12,9 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function(preorder, inorder) {
-  let inMap = new Map()
-  for (let [idx, n] of inorder.entries()) {
+const buildTree = function (preorder, inorder) {
+  const inMap = new Map()
+  for (const [idx, n] of inorder.entries()) {
     inMap.set(n, idx)
   }
   let k = 0
@@ -24,14 +24,13 @@ var buildTree = function(preorder, inorder) {
       return null
     }
 
-    let root = new TreeNode(preorder[k++])
-    let idx = inMap.get(root.val)
+    const root = new TreeNode(preorder[k++])
+    const idx = inMap.get(root.val)
     root.left = nodeRecur(l, idx - 1)
     root.right = nodeRecur(idx + 1, r)
-    
-      
+
     return root
   }
 
   return nodeRecur(0, inorder.length - 1)
-};
+}

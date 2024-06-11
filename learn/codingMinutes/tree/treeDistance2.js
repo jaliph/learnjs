@@ -3,7 +3,7 @@
 const treeDistance = (v, edges) => {
   const g = Array(v + 1).fill().map(() => Array().fill([]))
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
@@ -13,8 +13,8 @@ const treeDistance = (v, edges) => {
   const fx = Array(v + 1).fill(0)
 
   const DFS_G = (curr, par) => {
-    for (let n of g[curr]) {
-      if (n!= par) {
+    for (const n of g[curr]) {
+      if (n != par) {
         DFS_G(n, curr)
         gx[curr] += gx[n] + hx[n]
         hx[curr] += hx[n]
@@ -28,18 +28,16 @@ const treeDistance = (v, edges) => {
   // console.log(hx)
   // console.log(gx)
 
-  
   const DFS_F = (curr, par, sum_par) => {
-
-    for (let n of g[curr]) {
+    for (const n of g[curr]) {
       if (n != par) {
         let new_sum_par = sum_par + (v - hx[curr])
 
-        let current_child_values = gx[n] + hx[n]
+        const current_child_values = gx[n] + hx[n]
         new_sum_par += (gx[curr] - (current_child_values))
 
         DFS_F(n, curr, new_sum_par)
-        
+
         // for any node in the subtree
         fx[curr] += (gx[n] + hx[n])
       }
@@ -55,8 +53,8 @@ const treeDistance = (v, edges) => {
 }
 
 const main = () => {
-  let n = 5
-  let edges = [
+  const n = 5
+  const edges = [
     [1, 2],
     [1, 3],
     [3, 4],

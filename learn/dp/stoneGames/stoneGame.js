@@ -4,7 +4,7 @@
  * @param {number[]} piles
  * @return {boolean}
  */
-var stoneGame = function(piles) {
+const stoneGame = function (piles) {
   const sum = piles.reduce((prev, curr) => prev + curr, 0)
 
   const dp = new Map()
@@ -14,16 +14,16 @@ var stoneGame = function(piles) {
       return 0
     }
 
-    let key = l + '#' + r
+    const key = l + '#' + r
     if (dp.has(key)) {
       return dp.get(key)
     }
 
     // check if it is alice's turn. it is that turn when length of pile is evem
-    let even = (r - l) & 1 ? false : true
+    const even = !((r - l) & 1)
 
-    let left = even ? piles[l] : 0
-    let right = even ? piles[r] : 0
+    const left = even ? piles[l] : 0
+    const right = even ? piles[r] : 0
 
     dp.set(key, Math.max(
       left + calcAliceScore(l + 1, r),
@@ -33,4 +33,4 @@ var stoneGame = function(piles) {
   }
 
   return calcAliceScore(0, piles.length - 1) > ~~(sum / 2)
-};
+}

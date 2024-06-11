@@ -1,29 +1,29 @@
 // https://cses.fi/problemset/task/1681
 
-var readline = require('readline');
-var fs = require('fs')
+const readline = require('readline')
+const fs = require('fs')
 
-var r = readline.createInterface({
-    input: process.stdin,
-    // input: fs.createReadStream('../n.txt'),
-    output: process.stdout,
-    terminal: false
-});
+const r = readline.createInterface({
+  input: process.stdin,
+  // input: fs.createReadStream('../n.txt'),
+  output: process.stdout,
+  terminal: false
+})
 
 let v
-let edges = []
+const edges = []
 let i = 0
 r.on('line', function (line) {
-    var vals = line.split(" ");
-    if (i == 0) {
-      v = parseInt(vals[0])
-    } else {
-      edges.push([parseInt(vals[0]), parseInt(vals[1])])
-    }
-    i++
-});
+  const vals = line.split(' ')
+  if (i == 0) {
+    v = parseInt(vals[0])
+  } else {
+    edges.push([parseInt(vals[0]), parseInt(vals[1])])
+  }
+  i++
+})
 
-r.on('close', function() {
+r.on('close', function () {
   totalWays(v, edges)
 })
 
@@ -71,4 +71,3 @@ const totalWays = (v, edges) => {
 
   console.log(dp[v])
 }
-

@@ -3,14 +3,14 @@
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function(heights) {
+const largestRectangleArea = function (heights) {
   let maxArea = 0
-  let stack = []
+  const stack = []
   let start
-  for (let [i, h] of heights.entries()) {
+  for (const [i, h] of heights.entries()) {
     start = i
     while (stack.length > 0 && stack[stack.length - 1][1] > h) {
-      let [index, height] = stack.pop()
+      const [index, height] = stack.pop()
       maxArea = Math.max(maxArea, height * (i - index))
       start = index
     }
@@ -18,16 +18,15 @@ var largestRectangleArea = function(heights) {
   }
 
   while (stack.length > 0) {
-    let [i, h] = stack.pop()
+    const [i, h] = stack.pop()
     maxArea = Math.max(maxArea, h * (heights.length - i))
   }
 
   return maxArea
-};
-
+}
 
 const main = () => {
-  heights = [2,1,5,6,2,3]
+  heights = [2, 1, 5, 6, 2, 3]
   console.log('Max area is ', largestRectangleArea(heights))
 }
 

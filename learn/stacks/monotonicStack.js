@@ -1,22 +1,20 @@
 
-
 const findMonotonicLengths = (nums) => {
-  let res  = [] 
-  let stack = []
+  const res = []
+  const stack = []
 
   for (let i = 0; i < nums.length; i++) {
-    while (stack.length && nums[stack[stack.length - 1]] > nums[i] ) {
-      let index = stack.pop()
+    while (stack.length && nums[stack[stack.length - 1]] > nums[i]) {
+      const index = stack.pop()
       res[index] = i - index
     }
     stack.push(i)
   }
   while (stack.length) {
-    let index = stack.pop()
+    const index = stack.pop()
     res[index] = nums.length - index
   }
   console.log(res)
-
 }
 
 const main = () => {

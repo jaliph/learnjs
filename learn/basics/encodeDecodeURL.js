@@ -14,7 +14,7 @@ const encodeUtil = (num) => {
     return ALPHABETS[0]
   }
 
-  let s = ""
+  let s = ''
   while (num > 0) {
     s += ALPHABETS[num % BASE]
     num = Math.floor(num / BASE)
@@ -24,7 +24,7 @@ const encodeUtil = (num) => {
 
 const decodeUtil = (s) => {
   let num = 0
-  for (let c of s) {
+  for (const c of s) {
     num = num * BASE + ALPHABETS.indexOf(c)
   }
   return num
@@ -38,19 +38,19 @@ const dbMap = new Map()
  * @param {string} longUrl
  * @return {string}
  */
-var encode = function(longUrl) {
-  console.log("URL - ", longUrl)
+const encode = function (longUrl) {
+  console.log('URL - ', longUrl)
   let id = getId(longUrl)
   while (dbMap.has(id)) {
     id = getId(longUrl)
   }
 
-  let uniqueId = encodeUtil(id)
-  
+  const uniqueId = encodeUtil(id)
+
   dbMap.set(id, longUrl)
   console.log('gen', uniqueId)
   return uniqueId
-};
+}
 
 /**
  * Decodes a shortened URL to its original URL.
@@ -58,17 +58,14 @@ var encode = function(longUrl) {
  * @param {string} shortUrl
  * @return {string}
  */
-var decode = function(shortUrl) {
+const decode = function (shortUrl) {
   const decodedId = decodeUtil(shortUrl)
   return dbMap.get(decodedId)
-};
+}
 
 /**
  * Your functions will be called as such:
  * decode(encode(url));
  */
-
-
-
 
 console.log(decode(encode('google.com')))

@@ -1,10 +1,10 @@
 // https://www.spoj.com/problems/FIBOSUM/
 
-const MOD = 10**9 + 7
+const MOD = 10 ** 9 + 7
 
 /**
- * @param {number} a 
- * @param {number} b 
+ * @param {number} a
+ * @param {number} b
  * @returns {number}
  */
 const mul = (a, b) => {
@@ -12,8 +12,8 @@ const mul = (a, b) => {
 }
 
 /**
- * @param {number[][]} mat1 
- * @param {number[][]} mat2 
+ * @param {number[][]} mat1
+ * @param {number[][]} mat2
  * @returns {number[][]}
  */
 const matrixMultiplication = (mat1, mat2) => {
@@ -42,7 +42,7 @@ const matrixMultiplication = (mat1, mat2) => {
 }
 
 const FiboSum = (n) => {
-  let T = [
+  const T = [
     [1, 1, 1],
     [0, 1, 1],
     [0, 1, 0]
@@ -55,7 +55,7 @@ const FiboSum = (n) => {
   if (n === 1) {
     return 1
   }
-  
+
   const result = power(T, n - 1, 3)
   // Print2D(result)
 
@@ -67,7 +67,7 @@ const power = (a, b, size) => {
   for (let i = 0; i < size; i++) {
     identityMatrix[i][i] = 1
   }
-  while(b) {
+  while (b) {
     if (b & 1) {
       identityMatrix = matrixMultiplication(identityMatrix, a)
     }
@@ -76,7 +76,6 @@ const power = (a, b, size) => {
   }
   return identityMatrix
 }
-
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 

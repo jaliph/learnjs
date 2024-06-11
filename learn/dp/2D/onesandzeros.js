@@ -5,14 +5,14 @@
  * @param {number} n
  * @return {number}
  */
-var findMaxForm = function(strs, m, n) {
+var findMaxForm = function (strs, m, n) {
   const dp = new Map()
   const findMaxRecur = (i, m, n) => {
     if (i == strs.length) {
       return 0
     }
 
-    let key = `${i}#${m}#${n}`
+    const key = `${i}#${m}#${n}`
 
     if (dp.has(key)) {
       return dp.get(key)
@@ -21,23 +21,22 @@ var findMaxForm = function(strs, m, n) {
     // dnt pick ith
     dp.set(key, findMaxRecur(i + 1, m, n))
 
-    let mCnt = strs[i].split('').filter((i) => i === '0').length
-    let nCnt = strs[i].split('').filter((i) => i === '1').length
+    const mCnt = strs[i].split('').filter((i) => i === '0').length
+    const nCnt = strs[i].split('').filter((i) => i === '1').length
     // pick ith
     // i can only pick if possible
     if (mCnt <= m && nCnt <= n) {
-       dp.set(key, Math.max(
-            dp.get(key), 1 + findMaxRecur(i + 1, m - mCnt, n - nCnt)
-          )
-       )
+      dp.set(key, Math.max(
+        dp.get(key), 1 + findMaxRecur(i + 1, m - mCnt, n - nCnt)
+      )
+      )
     }
-    
+
     return dp.get(key)
   }
 
   return findMaxRecur(0, m, n)
-};
-
+}
 
 /**
  * @param {string[]} strs
@@ -45,13 +44,12 @@ var findMaxForm = function(strs, m, n) {
  * @param {number} n
  * @return {number}
  */
-var findMaxForm = function(strs, m, n) {
-
+var findMaxForm = function (strs, m, n) {
   const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0))
 
-  for (let s of strs) {
-    let mCnt = s.split('').filter((i) => i === '0').length
-    let nCnt = s.split('').filter((i) => i === '1').length
+  for (const s of strs) {
+    const mCnt = s.split('').filter((i) => i === '0').length
+    const nCnt = s.split('').filter((i) => i === '1').length
 
     for (let M = m; M >= mCnt; M--) {
       for (let N = n; N >= nCnt; N--) {

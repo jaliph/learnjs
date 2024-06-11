@@ -6,7 +6,7 @@
  * @param {string[][]} queries
  * @return {number[]}
  */
-var calcEquation = function(equations, values, queries) {
+const calcEquation = function (equations, values, queries) {
   const g = {}
 
   equations.forEach((e, i) => {
@@ -22,17 +22,17 @@ var calcEquation = function(equations, values, queries) {
     if (!g[src] || !g[dest]) {
       return -1
     }
-    let visited = {}
-    let q = []
+    const visited = {}
+    const q = []
     q.push([src, 1])
 
-    let i = 0 
+    let i = 0
     while (i < q.length) {
-      let [curr, value] = q[i++]
-      
+      const [curr, value] = q[i++]
+
       visited[curr] = true
-      for (let neigh of g[curr]) {
-        let [n, w] = neigh
+      for (const neigh of g[curr]) {
+        const [n, w] = neigh
         if (n == dest) {
           return value * w
         }
@@ -46,13 +46,13 @@ var calcEquation = function(equations, values, queries) {
   }
 
   return queries.map((v) => BFS_Helper(v[0], v[1]))
-};
+}
 
 const main = () => {
-  equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
+  equations = [['a', 'b'], ['b', 'c']], values = [2.0, 3.0], queries = [['a', 'c'], ['b', 'a'], ['a', 'e'], ['a', 'a'], ['x', 'x']]
   console.log('ans for all the queries is ', calcEquation(equations, values, queries))
 
-  equations = [["a","b"],["b","c"],["bc","cd"]], values = [1.5,2.5,5.0], queries = [["a","c"],["c","b"],["bc","cd"],["cd","bc"]]
+  equations = [['a', 'b'], ['b', 'c'], ['bc', 'cd']], values = [1.5, 2.5, 5.0], queries = [['a', 'c'], ['c', 'b'], ['bc', 'cd'], ['cd', 'bc']]
   console.log('ans for all the queries is ', calcEquation(equations, values, queries))
 }
 

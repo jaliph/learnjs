@@ -13,7 +13,7 @@
  * @param {number} targetSum
  * @return {boolean}
  */
-var hasPathSum = function(root, targetSum) {
+const hasPathSum = function (root, targetSum) {
   const hasSumRecur = (node, target) => {
     // console.log(node.val, target)
     if (!node.left && !node.right && target === node.val) {
@@ -24,18 +24,17 @@ var hasPathSum = function(root, targetSum) {
       return false
     }
 
-    let left = false, right = false 
+    let left = false; let right = false
     if (node.left) {
-     left = hasSumRecur(node.left, target - node.val)
+      left = hasSumRecur(node.left, target - node.val)
     }
     if (node.right) {
-     right = hasSumRecur(node.right, target - node.val)
+      right = hasSumRecur(node.right, target - node.val)
     }
     // console.log(left, right)
     return left || right
   }
 
-  if (!root) return false 
+  if (!root) return false
   return hasSumRecur(root, targetSum)
-};
-
+}

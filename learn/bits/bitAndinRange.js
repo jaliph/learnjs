@@ -5,7 +5,7 @@
  * @param {number} right
  * @return {number}
  */
-var rangeBitwiseAnd = function(left, right) {
+const rangeBitwiseAnd = function (left, right) {
   let i = 0
   while (left !== right) {
     left = left >> 1
@@ -13,7 +13,7 @@ var rangeBitwiseAnd = function(left, right) {
     i++
   }
   return left << i
-};
+}
 
 const main = () => {
 

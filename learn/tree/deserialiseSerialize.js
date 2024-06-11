@@ -14,13 +14,13 @@
  * @param {TreeNode} root
  * @return {string}
  */
-var serialize = function(root) {
-  let res = []
+const serialize = function (root) {
+  const res = []
   const preOrder = (node) => {
     if (!node) {
       res.push('N')
       return
-    } 
+    }
 
     res.push(node.val + '')
     preOrder(node.left)
@@ -29,7 +29,7 @@ var serialize = function(root) {
   preOrder(root)
   // console.log(res)
   return res.join(',')
-};
+}
 
 /**
  * Decodes your encoded data to tree.
@@ -37,11 +37,10 @@ var serialize = function(root) {
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function(data) {
-  let res = data.split(',')
+const deserialize = function (data) {
+  const res = data.split(',')
   let i = 0
   // console.log(res)
-
 
   const dfs = () => {
     if (res[i] == 'N') {
@@ -49,7 +48,7 @@ var deserialize = function(data) {
       return null
     }
 
-    let node = new TreeNode(parseInt(res[i]))
+    const node = new TreeNode(parseInt(res[i]))
     i++
     node.left = dfs()
     node.right = dfs()
@@ -58,10 +57,9 @@ var deserialize = function(data) {
   }
 
   return dfs()
-};
+}
 
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
-

@@ -4,7 +4,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function(nums, target) {
+const fourSum = function (nums, target) {
   nums.sort((a, b) => a - b)
   const quad = []
   const result = []
@@ -25,7 +25,7 @@ var fourSum = function(nums, target) {
 
     // base
     // 2 sum
-    let l = index, r = nums.length - 1
+    let l = index; let r = nums.length - 1
     while (l < r) {
       if (nums[l] + nums[r] > target) {
         r--
@@ -43,14 +43,13 @@ var fourSum = function(nums, target) {
 
   kSum(4, 0, target)
   return result
-};
-
+}
 
 const main = () => {
-  nums = [1,0,-1,0,-2,2], target = 0
+  nums = [1, 0, -1, 0, -2, 2], target = 0
   console.log('Quad list is ', fourSum(nums, target))
 
-  nums = [2,2,2,2,2], target = 8
+  nums = [2, 2, 2, 2, 2], target = 8
   console.log('Quad list is ', fourSum(nums, target))
 }
 

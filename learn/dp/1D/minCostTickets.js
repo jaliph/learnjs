@@ -5,8 +5,7 @@
  * @param {number[]} costs
  * @return {number}
  */
-var mincostTickets = function(days, costs) {
-  
+const mincostTickets = function (days, costs) {
   const tickets = [[1, costs[0]], [7, costs[1]], [30, costs[2]]]
   const dp = Array(days.length + 1).fill(-1)
   dp[days.length] = 0
@@ -18,7 +17,7 @@ var mincostTickets = function(days, costs) {
 
     dp[i] = Infinity
     for (let j = 0; j < tickets.length; j++) {
-      let [daysValid , cost] = tickets[j]
+      const [daysValid, cost] = tickets[j]
       let k = i
       while (k < days.length && (days[k] < days[i] + daysValid)) {
         k++
@@ -30,10 +29,10 @@ var mincostTickets = function(days, costs) {
   }
 
   return costCalculator(0)
-};
+}
 
 const main = () => {
-  days = [1,4,6,7,8,20], costs = [2,7,15]
+  days = [1, 4, 6, 7, 8, 20], costs = [2, 7, 15]
   console.log('Min cost to plan for all the days are ', mincostTickets(days, costs))
 }
 

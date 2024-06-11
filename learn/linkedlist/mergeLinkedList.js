@@ -11,26 +11,25 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var sortList = function(head) {
+const sortList = function (head) {
   // base case
   if (!head || head.next == null) {
     return head
   }
 
   let first = head
-  let tmp = getMiddle(head)
+  const tmp = getMiddle(head)
   let second = tmp.next
   tmp.next = null
-
 
   first = sortList(first)
   second = sortList(second)
 
   return merge(first, second)
-};
+}
 
 const getMiddle = (head) => {
-  let slow = head, fast = head.next
+  let slow = head; let fast = head.next
   while (fast && fast.next) {
     slow = slow.next
     fast = fast.next.next
@@ -39,7 +38,7 @@ const getMiddle = (head) => {
 }
 
 const merge = (l1, l2) => {
-  let mergeRecur = (h1, h2, merged) => {
+  const mergeRecur = (h1, h2, merged) => {
     if (!h1) {
       merged.next = h2
       return merged
@@ -49,7 +48,7 @@ const merge = (l1, l2) => {
       merged.next = h1
       return merged
     }
-    
+
     if (h1.val < h2.val) {
       merged.next = new ListNode(h1.val)
       return mergeRecur(h1.next, h2, merged.next)
@@ -58,7 +57,7 @@ const merge = (l1, l2) => {
       return mergeRecur(h1, h2.next, merged.next)
     }
   }
-  let m = new ListNode()
+  const m = new ListNode()
   mergeRecur(l1, l2, m)
   return m.next
 }

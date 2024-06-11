@@ -4,18 +4,18 @@
  * @param {string} s
  * @return {number}
  */
-var minFlips = function(s) {
+const minFlips = function (s) {
   const len = s.length
   s = s + s
 
-  let alt1 = "", alt2 = ""
+  let alt1 = ''; let alt2 = ''
   for (let i = 0; i < s.length; i++) {
     if ((i & 1) === 0) {
-      alt1 += "1"
-      alt2 += "0"
+      alt1 += '1'
+      alt2 += '0'
     } else {
-      alt1 += "0"
-      alt2 += "1"
+      alt1 += '0'
+      alt2 += '1'
     }
   }
 
@@ -51,16 +51,16 @@ var minFlips = function(s) {
 }
 
 const main = () => {
-  s = "111000"
+  s = '111000'
   console.log('Min Flips required are ', minFlips(s))
 
-  s = "010"
+  s = '010'
   console.log('Min Flips required are ', minFlips(s))
 
-  s = "1110"
+  s = '1110'
   console.log('Min Flips required are ', minFlips(s))
 
-  s = "01001001101"
+  s = '01001001101'
   console.log('Min Flips required are ', minFlips(s))
 }
 

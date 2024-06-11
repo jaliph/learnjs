@@ -4,7 +4,7 @@
  * @param {number} h
  * @return {number}
  */
-let minEatingSpeed = function (piles, h) {
+const minEatingSpeed = function (piles, h) {
   let l = 1; let r = Math.max(...piles)
 
   const canEat = (banaSpeed) => {

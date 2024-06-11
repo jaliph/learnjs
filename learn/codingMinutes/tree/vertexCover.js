@@ -1,9 +1,8 @@
 
-
 const vertexCover = (n, edges) => {
   const g = Array(n + 1).fill().map(() => Array().fill([]))
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
@@ -13,7 +12,7 @@ const vertexCover = (n, edges) => {
   const DFS_Solver = (curr, par) => {
     dp[curr][0] = 0
     dp[curr][1] = 1
-    for (let n of g[curr]) {
+    for (const n of g[curr]) {
       if (n != par) {
         DFS_Solver(n, curr)
         dp[curr][0] += dp[n][1]

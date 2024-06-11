@@ -2,7 +2,7 @@
 
 const findNums = (tillP, num) => {
   const primes = []
-  let N = 10**6
+  const N = 10 ** 6
   const bool = Array(N + 1).fill(true)
 
   for (let i = 2; i <= N; i++) {
@@ -16,12 +16,12 @@ const findNums = (tillP, num) => {
           bool[j] = false
         }
       }
-    }    
+    }
   }
 
   let ans = 0
   for (let i = 1; i < 1 << primes.length; i++) {
-    let lcm = 1, count = 0
+    let lcm = 1; let count = 0
     for (let j = 0; j < primes.length; j++) {
       if ((i >> j) & 1) {
         count++
@@ -29,7 +29,7 @@ const findNums = (tillP, num) => {
       }
     }
 
-    if (count & 1 == 1) {
+    if (count & 1 === 1) {
       ans += Math.floor(num / lcm)
     } else {
       ans -= Math.floor(num / lcm)

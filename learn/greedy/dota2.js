@@ -3,9 +3,9 @@
  * @param {string} senate
  * @return {string}
  */
-var predictPartyVictory = function(senate) {
-  let R = []
-  let D = []
+const predictPartyVictory = function (senate) {
+  const R = []
+  const D = []
   for (let i = 0; i < senate.length; i++) {
     if (senate[i] === 'R') {
       R.push(i)
@@ -15,8 +15,8 @@ var predictPartyVictory = function(senate) {
   }
 
   while (R.length && D.length) {
-    let rSenate = R.shift()
-    let dSenate = D.shift()
+    const rSenate = R.shift()
+    const dSenate = D.shift()
     if (rSenate < dSenate) {
       R.push(rSenate + senate.length)
     } else {
@@ -25,4 +25,4 @@ var predictPartyVictory = function(senate) {
   }
 
   return R.length ? 'Radiant' : 'Dire'
-};
+}

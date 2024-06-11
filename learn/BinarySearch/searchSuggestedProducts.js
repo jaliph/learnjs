@@ -5,7 +5,7 @@
  * @param {string} searchWord
  * @return {string[][]}
  */
-let suggestedProducts = function (products, searchWord) {
+const suggestedProducts = function (products, searchWord) {
   products.sort()
   let l = 0
   let r = products.length - 1

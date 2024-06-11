@@ -47,9 +47,9 @@
  * @param {string[][]} accounts
  * @return {string[][]}
  */
-var accountsMerge = function(accounts) {
+const accountsMerge = function (accounts) {
   class DSU {
-    constructor(n) {
+    constructor (n) {
       this.parents = []
       this.ranks = []
       this.connected = n
@@ -67,8 +67,8 @@ var accountsMerge = function(accounts) {
     }
 
     union (i, j) {
-      let p1 = this.find(i)
-      let p2 = this.find(j)
+      const p1 = this.find(i)
+      const p2 = this.find(j)
       if (p1 != p2) {
         if (this.ranks[p1] < this.ranks[p2]) {
           this.parents[p1] = p2
@@ -85,13 +85,13 @@ var accountsMerge = function(accounts) {
     }
   }
 
-  let map = new Map()
+  const map = new Map()
 
   const dsu = new DSU(accounts.length)
   for (let i = 0; i < accounts.length; i++) {
-    let account = accounts[i]
+    const account = accounts[i]
     for (let j = 1; j < account.length; j++) {
-      let email = account[j]
+      const email = account[j]
 
       if (map.has(email)) {
         dsu.union(i, map.get(email))
@@ -100,26 +100,23 @@ var accountsMerge = function(accounts) {
     }
   }
 
-  
-  let leader = new Map()
-  for (let [email, index] of map) {
-    let parent = dsu.find(index)
+  const leader = new Map()
+  for (const [email, index] of map) {
+    const parent = dsu.find(index)
     if (leader.has(parent)) {
-     leader.get(parent).push(email)
+      leader.get(parent).push(email)
     } else {
       leader.set(parent, [email])
     }
   }
-  
-  let result = []
 
-  for (let [k, v] of leader) {
+  const result = []
+
+  for (const [k, v] of leader) {
     result.push([accounts[k][0], ...v.sort()])
   }
   return result
-};
-
-
+}
 
 const main = () => {
   // accounts = [['John', 'johnnybravo@mail.com'], ['Mary', 'mary@mail.com'], ['John', 'john_newyork@mail.com', 'johnsmith@mail.com'], ['John', 'johnsmith@mail.com', 'john00@mail.com']]
@@ -127,9 +124,8 @@ const main = () => {
 
   // accounts = [['Gabe', 'Gabe0@m.co', 'Gabe3@m.co', 'Gabe1@m.co'], ['Kevin', 'Kevin3@m.co', 'Kevin5@m.co', 'Kevin0@m.co'], ['Ethan', 'Ethan5@m.co', 'Ethan4@m.co', 'Ethan0@m.co'], ['Hanzo', 'Hanzo3@m.co', 'Hanzo1@m.co', 'Hanzo0@m.co'], ['Fern', 'Fern5@m.co', 'Fern1@m.co', 'Fern0@m.co']]
   // console.log(accountsMerge(accounts))
-  accounts = [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+  accounts = [['John', 'johnsmith@mail.com', 'john_newyork@mail.com'], ['John', 'johnsmith@mail.com', 'john00@mail.com'], ['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com']]
   console.log(accountsMerge(accounts))
-
 }
 
 main()

@@ -1,20 +1,20 @@
-// 
+//
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums) {
+const threeSum = function (nums) {
   nums.sort((a, b) => a - b)
-  
-  let res = []
-  let i = 0
+
+  const res = []
+  const i = 0
   for (let i = 0; i < nums.length - 2; i++) {
     if (i > 0 && nums[i - 1] == nums[i]) {
       continue
     }
-    let l = i + 1, r = nums.length - 1
-    while(l < r) {
-      let _3Sum = nums[i] + nums[l] + nums[r]
+    let l = i + 1; let r = nums.length - 1
+    while (l < r) {
+      const _3Sum = nums[i] + nums[l] + nums[r]
       if (_3Sum > 0) {
         r--
       } else if (_3Sum < 0) {
@@ -31,7 +31,7 @@ var threeSum = function(nums) {
 }
 
 const main = () => {
-  nums = [-1,0,1,2,-1,-4]
+  nums = [-1, 0, 1, 2, -1, -4]
   console.log(' 3 sums are ', threeSum(nums))
 }
 

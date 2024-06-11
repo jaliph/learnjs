@@ -34,8 +34,7 @@
 //   return ans
 // };
 
-
-var numDecodings = function(s) {
+const numDecodings = function (s) {
   const dp = Array(s.length).fill(-1)
   const numDecodingRecur = (str, i, set) => {
     // base case
@@ -63,13 +62,13 @@ var numDecodings = function(s) {
     return dp[i] = ans
   }
   return numDecodingRecur(s, 0, [])
-};
+}
 
 const main = () => {
-  s = "12"
+  s = '12'
   console.log('the number of ways to decode are ', numDecodings(s))
 
-  s = "06"
+  s = '06'
   console.log('the number of ways to decode are ', numDecodings(s))
 }
 

@@ -5,28 +5,27 @@
 
 // bottom up
 const extendedGCD = (a, b) => {
-  // base case 
+  // base case
   if (b == 0) {
     // x, y, gcd
     return [1, 0, a]
   }
 
-  let result = extendedGCD(b, a % b)
-  let gcd = result[2]
-  let _x = result[0]
-  let _y = result[1]
+  const result = extendedGCD(b, a % b)
+  const gcd = result[2]
+  const _x = result[0]
+  const _y = result[1]
 
-  let x = _y
-  let y = _x - (Math.floor(a/b) * _y)
+  const x = _y
+  const y = _x - (Math.floor(a / b) * _y)
 
   return [x, y, gcd]
 }
 
-
 const main = () => {
-  let sets = [[18, 12], [18, 30]]
+  const sets = [[18, 12], [18, 30]]
 
-  for (let nums of sets) {
+  for (const nums of sets) {
     console.log('the extended gcd is ', extendedGCD(nums[0], nums[1]))
   }
 }

@@ -3,7 +3,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let zeroFilledSubarray = function (nums) {
+const zeroFilledSubarray = function (nums) {
   let res = 0
   let count = 0
   for (let i = 0; i < nums.length; i++) {
@@ -21,7 +21,6 @@ let zeroFilledSubarray = function (nums) {
 
   return res
 }
-
 
 const main = () => {
   nums = [1, 3, 0, 0, 0, 0]

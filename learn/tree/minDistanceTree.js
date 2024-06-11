@@ -12,12 +12,12 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDiffInBST = function(root) {
-  let res = []
+const minDiffInBST = function (root) {
+  const res = []
   let curr = root
-  let stack = []
+  const stack = []
   while (curr || stack.length > 0) {
-    while(curr) {
+    while (curr) {
       stack.push(curr)
       curr = curr.left
     }
@@ -32,4 +32,4 @@ var minDiffInBST = function(root) {
   }
 
   return min
-};
+}

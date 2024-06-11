@@ -3,7 +3,7 @@
  * @param {number[][]} obstacleGrid
  * @return {number}
  */
-var uniquePathsWithObstacles = function(obstacleGrid) {
+var uniquePathsWithObstacles = function (obstacleGrid) {
   const r = obstacleGrid.length
   const c = obstacleGrid[0].length
   const dp = Array(r).fill().map(() => Array(c).fill(0))
@@ -33,18 +33,16 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
   }
 
   return dp[r - 1][c - 1]
-};
-
+}
 
 /**
  * @param {number[][]} obstacleGrid
  * @return {number}
  */
-var uniquePathsWithObstacles = function(obstacleGrid) {
+var uniquePathsWithObstacles = function (obstacleGrid) {
   const r = obstacleGrid.length
   const c = obstacleGrid[0].length
   let prev = Array(c).fill(0)
-
 
   for (let i = 0; i < c; i++) {
     if (obstacleGrid[0][i] == 1) {
@@ -75,4 +73,4 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
   }
 
   return prev[c - 1]
-};
+}

@@ -3,10 +3,10 @@
  * @param {number[][]} points
  * @return {number}
  */
-var maxPoints = function(points) {
+const maxPoints = function (points) {
   let res = 1
 
-  let calcSlope = (p1, p2) => {
+  const calcSlope = (p1, p2) => {
     if (p1[0] == p2[0]) {
       return Infinity
     } else {
@@ -15,13 +15,13 @@ var maxPoints = function(points) {
   }
 
   for (let i = 0; i < points.length; i++) {
-    let map = new Map()
+    const map = new Map()
     for (let j = i + 1; j < points.length; j++) {
-      let slope = calcSlope(points[i], points[j])
+      const slope = calcSlope(points[i], points[j])
       map.set(slope, (map.get(slope) || 0) + 1)
       res = Math.max(res, map.get(slope) + 1)
     }
   }
 
   return res
-};
+}

@@ -4,11 +4,11 @@
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(nums) {
-  let sums = Array(32).fill(0)
-  
+const singleNumber = function (nums) {
+  const sums = Array(32).fill(0)
+
   // find sums for iterating the whole loop
-  for (let num of nums) {
+  for (const num of nums) {
     for (let i = 0; i < 32; i++) {
       if (num & (1 << i)) {
         sums[i]++
@@ -16,7 +16,7 @@ var singleNumber = function(nums) {
     }
   }
 
-  for (let i = 0 ; i < 32; i++) {
+  for (let i = 0; i < 32; i++) {
     sums[i] = sums[i] % 3
   }
 
@@ -26,12 +26,11 @@ var singleNumber = function(nums) {
   }
 
   return num
-};
+}
 
 const main = () => {
-  nums = [0,1,0,1,0,1,99]
+  nums = [0, 1, 0, 1, 0, 1, 99]
   console.log('Found the single number ', singleNumber(nums))
 }
 
 main()
-

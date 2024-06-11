@@ -5,12 +5,11 @@
  * @param {string} word
  * @return {boolean}
  */
-var exist = function(board, word) {
+const exist = function (board, word) {
   const r = board.length
   const c = board[0].length
 
-
-  let paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+  const paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
 
   const visited = Array(r).fill().map(() => Array(c).fill(false))
   const dfs = (i, j, index) => {
@@ -19,7 +18,7 @@ var exist = function(board, word) {
       console.log('came in')
       return true
     }
-    
+
     if (board[i][j] != word[index]) {
       console.log('came in', board[i][j], word[index])
       return false
@@ -27,8 +26,8 @@ var exist = function(board, word) {
 
     visited[i][j] = true
 
-    for (let p of paths) {
-      let [n_i, n_j] = [p[0] + i, p[1] + j]
+    for (const p of paths) {
+      const [n_i, n_j] = [p[0] + i, p[1] + j]
       if (n_i >= 0 && n_j >= 0 && n_i < r && n_j < c && !visited[n_i][n_j]) {
         if (dfs(n_i, n_j, index + 1)) {
           return true
@@ -47,14 +46,13 @@ var exist = function(board, word) {
     }
   }
   return false
-};
-
+}
 
 const main = () => {
   // board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
   // console.log('Does the word exist .. ? ', exist(board, word))
 
-  board = [["a"]], word = "a"
+  board = [['a']], word = 'a'
   console.log('Does the word exist .. ? ', exist(board, word))
 }
 

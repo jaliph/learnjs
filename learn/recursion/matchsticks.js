@@ -4,21 +4,20 @@
  * @param {number[]} matchsticks
  * @return {boolean}
  */
-var makesquare = function(matchsticks) {
+const makesquare = function (matchsticks) {
   matchsticks.sort((a, b) => b - a)
   const sum = matchsticks.reduce((prev, curr) => prev + curr, 0)
   if (sum % 4 !== 0) {
     return false
   }
 
-  let sideLength = sum / 4
-  let sides = [0, 0, 0, 0]
+  const sideLength = sum / 4
+  const sides = [0, 0, 0, 0]
 
   const isPossible = (i) => {
     if (i == matchsticks.length) {
       return true
     }
-
 
     for (let j = 0; j < 4; j++) {
       if (sides[j] + matchsticks[i] <= sideLength) {
@@ -33,4 +32,4 @@ var makesquare = function(matchsticks) {
   }
 
   return isPossible(0)
-};
+}

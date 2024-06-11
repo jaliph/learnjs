@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let findPeakElement = function (nums) {
+const findPeakElement = function (nums) {
   let l = 0
   let r = nums.length - 1
 

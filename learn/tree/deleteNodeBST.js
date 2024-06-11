@@ -12,7 +12,7 @@
  * @param {number} key
  * @return {TreeNode}
  */
-var deleteNode = function(root, key) {
+const deleteNode = function (root, key) {
   if (!root) {
     return root
   }
@@ -28,7 +28,6 @@ var deleteNode = function(root, key) {
     } else if (!root.left) {
       return root.right
     } else {
-
       let curr = root.right
       while (curr.left) {
         curr = curr.left
@@ -39,4 +38,4 @@ var deleteNode = function(root, key) {
   }
 
   return root
-};
+}

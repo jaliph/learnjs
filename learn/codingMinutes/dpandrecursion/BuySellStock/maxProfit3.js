@@ -4,7 +4,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+const maxProfit = function (prices) {
   let d10 = 0
   let d11 = -Infinity
   let d20 = 0
@@ -18,15 +18,14 @@ var maxProfit = function(prices) {
   }
 
   return d20
-};
-
+}
 
 const main = () => {
-  prices = [7,1,5,3,6,4]
+  prices = [7, 1, 5, 3, 6, 4]
   console.log('the max profit that can be made is ', maxProfit(prices))
   // console.log('the max profit that can be made is ', maxProfit2(prices))
 
-  prices = [7,6,4,3,1]
+  prices = [7, 6, 4, 3, 1]
   console.log('the max profit that can be made is ', maxProfit(prices))
   // console.log('the max profit that can be made is ', maxProfit2(prices))
 }

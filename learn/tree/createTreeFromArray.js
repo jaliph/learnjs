@@ -12,19 +12,18 @@
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {
-
+const sortedArrayToBST = function (nums) {
   const createNodes = (l, r) => {
     if (l > r) {
       return null
     }
 
-    let m = l + ~~((r - l) / 2)
-    let root = new TreeNode(nums[m])
+    const m = l + ~~((r - l) / 2)
+    const root = new TreeNode(nums[m])
     root.left = createNodes(l, m - 1)
     root.right = createNodes(m + 1, r)
     return root
   }
 
   return createNodes(0, nums.length - 1)
-};
+}

@@ -3,7 +3,7 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
-let spiralOrder = function (matrix) {
+const spiralOrder = function (matrix) {
   const res = []
 
   let l = 0; let r = matrix[0].length
@@ -40,7 +40,6 @@ let spiralOrder = function (matrix) {
   }
   return res
 }
-
 
 const main = () => {
   matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]

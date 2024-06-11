@@ -3,7 +3,7 @@
 const maxTravelCost = (cities, highways) => {
   const g = Array(cities + 1).fill().map(() => Array().fill([]))
 
-  for (let h of highways) {
+  for (const h of highways) {
     g[h[0]].push([h[1], h[2]])
     g[h[1]].push([h[0], h[2]])
   }
@@ -13,11 +13,11 @@ const maxTravelCost = (cities, highways) => {
   const DFS = (curr, par) => {
     let currSize = 1
 
-    for (let n of g[curr]) {
-      let [neig, wt] = n
+    for (const n of g[curr]) {
+      const [neig, wt] = n
       if (neig != par) {
-        let childTree = DFS(neig, curr)
-        let edgeContri = 2 * Math.min(childTree, cities - childTree) * wt
+        const childTree = DFS(neig, curr)
+        const edgeContri = 2 * Math.min(childTree, cities - childTree) * wt
         ans += edgeContri
         currSize += childTree
       }
@@ -28,15 +28,14 @@ const maxTravelCost = (cities, highways) => {
   DFS(1, -1)
 
   return ans
-} 
+}
 
 const main = () => {
-  cities = 4, highways = [[1,2,3],[2,3,2],[4,3,2]]
+  cities = 4, highways = [[1, 2, 3], [2, 3, 2], [4, 3, 2]]
   console.log('Max travel for citizens are ', maxTravelCost(cities, highways))
 }
 
 main()
-
 
 // process.stdin.resume();
 // process.stdin.setEncoding('ascii');
@@ -71,5 +70,3 @@ main()
 //     console.log(`Case #${t + 1}: ${maxTravelCost(cities, highways)}`)
 //   }
 // }
-
-

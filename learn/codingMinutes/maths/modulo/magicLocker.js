@@ -1,6 +1,6 @@
 // https://www.spoj.com/problems/LOCKER/
 
-const MOD = 10**9+7
+const MOD = 10 ** 9 + 7
 
 const mul = (a, b) => {
   return ((a % MOD) * (b % MOD)) % MOD
@@ -22,7 +22,7 @@ const power = (a, b) => {
 
 const maxThatCanbeMade = (num) => {
   if (num < 3) {
-    return num  
+    return num
   } else if (num % 3 === 0) {
     return power(3, (num / 3))
   } else if (num % 3 === 1) {
@@ -38,7 +38,6 @@ const main = () => {
   for (let i = 0; i < nums.length; i++) {
     console.log('The max that can be made is ', maxThatCanbeMade(nums[i]))
   }
-
 }
 
 main()

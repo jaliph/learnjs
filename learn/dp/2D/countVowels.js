@@ -3,15 +3,14 @@
  * @param {number} n
  * @return {number}
  */
-var countVowelPermutation = function(n) {
-  
-  const dp = [[0,0,0,0,0], [1,1,1,1,1]]
-  let a = 0, e = 1, i = 2, o = 3, u = 4
+var countVowelPermutation = function (n) {
+  const dp = [[0, 0, 0, 0, 0], [1, 1, 1, 1, 1]]
+  const a = 0; const e = 1; const i = 2; const o = 3; const u = 4
 
-  const MOD = 10**9 + 7
+  const MOD = 10 ** 9 + 7
   const moduloAdd = (...args) => {
     let total = 0
-    for (let n of args) {
+    for (const n of args) {
       total = ((total % MOD) + (n % MOD)) % MOD
     }
     return total
@@ -28,24 +27,23 @@ var countVowelPermutation = function(n) {
   }
 
   return dp[n].reduce((prev, curr) => moduloAdd(prev, curr), 0)
-};
+}
 
-
-var countVowelPermutation = function(n) {
+var countVowelPermutation = function (n) {
   if (n === 0) {
     return 0
   }
-  const MOD = 10**9 + 7
+  const MOD = 10 ** 9 + 7
   const moduloAdd = (...args) => {
     let total = 0
-    for (let n of args) {
+    for (const n of args) {
       total = ((total % MOD) + (n % MOD)) % MOD
     }
     return total
   }
 
-  let prev = [1,1,1,1,1]
-  let a = 0, e = 1, i = 2, o = 3, u = 4
+  let prev = [1, 1, 1, 1, 1]
+  const a = 0; const e = 1; const i = 2; const o = 3; const u = 4
   let curr
   // dp [len][char] == ends with that char
   for (let j = 2; j <= n; j++) {
@@ -57,9 +55,9 @@ var countVowelPermutation = function(n) {
     curr[u] = prev[a]
     prev = curr
   }
-  
+
   return prev.reduce((p, c) => moduloAdd(p, c), 0)
-};
+}
 
 const main = () => {
   n = 1

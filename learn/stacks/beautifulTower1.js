@@ -3,13 +3,12 @@
  * @param {number[]} maxHeights
  * @return {number}
  */
-var maximumSumOfHeights = function(maxHeights) {
-     
+const maximumSumOfHeights = function (maxHeights) {
   let ans = 0
   for (let i = 0; i < maxHeights.length; i++) {
-    let sum = maxHeights[i], prev = maxHeights[i]
+    let sum = maxHeights[i]; let prev = maxHeights[i]
 
-    for (let j = i - 1; j >=0; j--) {
+    for (let j = i - 1; j >= 0; j--) {
       prev = Math.min(prev, maxHeights[j])
       sum += prev
     }
@@ -23,4 +22,4 @@ var maximumSumOfHeights = function(maxHeights) {
   }
 
   return ans
-};
+}

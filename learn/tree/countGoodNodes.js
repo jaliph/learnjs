@@ -12,12 +12,11 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var goodNodes = function(root) {
-
-  let count = 0
+const goodNodes = function (root) {
+  const count = 0
   const countGoodTree = (node, maxSoFar) => {
     if (!node) return 0
-    
+
     let count = 0
     if (node.val >= maxSoFar) {
       count++
@@ -28,6 +27,5 @@ var goodNodes = function(root) {
     return count
   }
 
-  
   return countGoodTree(root, root.val)
-};
+}

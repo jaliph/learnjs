@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS = function(nums) {
+const lengthOfLIS = function (nums) {
   let longestLIS = 0
   const dp = Array(nums.length + 1).fill(-1)
   dp[nums.length] = 0
@@ -12,7 +12,7 @@ var lengthOfLIS = function(nums) {
     if (dp[i] != -1) {
       return dp[i]
     }
-    
+
     dp[i] = 1
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[j] > nums[i]) {
@@ -26,14 +26,14 @@ var lengthOfLIS = function(nums) {
     dfs(i)
   }
   return longestLIS
-};
+}
 // [9,2,5,3,7,101,18]
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS3 = function(nums) {
+const lengthOfLIS3 = function (nums) {
   const dp = []
   let longestLIS = 0
   for (let i = nums.length - 1; i >= 0; i--) {
@@ -47,14 +47,13 @@ var lengthOfLIS3 = function(nums) {
     longestLIS = Math.max(longestLIS, dp[i])
   }
   return longestLIS
-};
-
+}
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS2 = function(nums) {
+const lengthOfLIS2 = function (nums) {
   const LIS = Array(nums.length).fill(1)
 
   let max = 0
@@ -67,21 +66,20 @@ var lengthOfLIS2 = function(nums) {
     }
   }
   return max
-};
-
+}
 
 const main = () => {
 //   nums = [10,9,2,5,3,7,101,18]
 //   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
 //   console.log('the longest increasing subsequence is ', lengthOfLIS2(nums))
 
-//   nums = [7,7,7,7,7,7,7]
-//   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
+  //   nums = [7,7,7,7,7,7,7]
+  //   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
 
-//   nums = [1,3,6,7,9,4,10,5,6]
-//   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
+  //   nums = [1,3,6,7,9,4,10,5,6]
+  //   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
 
-  nums = [9,2,5,3,7,101,18]
+  nums = [9, 2, 5, 3, 7, 101, 18]
   console.log('the longest increasing subsequence is ', lengthOfLIS(nums))
   console.log('the longest increasing subsequence is ', lengthOfLIS2(nums))
 }

@@ -4,10 +4,10 @@
  * @param {string} s
 * @return {number}
 */
-var partitionString = function(s) {
-  let set = new Set()
+const partitionString = function (s) {
+  const set = new Set()
   let count = 1
-  for (let c of s) {
+  for (const c of s) {
     if (set.has(c)) {
       count++
       set.clear()
@@ -18,7 +18,7 @@ var partitionString = function(s) {
 }
 
 const main = () => {
-  s = "abacaba"
+  s = 'abacaba'
   console.log('number of unique sets are ', partitionString(s))
 }
 

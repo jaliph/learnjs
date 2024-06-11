@@ -11,15 +11,14 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var widthOfBinaryTree = function(root) {
-
-  let q = [[root, 1, 0]]
+const widthOfBinaryTree = function (root) {
+  const q = [[root, 1, 0]]
   let preLevel = 0
   let maxWidth = 1
   let firstNode = 1
   let k = 0
-  while(k < q.length) {
-    let [curr, level, num] = q[k++]
+  while (k < q.length) {
+    const [curr, level, num] = q[k++]
 
     if (preLevel < level) {
       firstNode = num
@@ -39,4 +38,4 @@ var widthOfBinaryTree = function(root) {
   }
 
   return maxWidth
-};
+}

@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let singleNumber = function (nums) {
+const singleNumber = function (nums) {
   let i = 0
   for (const num of nums) {
     i = i ^ num

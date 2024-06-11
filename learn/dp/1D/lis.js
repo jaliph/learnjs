@@ -4,10 +4,9 @@
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS = function(nums) {
-    
+const lengthOfLIS = function (nums) {
   let max = 1
-  let LIS = Array(nums.length).fill(1)
+  const LIS = Array(nums.length).fill(1)
 
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
@@ -17,6 +16,6 @@ var lengthOfLIS = function(nums) {
       }
     }
   }
-  
+
   return max
-};
+}

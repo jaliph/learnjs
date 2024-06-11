@@ -3,9 +3,9 @@
  * @param {number[]} arr
  * @return {number}
  */
-var maxTurbulenceSize = function(arr) {
-  let l = 0, r = 1
-  let prev = ''  
+const maxTurbulenceSize = function (arr) {
+  let l = 0; let r = 1
+  let prev = ''
   let res = 1
   while (r < arr.length) {
     if (arr[r - 1] < arr[r] && prev != '<') {
@@ -25,5 +25,4 @@ var maxTurbulenceSize = function(arr) {
     }
   }
   return res
-
-};
+}

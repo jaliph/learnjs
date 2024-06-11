@@ -4,7 +4,7 @@
  * @param {number[]} obstacles
  * @return {number[]}
  */
-var longestObstacleCourseAtEachPosition = function(obstacles) {
+const longestObstacleCourseAtEachPosition = function (obstacles) {
   const bucket = []
   const results = []
   const searchInsertPosition = (target) => {
@@ -23,7 +23,7 @@ var longestObstacleCourseAtEachPosition = function(obstacles) {
   }
 
   let idx
-  for (let n of obstacles) {
+  for (const n of obstacles) {
     // console.log('Search, ', n, bucket)
     idx = searchInsertPosition(n)
     // console.log(idx)
@@ -34,20 +34,18 @@ var longestObstacleCourseAtEachPosition = function(obstacles) {
   return results
 }
 
-
 const main = () => {
-  obstacles = [1,2,3,1]
+  obstacles = [1, 2, 3, 1]
   console.log('Corrsesponding longes valid obstacles are .. ', longestObstacleCourseAtEachPosition(obstacles))
 
-  obstacles = [3,1,5,6,4,2]
+  obstacles = [3, 1, 5, 6, 4, 2]
   console.log('Corrsesponding longes valid obstacles are .. ', longestObstacleCourseAtEachPosition(obstacles))
 
-  obstacles = [3,1,5,6,4,2]
+  obstacles = [3, 1, 5, 6, 4, 2]
   console.log('Corrsesponding longes valid obstacles are .. ', longestObstacleCourseAtEachPosition(obstacles))
 
-  obstacles = [5,1,5,5,1,3,4,5,1,4]
+  obstacles = [5, 1, 5, 5, 1, 3, 4, 5, 1, 4]
   console.log('Corrsesponding longes valid obstacles are .. ', longestObstacleCourseAtEachPosition(obstacles))
 }
 
 main()
-

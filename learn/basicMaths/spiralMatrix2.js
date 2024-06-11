@@ -3,11 +3,10 @@
  * @param {number} n
  * @return {number[][]}
  */
-var generateMatrix = function(n) {
-  
-  let mat = Array(n).fill().map(() => Array(n).fill(0))
+const generateMatrix = function (n) {
+  const mat = Array(n).fill().map(() => Array(n).fill(0))
   let val = 1
-  let l = 0, r = n - 1
+  let l = 0; let r = n - 1
   while (l <= r) {
     let top = l
     let bottom = r
@@ -38,4 +37,4 @@ var generateMatrix = function(n) {
   }
 
   return mat
-};
+}

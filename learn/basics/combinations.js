@@ -1,8 +1,7 @@
 
-
 const combination = (s) => {
-  let N = 1 << s.length
-  let result = ['']
+  const N = 1 << s.length
+  const result = ['']
   for (let i = 1; i < N; i++) {
     let substr = ''
     for (let j = 0; j < s.length; j++) {

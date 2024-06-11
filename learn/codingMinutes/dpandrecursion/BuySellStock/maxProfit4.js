@@ -4,9 +4,9 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(k, prices) {
+const maxProfit = function (k, prices) {
   if (k > (prices.length / 2)) {
-    // i can consider k as infinity .. 
+    // i can consider k as infinity ..
     let dp00 = 0
     let dp01 = -Infinity
 
@@ -36,16 +36,16 @@ var maxProfit = function(k, prices) {
 
     return dp[prices.length - 1][k][0]
   }
-};
+}
 
 const main = () => {
-  k = 2, prices = [3,2,6,5,0,3]
+  k = 2, prices = [3, 2, 6, 5, 0, 3]
   console.log('Max Profit is ', maxProfit(k, prices))
 
-  k = 2, prices = [2,4,1]
+  k = 2, prices = [2, 4, 1]
   console.log('Max Profit is ', maxProfit(k, prices))
 
-  k = 2, prices = [3,3,5,0,0,3,1,4]
+  k = 2, prices = [3, 3, 5, 0, 0, 3, 1, 4]
   console.log('Max Profit is ', maxProfit(k, prices))
 }
 

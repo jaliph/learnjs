@@ -11,8 +11,7 @@
  * @param {number} k
  * @return {ListNode}
  */
-var rotateRight = function(head, k) {
-
+const rotateRight = function (head, k) {
   if (!head || k === 0) {
     return head
   }
@@ -25,14 +24,13 @@ var rotateRight = function(head, k) {
     temp = temp.next
   }
 
-  
   k = k % length
   // console.log(k, length)
   if (k == 0) {
     return head
   }
 
-  let ahead = length - k
+  const ahead = length - k
 
   let prev
   temp = head
@@ -48,7 +46,7 @@ var rotateRight = function(head, k) {
   prev.next = null
 
   // prev = null
-  let second = temp
+  const second = temp
   // temp.next
   last.next = head
   // console.log(last)
@@ -56,5 +54,4 @@ var rotateRight = function(head, k) {
   // console.log(head)
 
   return second
-  
-};
+}

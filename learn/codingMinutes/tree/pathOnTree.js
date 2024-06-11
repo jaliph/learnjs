@@ -22,7 +22,6 @@ Constraints:
 
     ui != vi  , ui != k and vi != k
 
-
 Example:
 
 Input
@@ -35,7 +34,7 @@ Input
         [2, 4, 1],
         [3, 5, 1]
     ]
-     
+
     queries = [
         [2, 4],
         [2, 3],
@@ -62,7 +61,7 @@ const pathOnTree = (n, k, edges, queries) => {
   const g = Array(n + 1).fill().map(() => Array().fill([]))
   const dist = Array(n + 1).fill(0)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push([e[1], e[2]])
     g[e[1]].push([e[0], e[2]])
   }
@@ -70,9 +69,9 @@ const pathOnTree = (n, k, edges, queries) => {
   const DFS_Solver = (curr, par, len) => {
     dist[curr] = (dist[par] || 0) + len
 
-    for (let neighbor of g[curr]) {
-      let n = neighbor[0]
-      let w = neighbor[1]
+    for (const neighbor of g[curr]) {
+      const n = neighbor[0]
+      const w = neighbor[1]
       if (n != par) {
         DFS_Solver(n, curr, w)
       }
@@ -81,28 +80,28 @@ const pathOnTree = (n, k, edges, queries) => {
 
   DFS_Solver(k, 0, 0)
 
-  let results = []
-  for (let q of queries) {
-    let ans = dist[q[0]] + dist[q[1]]
+  const results = []
+  for (const q of queries) {
+    const ans = dist[q[0]] + dist[q[1]]
     results.push(ans)
   }
   return results
 }
 
 const main = () => {
-  n = 5 , k = 1
+  n = 5, k = 1
 
   edges = [
-      [1, 2, 1],
-      [1, 3, 1],
-      [2, 4, 1],
-      [3, 5, 1]
+    [1, 2, 1],
+    [1, 3, 1],
+    [2, 4, 1],
+    [3, 5, 1]
   ]
-   
+
   queries = [
-      [2, 4],
-      [2, 3],
-      [4, 5]
+    [2, 4],
+    [2, 3],
+    [4, 5]
   ]
   console.log('The query responses are ', pathOnTree(n, k, edges, queries))
 }

@@ -5,7 +5,7 @@
  * @param {number} k
  * @return {number}
  */
-let splitArray = function (nums, k) {
+const splitArray = function (nums, k) {
   let l = Math.max(...nums); let r = nums.reduce((prev, curr) => prev + curr, 0)
 
   let res = r
@@ -45,7 +45,7 @@ const main = () => {
 
 main()
 
-let splitArray2 = function (nums, k) {
+const splitArray2 = function (nums, k) {
   const splitArrayRecur = (i, k) => {
     // base
     if (i == nums.length) {

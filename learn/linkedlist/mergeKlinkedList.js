@@ -11,9 +11,9 @@
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
+const mergeKLists = function (lists) {
   if (lists.length == 0) {
-      return null
+    return null
   }
 
   if (lists.length == 1) {
@@ -21,7 +21,7 @@ var mergeKLists = function(lists) {
   }
 
   const merge = (l1, l2) => {
-    let mergedHead = new ListNode()
+    const mergedHead = new ListNode()
     let w = mergedHead
 
     while (l1 && l2) {
@@ -45,14 +45,13 @@ var mergeKLists = function(lists) {
     }
 
     return mergedHead.next
-
   }
 
   let mergedLists
   while (lists.length > 1) {
     mergedLists = []
     for (let i = 0; i < lists.length; i = i + 2) {
-      let first = lists[i]
+      const first = lists[i]
       let second
       if (i + 1 < lists.length) {
         second = lists[i + 1]
@@ -63,5 +62,4 @@ var mergeKLists = function(lists) {
   }
 
   return lists[0]
-
-};
+}

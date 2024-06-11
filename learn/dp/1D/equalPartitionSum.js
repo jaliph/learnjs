@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var canPartition = function(nums) {
+const canPartition = function (nums) {
   let sum = nums.reduce((prev, curr) => prev + curr, 0)
   if (sum & 1) {
     return false
@@ -13,9 +13,9 @@ var canPartition = function(nums) {
   sum = sum >> 1
   let dp = new Set([0])
   let newDp
-  for (let n of nums) {
+  for (const n of nums) {
     newDp = new Set(dp)
-    for (let possibleSums of dp) {
+    for (const possibleSums of dp) {
       newDp.add(possibleSums + n)
       if (newDp.has(sum)) {
         return true
@@ -25,4 +25,4 @@ var canPartition = function(nums) {
   }
 
   return dp.has(sum)
-};
+}

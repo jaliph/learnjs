@@ -3,7 +3,7 @@
  * @param {number[][]} costs
  * @return {number}
  */
-let twoCitySchedCost = function (costs) {
+const twoCitySchedCost = function (costs) {
   for (const c of costs) {
     c.push(c[1] - c[0])
   }

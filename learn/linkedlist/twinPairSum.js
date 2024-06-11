@@ -10,8 +10,8 @@
  * @param {ListNode} head
  * @return {number}
  */
-var pairSum = function(head) {
-  let slow = head, fast = head.next
+const pairSum = function (head) {
+  let slow = head; let fast = head.next
 
   while (fast && fast.next) {
     fast = fast.next.next
@@ -21,15 +21,13 @@ var pairSum = function(head) {
   let second = slow.next
   slow.next = null
 
-
   let prev = null
   while (second) {
-    let nxt = second.next
+    const nxt = second.next
     second.next = prev
     prev = second
     second = nxt
   }
-
 
   let first = head
   second = prev
@@ -40,7 +38,7 @@ var pairSum = function(head) {
     twinSum = Math.max(twinSum, (first.val + second.val))
     first = first.next
     second = second.next
-  } 
+  }
 
   return twinSum
-};
+}

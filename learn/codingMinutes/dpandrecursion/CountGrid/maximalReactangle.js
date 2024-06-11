@@ -2,7 +2,7 @@
  * @param {character[][]} matrix
  * @return {number}
  */
-var maximalRectangle = function(matrix) {
+const maximalRectangle = function (matrix) {
   const r = matrix.length
   const c = matrix[0].length
 
@@ -15,28 +15,26 @@ var maximalRectangle = function(matrix) {
       }
     }
   }
-  
 
   const maxAreaWithHistogram = (heights) => {
-
     let index = 0
-    let s = []
+    const s = []
     let maxArea = 0
     while (index < heights.length) {
       if (s.length == 0 || heights[s[s.length - 1]] < heights[index]) {
         s.push(index++)
       } else {
-        let top = s.pop()
+        const top = s.pop()
 
-        let width = s.length > 0 ? (index - s[s.length - 1] - 1) : index
+        const width = s.length > 0 ? (index - s[s.length - 1] - 1) : index
         maxArea = Math.max(maxArea, heights[top] * width)
       }
     }
 
     while (s.length > 0) {
-      let top = s.pop()
+      const top = s.pop()
 
-      let width = s.length > 0 ? (index - s[s.length - 1] - 1) : index
+      const width = s.length > 0 ? (index - s[s.length - 1] - 1) : index
       maxArea = Math.max(maxArea, heights[top] * width)
     }
 
@@ -54,7 +52,7 @@ var maximalRectangle = function(matrix) {
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+  matrix = [['1', '0', '1', '0', '0'], ['1', '0', '1', '1', '1'], ['1', '1', '1', '1', '1'], ['1', '0', '0', '1', '0']]
 
   console.log('size of largest rectangle is ', maximalRectangle(matrix))
 }

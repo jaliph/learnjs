@@ -4,44 +4,43 @@
  * @param {string[]} operations
  * @return {number}
  */
-var calPoints = function(operations) {
-  let stack = []
+const calPoints = function (operations) {
+  const stack = []
 
-  for (let ops of operations) {
+  for (const ops of operations) {
     if (!isNaN(ops)) {
       stack.push(Number(ops))
     } else {
-      let previous = stack[stack.length - 1]
+      const previous = stack[stack.length - 1]
       switch (ops) {
         case '+': {
-          let prev2 = stack[stack.length - 2]
+          const prev2 = stack[stack.length - 2]
           stack.push(previous + prev2)
-          break;
+          break
         }
         case 'C': {
           stack.pop()
-          break;
+          break
         }
         case 'D': {
           stack.push(previous * 2)
-          break;
+          break
         }
       }
     }
     // console.log(stack)
   }
   return stack.reduce((prev, curr) => prev + curr, 0)
-};
-
+}
 
 const main = () => {
-  ops = ["5","2","C","D","+"]
+  ops = ['5', '2', 'C', 'D', '+']
   console.log('Score is ', calPoints(ops))
 
-  ops = ["5","-2","4","C","D","9","+","+"]
+  ops = ['5', '-2', '4', 'C', 'D', '9', '+', '+']
   console.log('Score is ', calPoints(ops))
 
-  ops = ["1","C"]
+  ops = ['1', 'C']
   console.log('Score is ', calPoints(ops))
 }
 

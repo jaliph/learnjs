@@ -1,10 +1,10 @@
-https://leetcode.com/problems/sudoku-solver/description/
+https:// leetcode.com/problems/sudoku-solver/description/
 
 /**
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-var solveSudoku = function(board) {
+var solveSudoku = function (board) {
   const r = board.length
   const c = board[0].length
 
@@ -16,20 +16,20 @@ var solveSudoku = function(board) {
       }
     }
 
-    let sx = Math.floor(x / 3) * 3
-    let sy = Math.floor(y / 3) * 3
+    const sx = Math.floor(x / 3) * 3
+    const sy = Math.floor(y / 3) * 3
     for (let nx = sx; nx < sx + 3; nx++) {
       for (let ny = sy; ny < sy + 3; ny++) {
         if (board[nx][ny] == val) {
           return false
         }
-      } 
+      }
     }
 
     return true
   }
 
-  let solve = (i, j) => {
+  const solve = (i, j) => {
     // base
     if (i == r) {
       return true /// solved it
@@ -50,7 +50,7 @@ var solveSudoku = function(board) {
     for (let ans = 1; ans <= 9; ans++) {
       if (isValidPos(ans, i, j)) {
         board[i][j] = ans
-        let subSolve = solve(i, j + 1)
+        const subSolve = solve(i, j + 1)
         if (subSolve) {
           return true
         }
@@ -61,21 +61,21 @@ var solveSudoku = function(board) {
   }
   solve(0, 0)
   return board
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
   board = [
-    ["5","3",".",".","7",".",".",".","."],
-    ["6",".",".","1","9","5",".",".","."],
-    [".","9","8",".",".",".",".","6","."],
-    ["8",".",".",".","6",".",".",".","3"],
-    ["4",".",".","8",".","3",".",".","1"],
-    ["7",".",".",".","2",".",".",".","6"],
-    [".","6",".",".",".",".","2","8","."],
-    [".",".",".","4","1","9",".",".","5"],
-    [".",".",".",".","8",".",".","7","9"]
+    ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
+    ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
+    ['.', '9', '8', '.', '.', '.', '.', '6', '.'],
+    ['8', '.', '.', '.', '6', '.', '.', '.', '3'],
+    ['4', '.', '.', '8', '.', '3', '.', '.', '1'],
+    ['7', '.', '.', '.', '2', '.', '.', '.', '6'],
+    ['.', '6', '.', '.', '.', '.', '2', '8', '.'],
+    ['.', '.', '.', '4', '1', '9', '.', '.', '5'],
+    ['.', '.', '.', '.', '8', '.', '.', '7', '9']
   ]
 
   Print2D(solveSudoku(board))

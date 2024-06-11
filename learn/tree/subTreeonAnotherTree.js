@@ -13,8 +13,7 @@
  * @param {TreeNode} subRoot
  * @return {boolean}
  */
-var isSubtree = function(root, subRoot) {
-  
+const isSubtree = function (root, subRoot) {
   const isSame = (r, t) => {
     if (!r && !t) {
       return true
@@ -39,4 +38,4 @@ var isSubtree = function(root, subRoot) {
   } else {
     return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
   }
-};
+}

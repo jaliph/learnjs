@@ -4,9 +4,9 @@
  * @param {number[][]} rectangles
  * @return {number}
  */
-let interchangeableRectangles = function (rectangles) {
+const interchangeableRectangles = function (rectangles) {
   const count = rectangles.reduce((prev, rect) => {
-    let key = rect[0] / rect[1]
+    const key = rect[0] / rect[1]
     prev[key] = (prev[key] || 0) + 1
     return prev
   }, {})

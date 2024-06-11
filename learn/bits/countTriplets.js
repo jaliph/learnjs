@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let countTriplets = function (nums) {
+const countTriplets = function (nums) {
   let count = 0
   const map = {}
   for (const n1 of nums) {

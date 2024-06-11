@@ -3,16 +3,16 @@
  * @param {string} s
  * @return {string}
  */
-var removeDuplicateLetters = function(s) {
-  let lastOccurences = new Map()
+const removeDuplicateLetters = function (s) {
+  const lastOccurences = new Map()
 
   for (let i = 0; i < s.length; i++) {
     lastOccurences.set(s[i], i)
   }
-  
-  let visited = new Set()
 
-  let stack = []
+  const visited = new Set()
+
+  const stack = []
   for (let i = 0; i < s.length; i++) {
     if (!visited.has(s[i])) {
       while (stack.length && stack[stack.length - 1] > s[i] && i < lastOccurences.get(stack[stack.length - 1])) {
@@ -25,4 +25,4 @@ var removeDuplicateLetters = function(s) {
   }
 
   return stack.join('')
-};
+}

@@ -1,19 +1,19 @@
 // https://leetcode.com/problems/design-linked-list/
 
-function ListNode(val, next) {
-  this.val = (val===undefined ? 0 : val)
-  this.next = (next===undefined ? null : next)
+function ListNode (val, next) {
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
 }
 
-var MyLinkedList = function() {
+const MyLinkedList = function () {
   this.head = null
-};
+}
 
-/** 
+/**
  * @param {number} index
  * @return {number}
  */
-MyLinkedList.prototype.get = function(index) {
+MyLinkedList.prototype.get = function (index) {
   let i = 0
   // console.log(JSON.stringify(this.head))
   let temp = this.head
@@ -25,23 +25,23 @@ MyLinkedList.prototype.get = function(index) {
     i++
   }
   return -1
-};
+}
 
-/** 
+/**
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtHead = function(val) {
-  let temp = new ListNode(val)
+MyLinkedList.prototype.addAtHead = function (val) {
+  const temp = new ListNode(val)
   temp.next = this.head
   this.head = temp
-};
+}
 
-/** 
+/**
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtTail = function(val) {
+MyLinkedList.prototype.addAtTail = function (val) {
   let temp = this.head
   if (!temp) {
     this.head = new ListNode(val)
@@ -51,16 +51,16 @@ MyLinkedList.prototype.addAtTail = function(val) {
     }
     temp.next = new ListNode(val)
   }
-};
+}
 
-/** 
- * @param {number} index 
+/**
+ * @param {number} index
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtIndex = function(index, val) {
+MyLinkedList.prototype.addAtIndex = function (index, val) {
   if (index == 0) {
-    let temp = new ListNode(val)
+    const temp = new ListNode(val)
     temp.next = this.head
     this.head = temp
   } else {
@@ -84,13 +84,13 @@ MyLinkedList.prototype.addAtIndex = function(index, val) {
       prev.next.next = temp
     }
   }
-};
+}
 
-/** 
+/**
  * @param {number} index
  * @return {void}
  */
-MyLinkedList.prototype.deleteAtIndex = function(index) {
+MyLinkedList.prototype.deleteAtIndex = function (index) {
   if (index == 0) {
     this.head = this.head.next
   } else {
@@ -107,10 +107,9 @@ MyLinkedList.prototype.deleteAtIndex = function(index) {
       i++
     }
   }
-};
+}
 
-
-/** 
+/**
  * Your MyLinkedList object will be instantiated and called as such:
  * var obj = new MyLinkedList()
  * var param_1 = obj.get(index)
@@ -120,7 +119,7 @@ MyLinkedList.prototype.deleteAtIndex = function(index) {
  * obj.deleteAtIndex(index)
  */
 
-var obj = new MyLinkedList()
+const obj = new MyLinkedList()
 
 // // "addAtHead","addAtHead","addAtHead","addAtIndex","deleteAtIndex","addAtHead","addAtTail","get","addAtHead","addAtIndex","addAtHead"
 // // [],[7],[2],[1],[3,0],[2],[6],[4],[4],[4],[5,0],[6]

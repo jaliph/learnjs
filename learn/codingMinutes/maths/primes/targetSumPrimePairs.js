@@ -4,13 +4,13 @@
  * @param {number} n
  * @return {number[][]}
  */
-var findPrimePairs = function(n) {
+const findPrimePairs = function (n) {
   const bool = Array(1 + n).fill(true)
-  let primes = new Set()
+  const primes = new Set()
   for (let i = 2; i <= n; i++) {
     if (bool[i]) {
       primes.add(i)
-      for (let j = i * i ; j <= n; j = j + i) {
+      for (let j = i * i; j <= n; j = j + i) {
         if (bool[j]) {
           bool[j] = false
         }
@@ -18,8 +18,8 @@ var findPrimePairs = function(n) {
     }
   }
 
-  let result = []
-  for (let i of primes) {
+  const result = []
+  for (const i of primes) {
     if (i > ~~(n / 2)) {
       break
     }
@@ -28,7 +28,7 @@ var findPrimePairs = function(n) {
     }
   }
   return result
-};
+}
 
 const main = () => {
   n = 10

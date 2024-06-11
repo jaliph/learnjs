@@ -3,14 +3,13 @@
  * @param {string} s
  * @return {number[]}
  */
-var partitionLabels = function(s) {
-  
-  let charMap = new Map()
+const partitionLabels = function (s) {
+  const charMap = new Map()
   for (let i = 0; i < s.length; i++) {
     charMap.set(s[i], i)
   }
 
-  let res = []
+  const res = []
   let size = 0
   let end = 0
   for (let i = 0; i < s.length; i++) {
@@ -23,4 +22,4 @@ var partitionLabels = function(s) {
   }
 
   return res
-};
+}

@@ -10,11 +10,11 @@
  * @param {string} target
  * @return {number}
  */
-var numWays = function(words, target) {
-  const MOD = 10**9 + 7
+const numWays = function (words, target) {
+  const MOD = 10 ** 9 + 7
   const charFreq = Array(words[0].length).fill().map(() => Array(26).fill(0))
-  for (let w of words) {
-    for (let [i, c] of [...w].entries()) {
+  for (const w of words) {
+    for (const [i, c] of [...w].entries()) {
       charFreq[i][c.charCodeAt(0) - 97]++
     }
   }
@@ -33,24 +33,24 @@ var numWays = function(words, target) {
       return dp[i][k]
     }
 
-    let c = target[i].charCodeAt(0) - 97
+    const c = target[i].charCodeAt(0) - 97
     // dnt use the kth word / char
     dp[i][k] = numWaysRecur(i, k + 1)
 
     // use the kth word
-    dp[i][k] =  (dp[i][k] % MOD) + ((charFreq[k][c] * numWaysRecur(i + 1, k + 1)) % MOD)
+    dp[i][k] = (dp[i][k] % MOD) + ((charFreq[k][c] * numWaysRecur(i + 1, k + 1)) % MOD)
     return dp[i][k] % MOD
   }
   return numWaysRecur(0, 0)
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  words = ["abba","baab"], target = "bab"
+  words = ['abba', 'baab'], target = 'bab'
   console.log('Num of ways target can be formed is ', numWays(words, target))
 
-  words = ["acca","bbbb","caca"], target = "aba"
+  words = ['acca', 'bbbb', 'caca'], target = 'aba'
   console.log('Num of ways target can be formed is ', numWays(words, target))
 }
 

@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number}
  */
-var tribonacci = function(n) {
+const tribonacci = function (n) {
   if (n <= 1) {
     return n
   }
@@ -13,7 +13,7 @@ var tribonacci = function(n) {
     return 1
   }
 
-  let prev3 = 0, prev2 = 1, prev1 = 1
+  let prev3 = 0; let prev2 = 1; let prev1 = 1
   let temp
   for (let i = 3; i <= n; i++) {
     temp = prev1 + prev2 + prev3
@@ -22,4 +22,4 @@ var tribonacci = function(n) {
     prev1 = temp
   }
   return prev1
-};
+}

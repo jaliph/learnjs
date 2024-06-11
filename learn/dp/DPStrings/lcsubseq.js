@@ -4,7 +4,7 @@
  * @param {string} text2
  * @return {number}
  */
-var longestCommonSubsequence = function(text1, text2) {
+const longestCommonSubsequence = function (text1, text2) {
   let prev = Array(text2.length + 1).fill(0)
   let dp
   for (let i = 0; i < text1.length; i++) {
@@ -20,4 +20,4 @@ var longestCommonSubsequence = function(text1, text2) {
   }
 
   return dp[text2.length]
-};
+}

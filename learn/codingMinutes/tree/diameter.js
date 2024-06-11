@@ -5,23 +5,22 @@
 // fx[curr] = 2 + Max ( 2 of its children) // pass through curr
 // fx[curr] = Math.max(fx) // doesn't pass through curr
 
-
-const treeDistance = (n , edges) => {
+const treeDistance = (n, edges) => {
   const g = Array(n + 1).fill().map(() => Array().fill([]))
   const fx = Array(n + 1).fill(0)
   const gx = Array(n + 1).fill(0)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
 
   const DFS_Helper = (curr, par) => {
-    let max_1 = 0, max_2 = 0
-    for (let n of g[curr]) {
+    let max_1 = 0; let max_2 = 0
+    for (const n of g[curr]) {
       if (n != par) {
         DFS_Helper(n, curr)
-        
+
         gx[curr] = Math.max(gx[n] + 1, gx[curr]) // just for filling current
         fx[curr] = Math.max(fx[curr], fx[n])
 
@@ -42,7 +41,6 @@ const treeDistance = (n , edges) => {
   console.dir(gx)
   return fx[1]
 }
-
 
 const main = () => {
   n = 7

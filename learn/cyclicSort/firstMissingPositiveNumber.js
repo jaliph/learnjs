@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-let firstMissingPositive = function (nums) {
+const firstMissingPositive = function (nums) {
   nums = nums.map(o => o < 0 ? 0 : o)
 
   for (let i = 0; i < nums.length; i++) {

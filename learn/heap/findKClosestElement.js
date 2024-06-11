@@ -6,13 +6,13 @@
  * @param {number} x
  * @return {number[]}
  */
-var findClosestElements = function(arr, k, x) {
+const findClosestElements = function (arr, k, x) {
   const h = new Heap()
-  for (let n of arr) {
+  for (const n of arr) {
     h.push([Math.abs(n - x), n])
     // console.log(h)
     if (h.size > k) {
-      let p1 = h.pop()
+      const p1 = h.pop()
       if (p1[0] == h.peek()[0]) {
         h.pop()
         h.push(p1)
@@ -20,34 +20,34 @@ var findClosestElements = function(arr, k, x) {
     }
   }
   // console.log(h)
-  let results = []
-  while(h.size) {
-    let [diff, num] = h.pop()
+  const results = []
+  while (h.size) {
+    const [diff, num] = h.pop()
     results.push(num)
   }
   return results.sort()
-};
+}
 
 class Heap {
-  constructor() {
+  constructor () {
     this.heap = []
     this.size = 0
     this.comparator = (a, b) => b[0] - a[0]
   }
 
   swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -56,17 +56,17 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateDown (i) {
-    let leftChild = (i * 2) + 1
-    let rightChild = (i * 2) + 2
+    const leftChild = (i * 2) + 1
+    const rightChild = (i * 2) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -81,7 +81,7 @@ class Heap {
   }
 
   percolateUp (i) {
-    let parent = Math.floor((i - 1) / 2)
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[i]) > 0) {
       this.swap(parent, i)
       this.percolateUp(parent)
@@ -90,13 +90,13 @@ class Heap {
 }
 
 const main = () => {
-  arr = [1,2,3,4,5], k = 4, x = 3
+  arr = [1, 2, 3, 4, 5], k = 4, x = 3
   console.log('k closest elements near x is ', findClosestElements(arr, k, x))
 
-  arr = [1,2,3,4,5], k = 4, x = -1
+  arr = [1, 2, 3, 4, 5], k = 4, x = -1
   console.log('k closest elements near x is ', findClosestElements(arr, k, x))
 
-  arr = [12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56], k = 4, x = 35;
+  arr = [12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56], k = 4, x = 35
   console.log('k closest elements near x is ', findClosestElements(arr, k, x))
 }
 

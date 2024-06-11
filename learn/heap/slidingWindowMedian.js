@@ -1,15 +1,15 @@
 // https://leetcode.com/problems/sliding-window-median/
 
 class Heap {
-  constructor(comp) {
+  constructor (comp) {
     this.heap = []
     this.size = 0
     this.comparator = comp || function (a, b) { return a - b }
   }
 
-  pop() {
+  pop () {
     if (this.size) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.swap(0, this.heap.length - 1)
       this.heap.pop()
       this.size--
@@ -18,22 +18,22 @@ class Heap {
     }
   }
 
-  peek() {
+  peek () {
     if (this.size) {
       return this.heap[0]
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this._percolateUp(this.heap.length - 1)
   }
 
-  _percolateDown(index) {
-    let leftChild = (2 * index) + 1
-    let rightChild = (2 * index) + 2
-    let parent = index
+  _percolateDown (index) {
+    const leftChild = (2 * index) + 1
+    const rightChild = (2 * index) + 2
+    const parent = index
     if (leftChild < this.heap.length && this.comparator(this.heap[index], this.heap[leftChild]) > 0) {
       index = leftChild
     }
@@ -46,17 +46,17 @@ class Heap {
       this._percolateDown(index)
     }
   }
-  
-  _percolateUp(index) {
-    let parent = Math.floor((index - 1) / 2)
+
+  _percolateUp (index) {
+    const parent = Math.floor((index - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[index]) > 0) {
       this.swap(parent, index)
       this._percolateUp(parent)
     }
   }
 
-  swap(i, j) {
-    let temp = this.heap[i]
+  swap (i, j) {
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
@@ -67,11 +67,11 @@ class Heap {
 * @param {number} k
 * @return {number[]}
 */
-var medianSlidingWindow = function(nums, k) {
+const medianSlidingWindow = function (nums, k) {
   const maxHeap = new Heap((a, b) => b - a)
   const minHeap = new Heap((a, b) => a - b)
   const isEven = k % 2 === 0
-  let result = []
+  const result = []
 
   for (let i = 0; i < k; i++) {
     maxHeap.push(nums[i])
@@ -81,22 +81,19 @@ var medianSlidingWindow = function(nums, k) {
     minHeap.push(maxHeap.pop())
   }
 
-  let outNumMap = new Map()
-  let outgoingNum = {}
+  const outNumMap = new Map()
+  const outgoingNum = {}
   let balance = 0
   let i = k
   while (true) {
-    if (isEven)
-      result.push((parseFloat(maxHeap.peek()) + parseFloat(minHeap.peek())) * 0.5)
-    else
-      result.push(parseFloat(maxHeap.peek()))
+    if (isEven) { result.push((parseFloat(maxHeap.peek()) + parseFloat(minHeap.peek())) * 0.5) } else { result.push(parseFloat(maxHeap.peek())) }
 
     if (i >= nums.length) {
       break
     }
 
-    let outNum = nums[i - k]
-    let inNum = nums[i]
+    const outNum = nums[i - k]
+    const inNum = nums[i]
     i++
 
     if (maxHeap.peek() >= outNum) {
@@ -105,12 +102,12 @@ var medianSlidingWindow = function(nums, k) {
       balance++
     }
 
-    outNumMap.set(outNum, (outNumMap.get(outNum) || 0 ) + 1)
+    outNumMap.set(outNum, (outNumMap.get(outNum) || 0) + 1)
 
     if (maxHeap.size > 0 && inNum <= maxHeap.peek()) {
       balance++
       maxHeap.push(inNum)
-    } else{
+    } else {
       balance--
       minHeap.push(inNum)
     }
@@ -126,21 +123,21 @@ var medianSlidingWindow = function(nums, k) {
     balance = 0
     // remove top positions
     while (outNumMap.has(maxHeap.peek()) && outNumMap.get(maxHeap.peek()) > 0) {
-      let removeData = maxHeap.pop()
+      const removeData = maxHeap.pop()
       outNumMap.set(removeData, outNumMap.get(removeData) - 1)
     }
 
     while (minHeap.size > 0 && outNumMap.has(minHeap.peek()) && outNumMap.get(minHeap.peek()) > 0) {
-      let removeData = minHeap.pop()
+      const removeData = minHeap.pop()
       outNumMap.set(removeData, outNumMap.get(removeData) - 1)
     }
   }
 
   return result
-};
+}
 
 const main = () => {
-  nums = [1,3,-1,-3,5,3,6,7], k = 3
+  nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
   console.log('sliding window median are ', medianSlidingWindow(nums, k))
 
   // nums = [1,2,3,4,2,3,1,4,2], k = 3

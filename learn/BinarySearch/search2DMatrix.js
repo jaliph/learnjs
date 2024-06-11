@@ -4,7 +4,7 @@
  * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function(matrix, target) {
+const searchMatrix = function (matrix, target) {
   const row = matrix.length
   const col = matrix[0].length
 
@@ -21,13 +21,12 @@ var searchMatrix = function(matrix, target) {
       r = mid
     }
   }
-  
+
   if (l === row) {
     return false
   } else {
-
     // find the column
-    let rowFound = l
+    const rowFound = l
 
     l = 0
     r = col
@@ -44,16 +43,16 @@ var searchMatrix = function(matrix, target) {
 
     return matrix[rowFound][l] === target
   }
-};
+}
 
 const main = () => {
-  matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
+  matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target = 13
   console.log('Found in matrix ', searchMatrix(matrix, target))
 
-  matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+  matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target = 3
   console.log('Found in matrix ', searchMatrix(matrix, target))
 
-  matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 60
+  matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target = 60
   console.log('Found in matrix ', searchMatrix(matrix, target))
 }
 

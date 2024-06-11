@@ -6,7 +6,6 @@
  * @return {number}
  */
 const subArrayDiv = (nums, k) => {
-
   // for (let i = 1; i < nums.length; i++) {
   //   nums[i] = nums[i] + nums[i - 1]
   // }
@@ -22,9 +21,9 @@ const subArrayDiv = (nums, k) => {
 
   console.log(nums)
 
-  let map = new Map()
+  const map = new Map()
   map.set(0, true) // if 0 comes.. done
-  for (let num of nums) {
+  for (const num of nums) {
     if (map.has(num)) {
       return true
     }

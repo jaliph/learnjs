@@ -4,7 +4,7 @@
  * @param {number[][]} matrix
  * @return {number}
  */
-var countSquares = function(matrix) {
+const countSquares = function (matrix) {
   const r = matrix.length
   const c = matrix[0].length
 
@@ -36,28 +36,25 @@ var countSquares = function(matrix) {
   //   }
   // }
   return result
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
   matrix = [
-    [0,1,1,1],
-    [1,1,1,1],
-    [0,1,1,1]
+    [0, 1, 1, 1],
+    [1, 1, 1, 1],
+    [0, 1, 1, 1]
   ]
 
   console.log('Count of square matrices are ', countSquares(matrix))
 
-
   matrix = [
-    [1,0,1],
-    [1,1,0],
-    [1,1,0]
+    [1, 0, 1],
+    [1, 1, 0],
+    [1, 1, 0]
   ]
   console.log('Count of square matrices are ', countSquares(matrix))
 }
 
 main()
-
-

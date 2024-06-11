@@ -11,13 +11,13 @@ const countPrimeinRange = (l, r) => {
     for (let j = i * i; j <= r; j += i) {
       if (bool[j]) {
         bool[j] = false
-      }      
+      }
     }
   }
 
-  let prefix = Array(r + 1).fill(0)
+  const prefix = Array(r + 1).fill(0)
   for (let i = 1; i <= r; i++) {
-    if (bool[i]){
+    if (bool[i]) {
       prefix[i] = prefix[i - 1] + 1
     } else {
       prefix[i] = prefix[i - 1]
@@ -25,7 +25,6 @@ const countPrimeinRange = (l, r) => {
   }
 
   return prefix[r] - prefix[l] + 1
-
 }
 
 const main = () => {

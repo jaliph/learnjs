@@ -20,7 +20,7 @@ const minSwaps = function (s) {
 }
 
 // do the swaps..
-let minSwaps2 = function (orgString) {
+const minSwaps2 = function (orgString) {
   const str = orgString.split('')
   let balance = 0
   let swap = 0

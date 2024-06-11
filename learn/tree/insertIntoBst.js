@@ -13,7 +13,7 @@
  * @param {number} val
  * @return {TreeNode}
  */
-var insertIntoBST = function(root, val) {
+const insertIntoBST = function (root, val) {
   if (!root) {
     return new TreeNode(val)
   }
@@ -25,10 +25,9 @@ var insertIntoBST = function(root, val) {
   }
 
   return root
-};
+}
 
-
-var insertIntoBST2 = function(root, val) {
+const insertIntoBST2 = function (root, val) {
   if (!root) {
     return new TreeNode(val)
   }
@@ -49,4 +48,4 @@ var insertIntoBST2 = function(root, val) {
       curr = curr.right
     }
   }
-};
+}

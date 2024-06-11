@@ -3,16 +3,16 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute1 = function(nums) {
+const permute1 = function (nums) {
   const perms = (nums) => {
     if (nums.length === 1) {
       return [[...nums]]
     }
-    let result = []
+    const result = []
     for (let j = 0; j < nums.length; j++) {
-      let n = nums.shift()
-      let permutates = perms(nums)
-      for (let p of permutates) {
+      const n = nums.shift()
+      const permutates = perms(nums)
+      for (const p of permutates) {
         p.push(n)
         result.push(p)
       }
@@ -22,20 +22,19 @@ var permute1 = function(nums) {
     return result
   }
   return perms(nums)
-};
+}
 
-
-var permute = function(nums) {
-  let len = nums.length
-  let results = []
-  let perms = []
+const permute = function (nums) {
+  const len = nums.length
+  const results = []
+  const perms = []
   const pRecur = () => {
     if (perms.length == len) {
       results.push([...perms])
       return
     }
     for (let j = 0; j < nums.length; j++) {
-      let n = nums.shift()
+      const n = nums.shift()
       perms.push(n)
       pRecur()
       perms.pop()
@@ -45,6 +44,6 @@ var permute = function(nums) {
   pRecur()
 
   return results
-};
+}
 
 console.log(permute([1, 2, 3]))

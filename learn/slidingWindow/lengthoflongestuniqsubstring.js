@@ -4,24 +4,24 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+const lengthOfLongestSubstring = function (s) {
   if (s.length == 0) {
     return 0
   }
 
-  let windowMap = {}
+  const windowMap = {}
   let wStart = 0
   let flag = false
   let max = -Infinity
   for (let wEnd = 0; wEnd < s.length; wEnd++) {
-    let inChar = s[wEnd]
+    const inChar = s[wEnd]
     if (inChar in windowMap && windowMap[inChar] > 0) {
       flag = true
     }
     windowMap[inChar] = (windowMap[inChar] || 0) + 1
     while (flag) {
       console.log('came in ', windowMap)
-      let outChar = s[wStart]
+      const outChar = s[wStart]
       if (windowMap[outChar] > 1) {
         flag = false
       }
@@ -35,13 +35,12 @@ var lengthOfLongestSubstring = function(s) {
   return max
 }
 
-
-var lengthOfLongestSubstring2 = function(s) {
+const lengthOfLongestSubstring2 = function (s) {
   if (s.length == 0) {
     return 0
   }
 
-  let windowSet = new Set()
+  const windowSet = new Set()
   let wStart = 0
   let max = -Infinity
   for (let wEnd = 0; wEnd < s.length; wEnd++) {
@@ -57,16 +56,16 @@ var lengthOfLongestSubstring2 = function(s) {
 }
 
 const main = () => {
-  s = "abcabcbb"
+  s = 'abcabcbb'
   console.log('Length of the longest uniq substring is ', lengthOfLongestSubstring2(s))
 
-  s = "bbbbb"
+  s = 'bbbbb'
   console.log('Length of the longest uniq substring is ', lengthOfLongestSubstring2(s))
 
-  s = "pwwkew"
+  s = 'pwwkew'
   console.log('Length of the longest uniq substring is ', lengthOfLongestSubstring2(s))
 
-  s = "abba"
+  s = 'abba'
   console.log('Length of the longest uniq substring is ', lengthOfLongestSubstring2(s))
 }
 

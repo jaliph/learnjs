@@ -12,7 +12,7 @@
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function(headA, headB) {
+const getIntersectionNode = function (headA, headB) {
   let [l1, l2] = [headA, headB]
 
   while (l1 != l2) {
@@ -21,5 +21,4 @@ var getIntersectionNode = function(headA, headB) {
   }
 
   return l1
-};
-
+}

@@ -9,17 +9,17 @@ class Node {
   }
 }
 
-var Trie = function() {
+const Trie = function () {
   this.root = new Node()
-};
+}
 
-/** 
+/**
  * @param {string} word
  * @return {void}
  */
-Trie.prototype.insert = function(word) {
+Trie.prototype.insert = function (word) {
   let curr = this.root
-  for (let [i, ch] of [...word].entries()) {
+  for (const [i, ch] of [...word].entries()) {
     if (!curr.childs.has(ch)) {
       curr.childs.set(ch, new Node(ch))
     }
@@ -30,15 +30,15 @@ Trie.prototype.insert = function(word) {
       curr.word = word
     }
   }
-};
+}
 
-/** 
+/**
  * @param {string} word
  * @return {boolean}
  */
-Trie.prototype.search = function(word) {
+Trie.prototype.search = function (word) {
   let curr = this.root
-  for (let ch of word) {
+  for (const ch of word) {
     if (curr.childs.has(ch)) {
       curr = curr.childs.get(ch)
     } else {
@@ -47,28 +47,28 @@ Trie.prototype.search = function(word) {
   }
 
   return curr.terminal
-};
+}
 
-/** 
+/**
  * @param {string} prefix
  * @return {boolean}
  */
-Trie.prototype.startsWith = function(prefix) {
-  let output = []
+Trie.prototype.startsWith = function (prefix) {
+  const output = []
   const findAllWords = (node) => {
-    if (!node) return 
+    if (!node) return
 
     if (node.terminal) {
       output.push(node.word)
     }
-    for (let val of node.childs.values()) {
+    for (const val of node.childs.values()) {
       findAllWords(val)
     }
   }
 
   let curr = this.root
 
-  for (let ch of prefix) {
+  for (const ch of prefix) {
     if (curr.childs.has(ch)) {
       curr = curr.childs.get(ch)
     } else {
@@ -79,9 +79,9 @@ Trie.prototype.startsWith = function(prefix) {
   findAllWords(curr)
 
   return output
-};
+}
 
-/** 
+/**
  * Your Trie object will be instantiated and called as such:
  * var obj = new Trie()
  * obj.insert(word)
@@ -89,7 +89,7 @@ Trie.prototype.startsWith = function(prefix) {
  * var param_3 = obj.startsWith(prefix)
  */
 
-var obj = new Trie()
+const obj = new Trie()
 obj.insert('hi')
 obj.insert('hello')
 console.log(obj.search('hello1'))

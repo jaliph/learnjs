@@ -5,7 +5,7 @@
  * @param {number} target
  * @return {number}
  */
-let searchInsert = function (nums, target) {
+const searchInsert = function (nums, target) {
   let l = 0
   let r = nums.length
 

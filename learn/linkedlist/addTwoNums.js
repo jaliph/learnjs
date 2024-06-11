@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/add-two-numbers
 
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -13,13 +12,12 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
-  
+const addTwoNumbers = function (l1, l2) {
   let carry = 0
-  let newHead = new ListNode()
+  const newHead = new ListNode()
   let writeNode = newHead
 
-  let h1 = l1, h2 = l2
+  let h1 = l1; let h2 = l2
   while (h1 || h2) {
     let sum = 0
     if (h1) {
@@ -46,6 +44,6 @@ var addTwoNumbers = function(l1, l2) {
     writeNode = writeNode.next
     carry = ~~(carry / 10)
   }
-  
+
   return newHead.next
-};
+}

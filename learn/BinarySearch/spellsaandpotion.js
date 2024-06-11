@@ -6,10 +6,9 @@
  * @param {number} success
  * @return {number[]}
  */
-var successfulPairs = function(spells, potions, success) {
+const successfulPairs = function (spells, potions, success) {
   potions.sort((a, b) => a - b)
-  let pCount = potions.length
-  
+  const pCount = potions.length
 
   const countOfSuccessPairs = (spell) => {
     let l = 0
@@ -26,16 +25,16 @@ var successfulPairs = function(spells, potions, success) {
     }
     return pCount - l
   }
-  
-  for (let [i, s] of spells.entries()) {
+
+  for (const [i, s] of spells.entries()) {
     spells[i] = countOfSuccessPairs(s)
   }
 
   return spells
-};
+}
 
 const main = () => {
-  spells = [5,1,3], potions = [1,2,3,4,5], success = 7
+  spells = [5, 1, 3], potions = [1, 2, 3, 4, 5], success = 7
   console.log('Pair if spells are ', successfulPairs(spells, potions, success))
 }
 

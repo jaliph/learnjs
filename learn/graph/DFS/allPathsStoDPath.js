@@ -1,4 +1,4 @@
-  // https://leetcode.com/problems/all-paths-from-source-to-target/
+// https://leetcode.com/problems/all-paths-from-source-to-target/
 
 /**
  * @param {number[][]} graph
@@ -9,32 +9,32 @@ const countPaths = function (edges, n) {
 
   const sieveOfEratosthenes = (n) => {
     const bool = Array(n + 1).fill(true)
-  
+
     bool[0] = false
     bool[1] = false
-  
+
     for (let i = 2; i <= n; i++) {
       for (let j = i * i; j <= n; j += i) {
         if (bool[j]) {
           bool[j] = false
-        }      
+        }
       }
     }
-  
-    let primes = new Set()
+
+    const primes = new Set()
     for (let i = 2; i <= n; i++) {
       if (bool[i]) {
         primes.add(i)
       }
     }
-  
+
     return primes
   }
 
   const primes = sieveOfEratosthenes(n)
   console.log(primes)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
@@ -51,7 +51,7 @@ const countPaths = function (edges, n) {
     if (isAncestorPrime || primes.has(curr)) {
       console.log(curr, ';adding for ances, curr')
       count++
-    } 
+    }
   }
 
   DFSSearch(1, -1, false)
@@ -65,8 +65,7 @@ const main = () => {
   // n = 6, edges = [[1,2],[1,3],[2,4],[3,5],[3,6]]
   // console.log('The paths are ', allPathsSourceTarget(edges, n))
 
-
-  n = 6, edges = [[1,2],[1,3],[2,4],[3,5],[3,6]]
+  n = 6, edges = [[1, 2], [1, 3], [2, 4], [3, 5], [3, 6]]
   console.log('The paths are ', countPaths(edges, n))
 }
 

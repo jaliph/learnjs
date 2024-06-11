@@ -1,6 +1,5 @@
 // https://www.geeksforgeeks.org/length-longest-consecutive-1s-binary-representation/
 
-
 const longestConsecutive1s = (n) => {
   let count = 0
   while (n) {
@@ -12,7 +11,7 @@ const longestConsecutive1s = (n) => {
 
 const main = () => {
   n = 0
-  console.log('longest consecutive 1s are ',longestConsecutive1s(n))
+  console.log('longest consecutive 1s are ', longestConsecutive1s(n))
 }
 
 main()

@@ -4,14 +4,14 @@
  * @param {number[]} nums
  * @return {number}
  */
-var specialPerm = function(nums) {
+const specialPerm = function (nums) {
   const dp = Array(nums.length).fill().map(() => Array(1 << nums.length).fill(-1))
   const MOD = 10 ** 9 + 7
 
-  let specialPermRecur = (curr, mask) => {
+  const specialPermRecur = (curr, mask) => {
     // base case
     if (mask == (1 << nums.length) - 1) return 1
-    
+
     if (dp[curr][mask] != -1) {
       return dp[curr][mask]
     }
@@ -27,7 +27,6 @@ var specialPerm = function(nums) {
     return dp[curr][mask] = ans
   }
 
-  
   let res = 0
 
   for (let i = 0; i < nums.length; i++) {
@@ -36,17 +35,16 @@ var specialPerm = function(nums) {
   }
 
   return res
-};
-
+}
 
 const main = () => {
-  nums = [2,3,6]
+  nums = [2, 3, 6]
   console.log('Special Permutations count is ', specialPerm(nums))
 
-  nums = [1,4,3]
+  nums = [1, 4, 3]
   console.log('Special Permutations count is ', specialPerm(nums))
 
-  nums = [1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192]
+  nums = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
   console.log('Special Permutations count is ', specialPerm(nums))
 }
 

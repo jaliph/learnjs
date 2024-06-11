@@ -6,9 +6,9 @@
  * @param {number} color
  * @return {number[][]}
  */
-var colorBorder = function(grid, row, col, color) {
-  let r = grid.length
-  let c = grid[0].length
+const colorBorder = function (grid, row, col, color) {
+  const r = grid.length
+  const c = grid[0].length
 
   const visited = Array(r).fill().map(() => Array(c).fill(false))
   // Print2D(grid)
@@ -27,7 +27,7 @@ var colorBorder = function(grid, row, col, color) {
     if (visited[x][y]) {
       return
     }
-    let value = grid[x][y]
+    const value = grid[x][y]
     if (value != color) { // dnt go to other colors
       return
     }
@@ -58,10 +58,10 @@ var colorBorder = function(grid, row, col, color) {
     }
   }
   return grid
-};
+}
 
 const main = () => {
-  grid = [[1,1],[1,2]], row = 0, col = 0, color = 3
+  grid = [[1, 1], [1, 2]], row = 0, col = 0, color = 3
   console.log('Transformed grid is ', colorBorder(grid, row, col, color))
 
   // // grid = [[1,2,2],[2,3,2]], row = 0, col = 1, color = 3
@@ -73,9 +73,9 @@ const main = () => {
   // grid = [[3,2,2,2],[2,3,3,3],[1,3,1,2]], row = 0, col = 1, color = 1
   // console.log('Transformed grid is ', colorBorder(grid, row, col, color))
 
-  grid = [[1,2,1,2,1,2],[2,2,2,2,1,2],[1,2,2,2,1,2]], row = 1, col = 3, color = 1
+  grid = [[1, 2, 1, 2, 1, 2], [2, 2, 2, 2, 1, 2], [1, 2, 2, 2, 1, 2]], row = 1, col = 3, color = 1
   console.log('Transformed grid is ', colorBorder(grid, row, col, color))
-  Print2D([[1,1,1,1,1,2],[1,2,1,1,1,2],[1,1,1,1,1,2]])
+  Print2D([[1, 1, 1, 1, 1, 2], [1, 2, 1, 1, 1, 2], [1, 1, 1, 1, 1, 2]])
 }
 
 const Print2D = arr => arr.forEach(o => console.log(...o))

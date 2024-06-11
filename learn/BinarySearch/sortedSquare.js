@@ -3,7 +3,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-let sortedSquares2 = function (nums) {
+const sortedSquares2 = function (nums) {
   const binaryInsert = (arr, data) => {
     let l = 0
     let r = arr.length
@@ -29,12 +29,11 @@ let sortedSquares2 = function (nums) {
   return res
 }
 
-
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
-var sortedSquares = function (nums) {
+const sortedSquares = function (nums) {
   let l = 0
   let r = nums.length - 1
   const res = Array(nums.length).fill()
@@ -53,7 +52,6 @@ var sortedSquares = function (nums) {
   }
   return res
 }
-
 
 const main = () => {
   arr = [-4, -1, 0, 3, 10]

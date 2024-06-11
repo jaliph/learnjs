@@ -10,11 +10,11 @@ const sieveOfEratosthenes = (n) => {
     for (let j = i * i; j <= n; j += i) {
       if (bool[j]) {
         bool[j] = false
-      }      
+      }
     }
   }
 
-  let primes = []
+  const primes = []
   for (let i = 2; i <= n; i++) {
     if (bool[i]) {
       primes.push(i)

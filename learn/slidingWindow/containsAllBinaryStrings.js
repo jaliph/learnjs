@@ -5,8 +5,8 @@
  * @param {number} k
  * @return {boolean}
  */
-var hasAllCodes = function(s, k) {
-  let set = new Set()
+const hasAllCodes = function (s, k) {
+  const set = new Set()
   let str
   let wStart = 0
   for (let wEnd = 0; wEnd < s.length; wEnd++) {
@@ -20,16 +20,16 @@ var hasAllCodes = function(s, k) {
     }
   }
   return false
-};
+}
 
 const main = () => {
-  s = "00110110", k = 2
+  s = '00110110', k = 2
   console.log('contains all the binary combindation is size ', hasAllCodes(s, k))
 
-  s = "0110", k = 1
+  s = '0110', k = 1
   console.log('contains all the binary combindation is size ', hasAllCodes(s, k))
 
-  s = "0110", k = 2
+  s = '0110', k = 2
   console.log('contains all the binary combindation is size ', hasAllCodes(s, k))
 }
 

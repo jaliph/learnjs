@@ -3,10 +3,10 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s) {
-  let stack = []
-  let set1 = new Set(['{', '(', '['])
-  for (let ch of s) {
+const isValid = function (s) {
+  const stack = []
+  const set1 = new Set(['{', '(', '['])
+  for (const ch of s) {
     // console.log(ch)
     if (set1.has(ch)) {
       stack.push(ch)
@@ -34,19 +34,19 @@ var isValid = function(s) {
   }
 
   return stack.length === 0
-};
+}
 
 const main = () => {
-  s = "()[]{}"
+  s = '()[]{}'
   console.log('Is valid .. ?', isValid(s))
 
-  s = "(]"
+  s = '(]'
   console.log('Is valid .. ?', isValid(s))
 
-  s = "({{{}}()})"
+  s = '({{{}}()})'
   console.log('Is valid .. ?', isValid(s))
 
-  s = "}"
+  s = '}'
   console.log('Is valid .. ?', isValid(s))
 
   s = '(])'

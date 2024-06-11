@@ -5,11 +5,11 @@
  * @param {string} target
  * @return {number}
  */
-var minStickers = function(stickers, target) {
-  let stickerMaps = []
-  for (let s of stickers) {
-    let m = new Map()
-    for (let c of s) {
+const minStickers = function (stickers, target) {
+  const stickerMaps = []
+  for (const s of stickers) {
+    const m = new Map()
+    for (const c of s) {
       m.set(c, (m.get(c) || 0) + 1)
     }
     stickerMaps.push(m)
@@ -29,7 +29,7 @@ var minStickers = function(stickers, target) {
     }
 
     let remainingTarget = ''
-    for (let c of t) {
+    for (const c of t) {
       if (sticker.has(c) && sticker.get(c) > 0) {
         sticker.set(c, sticker.get(c) - 1)
       } else {
@@ -39,8 +39,8 @@ var minStickers = function(stickers, target) {
 
     if (remainingTarget.length > 0) {
       let used = Infinity
-      
-      for (let stick of stickerMaps) {
+
+      for (const stick of stickerMaps) {
         if (!stick.has(remainingTarget[0])) {
           continue
         }
@@ -52,12 +52,12 @@ var minStickers = function(stickers, target) {
     return res
   }
 
-  let res = findMinStickRecur(target, new Map())
+  const res = findMinStickRecur(target, new Map())
   return res !== Infinity ? res : -1
-};
+}
 
 const main = () => {
-  stickers = ["with","example","science"], target = "thehat"
+  stickers = ['with', 'example', 'science'], target = 'thehat'
   console.log('Min stickers to create the target is ', minStickers(stickers, target))
 }
 

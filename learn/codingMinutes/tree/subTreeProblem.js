@@ -39,7 +39,7 @@ Output
 const subtreeProblem = (n, edges, queries) => {
   const g = Array(n + 1).fill().map(() => Array().fill([]))
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
@@ -49,7 +49,7 @@ const subtreeProblem = (n, edges, queries) => {
   const DFS_Solver = (curr, par) => {
     let child = 1
 
-    for (let n of g[curr]) {
+    for (const n of g[curr]) {
       if (par != n) {
         child += DFS_Solver(n, curr)
       }
@@ -60,8 +60,8 @@ const subtreeProblem = (n, edges, queries) => {
 
   DFS_Solver(1, 0)
 
-  let results = []
-  for (let q of queries) {
+  const results = []
+  for (const q of queries) {
     results.push(parents[q])
   }
   return results

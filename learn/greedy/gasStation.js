@@ -4,9 +4,9 @@
  * @param {number[]} cost
  * @return {number}
  */
-var canCompleteCircuit = function(gas, cost) {
-  let totalGas = gas.reduce((prev, curr) => curr + prev, 0)
-  let totalCost = cost.reduce((prev, curr) => curr + prev, 0)
+const canCompleteCircuit = function (gas, cost) {
+  const totalGas = gas.reduce((prev, curr) => curr + prev, 0)
+  const totalCost = cost.reduce((prev, curr) => curr + prev, 0)
 
   if (totalGas < totalCost) {
     return -1
@@ -23,4 +23,4 @@ var canCompleteCircuit = function(gas, cost) {
   }
 
   return start
-};
+}

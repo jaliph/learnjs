@@ -4,20 +4,20 @@
  * @param {number[]} cuts
  * @return {number}
  */
-var minCost = function(n, cuts) {
+const minCost = function (n, cuts) {
   const dp = new Map()
   const costRecur = (l, r) => {
     if (r - l == 1) {
       return 0
     }
 
-    let key = `${l}%${r}`
+    const key = `${l}%${r}`
     if (dp.has(key)) {
       return dp.get(key)
     }
 
     let cost = Infinity
-    for (let c of cuts) {
+    for (const c of cuts) {
       if (l < c && c < r) {
         cost = Math.min(cost, (r - l) + costRecur(l, c) + costRecur(c, r))
       }
@@ -27,4 +27,4 @@ var minCost = function(n, cuts) {
   }
 
   return costRecur(0, n)
-};
+}

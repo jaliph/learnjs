@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubarrays = function(nums) {
+const maxSubarrays = function (nums) {
   const maxSubarraysRecur = (i, nums, dp) => {
     // base
     if (i === nums.length) {
@@ -21,9 +21,8 @@ var maxSubarrays = function(nums) {
     return ans
   }
   // const dp = Array(nums.length + 1).fill(0).map(() => Array(k + 1).fill(-1))
-  return maxSubarraysRecur(0, nums)    
-};
+  return maxSubarraysRecur(0, nums)
+}
 
-
-nums = [1,0,2,0,1,2]
+nums = [1, 0, 2, 0, 1, 2]
 console.log(maxSubarrays(nums))

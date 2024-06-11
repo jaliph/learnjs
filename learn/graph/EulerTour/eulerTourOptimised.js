@@ -1,5 +1,4 @@
 
-
 const eulerTourOptimised = (n, edges) => {
   const g = Array(n + 1).fill().map(() => Array().fill([]))
   const parent = []
@@ -10,8 +9,8 @@ const eulerTourOptimised = (n, edges) => {
   }
 
   // const eulerTourOptimised = []
-  let timeIn = []
-  let timeOut = []
+  const timeIn = []
+  const timeOut = []
 
   let time = 0
   const DFS_Helper = (curr, par) => {
@@ -30,7 +29,7 @@ const eulerTourOptimised = (n, edges) => {
     console.log(i, 'has in ', timeIn[i], 'and out ', timeOut[i])
   }
 
-  let flat = []
+  const flat = []
   for (let i = 1; i <= n; i++) {
     flat[timeIn[i]] = i
   }
@@ -38,9 +37,7 @@ const eulerTourOptimised = (n, edges) => {
   for (let i = 1; i <= n; i++) {
     console.log(i, flat[i])
   }
-
 }
-
 
 const main = () => {
   n = 5

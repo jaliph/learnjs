@@ -14,7 +14,7 @@
  * @param {number} high
  * @return {TreeNode}
  */
-var trimBST = function(root, low, high) {
+const trimBST = function (root, low, high) {
   const trim = (node, low, high) => {
     if (!node) {
       return null
@@ -31,5 +31,5 @@ var trimBST = function(root, low, high) {
     }
   }
 
-  return trim(root, low, high) 
-};
+  return trim(root, low, high)
+}

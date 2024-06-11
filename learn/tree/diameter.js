@@ -11,7 +11,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var diameterOfBinaryTree = function(root) {
+const diameterOfBinaryTree = function (root) {
   let diameter = 0
 
   const diameterFinder = (root) => {
@@ -19,8 +19,8 @@ var diameterOfBinaryTree = function(root) {
       return -1
     }
 
-    let left = diameterFinder(root.left)
-    let right = diameterFinder(root.right)
+    const left = diameterFinder(root.left)
+    const right = diameterFinder(root.right)
 
     diameter = Math.max(diameter, 2 + left + right)
 
@@ -29,4 +29,4 @@ var diameterOfBinaryTree = function(root) {
 
   diameterFinder(root)
   return diameter
-};
+}

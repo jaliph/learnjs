@@ -5,4 +5,3 @@
 // y = y' - a / g * t
 
 // where t = 1,2,3,4,5,6...Infinity
-

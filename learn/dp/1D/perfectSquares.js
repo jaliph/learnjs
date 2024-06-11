@@ -4,17 +4,16 @@
  * @param {number} n
  * @return {number}
  */
-var numSquares = function(n) {
-  let nums = []
-  let j = 1, i = 1
+const numSquares = function (n) {
+  const nums = []
+  let j = 1; let i = 1
   while (i <= n) {
     nums.push(i)
     j++
     i = j * j
   }
-  
 
-  let dp = Array(n + 1).fill(Infinity)
+  const dp = Array(n + 1).fill(Infinity)
   dp[0] = 0
 
   for (let i = 1; i <= n; i++) {
@@ -26,7 +25,7 @@ var numSquares = function(n) {
   }
 
   return dp[n]
-};
+}
 
 const main = () => {
   n = 12

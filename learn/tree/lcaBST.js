@@ -14,7 +14,7 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
+const lowestCommonAncestor = function (root, p, q) {
   let curr = root
 
   while (curr) {
@@ -26,4 +26,4 @@ var lowestCommonAncestor = function(root, p, q) {
       return curr
     }
   }
-};
+}

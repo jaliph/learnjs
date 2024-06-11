@@ -7,14 +7,12 @@
 // Then by xor all of them we can get the first element a1:
 // (a1^a2) ^ (a1^a3) ^ (a1^a4) ^ (a1^a5) ^ (a1^a2^a3^a4^a5) = a1
 
-
-
 /**
  * @param {number[]} encoded
  * @return {number[]}
  */
-var decode = function(encoded) {
-  let list = Array.from(encoded)
+const decode = function (encoded) {
+  const list = Array.from(encoded)
 
   for (let i = 1; i < list.length; i++) {
     list[i] = list[i] ^ list[i - 1]
@@ -25,20 +23,18 @@ var decode = function(encoded) {
     allXor = allXor ^ i
   }
 
-  let firstElement = list.reduce((a, b) => a ^ b, 0) ^ allXor
+  const firstElement = list.reduce((a, b) => a ^ b, 0) ^ allXor
 
-  let result = [firstElement]
-  for (let num of encoded) {
+  const result = [firstElement]
+  for (const num of encoded) {
     result.push(num ^ result.at(-1))
   }
   return result
-};
-
-
+}
 
 const main = () => {
-  nums = [3,1]
-  console.log('Decoded array is ',decode(nums))
+  nums = [3, 1]
+  console.log('Decoded array is ', decode(nums))
 }
 
 main()

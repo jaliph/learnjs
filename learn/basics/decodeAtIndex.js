@@ -4,7 +4,7 @@
  * @param {number} k
  * @return {string}
  */
-let decodeAtIndex = function (s, k) {
+const decodeAtIndex = function (s, k) {
   let i = 0
   while (k) {
     if (!isNaN(s[i])) {
@@ -17,7 +17,6 @@ let decodeAtIndex = function (s, k) {
   console.log(i, k, s[i - 1])
   return s[i - 1]
 }
-
 
 const main = () => {
   s = 'ha22', k = 5

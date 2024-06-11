@@ -4,9 +4,9 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findMin = function(nums) {
+const findMin = function (nums) {
   let res = nums[0]
-  let l = 0, r = nums.length - 1
+  let l = 0; let r = nums.length - 1
 
   let mid
   while (l < r) {
@@ -27,10 +27,10 @@ var findMin = function(nums) {
   }
 
   return res
-};
+}
 
 const main = () => {
-  nums = [3,4,5,1,2]
+  nums = [3, 4, 5, 1, 2]
   console.log('Min in a rotated array is ', findMin(nums))
 }
 

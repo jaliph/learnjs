@@ -8,7 +8,6 @@ const increasing = (n) => {
   // recursion
   increasing(n - 1)
   console.log(n)
-  return 
 }
 
 const decreasing = (n) => {
@@ -20,11 +19,10 @@ const decreasing = (n) => {
   // recursion
   console.log(n)
   decreasing(n - 1)
-  return 
 }
 
 const main = () => {
-  let n = 10
+  const n = 10
   console.log('Printing  increasing now')
   increasing(n)
 

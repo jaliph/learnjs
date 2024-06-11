@@ -4,7 +4,7 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+const groupAnagrams = function (strs) {
   const getMap = (str) => {
     return [...str].reduce((obj, k) => {
       obj[k] = (obj[k] || 0) + 1
@@ -12,7 +12,7 @@ var groupAnagrams = function(strs) {
     }, {})
   }
   const getKey = (map) => {
-    let res = ""
+    let res = ''
     for (let i = 0; i < 26; i++) {
       if (map[String.fromCharCode(i + 97)]) {
         res += String.fromCharCode(i + 97) + map[String.fromCharCode(i + 97)]
@@ -21,9 +21,9 @@ var groupAnagrams = function(strs) {
     return res
   }
 
-  let resultMap = {}
-  for (let str of strs) {
-    let key = getKey(getMap(str))
+  const resultMap = {}
+  for (const str of strs) {
+    const key = getKey(getMap(str))
     if (!resultMap[key]) {
       resultMap[key] = []
     }
@@ -33,9 +33,8 @@ var groupAnagrams = function(strs) {
   return Object.values(resultMap)
 }
 
-
 const main = () => {
-  strs = ["eat","tea","tan","ate","nat","bat"]
+  strs = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
   console.log('the grouped word are ', groupAnagrams(strs))
 }
 

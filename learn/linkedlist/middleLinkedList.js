@@ -11,8 +11,8 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) {
-  let slow  = head, fast = head
+const middleNode = function (head) {
+  let slow = head; let fast = head
 
   while (fast && fast.next) {
     fast = fast.next.next
@@ -20,4 +20,4 @@ var middleNode = function(head) {
   }
 
   return slow
-};
+}

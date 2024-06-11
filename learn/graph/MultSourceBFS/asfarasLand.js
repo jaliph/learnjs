@@ -3,7 +3,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var maxDistance = function(grid) {
+const maxDistance = function (grid) {
   const r = grid.length
   const c = grid[0].length
 
@@ -32,11 +32,11 @@ var maxDistance = function(grid) {
     }
     return false
   }
-  
+
   let k = 0
   let ans = 0
   while (k < q.length) {
-    let [i, j] = q[k++]
+    const [i, j] = q[k++]
 
     const paths = [[0, 1], [0, -1], [1, 0], [-1, 0]]
     for (const path of paths) {
@@ -52,16 +52,15 @@ var maxDistance = function(grid) {
 
   // Print2D(grid)
   return ans - 1
-
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  grid = [[1,0,1],[0,0,0],[1,0,1]]
+  grid = [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
   console.log('farthest land is ', maxDistance(grid))
 
-  grid = [[1,0,0],[0,0,0],[0,0,0]]
+  grid = [[1, 0, 0], [0, 0, 0], [0, 0, 0]]
   console.log('farthest land is ', maxDistance(grid))
 }
 

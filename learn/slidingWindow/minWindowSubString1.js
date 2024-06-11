@@ -6,12 +6,12 @@
  * @return: the minimum substring of S
  */
 const minWindow = (s, t) => {
-  let map = [...t].reduce((obj, k) => {
+  const map = [...t].reduce((obj, k) => {
     obj[k] = (obj[k] || 0) + 1
     return obj
   }, {})
 
-  let charSet = new Set([...t])
+  const charSet = new Set([...t])
 
   const removeFromMap = (m, ch) => {
     if (m[ch]) {
@@ -25,7 +25,7 @@ const minWindow = (s, t) => {
   }
 
   const contains = (m1, m2) => {
-    for (let i in m2) {
+    for (const i in m2) {
       if (!m1[i]) {
         return false
       }
@@ -37,7 +37,7 @@ const minWindow = (s, t) => {
   }
 
   let wStart = 0
-  let windowMap = {}
+  const windowMap = {}
   let start = -1
   let end = -1
   let maxLength = Infinity
@@ -46,7 +46,7 @@ const minWindow = (s, t) => {
       addToMap(windowMap, s[wEnd])
     }
     while (contains(windowMap, map)) {
-      let outGoing = s[wStart]
+      const outGoing = s[wStart]
 
       if (wEnd - wStart + 1 < maxLength) {
         maxLength = wEnd - wStart + 1
@@ -65,15 +65,14 @@ const minWindow = (s, t) => {
 }
 
 const main = () => {
-  s = "ADOBEC ODEBANC", t = "ABC"
+  s = 'ADOBEC ODEBANC', t = 'ABC'
   console.log('minWind to contain T is ', minWindow(s, t))
 
-  s = "a", t = "a"
+  s = 'a', t = 'a'
   console.log('minWind to contain T is ', minWindow(s, t))
 
-  s = "a", t = "aa"
+  s = 'a', t = 'aa'
   console.log('minWind to contain T is ', minWindow(s, t))
 }
 
 main()
-

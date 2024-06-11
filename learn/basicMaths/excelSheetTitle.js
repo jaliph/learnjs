@@ -4,8 +4,7 @@
  * @return {string}
  */
 
-
-var convertToTitle = function(columnNumber) {
+var convertToTitle = function (columnNumber) {
   let offset
   let str = ''
   while (columnNumber) {
@@ -14,13 +13,13 @@ var convertToTitle = function(columnNumber) {
     columnNumber = ~~((columnNumber - 1) / 26)
   }
   return str
-};
+}
 
 /**
  * @param {number} columnNumber
  * @return {string}
  */
-var convertToTitle = function(columnNumber) {
+var convertToTitle = function (columnNumber) {
   let str = ''
   let res
   while (columnNumber) {
@@ -29,4 +28,4 @@ var convertToTitle = function(columnNumber) {
     columnNumber = ~~((columnNumber - res) / 26)
   }
   return str
-};
+}

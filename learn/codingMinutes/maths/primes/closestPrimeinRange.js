@@ -5,19 +5,19 @@
  * @param {number} right
  * @return {number[]}
  */
-var closestPrimes = function(left, right) {
-  let bool = Array(right + 1).fill(true)
+const closestPrimes = function (left, right) {
+  const bool = Array(right + 1).fill(true)
 
   for (let i = 2; i <= right; i++) {
     if (bool[i]) {
-      for (let j = i * i; j <= right; j+=i) {
+      for (let j = i * i; j <= right; j += i) {
         if (bool[j]) {
           bool[j] = false
         }
       }
     }
   }
-  let q = []
+  const q = []
   let k = 0
   let diff = Infinity
   let pair = [-1, -1]
@@ -35,7 +35,7 @@ var closestPrimes = function(left, right) {
     }
   }
   return pair
-};
+}
 
 const main = () => {
   left = 10, right = 100

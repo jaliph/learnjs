@@ -1,36 +1,34 @@
 // https://cses.fi/problemset/task/1131
 
-var readline = require('readline');
-var fs = require('fs')
+const readline = require('readline')
+const fs = require('fs')
 
-var r = readline.createInterface({
-    // input: process.stdin,
-    input: fs.createReadStream('./test_input.txt'),
-    output: process.stdout,
-    terminal: false
-});
+const r = readline.createInterface({
+  // input: process.stdin,
+  input: fs.createReadStream('./test_input.txt'),
+  output: process.stdout,
+  terminal: false
+})
 
 let i = 0
 let n
-let edges = []
+const edges = []
 r.on('line', function (line) {
-    
-    var vals = line.split(" ");
-    if (i == 0) {
-      n = parseInt(vals[0])
-    } else {
-      edges.push([parseInt(vals[0]), parseInt(vals[1])])
-    }
-    i++
-    if (i == n) {
-      calulateTreeDiameter(n, edges)
-    }
-});
+  const vals = line.split(' ')
+  if (i == 0) {
+    n = parseInt(vals[0])
+  } else {
+    edges.push([parseInt(vals[0]), parseInt(vals[1])])
+  }
+  i++
+  if (i == n) {
+    calulateTreeDiameter(n, edges)
+  }
+})
 
 // r.on('close', function () {
-  
-// });
 
+// });
 
 // const calulateTreeDiameter = (n, edges) => {
 //   let g = Array(n + 1).fill().map(() => Array().fill([]))
@@ -66,12 +64,12 @@ r.on('line', function (line) {
 // }
 
 const calulateTreeDiameter = (n, edges) => {
-  let g = Array(n + 1).fill().map(() => Array().fill([]))
+  const g = Array(n + 1).fill().map(() => Array().fill([]))
   const fx = Array(n + 1).fill(0)
   const gx = Array(n + 1).fill(0)
   const visited = Array(n + 1).fill(false)
 
-  for (let e of edges) {
+  for (const e of edges) {
     g[e[0]].push(e[1])
     g[e[1]].push(e[0])
   }
@@ -85,8 +83,8 @@ const calulateTreeDiameter = (n, edges) => {
     const curr = q[i++]
     visited[curr] = 1
 
-    let max_1 = 0, max_2 = 0
-    for (let n of g[curr]) {
+    let max_1 = 0; let max_2 = 0
+    for (const n of g[curr]) {
       // console.log(curr, n, visited[n])
       // if already visited , we are ready to calculate
       if (visited[n]) {

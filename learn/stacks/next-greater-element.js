@@ -4,10 +4,9 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
-    
+const nextGreaterElement = function (nums1, nums2) {
   const m = new Map()
-  for (let i in nums1) {
+  for (const i in nums1) {
     m[nums1[i]] = i
   }
 
@@ -15,8 +14,7 @@ var nextGreaterElement = function(nums1, nums2) {
   const res = Array(nums1.length).fill(-1)
 
   for (let i = 0; i < nums2.length; i++) {
-
-    while (stack.length != 0 && nums2[stack[stack.length - 1]] < nums2[i] ) {
+    while (stack.length != 0 && nums2[stack[stack.length - 1]] < nums2[i]) {
       const j = stack.pop()
 
       if (m[nums2[j]]) {
@@ -35,4 +33,4 @@ var nextGreaterElement = function(nums1, nums2) {
   }
 
   return res
-};
+}

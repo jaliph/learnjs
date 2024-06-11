@@ -11,9 +11,8 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isCompleteTree = function(root) {
-  
-  let q = [root]
+const isCompleteTree = function (root) {
+  const q = [root]
 
   let k = 0
   let curr
@@ -31,4 +30,4 @@ var isCompleteTree = function(root) {
     }
   }
   return true
-};
+}

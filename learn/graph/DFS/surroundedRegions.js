@@ -1,22 +1,20 @@
 // https://leetcode.com/problems/surrounded-regions/
 
-
 /**
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-var solve = function(grid) {
+const solve = function (grid) {
   const r = grid.length
   const c = grid[0].length
-  
-  const visited = Array(r).fill().map(() => Array(c).fill(false))
 
+  const visited = Array(r).fill().map(() => Array(c).fill(false))
 
   const DFS_Helper = (x, y) => {
     if (x < 0 || y < 0 || x >= r || y >= c) {
       return
     }
-    
+
     if (grid[x][y] == 'X') {
       return
     }
@@ -54,17 +52,16 @@ var solve = function(grid) {
     }
   }
   return grid
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-  console.log('surround regions' , solve(board))
+  board = [['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]
+  console.log('surround regions', solve(board))
 
-
-  board = [["X"]]
-  console.log('surround regions' , solve(board))
+  board = [['X']]
+  console.log('surround regions', solve(board))
 }
 
 main()

@@ -3,7 +3,7 @@
  * @param {number} y
  * @return {number}
  */
-let hammingDistance = function (x, y) {
+const hammingDistance = function (x, y) {
   // XOR definition is:
   // -- 1 if bits are different
   // -- 0 if bits are the same
@@ -20,4 +20,4 @@ let hammingDistance = function (x, y) {
   }
 
   return count
-};
+}

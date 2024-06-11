@@ -12,7 +12,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxPathSum = function(root) {
+const maxPathSum = function (root) {
   let maxSum = -Infinity
   const maxPathRecur = (node) => {
     if (!node) {
@@ -21,7 +21,7 @@ var maxPathSum = function(root) {
 
     let left = maxPathRecur(node.left)
     let right = maxPathRecur(node.right)
-    
+
     left = Math.max(left, 0)
     right = Math.max(right, 0)
 
@@ -31,4 +31,4 @@ var maxPathSum = function(root) {
   }
   maxPathRecur(root)
   return maxSum
-};
+}

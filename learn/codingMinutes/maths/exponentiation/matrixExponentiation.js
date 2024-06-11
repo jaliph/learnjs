@@ -1,10 +1,10 @@
 // Matrix Exponentiation
 
-const MOD = 10**9 + 7
+const MOD = 10 ** 9 + 7
 
 /**
- * @param {number} a 
- * @param {number} b 
+ * @param {number} a
+ * @param {number} b
  * @returns {number}
  */
 const mul = (a, b) => {
@@ -12,8 +12,8 @@ const mul = (a, b) => {
 }
 
 /**
- * @param {number[][]} mat1 
- * @param {number[][]} mat2 
+ * @param {number[][]} mat1
+ * @param {number[][]} mat2
  * @returns {number[][]}
  */
 const matrixMultiplication = (mat1, mat2) => {
@@ -31,7 +31,6 @@ const matrixMultiplication = (mat1, mat2) => {
 
   for (let i = 0; i < R1; i++) {
     for (let j = 0; j < C2; j++) {
-      
       for (let k = 0; k < R2; k++) {
         result[i][j] += mul(mat1[i][k], mat2[k][j])
       }
@@ -41,9 +40,8 @@ const matrixMultiplication = (mat1, mat2) => {
   return result
 }
 
-
 const Fib = (n) => {
-  let T = [
+  const T = [
     [1, 1],
     [1, 0]
   ]
@@ -63,7 +61,7 @@ const power = (a, b) => {
   for (let i = 0; i < size; i++) {
     identityMatrix[i][i] = 1
   }
-  while(b) {
+  while (b) {
     if (b & 1) {
       identityMatrix = matrixMultiplication(identityMatrix, a)
     }
@@ -72,7 +70,6 @@ const power = (a, b) => {
   }
   return identityMatrix
 }
-
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 

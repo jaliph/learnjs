@@ -3,10 +3,10 @@
  * @param {string[]} nums
  * @return {string}
  */
-var findDifferentBinaryString = function(nums) {
-  let numSet = new Set(nums)
+const findDifferentBinaryString = function (nums) {
+  const numSet = new Set(nums)
   // console.log(numSet)
-  let len = nums[0].length
+  const len = nums[0].length
 
   const recur = (i, str) => {
     // base
@@ -18,7 +18,7 @@ var findDifferentBinaryString = function(nums) {
         return str
       }
     }
-    
+
     // recur
     for (let j = 0; j < 2; j++) {
       let s
@@ -37,13 +37,13 @@ var findDifferentBinaryString = function(nums) {
   }
 
   return recur(0, '')
-};
+}
 
 const main = () => {
-  nums = ["01","10"]
+  nums = ['01', '10']
   console.log('Unique Binary String... ', findDifferentBinaryString(nums))
 
-  nums = ["111","011","001"]
+  nums = ['111', '011', '001']
   console.log('Unique Binary String... ', findDifferentBinaryString(nums))
 }
 

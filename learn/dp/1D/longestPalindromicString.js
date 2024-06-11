@@ -4,10 +4,10 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
+const longestPalindrome = function (s) {
   let maxlen = 0
 
-  let word = ""
+  let word = ''
 
   const longestfromhere = (i, j) => {
     while (i >= 0 && j < s.length && s[i] == s[j]) {
@@ -26,4 +26,4 @@ var longestPalindrome = function(s) {
   }
 
   return word
-};
+}

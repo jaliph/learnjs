@@ -5,7 +5,7 @@
  * @param {number} k
  * @return {number}
  */
-var longestOnes = function(nums, k) {
+const longestOnes = function (nums, k) {
   let max = 0
   let countZero = 0
   let wStart = 0
@@ -21,12 +21,12 @@ var longestOnes = function(nums, k) {
       }
       wStart++
     }
-  } 
+  }
   return max
 }
 
 const main = () => {
-  nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
+  nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], k = 2
   console.log('longest number of 1s after k flips', longestOnes(nums, k))
 }
 

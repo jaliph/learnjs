@@ -12,7 +12,7 @@
  * @param {number} right
  * @return {ListNode}
  */
-var reverseBetween = function(head, left, right) {
+const reverseBetween = function (head, left, right) {
   if (!head || head.next == null) {
     return head
   }
@@ -21,7 +21,7 @@ var reverseBetween = function(head, left, right) {
     return head
   }
 
-  let newHead = new ListNode()
+  const newHead = new ListNode()
   newHead.next = head
 
   let i = 0
@@ -44,7 +44,7 @@ var reverseBetween = function(head, left, right) {
     if (i == (right - left + 1)) {
       break
     }
-    let nxt = curr.next
+    const nxt = curr.next
     curr.next = prev
     prev = curr
     curr = nxt
@@ -54,4 +54,4 @@ var reverseBetween = function(head, left, right) {
   lprev.next.next = curr
   lprev.next = prev
   return newHead.next
-};
+}

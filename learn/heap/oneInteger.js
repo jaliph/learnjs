@@ -5,13 +5,11 @@ You are given a list of integers nums. You can reduce the length of nums by taki
 
 Return the minimum total cost of reducing nums to one integer.
 
-
 Note : Cost can be negative also.
 
 Constraints
 
     n ≤ 100,000 where n is length of nums.
-
 
 Example :
 
@@ -37,27 +35,26 @@ Explanation
 
     */
 
-
 class Heap {
-  constructor() {
+  constructor () {
     this.heap = []
     this.size = 0
     this.comparator = (a, b) => a - b
   }
 
   swap (i, j) {
-    let temp = this.heap[i]
+    const temp = this.heap[i]
     this.heap[i] = this.heap[j]
     this.heap[j] = temp
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.size - 1]
       this.heap.pop()
       this.percolateDown(0)
@@ -66,17 +63,17 @@ class Heap {
     }
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.percolateUp(this.heap.length - 1)
   }
 
   percolateDown (i) {
-    let leftChild = (i * 2) + 1
-    let rightChild = (i * 2) + 2
+    const leftChild = (i * 2) + 1
+    const rightChild = (i * 2) + 2
 
-    let parent = i
+    const parent = i
     if (leftChild < this.heap.length && this.comparator(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
     }
@@ -90,7 +87,7 @@ class Heap {
   }
 
   percolateUp (i) {
-    let parent = Math.floor((i - 1) / 2)
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0 && this.comparator(this.heap[parent], this.heap[i]) > 0) {
       this.swap(parent, i)
       this.percolateUp(parent)
@@ -101,13 +98,13 @@ class Heap {
 const solve = (nums) => {
   const h = new Heap()
 
-  for (let n of nums) {
+  for (const n of nums) {
     h.push(n)
   }
 
   while (h.size != 1) {
-    let num1 = h.pop()
-    let num2 = h.pop()
+    const num1 = h.pop()
+    const num2 = h.pop()
     h.push(num1 + num2)
   }
 

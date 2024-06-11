@@ -28,7 +28,7 @@ const allPathsSourceTarget = function (graph) {
 }
 
 const main = () => {
-  const g =  [[1,2],[1,3],[2,4],[2,5]]
+  const g = [[1, 2], [1, 3], [2, 4], [2, 5]]
   console.log('The paths are ', allPathsSourceTarget(g))
 }
 

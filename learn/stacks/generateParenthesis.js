@@ -4,9 +4,9 @@
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis2 = function(n) {
-  let result = []
-  let helper = (leftCount, rightCount, str) => {
+const generateParenthesis2 = function (n) {
+  const result = []
+  const helper = (leftCount, rightCount, str) => {
     if (leftCount === rightCount && leftCount == n) {
       result.push(str)
       return
@@ -22,17 +22,15 @@ var generateParenthesis2 = function(n) {
 
     helper(leftCount + 1, rightCount, str + '(')
     helper(leftCount, rightCount + 1, str + ')')
-
-    return
   }
 
   helper(0, 0, '')
   return result
-};
+}
 
-var generateParenthesis = function(n) {
-  let result = []
-  let stack = []
+const generateParenthesis = function (n) {
+  const result = []
+  const stack = []
 
   const helper = (open, close) => {
     // base case
@@ -58,10 +56,9 @@ var generateParenthesis = function(n) {
   return result
 }
 
-
 const main = () => {
   for (let i = 1; i < 9; i++) {
-    console.log("Generated Parenthesis are ", generateParenthesis(i))
+    console.log('Generated Parenthesis are ', generateParenthesis(i))
   }
 }
 

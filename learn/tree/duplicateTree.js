@@ -11,16 +11,16 @@
  * @param {TreeNode} root
  * @return {TreeNode[]}
  */
-var findDuplicateSubtrees = function(root) {
-  let duplicateMap = new Map()
-  let result = []
+const findDuplicateSubtrees = function (root) {
+  const duplicateMap = new Map()
+  const result = []
   let s = ''
   const duplicateFinder = (root) => {
     if (!root) {
       return 'null'
     }
 
-    s = root.val + ':' + duplicateFinder(root.left) + ':' +  duplicateFinder(root.right)
+    s = root.val + ':' + duplicateFinder(root.left) + ':' + duplicateFinder(root.right)
     if (duplicateMap.get(s) == 1) {
       result.push(root)
     }
@@ -29,7 +29,6 @@ var findDuplicateSubtrees = function(root) {
     return s
   }
 
-
   duplicateFinder(root)
   return result
-};
+}

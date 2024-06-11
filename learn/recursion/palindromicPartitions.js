@@ -4,7 +4,7 @@
  * @param {string} s
  * @return {string[][]}
  */
-var partition = function(s) {
+const partition = function (s) {
   const results = []
 
   const parts = []
@@ -39,13 +39,13 @@ var partition = function(s) {
 
   canPartition(0)
   return results
-};
+}
 
 const main = () => {
-  s = "aab"
+  s = 'aab'
   console.log('Palindromic Partitions ', partition(s))
 
-  s = "a"
+  s = 'a'
   console.log('Palindromic Partitions ', partition(s))
 }
 

@@ -12,9 +12,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
-
-
+const isValidBST = function (root) {
   const isValid = (node, left, right) => {
     if (!node) {
       return true
@@ -25,6 +23,6 @@ var isValidBST = function(root) {
 
     return isValid(node.left, left, node.val) && isValid(node.right, node.val, right)
   }
-  
+
   return isValid(root, -Infinity, Infinity)
-};
+}

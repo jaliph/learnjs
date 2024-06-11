@@ -3,8 +3,8 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-  let w = 0, r = 0
+const removeDuplicates = function (nums) {
+  let w = 0; let r = 0
   let count
 
   while (r < nums.length) {
@@ -14,7 +14,7 @@ var removeDuplicates = function(nums) {
       count++
     }
 
-    for (let i = 0 ; i < Math.min(2, count); i++) {
+    for (let i = 0; i < Math.min(2, count); i++) {
       nums[w] = nums[r]
       w++
     }
@@ -22,10 +22,10 @@ var removeDuplicates = function(nums) {
   }
   // console.log(nums)
   return w
-};
+}
 
 const main = () => {
-  nums = [1,1,1,2,2,3]
+  nums = [1, 1, 1, 2, 2, 3]
   console.log('in place replacement and write count is ', removeDuplicates(nums))
 }
 

@@ -7,13 +7,13 @@ const primeFactors = (n) => {
     for (let j = i; j <= n; j += i) {
       if (bool[j] == 0) {
         bool[j] = i
-      }      
+      }
     }
   }
 
   console.log(bool)
 
-  let factors = [1]
+  const factors = [1]
   while (n != bool[n]) {
     factors.push(bool[n])
     n = n / bool[n]
@@ -21,7 +21,6 @@ const primeFactors = (n) => {
   factors.push(n)
   return factors
 }
-
 
 const main = () => {
   num = 20

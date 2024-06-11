@@ -11,20 +11,19 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumNumbers = function(root) {
+const sumNumbers = function (root) {
   const calcSums = (node, sumsofar) => {
     if (!node) {
       return 0
     }
 
-    let newSum = (sumsofar * 10) + node.val
+    const newSum = (sumsofar * 10) + node.val
     if (!node.left && !node.right) {
       return newSum
     }
 
     return calcSums(node.left, newSum) + calcSums(node.right, newSum)
   }
-  
-  
+
   return calcSums(root, 0)
-};
+}

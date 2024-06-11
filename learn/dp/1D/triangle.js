@@ -4,12 +4,12 @@
  * @param {number[][]} triangle
  * @return {number}
  */
-var minimumTotal = function(triangle) {
-  let dp = Array(triangle.length + 1).fill(0)
+const minimumTotal = function (triangle) {
+  const dp = Array(triangle.length + 1).fill(0)
 
-  for (let j = triangle.length - 1; j >=0; j--) {
+  for (let j = triangle.length - 1; j >= 0; j--) {
     // console.log(triangle[j])
-    for (let [i, n] of triangle[j].entries()) {
+    for (const [i, n] of triangle[j].entries()) {
       // console.log(n)
       dp[i] = n + Math.min(dp[i], dp[i + 1])
     }
@@ -17,4 +17,4 @@ var minimumTotal = function(triangle) {
   }
 
   return dp[0]
-};
+}

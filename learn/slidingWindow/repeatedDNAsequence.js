@@ -4,17 +4,16 @@
  * @param {string} s
  * @return {string[]}
  */
-var findRepeatedDnaSequences = function(s) {
+const findRepeatedDnaSequences = function (s) {
+  const results = new Set()
+  const windowLen = 10
 
-  let results = new Set()
-  let windowLen = 10
+  const subStrMap = {}
 
-  let subStrMap = {}
- 
   let wStart = 0
   for (let wEnd = 0; wEnd < s.length; wEnd++) {
     if (wEnd - wStart + 1 == windowLen) {
-      let substr = s.slice(wStart, wEnd + 1)
+      const substr = s.slice(wStart, wEnd + 1)
       if (subStrMap[substr]) {
         results.add(substr)
       } else {
@@ -24,14 +23,13 @@ var findRepeatedDnaSequences = function(s) {
     }
   }
   return [...results]
-};
-
+}
 
 const main = () => {
-  s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+  s = 'AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'
   console.log('repeating dna sequences ', findRepeatedDnaSequences(s))
 
-  s = "AAAAAAAAAAAAA"
+  s = 'AAAAAAAAAAAAA'
   console.log('repeating dna sequences ', findRepeatedDnaSequences(s))
 }
 

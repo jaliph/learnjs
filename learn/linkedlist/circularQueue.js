@@ -1,41 +1,41 @@
 // https://leetcode.com/problems/design-circular-queue/
 
-function ListNode(val, next, prev) {
-  this.val = (val===undefined ? 0 : val)
-  this.next = (next===undefined ? null : next)
-  this.prev = (next===undefined ? null : prev)
+function ListNode (val, next, prev) {
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
+  this.prev = (next === undefined ? null : prev)
 }
 
 /**
  * @param {number} k
  */
-var MyCircularQueue = function(k) {
+const MyCircularQueue = function (k) {
   this.space = k
   this.Right = new ListNode(null)
   this.Left = new ListNode(null, this.Right)
   this.Right.prev = this.Left
-};
+}
 
-/** 
+/**
  * @param {number} value
  * @return {boolean}
  */
-MyCircularQueue.prototype.enQueue = function(value) {
+MyCircularQueue.prototype.enQueue = function (value) {
   if (this.isFull()) {
     return false
   }
-  let newNode = new ListNode(value, this.Right, this.Right.prev)
+  const newNode = new ListNode(value, this.Right, this.Right.prev)
   this.Right.prev.next = newNode
   this.Right.prev = newNode
 
   this.space--
   return true
-};
+}
 
 /**
  * @return {boolean}
  */
-MyCircularQueue.prototype.deQueue = function() {
+MyCircularQueue.prototype.deQueue = function () {
   if (this.isEmpty()) {
     return false
   }
@@ -45,43 +45,43 @@ MyCircularQueue.prototype.deQueue = function() {
 
   this.space++
   return true
-};
+}
 
 /**
  * @return {number}
  */
-MyCircularQueue.prototype.Front = function() {
+MyCircularQueue.prototype.Front = function () {
   if (this.isEmpty()) {
     return -1
   }
   return this.Left.next.val
-};
+}
 
 /**
  * @return {number}
  */
-MyCircularQueue.prototype.Rear = function() {
+MyCircularQueue.prototype.Rear = function () {
   if (this.isEmpty()) {
     return -1
   }
   return this.Right.prev.val
-};
+}
 
 /**
  * @return {boolean}
  */
-MyCircularQueue.prototype.isEmpty = function() {
+MyCircularQueue.prototype.isEmpty = function () {
   return this.Left.next === this.Right
-};
+}
 
 /**
  * @return {boolean}
  */
-MyCircularQueue.prototype.isFull = function() {
+MyCircularQueue.prototype.isFull = function () {
   return this.space === 0
-};
+}
 
-/** 
+/**
  * Your MyCircularQueue object will be instantiated and called as such:
  * var obj = new MyCircularQueue(k)
  * var param_1 = obj.enQueue(value)

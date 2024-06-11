@@ -5,13 +5,12 @@
  * @param {number} k
  * @return {number[]}
  */
-var maxSlidingWindow = function(nums, k) {
-
+const maxSlidingWindow = function (nums, k) {
   const binaryInsertion = (nums, target) => {
     let left = 0
     let right = nums.length - 1
     while (left <= right) {
-      let mid = left + Math.floor((right - left) / 2)
+      const mid = left + Math.floor((right - left) / 2)
       if (nums[mid] === target) {
         left = mid
         break
@@ -20,7 +19,7 @@ var maxSlidingWindow = function(nums, k) {
       } else {
         right = mid - 1
       }
-    } 
+    }
     nums.splice(left, 0, target)
   }
 
@@ -28,7 +27,7 @@ var maxSlidingWindow = function(nums, k) {
     let left = 0
     let right = nums.length - 1
     while (left <= right) {
-      let mid = left + Math.floor((right - left) / 2)
+      const mid = left + Math.floor((right - left) / 2)
       if (nums[mid] === target) {
         left = mid
         break
@@ -41,9 +40,9 @@ var maxSlidingWindow = function(nums, k) {
     nums.splice(left, 1)
   }
 
-  let results = []
+  const results = []
   let wStart = 0
-  let window = []
+  const window = []
   for (let wEnd = 0; wEnd < nums.length; wEnd++) {
     binaryInsertion(window, nums[wEnd])
     if (wEnd >= k - 1) {
@@ -55,11 +54,10 @@ var maxSlidingWindow = function(nums, k) {
   }
 
   return results
-};
-
+}
 
 const main = () => {
-  nums = [1,3,-1,-3,5,3,6,7], k = 3
+  nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
   console.log('the sliding window maximum for them is ', maxSlidingWindow(nums, k))
 }
 

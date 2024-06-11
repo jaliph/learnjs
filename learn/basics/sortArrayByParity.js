@@ -3,7 +3,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-let sortArrayByParity = function (nums) {
+const sortArrayByParity = function (nums) {
   let l = 0
   let r = nums.length - 1
 

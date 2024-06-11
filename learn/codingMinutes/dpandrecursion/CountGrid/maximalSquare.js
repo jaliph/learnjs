@@ -4,7 +4,7 @@
  * @param {character[][]} matrix
  * @return {number}
  */
-var maximalSquare = function(matrix) {
+const maximalSquare = function (matrix) {
   const r = matrix.length
   const c = matrix[0].length
 
@@ -36,19 +36,19 @@ var maximalSquare = function(matrix) {
   //   }
   // }
   return result * result
-};
+}
 
 const main = () => {
-  matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+  matrix = [['1', '0', '1', '0', '0'], ['1', '0', '1', '1', '1'], ['1', '1', '1', '1', '1'], ['1', '0', '0', '1', '0']]
   console.log('the largest square is ', maximalSquare(matrix))
 
-  matrix = [["0","1"],["1","0"]]
+  matrix = [['0', '1'], ['1', '0']]
   console.log('the largest square is ', maximalSquare(matrix))
 
   matrix = [
-    [0,1,1,1],
-    [1,1,1,1],
-    [0,1,1,1]
+    [0, 1, 1, 1],
+    [1, 1, 1, 1],
+    [0, 1, 1, 1]
   ]
   console.log('the largest square is ', maximalSquare(matrix))
 }

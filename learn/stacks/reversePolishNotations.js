@@ -4,50 +4,50 @@
  * @param {string[]} tokens
  * @return {number}
  */
-var evalRPN = function(tokens) {
-  let stack = []
-  let set = new Set(['+', '-', '/', '*'])
-  for (let t of tokens) {
+const evalRPN = function (tokens) {
+  const stack = []
+  const set = new Set(['+', '-', '/', '*'])
+  for (const t of tokens) {
     if (!set.has(t)) {
       stack.push(parseInt(t))
     } else {
-      let prev1 = stack.pop()
-      let prev2 = stack.pop()
+      const prev1 = stack.pop()
+      const prev2 = stack.pop()
       switch (t) {
         case '+': {
           stack.push(prev1 + prev2)
-          break;
+          break
         }
         case '-': {
           stack.push(prev2 - prev1)
-          break;
+          break
         }
         case '*': {
           stack.push(prev1 * prev2)
-          break;
+          break
         }
         case '/': {
           stack.push(~~(prev2 / prev1))
-          break;
+          break
         }
       }
     }
     console.log(stack)
   }
   return stack[0]
-};
+}
 
 const main = () => {
-  tokens = ["2","1","+","3","*"]
+  tokens = ['2', '1', '+', '3', '*']
   console.log('Evaluation result is ', evalRPN(tokens))
 
-  tokens = ["4","13","5","/","+"]
+  tokens = ['4', '13', '5', '/', '+']
   console.log('Evaluation result is ', evalRPN(tokens))
 
-  tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+  tokens = ['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+']
   console.log('Evaluation result is ', evalRPN(tokens))
 
-  tokens = ["4","3","-"]
+  tokens = ['4', '3', '-']
   console.log('Evaluation result is ', evalRPN(tokens))
 }
 

@@ -4,7 +4,7 @@
  * @param {number} maxWidth
  * @return {string[]}
  */
-let fullJustify = function (words, maxWidth) {
+const fullJustify = function (words, maxWidth) {
   const res = []
   let line = []; let len = 0
 
@@ -38,7 +38,6 @@ let fullJustify = function (words, maxWidth) {
 
   return res
 }
-
 
 const main = () => {
   words = ['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], maxWidth = 16

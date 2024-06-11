@@ -13,11 +13,11 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {
-  let result = []
+const preorderTraversal = function (root) {
+  const result = []
 
   let curr = root
-  let stack = []
+  const stack = []
   while (curr || stack.length > 0) {
     if (curr) {
       stack.push(curr.right)

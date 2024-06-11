@@ -12,7 +12,7 @@ const minWindow = (s, t) => {
 
       if (i2 === t.length) {
         let start = i1
-        let end = i1
+        const end = i1
         // bring the matching point
         i2--
         while (i2 >= 0) {
@@ -23,7 +23,7 @@ const minWindow = (s, t) => {
           start--
         }
         start++
-        
+
         if (end - start + 1 < len) {
           len = end - start + 1
           substr = s.slice(start, end + 1)
@@ -40,7 +40,6 @@ const minWindow = (s, t) => {
 
   return substr
 }
-
 
 const main = () => {
   // const str1 = [
@@ -60,8 +59,7 @@ const main = () => {
   console.log('min window of subsequence is ... ', minWindow(str1, str2))
 
   str1 = 'alpha', str2 = 'la'
-  console.log('min window of subsequence is ... ', minWindow(str1, str2))  
-
+  console.log('min window of subsequence is ... ', minWindow(str1, str2))
 }
 
 main()

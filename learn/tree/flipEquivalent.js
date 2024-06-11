@@ -13,8 +13,7 @@
  * @param {TreeNode} root2
  * @return {boolean}
  */
-var flipEquiv = function(root1, root2) {
-    
+const flipEquiv = function (root1, root2) {
   const flipRecur = (r1, r2) => {
     if (!r1 && !r2) {
       return true
@@ -24,10 +23,10 @@ var flipEquiv = function(root1, root2) {
       return false
     }
 
-    return r1.val == r2.val && 
-      ((flipRecur(r1.left, r2.left) && flipRecur(r1.right , r2.right)) ||
-      (flipRecur(r1.left, r2.right) && flipRecur(r1.right , r2.left)))
-  } 
+    return r1.val == r2.val &&
+      ((flipRecur(r1.left, r2.left) && flipRecur(r1.right, r2.right)) ||
+      (flipRecur(r1.left, r2.right) && flipRecur(r1.right, r2.left)))
+  }
 
   return flipRecur(root1, root2)
-};
+}

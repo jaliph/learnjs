@@ -3,8 +3,8 @@
  * @param {number[]} nums
  * @return {number}
  */
-var jump = function(nums) {
-  let l = 0, r = 0
+const jump = function (nums) {
+  let l = 0; let r = 0
   let res = 0
   let farthest
   while (r < nums.length - 1) {
@@ -18,4 +18,4 @@ var jump = function(nums) {
   }
 
   return res
-};
+}

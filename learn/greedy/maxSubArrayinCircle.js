@@ -3,9 +3,9 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubarraySumCircular = function(nums) {
-  let currMax = nums[0], currMin = nums[0]
-  let globalMax = nums[0], globalMin = nums[0]
+const maxSubarraySumCircular = function (nums) {
+  let currMax = nums[0]; let currMin = nums[0]
+  let globalMax = nums[0]; let globalMin = nums[0]
   let sum = nums[0]
   for (let i = 1; i < nums.length; i++) {
     currMax = Math.max(nums[i], currMax + nums[i])
@@ -22,5 +22,4 @@ var maxSubarraySumCircular = function(nums) {
     nums.reduce((prev, curr) => prev + curr, 0)
     return Math.max(globalMax, sum - globalMin)
   }
-};
-
+}

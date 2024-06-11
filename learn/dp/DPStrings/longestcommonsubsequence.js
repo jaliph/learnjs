@@ -4,13 +4,13 @@
  * @param {string} text2
  * @return {number}
  */
-var longestCommonSubsequenceBrute = function(text1, text2) {
-  let cache = new Map()
+const longestCommonSubsequenceBrute = function (text1, text2) {
+  const cache = new Map()
   const matchCharsRecur = (i, j) => {
     if (i >= text1.length || j >= text2.length) {
       return 0
     }
-    let key = i + ':' + j
+    const key = i + ':' + j
     if (cache.has(key)) {
       return cache.get(key)
     }
@@ -25,14 +25,14 @@ var longestCommonSubsequenceBrute = function(text1, text2) {
   }
 
   return matchCharsRecur(0, 0)
-};
+}
 
 /**
  * @param {string} text1
  * @param {string} text2
  * @return {number}
  */
-var longestCommonSubsequence = function(text1, text2) {
+const longestCommonSubsequence = function (text1, text2) {
   let prev = Array(text2.length + 1).fill(0)
   let dp
   for (let i = 0; i < text1.length; i++) {
@@ -48,10 +48,10 @@ var longestCommonSubsequence = function(text1, text2) {
   }
 
   return dp[text2.length]
-};
+}
 
 const main = () => {
-  text1 = "abcde", text2 = "ace" 
+  text1 = 'abcde', text2 = 'ace'
   console.log('LCS is ', longestCommonSubsequenceBrute(text1, text2))
 }
 

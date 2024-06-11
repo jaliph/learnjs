@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var validPartition = function(nums) {
+const validPartition = function (nums) {
   const dp = Array(3).fill(false)
 
   dp[2] = false
@@ -13,9 +13,9 @@ var validPartition = function(nums) {
   if (nums.length == 2) {
     return dp[1]
   }
-  
+
   dp[0] = (
-    (nums[nums.length - 2] + 1 === nums[nums.length - 1] && nums[nums.length - 3] + 1 === nums[nums.length - 2])  || 
+    (nums[nums.length - 2] + 1 === nums[nums.length - 1] && nums[nums.length - 3] + 1 === nums[nums.length - 2]) ||
     (nums[nums.length - 2] === nums[nums.length - 1] && nums[nums.length - 3] === nums[nums.length - 2])
   )
 
@@ -28,4 +28,4 @@ var validPartition = function(nums) {
   }
 
   return dp[0]
-};
+}

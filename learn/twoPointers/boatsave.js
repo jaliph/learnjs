@@ -4,13 +4,13 @@
  * @param {number} limit
  * @return {number}
  */
-var numRescueBoats = function(people, limit) {
+const numRescueBoats = function (people, limit) {
   people.sort((a, b) => a - b)
-  let l = 0, r = people.length - 1
+  let l = 0; let r = people.length - 1
 
   let boats = 0
   while (l <= r) {
-    let remain = limit - people[r]
+    const remain = limit - people[r]
     r--
     boats++
     if (l <= r && people[l] <= remain) {
@@ -19,14 +19,13 @@ var numRescueBoats = function(people, limit) {
   }
 
   return boats
-};
-
+}
 
 const main = () => {
-  people = [1,2], limit = 3
+  people = [1, 2], limit = 3
   console.log('number of boats required is ', numRescueBoats(people, limit))
-  
-  people = [3,2,2,1], limit = 3
+
+  people = [3, 2, 2, 1], limit = 3
   console.log('number of boats required is ', numRescueBoats(people, limit))
 }
 

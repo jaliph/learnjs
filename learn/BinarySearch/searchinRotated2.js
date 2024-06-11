@@ -5,7 +5,7 @@
  * @param {number} target
  * @return {number}
  */
-let search = function (nums, target) {
+const search = function (nums, target) {
   let l = 0
   let r = nums.length - 1
 
@@ -36,7 +36,6 @@ let search = function (nums, target) {
 
   return -1
 }
-
 
 const main = () => {
   nums = [4, 5, 6, 7, 0, 1, 2], target = 0

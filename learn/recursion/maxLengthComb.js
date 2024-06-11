@@ -4,25 +4,25 @@
  * @param {string[]} arr
  * @return {number}
  */
-var maxLength = function(arr) {
-  let charMap = new Map()
+const maxLength = function (arr) {
+  const charMap = new Map()
 
   const isOverlap = (str) => {
-    let clone = new Map(charMap)
-    for (let ch of str) {
+    const clone = new Map(charMap)
+    for (const ch of str) {
       clone.set(ch, (clone.get(ch) || 0) + 1)
     }
     return Math.max(...clone.values()) > 1
   }
 
   const addSet = (str) => {
-    for (let ch of str) {
+    for (const ch of str) {
       charMap.set(ch, (charMap.get(ch) || 0) + 1)
     }
   }
 
   const removeSet = (str) => {
-    for (let ch of str) {
+    for (const ch of str) {
       charMap.set(ch, charMap.get(ch) - 1)
       if (charMap.get(ch) == 0) {
         charMap.delete(ch)
@@ -37,16 +37,16 @@ var maxLength = function(arr) {
 
     let res = 0
     if (!isOverlap(arr[i])) {
-      console.log('no overlap' , arr[i], charMap)
+      console.log('no overlap', arr[i], charMap)
       addSet(arr[i])
       console.log(charMap)
       res = checkCombinations(i + 1)
       removeSet(arr[i])
     }
-    
+
     return Math.max(res, checkCombinations(i + 1))
   }
-  
+
   return checkCombinations(0)
 }
 

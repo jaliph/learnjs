@@ -14,17 +14,16 @@ const lcmMethod1 = (a, b) => {
 
 // Find LCM
 const lcmMethod2 = (a, b) => {
-  let max = Math.max(a, b)
-  let min = Math.min(a, b)
+  const max = Math.max(a, b)
+  const min = Math.min(a, b)
 
   let i = max
   while (i % min !== 0) {
     i += max
   }
-  
+
   return i
 }
-
 
 const main = () => {
   a = 12, b = 30
@@ -37,4 +36,3 @@ const main = () => {
 }
 
 main()
-

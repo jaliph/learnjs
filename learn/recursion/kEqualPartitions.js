@@ -5,17 +5,16 @@
  * @param {number} k
  * @return {boolean}
  */
-var canPartitionKSubsets = function(nums, k) {
+const canPartitionKSubsets = function (nums, k) {
   nums.sort((a, b) => b - a)
-  
-  let sum = nums.reduce((prev, curr) => prev + curr, 0)
+
+  const sum = nums.reduce((prev, curr) => prev + curr, 0)
 
   if (sum % k !== 0) {
     return false
   }
-  let target = sum / k
-  
-  
+  const target = sum / k
+
   const isPossible = (i, k, setSum, mask) => {
     if (k === 0) {
       return true
@@ -36,21 +35,19 @@ var canPartitionKSubsets = function(nums, k) {
   }
 
   return isPossible(0, k, 0, 0)
-};
+}
 
-
-
-var canPartitionKSubsets3 = function(nums, k) {
+const canPartitionKSubsets3 = function (nums, k) {
   nums.sort((a, b) => b - a)
-  
-  let sum = nums.reduce((prev, curr) => prev + curr, 0)
+
+  const sum = nums.reduce((prev, curr) => prev + curr, 0)
 
   if (sum % k !== 0) {
     return false
   }
-  let target = sum / k
-  let used = Array(nums.length).fill(false)
-  
+  const target = sum / k
+  const used = Array(nums.length).fill(false)
+
   const isPossible = (i, k, subSetSum) => {
     if (k === 0) {
       return true
@@ -75,25 +72,23 @@ var canPartitionKSubsets3 = function(nums, k) {
   }
 
   return isPossible(0, k, 0)
-};
-
-
+}
 
 /**
  * @param {number[]} nums
  * @param {number} k
  * @return {boolean}
  */
-var canPartitionKSubsets2 = function(nums, k) {
+const canPartitionKSubsets2 = function (nums, k) {
   nums.sort((a, b) => b - a)
-  
-  let sum = nums.reduce((prev, curr) => prev + curr, 0)
+
+  const sum = nums.reduce((prev, curr) => prev + curr, 0)
 
   if (sum % k !== 0) {
     return false
   }
-  let setSize = sum / k
-  let sets = Array(k).fill(0)
+  const setSize = sum / k
+  const sets = Array(k).fill(0)
 
   const dp = Array(nums.length).fill(-1)
 
@@ -121,13 +116,13 @@ var canPartitionKSubsets2 = function(nums, k) {
   }
 
   return isPossible(0)
-};
+}
 
 const main = () => {
-  nums = [4,3,2,3,5,2,1], k = 4
+  nums = [4, 3, 2, 3, 5, 2, 1], k = 4
   console.log('Can possible do K Partitions. .. ', canPartitionKSubsets(nums, k))
 
-  nums = [1,2,3,4], k = 3
+  nums = [1, 2, 3, 4], k = 3
   console.log('Can possible do K Partitions. .. ', canPartitionKSubsets(nums, k))
 }
 

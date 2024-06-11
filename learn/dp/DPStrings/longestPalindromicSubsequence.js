@@ -4,8 +4,8 @@
  * @param {string} s
  * @return {number}
  */
-var longestPalindromeSubseq = function(s) {
-  let s2 = [...s].reverse().join('')
+var longestPalindromeSubseq = function (s) {
+  const s2 = [...s].reverse().join('')
   let prev = Array(s2.length + 1).fill(0)
   let dp
   for (let i = 0; i < s.length; i++) {
@@ -21,23 +21,23 @@ var longestPalindromeSubseq = function(s) {
   }
 
   return dp[s2.length]
-};
+}
 
 /**
  * @param {string} s
  * @return {number}
  */
-var longestPalindromeSubseqBrute = function(s) {
+const longestPalindromeSubseqBrute = function (s) {
   const cache = new Map()
   const palindromeLengthFinder = (i, j) => {
     if (i < 0 || j >= s.length) {
       return 0
     }
-    let key = i + ':' + j
+    const key = i + ':' + j
     if (cache.has(key)) {
       return cache.get(key)
     }
-    
+
     let length = 0
     if (s[i] === s[j]) {
       if (i === j) {
@@ -59,14 +59,13 @@ var longestPalindromeSubseqBrute = function(s) {
   }
 
   return Math.max(...cache.values())
-};
-
+}
 
 /**
  * @param {string} s
  * @return {number}
  */
-var longestPalindromeSubseq = function(s) {
+var longestPalindromeSubseq = function (s) {
   const dp = Array(s.length + 1).fill().map(() => Array(s.length + 1).fill(0))
   let result = 0
   for (let i = 0; i < s.length; i++) {
@@ -91,11 +90,10 @@ var longestPalindromeSubseq = function(s) {
   }
 
   return result
-};
-
+}
 
 const main = () => {
-  s = "bbbab"
+  s = 'bbbab'
   console.log('length of the longest palindromic subsequence is ... ', longestPalindromeSubseqBrute(s))
 }
 

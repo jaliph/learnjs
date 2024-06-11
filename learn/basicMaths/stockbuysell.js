@@ -24,7 +24,7 @@ const StockFinder = (array) => {
     }
     console.log('Came here')
     const s = new StockPurchase()
-    s.setBuy = array[i]     /// profit -= price[i]
+    s.setBuy = array[i] /// profit -= price[i]
     i++
     while (i < n && (array[i] <= array[i + 1])) i++
     s.setSell = array[i]

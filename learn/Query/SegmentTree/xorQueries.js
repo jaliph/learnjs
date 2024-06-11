@@ -5,15 +5,14 @@ class SegmentTree {
     this.SegTree = Array(4 * n).fill(0)
   }
 
-  __build(start, end, node, arr) {
-
+  __build (start, end, node, arr) {
     // base
     if (start === end) {
       this.SegTree[node] = arr[start]
       return
     }
 
-    let mid = start + ~~((end - start) / 2)
+    const mid = start + ~~((end - start) / 2)
     this.__build(start, mid, (2 * node) + 1, arr)
     this.__build(mid + 1, end, (2 * node) + 2, arr)
 
@@ -37,9 +36,9 @@ class SegmentTree {
     }
 
     // partial overlap
-    let mid = start + ~~((end - start) / 2)
-    let q1 = this.__query(start, mid, l, r, (2 * node) + 1)
-    let q2 = this.__query(mid + 1, end, l, r, (2 * node) + 2)
+    const mid = start + ~~((end - start) / 2)
+    const q1 = this.__query(start, mid, l, r, (2 * node) + 1)
+    const q2 = this.__query(mid + 1, end, l, r, (2 * node) + 2)
     return q1 ^ q2
   }
 
@@ -54,16 +53,15 @@ class SegmentTree {
  * @param {number[][]} queries
  * @return {number[]}
  */
-var xorQueries = function(arr, queries) {
+const xorQueries = function (arr, queries) {
   const segment = new SegmentTree(arr.length)
   segment.build(arr)
   console.log(segment)
   return queries.map((q) => segment.query(q[0], q[1]))
-};
-
+}
 
 const main = () => {
-  arr = [1,3,4,8], queries = [[0,1],[1,2],[0,3],[3,3]]
+  arr = [1, 3, 4, 8], queries = [[0, 1], [1, 2], [0, 3], [3, 3]]
   console.log('Query results.. ', xorQueries(arr, queries))
 }
 

@@ -4,13 +4,13 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var shortestPathBinaryMatrix = function(grid) {
-  let r = grid.length
-  let c = grid[0].length
+const shortestPathBinaryMatrix = function (grid) {
+  const r = grid.length
+  const c = grid[0].length
 
-  let distance = Array(r).fill().map(() => Array(c).fill(0))
+  const distance = Array(r).fill().map(() => Array(c).fill(0))
 
-  let q = []
+  const q = []
   if (grid[0][0] == 0) {
     q.push([0, 0])
     distance[0][0] = 1
@@ -25,15 +25,15 @@ var shortestPathBinaryMatrix = function(grid) {
     return false
   }
 
-  let paths = [[0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [-1, -1], [1, -1], [-1, 1]]
-  
+  const paths = [[0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [-1, -1], [1, -1], [-1, 1]]
+
   let i = 0
   while (i < q.length) {
-    let [x, y] = q[i++]
+    const [x, y] = q[i++]
 
-    for (let p of paths) {
-      let n_x = x + p[0]
-      let n_y = y + p[1]
+    for (const p of paths) {
+      const n_x = x + p[0]
+      const n_y = y + p[1]
 
       if (isValid(n_x, n_y)) {
         if (grid[n_x][n_y] == 1) {
@@ -48,19 +48,18 @@ var shortestPathBinaryMatrix = function(grid) {
 
   // Print2D(distance)
   return (distance[r - 1][c - 1] != 0) ? distance[r - 1][c - 1] : -1
-};
+}
 
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  grid = [[0,1],[1,0]]
+  grid = [[0, 1], [1, 0]]
   console.log('Shortest path is ', shortestPathBinaryMatrix(grid))
 
-
-  grid = [[0,0,0],[1,1,0],[1,1,0]]
+  grid = [[0, 0, 0], [1, 1, 0], [1, 1, 0]]
   console.log('Shortest path is ', shortestPathBinaryMatrix(grid))
 
-  grid = [[1,0,0],[1,1,0],[1,1,0]]
+  grid = [[1, 0, 0], [1, 1, 0], [1, 1, 0]]
   console.log('Shortest path is ', shortestPathBinaryMatrix(grid))
 }
 

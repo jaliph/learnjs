@@ -5,7 +5,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum2 = function(candidates, target) {
+var combinationSum2 = function (candidates, target) {
   candidates = candidates.sort((a, b) => a - b)
 
   const results = []
@@ -37,13 +37,12 @@ var combinationSum2 = function(candidates, target) {
   return results
 }
 
-
 /**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum2 = function(candidates, target) {
+var combinationSum2 = function (candidates, target) {
   candidates = candidates.sort((a, b) => a - b)
 
   const results = []
@@ -77,8 +76,6 @@ var combinationSum2 = function(candidates, target) {
   return results
 }
 
-
-
 // More perfomant
 
 /**
@@ -86,7 +83,7 @@ var combinationSum2 = function(candidates, target) {
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum2 = function(candidates, target) {
+var combinationSum2 = function (candidates, target) {
   candidates = candidates.sort((a, b) => a - b)
 
   const results = []

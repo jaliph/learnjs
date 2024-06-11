@@ -12,4 +12,3 @@ function cyclic_sort (nums) {
 }
 
 console.log(cyclic_sort([0, 1, 5, 4, 2]))
-

@@ -4,8 +4,7 @@
  * @param {string} t
  * @return {boolean}
  */
-var isSubsequence = function(s, t) {
-    
+const isSubsequence = function (s, t) {
   const isSubSeq = (i, j) => {
     console.log(i, j)
     if (i === s.length) {
@@ -24,11 +23,10 @@ var isSubsequence = function(s, t) {
   }
 
   return isSubSeq(0, 0)
-};
-
+}
 
 const main = () => {
-  s = "abc", t = "ahbgdc"
+  s = 'abc', t = 'ahbgdc'
   console.log(isSubsequence(s, t))
 }
 

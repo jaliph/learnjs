@@ -8,8 +8,6 @@ const floydWarshall = (v, edges) => {
     dist[e[0]][e[1]] = e[2]
     dist[e[1]][e[0]] = e[2]
   }
-  
-  
 
   // k intermediate veritices
   for (let k = 0; k < v; k++) {
@@ -24,7 +22,7 @@ const floydWarshall = (v, edges) => {
     }
   }
 
-  Print2D(dist)  
+  Print2D(dist)
 }
 
 const main = () => {

@@ -4,15 +4,15 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
+const longestPalindrome = function (s) {
   const dp = Array(s.length).fill().map(() => Array(s.length).fill(0))
 
   for (let i = 0; i < s.length; i++) {
     dp[i][i] = 1 // 1 char is always the dp
   }
 
-  let maxLength = 0, min = 0, max = 0
-  for (let i = s.length - 1; i >= 0 ; i--) {
+  let maxLength = 0; let min = 0; let max = 0
+  for (let i = s.length - 1; i >= 0; i--) {
     for (let j = i + 1; j < s.length; j++) {
       if (s[i] == s[j]) {
         if (j - i + 1 == 2 || (j - i + 1) == 2 + dp[i + 1][j - 1]) {
@@ -32,11 +32,10 @@ var longestPalindrome = function(s) {
   }
 
   return s.slice(min, max + 1)
-};
-
+}
 
 const main = () => {
-  s = "babad"
+  s = 'babad'
   console.log('Longest palindromin Substring is ', longestPalindrome(s))
 }
 

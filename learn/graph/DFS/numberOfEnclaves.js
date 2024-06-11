@@ -4,16 +4,15 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var numEnclaves = function(grid) {
+const numEnclaves = function (grid) {
   const r = grid.length
   const c = grid[0].length
-
 
   const DFS_Helper = (x, y) => {
     if (x < 0 || y < 0 || x >= r || y >= c) {
       return 0
     }
-    
+
     if (grid[x][y] == 0) {
       return 0
     }
@@ -49,10 +48,10 @@ var numEnclaves = function(grid) {
     }
   }
   return result
-};
+}
 
 const main = () => {
-  grid = [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
+  grid = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
 
   console.log('Size of the island is ', numEnclaves(grid))
 }

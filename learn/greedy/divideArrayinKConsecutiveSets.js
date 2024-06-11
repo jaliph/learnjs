@@ -6,9 +6,9 @@ class Heap {
     this.comp = comp || function (a, b) { return a - b }
   }
 
-  pop() {
+  pop () {
     if (this.size > 0) {
-      let data = this.heap[0]
+      const data = this.heap[0]
       this.heap[0] = this.heap[this.heap.length - 1]
       this.heap.pop()
       this.size--
@@ -19,22 +19,22 @@ class Heap {
     }
   }
 
-  peek() {
+  peek () {
     return this.heap[0]
   }
 
-  push(data) {
+  push (data) {
     this.heap.push(data)
     this.size++
     this.__percolateUp(this.heap.length - 1)
   }
 
-  __swap(i, j) {
-    [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]] 
+  __swap (i, j) {
+    [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]]
   }
 
-  __percolateUp(i) {
-    let parent = Math.floor((i - 1) / 2)
+  __percolateUp (i) {
+    const parent = Math.floor((i - 1) / 2)
     if (parent >= 0) {
       if (this.comp(this.heap[parent], this.heap[i]) > 0) {
         this.__swap(parent, i)
@@ -43,11 +43,11 @@ class Heap {
     }
   }
 
-  __percolateDown(i) {
-    let leftChild = (2 * i) + 1
-    let rightChild = (2 * i) + 2
+  __percolateDown (i) {
+    const leftChild = (2 * i) + 1
+    const rightChild = (2 * i) + 2
 
-    let parent = i
+    const parent = i
 
     if (leftChild < this.heap.length && this.comp(this.heap[i], this.heap[leftChild]) > 0) {
       i = leftChild
@@ -78,22 +78,22 @@ class Heap {
  * @param {number} k
  * @return {boolean}
  */
-var isPossibleDivide = function(nums, k) {
+const isPossibleDivide = function (nums, k) {
   if (nums.length % k) {
     return false
   }
 
-  let freqMap = nums.reduce((prev, curr) => {
+  const freqMap = nums.reduce((prev, curr) => {
     prev.set(curr, (prev.get(curr) || 0) + 1)
     return prev
-  }, new Map()) 
+  }, new Map())
 
   const h = new Heap()
-  for (let k of freqMap.keys()) {
+  for (const k of freqMap.keys()) {
     h.push(k)
   }
   while (h.size) {
-    let min = h.peek()
+    const min = h.peek()
     for (let i = min; i < (min + k); i++) {
       if (!freqMap.has(i)) {
         return false
@@ -108,11 +108,10 @@ var isPossibleDivide = function(nums, k) {
     }
   }
   return true
-};
-
+}
 
 const main = () => {
-  nums = [1,2,3,3,4,4,5,6], k = 4
+  nums = [1, 2, 3, 3, 4, 4, 5, 6], k = 4
   console.log('Divide the Array in KConsecutive Maps ', isPossibleDivide(nums, k))
 }
 

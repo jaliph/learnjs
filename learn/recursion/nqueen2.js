@@ -3,7 +3,7 @@
  * @param {number} n
  * @return {number}
  */
-var totalNQueens = function(n) {
+const totalNQueens = function (n) {
   const grid = Array(n).fill().map(() => Array(n).fill('.'))
 
   // Print2D(grid)
@@ -48,7 +48,6 @@ var totalNQueens = function(n) {
     return true
   }
 
-
   const solve = (i) => {
     if (i === n) {
       return 1
@@ -65,7 +64,5 @@ var totalNQueens = function(n) {
     return ans
   }
 
-  
-
   return solve(0)
-};
+}

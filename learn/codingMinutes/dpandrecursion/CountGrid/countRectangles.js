@@ -23,27 +23,26 @@
 //   }
 
 //   prefixSum(mat)
-  
+
 //   let ans = 0
-  // for (let i = 0; i < r; i++) {
-  //   for (let j = 0; j < c; j++) {
-  //     let min = Infinity
-  //     for (let k = i; k < r; k++) {
-  //       min = Math.min(min, mat[k][j])
-  //       ans += min
-  //     }
-  //   }
-  // }
-  
+// for (let i = 0; i < r; i++) {
+//   for (let j = 0; j < c; j++) {
+//     let min = Infinity
+//     for (let k = i; k < r; k++) {
+//       min = Math.min(min, mat[k][j])
+//       ans += min
+//     }
+//   }
+// }
+
 //   return ans
 // };
-
 
 /**
  * @param {number[][]} mat
  * @return {number}
  */
-var numSubmat = function(mat) {
+const numSubmat = function (mat) {
   const r = mat.length
   const c = mat[0].length
 
@@ -55,7 +54,6 @@ var numSubmat = function(mat) {
       }
     }
   }
-
 
   // Print2D(mat)
 
@@ -83,12 +81,11 @@ var numSubmat = function(mat) {
 const Print2D = arr => arr.forEach(o => console.log(...o))
 
 const main = () => {
-  mat = [[1,0,1],[1,1,0],[1,1,0]]
+  mat = [[1, 0, 1], [1, 1, 0], [1, 1, 0]]
   console.log('the count of matrices are ', numSubmat(mat))
 
-  mat = [[0,1,1,0],[0,1,1,1],[1,1,1,0]]
+  mat = [[0, 1, 1, 0], [0, 1, 1, 1], [1, 1, 1, 0]]
   console.log('the count of matrices are ', numSubmat(mat))
-
 }
 
 main()

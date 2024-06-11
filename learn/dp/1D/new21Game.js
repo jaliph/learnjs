@@ -6,38 +6,37 @@
 * @param {number} maxPts
 * @return {number}
 */
-var new21Game = function(n, k, maxPts) {
- if (k == 0) {
-   return 1
- }
+const new21Game = function (n, k, maxPts) {
+  if (k == 0) {
+    return 1
+  }
 
- let windowSum = 0
+  let windowSum = 0
 
- for (let i = k; i < (k + maxPts); i++) {
-   if (i <= n) {
-     windowSum++
-   }
- }
+  for (let i = k; i < (k + maxPts); i++) {
+    if (i <= n) {
+      windowSum++
+    }
+  }
 
- const dp = new Map()
- for (let i = k - 1; i >= 0; i--) {
-   dp.set(i, windowSum / maxPts)
+  const dp = new Map()
+  for (let i = k - 1; i >= 0; i--) {
+    dp.set(i, windowSum / maxPts)
 
-   let remove = 0
+    let remove = 0
 
-   if (i + maxPts <= n) {
-     remove = (dp.get(i + maxPts) || 1)
-   }
-   windowSum += dp.get(i)
-   windowSum -= remove
- }
+    if (i + maxPts <= n) {
+      remove = (dp.get(i + maxPts) || 1)
+    }
+    windowSum += dp.get(i)
+    windowSum -= remove
+  }
 
- return dp.get(0)
-};
+  return dp.get(0)
+}
 
-
-var new21GameBrute = function(n, k, maxPts) {
-  let cache = {}
+const new21GameBrute = function (n, k, maxPts) {
+  const cache = {}
 
   const calcRecur = (score) => {
     if (score >= k) {
@@ -61,5 +60,3 @@ var new21GameBrute = function(n, k, maxPts) {
     return cache[score]
   }
 }
-
-
