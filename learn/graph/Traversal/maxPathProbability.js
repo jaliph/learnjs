@@ -29,21 +29,22 @@ const maxProbability = function (n, edges, succProb, start, end) {
     while (h.size > 0) {
       const [curr, distTillNow] = h.pop()
 
-      console.log([curr, distTillNow])
-      for (const neig of g[curr]) {
-        const [n, wt] = neig
-
-        if (distTillNow * wt > dist[n]) {
-          if (h.has([n, dist[n]])) {
-            h.remove([n, dist[n]])
+      if (dist[curr] === distTillNow) {
+        for (const neig of g[curr]) {
+          const [n, wt] = neig
+          if (distTillNow * wt > dist[n]) {
+            if (h.has([n, dist[n]])) {
+              h.remove([n, dist[n]])
+            }
+            dist[n] = distTillNow * wt
+            h.push([n, dist[n]])
           }
-          dist[n] = distTillNow * wt
-          h.push([n, dist[n]])
         }
       }
+      console.log([curr, distTillNow])
     }
     // console.log(dist)
-    return dist[dest] == Infinity ? 0 : dist[dest]
+    return dist[dest] === Infinity ? 0 : dist[dest]
   }
 
   return Dijkstra(start, end)
@@ -151,3 +152,41 @@ const main = () => {
 }
 
 main()
+
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @param {number[]} succProb
+ * @param {number} start_node
+ * @param {number} end_node
+ * @return {number}
+ */
+const MaxProbability = function (n, edges, succProb, start_node, end_node) {
+  // Bellman-Ford - apply the algo on both ends
+  const maxProb = new Array(n).fill(0);
+  maxProb[start_node] = 1
+
+  for (let i = 0; i < n - 1; i++) {
+    let hasUpdate = false
+      for (let j = 0; j < edges.length; j++) {
+      const u = edges[j][0];
+      const v = edges[j][1];
+      const prob = succProb[j];
+
+      if (maxProb[v] < maxProb[u] * prob) {
+        maxProb[v] = maxProb[u] * prob
+               hasUpdate = true
+          }
+
+      if (maxProb[u] < maxProb[v] * prob) {
+        maxProb[u] = maxProb[v] * prob
+               hasUpdate = true
+          }
+    }
+    if (!hasUpdate) {
+      break
+      }
+  }
+
+  return maxProb[end_node]
+};

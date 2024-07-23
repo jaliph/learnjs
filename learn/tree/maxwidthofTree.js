@@ -11,7 +11,38 @@
  * @param {TreeNode} root
  * @return {number}
  */
-const widthOfBinaryTree = function (root) {
+let widthOfBinaryTree = function (root) {
+  if (!root) {
+    return 0
+  }
+  const q = [[root, 0]]
+  let maxWidth = 0; let l = 0; let r = 0
+  while (q.length) {
+    const size = q.length
+    const startIdx = q[0][1]
+    for (let i = 0; i < size; ++i) {
+      const [node, idx] = q.shift()
+      if (i === 0) {
+        l = idx
+      }
+      if (i === size - 1) {
+        r = idx
+      }
+      // Basically, just subtracting the initial node index value with each node index, so after subtraction, the width will still be the same and we won't get NaN as a result.
+      const subIdx = idx - startIdx
+      if (node.left !== null) {
+        q.push([node.left, 2 * subIdx + 1])
+      }
+      if (node.right !== null) {
+        q.push([node.right, 2 * subIdx + 2])
+      }
+    }
+    maxWidth = Math.max(maxWidth, r - l + 1)
+  }
+  return maxWidth
+};
+
+const widthOfBinaryTree2 = function (root) {
   const q = [[root, 1, 0]]
   let preLevel = 0
   let maxWidth = 1

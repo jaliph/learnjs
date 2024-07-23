@@ -4,7 +4,7 @@
  * @param {string} t
  * @return {number}
  */
-var numDistinct = function (s, t) {
+const numDistinct = function (s, t) {
   const dp = Array(s.length + 1).fill(0).map(() => Array(t.length + 1).fill(BigInt(0)))
 
   for (let i = 0; i <= s.length; i++) {
@@ -29,7 +29,7 @@ var numDistinct = function (s, t) {
  * @param {string} t
  * @return {number}
  */
-var numDistinct = function (s, t) {
+const numDistinct2 = function (s, t) {
   const dp = new Map()
   const MOD = 10 ** 9 + 7
   const addModulo = (a, b) => {

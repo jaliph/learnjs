@@ -24,3 +24,22 @@ const main = () => {
 }
 
 main()
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var combinationSum4 = function(nums, target) {
+  const dp = Array(target + 1).fill(0)
+  dp[0] = 1
+
+  for (let i = 0; i <= target; i++) {
+    for (let n of nums) {
+      if (n <= i) {
+        dp[i] += dp[i - n]
+      }
+    }
+  }
+  return dp[target]
+};
