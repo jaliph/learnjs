@@ -62,3 +62,25 @@ const change = function (amount, coins) {
 
 console.log('Coin Change ans', change(5, [1, 2, 5]))
 console.assert(change(5, [1, 2, 5]) === 4)
+
+
+/**
+ * @param {number} amount
+ * @param {number[]} coins
+ * @return {number}
+ */
+var change = function(target, nums) {
+  const dp = Array(target + 1).fill(0)
+  dp[0] = 1
+
+  
+  for (let n of nums) {
+    for (let i = 0; i <= target; i++) {
+      if (n <= i) {
+        dp[i] += dp[i - n]
+      }
+    }
+  }
+  return dp[target]
+};
+

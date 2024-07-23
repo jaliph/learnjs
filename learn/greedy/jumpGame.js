@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var canJump = function (nums) {
+let canJump = function (nums) {
   const dp = Array(nums.length).fill(-1)
   const canJumpRecur = (i) => {
     if (i >= nums.length - 1) {
@@ -28,7 +28,7 @@ var canJump = function (nums) {
  * @param {number[]} nums
  * @return {boolean}
  */
-var canJump = function (nums) {
+let canJump = function (nums) {
   let goal = nums.length - 1
 
   for (let i = nums.length - 1; i >= 0; i--) {

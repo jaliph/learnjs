@@ -13,6 +13,7 @@ const belmanFord = (v, edges) => {
 
       if (dist[u] != Infinity && dist[u] + wt < dist[v]) {
         dist[v] = dist[u] + wt
+        // can check with a flag if there are any updates and the break the outerloop after innerloop completion
       }
     }
   }

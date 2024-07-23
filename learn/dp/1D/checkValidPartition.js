@@ -10,7 +10,7 @@ const validPartition = function (nums) {
   dp[2] = false
   dp[1] = nums[nums.length - 1] === nums[nums.length - 2]
 
-  if (nums.length == 2) {
+  if (nums.length === 2) {
     return dp[1]
   }
 
